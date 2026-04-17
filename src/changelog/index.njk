@@ -1,0 +1,16 @@
+---
+layout: layouts/page.njk
+title: Changelog
+eyebrow: Product
+subtitle: Every release of Project Broadsheet — what shipped, what broke, what got better.
+permalink: /changelog/
+---
+{% for release in collections.releases %}
+<article class="changelog-entry">
+  <div class="changelog-entry__version">v{{ release.data.version }}</div>
+  <div class="changelog-entry__date">{{ release.date | readableDate }}</div>
+  <div class="changelog-entry__content">
+    {{ release.content | safe }}
+  </div>
+</article>
+{% endfor %}

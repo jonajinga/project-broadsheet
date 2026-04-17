@@ -1,0 +1,29 @@
+{
+  "name": "project-broadsheet",
+  "version": "1.0.0",
+  "description": "Marketing and help center for Project Broadsheet — the free, open-source publication system for independent journalists and publishers.",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "npx rimraf _site",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "keywords": [
+    "broadsheet",
+    "eleventy",
+    "publication",
+    "static-site"
+  ],
+  "author": "Jon Ajinga <hello@projectbroadsheet.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^6.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.2",
+    "@sardine/eleventy-plugin-tinyhtml": "^0.2.0",
+    "pagefind": "^1.1.0",
+    "rimraf": "^6.0.1"
+  }
+}

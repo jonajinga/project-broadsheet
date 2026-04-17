@@ -1,0 +1,7 @@
+.docs-hero { padding-block: var(--space-3xl) var(--space-xl); border-bottom: 1px solid var(--border); background: var(--surface-raised); }
+.docs-hero__inner { max-width: var(--container); margin-inline: auto; padding-inline: var(--space-lg); }
+.docs-hero__title { font-family: var(--font-masthead); font-weight: 700; font-size: var(--step-5); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: var(--space-sm); }
+.docs-hero__subtitle { color: var(--text-soft); font-size: var(--step-0); line-height: 1.55; max-width: 44rem; margin-bottom: var(--space-lg); }
+.docs-quicklinks { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
+.docs-quicklinks__link { padding: 0.4rem 0.8rem; font-family: var(--font-ui); font-size: 0.9rem; border: 1px solid var(--border-strong); color: var(--text); text-decoration: none; background: var(--surface); }
+.docs-quicklinks__link:hover { background: var(--text); color: var(--surface); text-decoration: none; }

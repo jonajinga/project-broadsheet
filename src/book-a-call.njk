@@ -1,0 +1,70 @@
+---
+layout: layouts/page.njk
+title: Book a Call
+eyebrow: Services
+subtitle: Tell us what you're building and pick a few times that work. We'll confirm within a business day.
+permalink: /book-a-call/
+---
+<div class="contact-grid">
+  <div>
+    <form class="form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+      <input type="hidden" name="subject" value="New call booking">
+      <input type="hidden" name="from_name" value="{{ meta.title }}">
+      <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="form__row">
+        <label class="form__label form__label--required" for="name">Your name</label>
+        <input class="form__input" id="name" name="name" type="text" required>
+      </div>
+      <div class="form__row">
+        <label class="form__label form__label--required" for="email">Email</label>
+        <input class="form__input" id="email" name="email" type="email" required>
+      </div>
+      <div class="form__row">
+        <label class="form__label" for="publication">Publication name or idea</label>
+        <input class="form__input" id="publication" name="publication" type="text" placeholder="The Example Dispatch">
+      </div>
+      <div class="form__row">
+        <label class="form__label" for="package">Interest</label>
+        <select class="form__select" id="package" name="package">
+          <option value="undecided">Not sure yet</option>
+          <option value="launch">Launch — $999</option>
+          <option value="signature">Signature — $2,499</option>
+          <option value="publisher">Publisher — $4,999</option>
+          <option value="migration">Migration only</option>
+          <option value="care">Care plan</option>
+          <option value="custom">Custom / other</option>
+        </select>
+      </div>
+
+      <fieldset class="fieldset">
+        <legend>Pick a few times that work</legend>
+        <p class="form__hint" style="margin-bottom: var(--space-sm);">Give us two or three date/time options (include your time zone) and we'll confirm one. Calls are 30 minutes on Zoom.</p>
+        <div class="form__row">
+          <label class="form__label" for="slot1">Option 1</label>
+          <input class="form__input" id="slot1" name="slot_1" type="text" placeholder="e.g. Tuesday May 5, 10am MT">
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="slot2">Option 2</label>
+          <input class="form__input" id="slot2" name="slot_2" type="text" placeholder="e.g. Wednesday May 6, 2pm MT">
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="slot3">Option 3</label>
+          <input class="form__input" id="slot3" name="slot_3" type="text" placeholder="Optional">
+        </div>
+      </fieldset>
+
+      <div class="form__row">
+        <label class="form__label" for="notes">Anything else we should know?</label>
+        <textarea class="form__textarea" id="notes" name="notes" placeholder="Goals, timeline, current platform, etc."></textarea>
+      </div>
+      <div class="form__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Request a call</button>
+      </div>
+    </form>
+  </div>
+  {% set sidebar = { title: "What happens next", summary: "You'll get a confirmation email within a business day with a Zoom link for one of your preferred times.", ctaUrl: "/pricing/", ctaLabel: "See pricing", list: ["30-minute intro call", "No obligation, no pressure", "Zoom recording sent afterward", "Written scope for any paid work"] } %}
+  {% include "partials/sidebar-cta.njk" %}
+</div>

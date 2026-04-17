@@ -1,0 +1,29 @@
+---
+layout: layouts/page.njk
+title: Services
+eyebrow: Services
+subtitle: Every service we offer around Project Broadsheet — from same-week launches to white-glove migrations and retainers.
+permalink: /services/
+---
+<div class="lead" style="margin-bottom: var(--space-2xl);">
+  Project Broadsheet is open-source and free to use on your own. If you'd rather skip the setup — or you need custom work, content moved over, or ongoing support — these are the services we offer.
+</div>
+
+{% for svc in services %}
+<section class="feature-block" id="{{ svc.slug }}">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">{{ svc.name }}</span>
+      <h2>{{ svc.name }}</h2>
+      <p class="feature-block__summary">{{ svc.summary }}</p>
+      <p style="margin-top: var(--space-sm); font-family: var(--font-ui); color: var(--text);"><strong>Starting at {{ svc.startingAt }}</strong></p>
+      <div style="margin-top: var(--space-md);">
+        <a class="btn btn--primary" href="{{ svc.cta.url }}">{{ svc.cta.label }}</a>
+      </div>
+    </header>
+    <ul class="feature-block__list">
+      {% for inc in svc.includes %}<li>{{ inc }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endfor %}

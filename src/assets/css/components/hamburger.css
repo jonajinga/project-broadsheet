@@ -1,0 +1,72 @@
+.hamburger {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  border: 1px solid transparent;
+}
+.hamburger:hover { background: var(--surface-raised); }
+.hamburger__icon { width: 1.3rem; height: 1.3rem; }
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(22rem, 90vw);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  overflow-y: auto;
+}
+.menu-panel[data-open="true"] { transform: translateX(0); }
+.menu-panel__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); }
+.menu-panel__title { font-family: var(--font-masthead); font-weight: 700; font-size: 1.1rem; }
+.menu-panel__close { width: 2.5rem; height: 2.5rem; display: inline-flex; align-items: center; justify-content: center; color: var(--text); }
+.menu-panel__close:hover { background: var(--surface-raised); }
+.menu-panel__close svg { width: 1.2rem; height: 1.2rem; }
+
+.menu-panel__section { margin-bottom: var(--space-lg); }
+.menu-panel__section-title {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+.menu-panel__link {
+  display: block;
+  padding: 0.6rem 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.menu-panel__link:hover,
+.menu-panel__link[aria-current="page"] { color: var(--accent); text-decoration: none; }
+.menu-panel__cta { margin-top: var(--space-md); }
+.menu-panel__contact { margin-top: auto; padding-top: var(--space-lg); border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-slow);
+}
+.menu-backdrop[data-open="true"] { opacity: 1; pointer-events: auto; }
+body[data-menu-open="true"] { overflow: hidden; }

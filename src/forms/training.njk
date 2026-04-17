@@ -1,0 +1,44 @@
+---
+title: Training Request
+subtitle: Book a one-off session or a three-session pack. We'll send a pre-call survey so the agenda is exactly what you need.
+permalink: /forms/training/
+---
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="New training request">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form__row">
+    <label class="form__label form__label--required" for="name">Your name</label>
+    <input class="form__input" id="name" name="name" type="text" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="email">Email</label>
+    <input class="form__input" id="email" name="email" type="email" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="sessions">How many sessions?</label>
+    <select class="form__select" id="sessions" name="sessions">
+      <option>1 session — $150</option>
+      <option>3-session pack — $400</option>
+      <option>Custom (tell us below)</option>
+    </select>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="topics">What do you want to cover?</label>
+    <textarea class="form__textarea" id="topics" name="topics" required placeholder="e.g. Writing my first article, setting up Buttondown, customizing tokens.css, deploying to Cloudflare…"></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="timezone">Your time zone</label>
+    <input class="form__input" id="timezone" name="timezone" type="text" placeholder="e.g. Mountain Time (MT)">
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="slot">Preferred days/times</label>
+    <input class="form__input" id="slot" name="slot" type="text" placeholder="e.g. Tuesdays after 3pm MT">
+  </div>
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">Request training</button>
+  </div>
+</form>

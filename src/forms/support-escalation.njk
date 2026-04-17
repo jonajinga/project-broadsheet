@@ -1,0 +1,50 @@
+---
+title: Paid Support Escalation
+subtitle: For care plan customers — priority support requests. Response times match your plan tier.
+permalink: /forms/support-escalation/
+---
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="Support escalation">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form__row">
+    <label class="form__label form__label--required" for="name">Your name</label>
+    <input class="form__input" id="name" name="name" type="text" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="email">Email on your care plan</label>
+    <input class="form__input" id="email" name="email" type="email" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="site_url">Site URL</label>
+    <input class="form__input" id="site_url" name="site_url" type="url" placeholder="https://" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="plan">Current plan</label>
+    <select class="form__select" id="plan" name="plan">
+      <option>Care</option>
+      <option>Care+</option>
+      <option>Editorial</option>
+    </select>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="urgency">Urgency</label>
+    <select class="form__select" id="urgency" name="urgency" required>
+      <option value="">Pick one</option>
+      <option>Site is down / data at risk</option>
+      <option>Broken feature, site still up</option>
+      <option>Non-urgent but blocking my work</option>
+      <option>General support question</option>
+    </select>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="description">What's happening?</label>
+    <textarea class="form__textarea" id="description" name="description" required></textarea>
+  </div>
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">Submit escalation</button>
+  </div>
+</form>

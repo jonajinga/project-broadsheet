@@ -1,0 +1,9 @@
+.sidebar-cta { position: sticky; top: calc(var(--header-height) + var(--space-lg)); display: flex; flex-direction: column; gap: var(--space-md); }
+.sidebar-cta__card { background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: var(--space-lg); }
+.sidebar-cta__title { font-family: var(--font-headline); font-size: var(--step-1); font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+.sidebar-cta__summary { color: var(--text-soft); font-size: 0.92rem; line-height: 1.55; margin-bottom: var(--space-md); }
+.sidebar-cta__list { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; margin-top: var(--space-sm); }
+.sidebar-cta__list li { padding-left: 1rem; position: relative; color: var(--text-soft); }
+.sidebar-cta__list li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.sidebar-cta__contact { padding-top: var(--space-md); border-top: 1px solid var(--border); margin-top: var(--space-md); font-size: 0.9rem; color: var(--text-muted); }
+.sidebar-cta__contact a { color: var(--text); font-weight: 600; }

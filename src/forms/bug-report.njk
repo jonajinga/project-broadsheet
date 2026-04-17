@@ -1,0 +1,45 @@
+---
+title: Bug Report
+subtitle: Tell us what broke. The more specific you are, the faster we can fix it.
+permalink: /forms/bug-report/
+---
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="New bug report">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form__row">
+    <label class="form__label form__label--required" for="name">Your name</label>
+    <input class="form__input" id="name" name="name" type="text" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="email">Email</label>
+    <input class="form__input" id="email" name="email" type="email" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="version">Project Broadsheet version</label>
+    <input class="form__input" id="version" name="version" type="text" placeholder="e.g. {{ meta.version }}">
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="browser">Browser and OS</label>
+    <input class="form__input" id="browser" name="browser" type="text" placeholder="e.g. Chrome 130 on macOS 15">
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="steps">Steps to reproduce</label>
+    <textarea class="form__textarea" id="steps" name="steps" required placeholder="1. Go to X&#10;2. Click Y&#10;3. See error Z"></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="expected">What you expected</label>
+    <textarea class="form__textarea" id="expected" name="expected" required></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="actual">What actually happened</label>
+    <textarea class="form__textarea" id="actual" name="actual" required></textarea>
+  </div>
+  <p class="form__hint">Prefer GitHub? Open an issue at <a href="{{ meta.github }}/issues">{{ meta.githubOwner }}/{{ meta.githubRepo }}</a>.</p>
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">Submit bug report</button>
+  </div>
+</form>

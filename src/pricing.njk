@@ -1,0 +1,111 @@
+---
+layout: layouts/page.njk
+title: Pricing
+eyebrow: Services
+subtitle: Self-host Project Broadsheet for free. Or hire us to launch, migrate, and maintain.
+permalink: /pricing/
+---
+<section class="pricing-section">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Self-hosted</h2>
+    <p class="pricing-section__summary">Fork the repo and deploy yourself. Everything is included — no paywalled features, no "pro tier".</p>
+  </header>
+  <div class="pricing-free">
+    <div>
+      <span class="pricing-free__price">{{ pricing.selfHosted.price }}<span class="pricing-free__cadence">{{ pricing.selfHosted.cadence }}</span></span>
+    </div>
+    <div class="pricing-free__body">
+      <h3>{{ pricing.selfHosted.name }}</h3>
+      <p>{{ pricing.selfHosted.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for f in pricing.selfHosted.features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <a class="btn btn--primary btn--lg" href="{{ pricing.selfHosted.cta.url }}">{{ pricing.selfHosted.cta.label }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="launch-packages">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Launch packages</h2>
+    <p class="pricing-section__summary">Done-for-you setup, branding, and deployment — the fastest path from "I want a publication" to "I just published my first article."</p>
+  </header>
+  <div class="pricing-grid">
+    {% for pkg in pricing.packages %}
+    <article class="pricing-card{% if pkg.featured %} pricing-card--featured{% endif %}">
+      {% if pkg.featured %}<span class="pricing-card__tag">Most popular</span>{% endif %}
+      <h3 class="pricing-card__name">{{ pkg.name }}</h3>
+      <div>
+        <span class="pricing-card__price">{{ pkg.price }}</span>
+        <span class="pricing-card__cadence">{{ pkg.cadence }} · {{ pkg.hours }}</span>
+      </div>
+      <p class="pricing-card__tagline">{{ pkg.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for f in pkg.features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <div class="pricing-card__cta">
+        <a class="btn btn--primary btn--block" href="{{ pkg.cta.url }}">{{ pkg.cta.label }}</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="pricing-section" id="migration">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Content migration</h2>
+    <p class="pricing-section__summary">Move your archive from Ghost, WordPress, Substack, or Medium. Clean Markdown, preserved images, redirect map included.</p>
+  </header>
+  <div class="migration-grid">
+    {% for m in pricing.migration %}
+    <div class="tier-row">
+      <div class="tier-row__name">{{ m.name }}</div>
+      <div class="tier-row__price">{{ m.price }}</div>
+      <div class="tier-row__scope">{{ m.scope }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  <p style="margin-top: var(--space-md); color: var(--text-muted);">Larger archives or complex sources? <a href="/forms/quote-migration/">Request a migration quote</a>.</p>
+</section>
+
+<section class="pricing-section" id="care">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Care plans</h2>
+    <p class="pricing-section__summary">Ongoing security updates, dependency bumps, content publishing, and priority support. Cancel anytime.</p>
+  </header>
+  <div class="pricing-grid">
+    {% for plan in pricing.care %}
+    <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}">
+      {% if plan.featured %}<span class="pricing-card__tag">Most popular</span>{% endif %}
+      <h3 class="pricing-card__name">{{ plan.name }}</h3>
+      <div>
+        <span class="pricing-card__price">{{ plan.price }}</span>
+        <span class="pricing-card__cadence">{{ plan.cadence }}</span>
+      </div>
+      <p class="pricing-card__tagline">{{ plan.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for f in plan.features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <div class="pricing-card__cta">
+        <a class="btn btn--primary btn--block" href="/forms/care-inquiry/?plan={{ plan.slug }}">Inquire</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="pricing-section" id="hourly">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Hourly and training</h2>
+    <p class="pricing-section__summary">For custom features, one-off requests, or knowledge transfer.</p>
+  </header>
+  <div class="hourly-grid">
+    {% for h in pricing.hourly %}
+    <div class="tier-row">
+      <div class="tier-row__name">{{ h.name }}</div>
+      <div class="tier-row__price">{{ h.price }} <span class="tier-row__scope">{{ h.cadence }}</span></div>
+      <div class="tier-row__desc">{{ h.description }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

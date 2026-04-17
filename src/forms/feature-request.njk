@@ -1,0 +1,37 @@
+---
+title: Feature Request
+subtitle: Have an idea that would make Project Broadsheet better? Send it our way.
+permalink: /forms/feature-request/
+---
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="New feature request">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form__row">
+    <label class="form__label form__label--required" for="name">Your name</label>
+    <input class="form__input" id="name" name="name" type="text" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="email">Email</label>
+    <input class="form__input" id="email" name="email" type="email" required>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="problem">What problem does it solve?</label>
+    <textarea class="form__textarea" id="problem" name="problem" required placeholder="Describe the situation where you wished Project Broadsheet did something it doesn't."></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="proposal">What would you like to see?</label>
+    <textarea class="form__textarea" id="proposal" name="proposal" required></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="use_case">How would you use it?</label>
+    <textarea class="form__textarea" id="use_case" name="use_case"></textarea>
+  </div>
+  <p class="form__hint">Prefer GitHub? Start a thread at <a href="{{ meta.github }}/discussions">{{ meta.githubOwner }}/{{ meta.githubRepo }} Discussions</a>.</p>
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">Send feature request</button>
+  </div>
+</form>

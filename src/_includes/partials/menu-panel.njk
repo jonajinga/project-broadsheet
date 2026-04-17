@@ -1,0 +1,28 @@
+<div class="menu-backdrop" id="menu-backdrop" onclick="closeMenu()" aria-hidden="true"></div>
+<aside class="menu-panel" id="menu-panel" data-open="false" aria-label="Mobile menu">
+  <div class="menu-panel__header">
+    <span class="menu-panel__title">Menu</span>
+    <button class="menu-panel__close" type="button" aria-label="Close menu" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </button>
+  </div>
+  {% for item in nav.primary %}
+  <div class="menu-panel__section">
+    <div class="menu-panel__section-title">{{ item.label }}</div>
+    {% if item.children %}
+      {% for child in item.children %}
+      <a class="menu-panel__link" href="{{ child.url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{{ child.label }}</a>
+      {% endfor %}
+    {% else %}
+      <a class="menu-panel__link" href="{{ item.url }}">{{ item.label }}</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+  <div class="menu-panel__cta">
+    <a class="btn btn--primary btn--block" href="{{ nav.cta.url }}">{{ nav.cta.label }}</a>
+  </div>
+  <div class="menu-panel__contact">
+    <div>Email: <a href="mailto:{{ meta.email }}">{{ meta.email }}</a></div>
+    <div>GitHub: <a href="{{ meta.github }}">{{ meta.githubOwner }}/{{ meta.githubRepo }}</a></div>
+  </div>
+</aside>

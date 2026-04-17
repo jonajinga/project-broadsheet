@@ -1,0 +1,11 @@
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="{{ formSubject }}">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+  {{ formFields | safe }}
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">{{ formSubmit or "Send" }}</button>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+<article class="section">
+  <div class="container">
+    <header class="post-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="breadcrumbs__sep">/</span>
+        <a href="/blog/">Blog</a><span class="breadcrumbs__sep">/</span>
+        <span>{{ title }}</span>
+      </nav>
+      {% if tag %}<div class="post-header__eyebrow">{{ tag }}</div>{% endif %}
+      <h1 class="post-header__title">{{ title }}</h1>
+      {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+      <div class="post-header__meta">
+        {% if date %}<time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>{% endif %}
+        {% if author %}<span>{{ author }}</span>{% endif %}
+        <span>{{ content | readingTime }} min read</span>
+      </div>
+    </header>
+    <div class="post-content">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

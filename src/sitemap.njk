@@ -1,0 +1,24 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- set excludedPaths = ["/thank-you/", "/forms/"] -%}
+{%- for page in collections.all -%}
+  {%- set u = page.url | string -%}
+  {%- set skip = false -%}
+  {%- if not page.url -%}{%- set skip = true -%}{%- endif -%}
+  {%- if u == "/thank-you/" -%}{%- set skip = true -%}{%- endif -%}
+  {%- if (u | slice(0, 8)) == "/assets/" -%}{%- set skip = true -%}{%- endif -%}
+  {%- if page.data.eleventyExcludeFromCollections -%}{%- set skip = true -%}{%- endif -%}
+  {%- if not skip %}
+  <url>
+    <loc>{{ meta.url }}{{ u }}</loc>
+    <lastmod>{{ page.date | htmlDateString }}</lastmod>
+    <changefreq>{% if u == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if u == "/" %}1.0{% elif (u | slice(0, 6)) == "/docs/" %}0.9{% elif u == "/pricing/" or u == "/features/" %}0.9{% else %}0.7{% endif %}</priority>
+  </url>
+  {%- endif -%}
+{%- endfor %}
+</urlset>

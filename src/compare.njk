@@ -1,0 +1,54 @@
+---
+layout: layouts/page.njk
+title: Compare
+eyebrow: Product
+subtitle: Project Broadsheet vs. Ghost, Substack, and WordPress. The honest numbers.
+permalink: /compare/
+---
+<div class="compare-intro lead">
+  Every publishing platform makes trade-offs. Here are the ones that matter: what you own, what you pay, what happens when you want to leave, and how much of your audience you actually control.
+</div>
+
+<div class="table-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th scope="col">Criterion</th>
+        {% for col in compareTable.columns %}
+        <th scope="col">{{ col.name }}<small>{{ col.note }}</small></th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in compareTable.rows %}
+      <tr>
+        <th scope="row">{{ row.label }}</th>
+        {% for cell in row.cells %}<td>{{ cell }}</td>{% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="compare-notes">
+  <div class="compare-note">
+    <strong>On lock-in.</strong> Project Broadsheet's content is plain Markdown in Git. Migrating out means copying a folder. Ghost exports as JSON; Substack gives you a CSV of posts; WordPress gives you a database dump plus a prayer.
+  </div>
+  <div class="compare-note">
+    <strong>On real cost.</strong> The cheapest Ghost Pro plan is $9/mo for 500 members. At 5,000 members it's $31/mo. At 50,000 it's $199/mo. Project Broadsheet costs what your static host charges — typically $0 on Cloudflare Pages.
+  </div>
+  <div class="compare-note">
+    <strong>On reader experience.</strong> Project Broadsheet includes 27+ reader tools (text-to-speech, annotations, reading ruler, focus mode). The others include zero without paid plugins.
+  </div>
+</div>
+
+<hr class="gold-rule">
+
+<section class="section-sm text-center">
+  <h2 class="h3">Ready to compare on your own site?</h2>
+  <p class="lead">Fork the repo, run <code>npm install</code>, and have a working publication in under ten minutes.</p>
+  <div class="btn-group" style="justify-content: center;">
+    <a class="btn btn--primary btn--lg" href="/get-started/">Get Started (Free)</a>
+    <a class="btn btn--outline btn--lg" href="/pricing/">See pricing</a>
+  </div>
+</section>

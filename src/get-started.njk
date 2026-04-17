@@ -1,0 +1,76 @@
+---
+layout: layouts/page.njk
+title: Get Started
+eyebrow: Resources
+subtitle: Three commands to a live publication. No account required.
+permalink: /get-started/
+---
+<div class="lead" style="margin-bottom: var(--space-2xl);">
+  Project Broadsheet is a git clone away. Everything you need — the full source, 27 reader tools, nine editorial sections, RSS, search, SEO, dark mode — is already included and configured.
+</div>
+
+<section class="section-sm">
+  <h2 class="h3">Prerequisites</h2>
+  <ul style="list-style: disc; padding-left: 1.5rem; margin-top: var(--space-sm);">
+    <li>Node.js 18 or later (<a href="https://nodejs.org">nodejs.org</a>)</li>
+    <li>A GitHub account (free)</li>
+    <li>A terminal. Any OS works — macOS, Linux, Windows.</li>
+  </ul>
+</section>
+
+<section class="section-sm">
+  <h2 class="h3">One — Clone the repo</h2>
+  <pre><code>git clone https://github.com/{{ meta.githubOwner }}/{{ meta.githubRepo }}.git my-publication
+cd my-publication</code></pre>
+</section>
+
+<section class="section-sm">
+  <h2 class="h3">Two — Install dependencies</h2>
+  <pre><code>npm install</code></pre>
+  <p>Takes under a minute on a modern connection.</p>
+</section>
+
+<section class="section-sm">
+  <h2 class="h3">Three — Run it locally</h2>
+  <pre><code>npm start</code></pre>
+  <p>The site is now live at <code>http://localhost:8080</code> with hot reload. Open it in your browser, click through the sample pages, explore the reader tools.</p>
+</section>
+
+<hr class="gold-rule">
+
+<section class="section-sm">
+  <h2 class="h3">Now what?</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card__eyebrow">Configure</div>
+      <h3 class="card__title">Edit <code>site.json</code></h3>
+      <p class="card__summary">Set your publication name, description, email, and which editorial sections you want.</p>
+      <div class="card__footer"><a class="btn btn--outline btn--sm" href="/docs/getting-started/">Open the guide</a></div>
+    </div>
+    <div class="card">
+      <div class="card__eyebrow">Brand</div>
+      <h3 class="card__title">Edit <code>tokens.css</code></h3>
+      <p class="card__summary">Change colors, typography, spacing — every design decision is a CSS variable.</p>
+      <div class="card__footer"><a class="btn btn--outline btn--sm" href="/docs/design/">Open the guide</a></div>
+    </div>
+    <div class="card">
+      <div class="card__eyebrow">Write</div>
+      <h3 class="card__title">Add your first article</h3>
+      <p class="card__summary">Articles are Markdown files in <code>src/content/</code>. Create a file, add front matter, hit save.</p>
+      <div class="card__footer"><a class="btn btn--outline btn--sm" href="/docs/content/">Open the guide</a></div>
+    </div>
+    <div class="card">
+      <div class="card__eyebrow">Deploy</div>
+      <h3 class="card__title">Push to Cloudflare Pages</h3>
+      <p class="card__summary">Connect your repo, set the build command, done. HTTPS and a custom domain are both free.</p>
+      <div class="card__footer"><a class="btn btn--outline btn--sm" href="/docs/deployment/">Open the guide</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="callout">
+    <div class="callout__title">Want us to set it up?</div>
+    <p>Our <a href="/pricing/">Launch package</a> ($999) covers everything above — repo setup, brand customization, deployment, custom domain, three integrations, and a 60-minute training call. <a href="/book-a-call/">Book a call</a> to get started.</p>
+  </div>
+</section>

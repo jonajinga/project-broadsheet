@@ -1,0 +1,43 @@
+---
+layout: layouts/page.njk
+pagination:
+  data: docCategories
+  size: 1
+  alias: cat
+  addAllPagesToCollections: true
+permalink: /docs/{{ cat.slug }}/
+eyebrow: Docs · Category
+title: "{{ cat.name }}"
+subtitle: "{{ cat.summary }}"
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: var(--space-md);">
+  <a href="/">Home</a><span class="breadcrumbs__sep">/</span>
+  <a href="/docs/">Docs</a><span class="breadcrumbs__sep">/</span>
+  <span>{{ cat.name }}</span>
+</nav>
+
+<div class="grid grid-2" style="margin-block: var(--space-xl);">
+{% set hasDocs = false %}
+{% for d in collections.docs %}{% if d.data.category == cat.slug %}
+  {% set hasDocs = true %}
+  <a class="card card--link" href="{{ d.url }}">
+    <div class="card__eyebrow">Article</div>
+    <h3 class="card__title">{{ d.data.title }}</h3>
+    <p class="card__summary">{{ d.data.subtitle or d.data.description or "" }}</p>
+  </a>
+{% endif %}{% endfor %}
+</div>
+
+{% set hasDocs = false %}
+{% for d in collections.docs %}{% if d.data.category == cat.slug %}{% set hasDocs = true %}{% endif %}{% endfor %}
+{% if not hasDocs %}
+<div class="alert alert--info">
+  <strong>Coming soon.</strong>
+  Articles for this category are being written. In the meantime, check the <a href="{{ meta.github }}">GitHub repo</a> or <a href="/book-a-call/">book a call</a>.
+</div>
+{% endif %}
+
+<div class="callout" style="margin-top: var(--space-2xl);">
+  <div class="callout__title">Missing something?</div>
+  <p>If this category should cover a topic that isn't here yet, <a href="/forms/docs-feedback/">send us feedback</a>.</p>
+</div>

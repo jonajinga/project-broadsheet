@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+---
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<div class="container-wide" style="padding-block: var(--space-xl) var(--space-3xl);">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span class="breadcrumbs__sep">/</span>
+    <a href="/docs/">Docs</a><span class="breadcrumbs__sep">/</span>
+    {% set cat = docCategories | where("slug", category) %}
+    {% if cat and cat[0] %}
+    <a href="/docs/{{ category }}/">{{ cat[0].name }}</a><span class="breadcrumbs__sep">/</span>
+    {% endif %}
+    <span>{{ title }}</span>
+  </nav>
+
+  <div class="docs-layout">
+    <aside class="docs-layout__sidebar">
+      <div class="docs-sidebar">
+        {% for cat in docCategories %}
+        <div class="docs-sidebar__group">
+          <div class="docs-sidebar__title">{{ cat.name }}</div>
+          {% for doc in collections.docs %}
+            {% if doc.data.category == cat.slug %}
+              <a class="docs-sidebar__link" href="{{ doc.url }}"{% if doc.url == page.url %} aria-current="page"{% endif %}>{{ doc.data.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </aside>
+
+    <article class="doc-content" data-doc-slug="{{ page.url }}">
+      <h1 style="font-family: var(--font-masthead); font-size: var(--step-5); line-height: 1.1; margin-bottom: var(--space-md);">{{ title }}</h1>
+      {% if subtitle %}<p class="lead" style="margin-bottom: var(--space-lg);">{{ subtitle }}</p>{% endif %}
+      <div class="doc-meta">
+        {% if category %}{% set cat = docCategories | where("slug", category) %}{% if cat and cat[0] %}<span class="doc-meta__item">{{ cat[0].name }}</span>{% endif %}{% endif %}
+        {% if updated %}<span class="doc-meta__item">Updated {{ updated | readableDate }}</span>{% endif %}
+        <span class="doc-meta__item">v{{ meta.version }}</span>
+      </div>
+
+      {{ content | safe }}
+
+      <div class="doc-feedback" id="doc-feedback">
+        <span class="doc-feedback__text">Was this helpful?</span>
+        <div class="doc-feedback__buttons">
+          <button type="button" class="btn btn--sm btn--outline" onclick="docFeedback('yes')">Yes</button>
+          <button type="button" class="btn btn--sm btn--outline" onclick="docFeedback('no')">No</button>
+        </div>
+      </div>
+
+      {% set docList = collections.docs | where("data.category", category) %}
+      {% if docList and docList.length > 1 %}
+        {% set prevDoc = null %}{% set nextDoc = null %}
+        {% for d in docList %}
+          {% if d.url == page.url %}
+            {% if loop.index0 > 0 %}{% set prevDoc = docList[loop.index0 - 1] %}{% endif %}
+            {% if loop.index0 < docList.length - 1 %}{% set nextDoc = docList[loop.index0 + 1] %}{% endif %}
+          {% endif %}
+        {% endfor %}
+        <div class="doc-nav">
+          {% if prevDoc %}
+          <a class="doc-nav__item" href="{{ prevDoc.url }}">
+            <div class="doc-nav__eyebrow">← Previous</div>
+            <div class="doc-nav__title">{{ prevDoc.data.title }}</div>
+          </a>
+          {% else %}<div></div>{% endif %}
+          {% if nextDoc %}
+          <a class="doc-nav__item doc-nav__item--next" href="{{ nextDoc.url }}">
+            <div class="doc-nav__eyebrow">Next →</div>
+            <div class="doc-nav__title">{{ nextDoc.data.title }}</div>
+          </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="callout" style="margin-top: var(--space-2xl);">
+        <div class="callout__title">Still need help?</div>
+        <p>Browse <a href="/support/">Support</a> for community channels and paid support options, or <a href="/book-a-call/">book a call</a> if you'd like us to set it up for you.</p>
+      </div>
+    </article>
+
+    <aside class="docs-layout__toc">
+      <div class="docs-toc" aria-label="On this page">
+        <div class="docs-toc__title">On this page</div>
+        <ol id="toc-list"></ol>
+      </div>
+    </aside>
+  </div>
+</div>
+<script defer src="/assets/js/docs.js"></script>

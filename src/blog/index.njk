@@ -1,0 +1,22 @@
+---
+layout: layouts/page.njk
+title: Blog
+eyebrow: Resources
+subtitle: Release notes, tutorials, case studies, and editorial from the Project Broadsheet team.
+permalink: /blog/
+tags: []
+---
+<div class="blog-grid">
+  {% for post in collections.posts %}
+  <article class="post-card">
+    {% if post.data.tag %}<div class="post-card__eyebrow">{{ post.data.tag }}</div>{% endif %}
+    <h2 class="post-card__title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <p class="post-card__summary">{{ post.data.summary or (post.content | striptags | truncate(160)) }}</p>
+    <div class="post-card__meta">
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      {% if post.data.author %}<span>{{ post.data.author }}</span>{% endif %}
+      <span>{{ post.content | readingTime }} min read</span>
+    </div>
+  </article>
+  {% endfor %}
+</div>

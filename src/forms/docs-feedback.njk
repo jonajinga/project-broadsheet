@@ -1,0 +1,32 @@
+---
+title: Docs Feedback
+subtitle: Tell us what was missing or unclear. We'll update the article and email you when it's fixed.
+permalink: /forms/docs-feedback/
+---
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
+  <input type="hidden" name="subject" value="New docs feedback">
+  <input type="hidden" name="from_name" value="{{ meta.title }}">
+  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="form__row">
+    <label class="form__label" for="email">Email (optional, for follow-up)</label>
+    <input class="form__input" id="email" name="email" type="email">
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="article">Which article?</label>
+    <input class="form__input" id="article" name="article" type="text" placeholder="URL or title">
+  </div>
+  <div class="form__row">
+    <label class="form__label form__label--required" for="issue">What was missing or unclear?</label>
+    <textarea class="form__textarea" id="issue" name="issue" required></textarea>
+  </div>
+  <div class="form__row">
+    <label class="form__label" for="suggestion">What would have helped?</label>
+    <textarea class="form__textarea" id="suggestion" name="suggestion"></textarea>
+  </div>
+  <div class="form__actions">
+    <button class="btn btn--primary" type="submit">Send feedback</button>
+  </div>
+</form>

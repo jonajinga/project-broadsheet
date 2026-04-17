@@ -1,0 +1,54 @@
+---
+layout: layouts/page.njk
+title: Roadmap
+eyebrow: Product
+subtitle: What's shipping next, what's on deck, and where we're pointed.
+permalink: /roadmap/
+---
+<div class="lead" style="margin-bottom: var(--space-xl);">
+  Project Broadsheet's roadmap mirrors the canonical version in the repo. The <strong>near-term</strong> column is active work; <strong>medium-term</strong> is scoped but unstarted; <strong>long-term</strong> is direction, not commitment.
+</div>
+
+<div class="roadmap-grid">
+  <div class="roadmap-col">
+    <h3 class="roadmap-col__title">{{ roadmap.nearTerm.title }}</h3>
+    <p class="roadmap-col__subtitle">{{ roadmap.nearTerm.subtitle }}</p>
+    <ul class="roadmap-col__list">
+      {% for item in roadmap.nearTerm.items %}
+      <li class="roadmap-col__item">
+        <span class="roadmap-col__label">{{ item.label }}</span>
+        <p class="roadmap-col__note">{{ item.note }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="roadmap-col">
+    <h3 class="roadmap-col__title">{{ roadmap.mediumTerm.title }}</h3>
+    <p class="roadmap-col__subtitle">{{ roadmap.mediumTerm.subtitle }}</p>
+    <ul class="roadmap-col__list">
+      {% for item in roadmap.mediumTerm.items %}
+      <li class="roadmap-col__item">
+        <span class="roadmap-col__label">{{ item.label }}</span>
+        <p class="roadmap-col__note">{{ item.note }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="roadmap-col">
+    <h3 class="roadmap-col__title">{{ roadmap.longTerm.title }}</h3>
+    <p class="roadmap-col__subtitle">{{ roadmap.longTerm.subtitle }}</p>
+    <ul class="roadmap-col__list">
+      {% for item in roadmap.longTerm.items %}
+      <li class="roadmap-col__item">
+        <span class="roadmap-col__label">{{ item.label }}</span>
+        <p class="roadmap-col__note">{{ item.note }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="callout" style="margin-top: var(--space-2xl);">
+  <div class="callout__title">Want to propose something?</div>
+  <p>Open a discussion on <a href="{{ meta.github }}/discussions">GitHub</a> or <a href="/forms/feature-request/">send a feature request</a>. Priority is based on impact, not order of arrival.</p>
+</div>

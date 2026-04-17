@@ -1,0 +1,142 @@
+---
+layout: layouts/base.njk
+title: ""
+description: "Project Broadsheet is the free, open-source publication system for independent journalists and publishers. Own your content, your readers, and your platform. Forever."
+permalink: /index.html
+---
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div>
+        <span class="hero__eyebrow">v{{ meta.version }} · MIT License · Built on Eleventy</span>
+        <h1 class="hero__title">{{ meta.tagline }}</h1>
+        <p class="hero__subhead">{{ meta.subhead }}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="/get-started/">Get Started (Free)</a>
+          <a class="btn btn--outline btn--lg" href="/book-a-call/">Book a Setup Call</a>
+        </div>
+        <div class="hero__meta">
+          <span class="hero__meta-item">27+ reader tools built in</span>
+          <span class="hero__meta-item">Nine editorial sections</span>
+          <span class="hero__meta-item">~12s builds for 500+ pages</span>
+          <span class="hero__meta-item">$0 recurring</span>
+        </div>
+        <hr class="gold-rule hero__rule">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social-strip">
+  <div class="container">
+    <div class="social-strip__inner">
+      <span class="social-strip__item">Powering <strong><a href="{{ meta.liveExample }}">{{ meta.liveExampleName }}</a></strong></span>
+      <span class="social-strip__item">Source on <strong><a href="{{ meta.github }}">GitHub</a></strong></span>
+      <span class="social-strip__item"><strong>MIT</strong> licensed</span>
+      <span class="social-strip__item">Version <strong>{{ meta.version }}</strong></span>
+    </div>
+  </div>
+</section>
+
+<section class="home-features" id="home-features">
+  <div class="container">
+    <header class="home-features__header">
+      <span class="eyebrow">What's included</span>
+      <h2 class="home-features__title">Everything a publication needs. Nothing it doesn't.</h2>
+      <p class="home-features__summary">Project Broadsheet ships with every feature an indie newsroom, a newsletter, or a small magazine would otherwise stitch together from paid plugins and SaaS subscriptions.</p>
+    </header>
+    <div class="home-features__grid">
+      {% for f in features.highlights %}
+      <article class="feature-card">
+        <h3 class="feature-card__title">{{ f.title }}</h3>
+        <p class="feature-card__summary">{{ f.summary }}</p>
+        <ul class="feature-card__list">
+          {% for point in f.points %}<li>{{ point }}</li>{% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: var(--space-xl);">
+      <a class="btn btn--outline btn--lg" href="/features/">See every feature</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <header class="home-features__header">
+      <span class="eyebrow">How it works</span>
+      <h2 class="home-features__title">Three commands. One live publication.</h2>
+    </header>
+    <div class="how-it-works">
+      <div class="step">
+        <div class="step__num">1</div>
+        <div>
+          <div class="step__title">Fork</div>
+          <p class="step__body">Clone <code>jon-ajinga/broadsheet</code> and rename the repo. Nothing to sign up for.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <div>
+          <div class="step__title">Configure</div>
+          <p class="step__body">Edit <code>site.json</code> for metadata and sections. Edit <code>tokens.css</code> for colors and fonts.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <div>
+          <div class="step__title">Publish</div>
+          <p class="step__body">Push to GitHub. Cloudflare Pages, Netlify, or Vercel deploy in under a minute.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="comparison-teaser">
+      <span class="eyebrow">The math</span>
+      <p class="comparison-teaser__kicker">Ghost charges <strong>$9–199/mo</strong>. Substack takes <strong>10%</strong>. Project Broadsheet costs <strong>$0</strong>, forever.</p>
+      <a class="btn btn--outline btn--lg" href="/compare/">See the full comparison</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <header class="home-features__header">
+      <span class="eyebrow">Showcase</span>
+      <h2 class="home-features__title">Publications built on Project Broadsheet</h2>
+    </header>
+    <div class="grid grid-2" style="max-width: 44rem; margin-inline: auto;">
+      {% for s in showcase %}
+      <a class="showcase-card" href="{{ s.url }}">
+        <div class="showcase-card__image">{{ s.name }}</div>
+        <div class="showcase-card__body">
+          <div class="card__title">{{ s.name }}</div>
+          <p class="card__summary">{{ s.summary }}</p>
+          <div class="showcase-card__tags">
+            {% for t in s.tags %}<span class="badge">{{ t }}</span>{% endfor %}
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: var(--space-xl);">
+      <a class="btn btn--outline" href="/showcase/">See showcase</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-teaser section-sunken">
+  <div class="container">
+    <h2 class="pricing-teaser__title">Self-host free — or let us launch it for you.</h2>
+    <p class="pricing-teaser__summary">Project Broadsheet is MIT-licensed and free to use, forever. If you'd rather not touch the terminal, we offer setup, migration, and care plans starting at $999.</p>
+    <div class="btn-group" style="justify-content: center;">
+      <a class="btn btn--primary btn--lg" href="/get-started/">Get Started (Free)</a>
+      <a class="btn btn--outline btn--lg" href="/pricing/">See pricing</a>
+    </div>
+  </div>
+</section>

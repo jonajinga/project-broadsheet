@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+{% if not hide_header %}
+<section class="section-sm">
+  <div class="container">
+    {% if breadcrumbs %}
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      {% for crumb in breadcrumbs %}
+        {% if not loop.last %}
+          <a href="{{ crumb.url }}">{{ crumb.label }}</a><span class="breadcrumbs__sep">/</span>
+        {% else %}
+          <span>{{ crumb.label }}</span>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    {% endif %}
+    {% if eyebrow %}<span class="eyebrow">{{ eyebrow }}</span>{% endif %}
+    <h1 class="page-title">{{ title }}</h1>
+    {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+<div class="container">
+  {{ content | safe }}
+</div>

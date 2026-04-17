@@ -1,0 +1,66 @@
+---
+layout: layouts/page.njk
+title: Sitemap
+eyebrow: Resources
+subtitle: Every page on the site, organized by section.
+permalink: /sitemap/
+eleventyExcludeFromCollections: true
+---
+<div class="grid grid-2" style="margin-block: var(--space-xl);">
+  <section>
+    <h2 class="h4">Product</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      <li><a href="/">Home</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/showcase/">Showcase</a></li>
+      <li><a href="/compare/">Compare</a></li>
+      <li><a href="/roadmap/">Roadmap</a></li>
+      <li><a href="/changelog/">Changelog</a></li>
+      <li><a href="/get-started/">Get Started</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="h4">Services</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/book-a-call/">Book a Call</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/support/">Support</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="h4">Docs</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      <li><a href="/docs/">Docs home</a></li>
+      {% for cat in docCategories %}
+      <li><a href="/docs/{{ cat.slug }}/">{{ cat.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section>
+    <h2 class="h4">Resources</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/forms/">Forms</a></li>
+      <li><a href="/feed.xml">RSS feed</a></li>
+      <li><a href="/sitemap.xml">XML sitemap</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="h4">Blog posts</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      {% for post in collections.posts %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section>
+    <h2 class="h4">Legal</h2>
+    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+      <li><a href="/license/">License</a></li>
+    </ul>
+  </section>
+</div>

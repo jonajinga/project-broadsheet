@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+title: Docs
+description: Help center for Project Broadsheet. Install, configure, deploy, customize, and troubleshoot every feature.
+permalink: /docs/
+---
+<section class="docs-hero">
+  <div class="docs-hero__inner">
+    <span class="eyebrow">Help center</span>
+    <h1 class="docs-hero__title">Documentation</h1>
+    <p class="docs-hero__subtitle">Everything you need to install, configure, deploy, customize, and troubleshoot Project Broadsheet.</p>
+    <div id="pagefind-search"></div>
+    <div class="docs-quicklinks">
+      <a class="docs-quicklinks__link" href="/docs/getting-started/install/">Install</a>
+      <a class="docs-quicklinks__link" href="/docs/deployment/cloudflare-pages/">Deploy to Cloudflare</a>
+      <a class="docs-quicklinks__link" href="/docs/design/tokens/">Customize tokens</a>
+      <a class="docs-quicklinks__link" href="/docs/integrations/buttondown/">Set up newsletter</a>
+      <a class="docs-quicklinks__link" href="/docs/migration/from-ghost/">Migrate from Ghost</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="docs-category-grid">
+      {% for cat in docCategories %}
+        {% set count = 0 %}
+        {% for d in collections.docs %}{% if d.data.category == cat.slug %}{% set count = count + 1 %}{% endif %}{% endfor %}
+        <a class="docs-category-card" href="/docs/{{ cat.slug }}/">
+          <div class="docs-category-card__title">{{ cat.name }}</div>
+          <p class="docs-category-card__summary">{{ cat.summary }}</p>
+          <div class="docs-category-card__count">{{ count }} article{% if count != 1 %}s{% endif %}</div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container" style="text-align: center;">
+    <h2 class="h3">Still stuck?</h2>
+    <p class="lead" style="margin-inline: auto;">If the docs didn't answer your question, we have more options.</p>
+    <div class="btn-group" style="justify-content: center; margin-top: var(--space-lg);">
+      <a class="btn btn--outline" href="{{ meta.github }}/discussions">Ask on GitHub</a>
+      <a class="btn btn--outline" href="/forms/bug-report/">Report a bug</a>
+      <a class="btn btn--primary" href="/book-a-call/">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<script src="/pagefind/pagefind-ui.js" defer></script>
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+  if (window.PagefindUI) {
+    new PagefindUI({ element: "#pagefind-search", showSubResults: true });
+  }
+});
+</script>

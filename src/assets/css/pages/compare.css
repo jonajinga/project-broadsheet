@@ -1,0 +1,4 @@
+.compare-intro { max-width: 48rem; margin-bottom: var(--space-xl); }
+.compare-notes { margin-top: var(--space-xl); display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--space-md); }
+.compare-note { padding: var(--space-md); border-left: 3px solid var(--accent); background: var(--surface-raised); font-size: 0.95rem; line-height: 1.55; color: var(--text-soft); }
+.compare-note strong { font-family: var(--font-ui); color: var(--text); display: block; margin-bottom: 0.2rem; }

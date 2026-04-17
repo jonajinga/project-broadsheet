@@ -1,0 +1,29 @@
+---
+layout: layouts/page.njk
+title: Showcase
+eyebrow: Product
+subtitle: Publications built on Project Broadsheet.
+permalink: /showcase/
+---
+<div class="grid grid-2" style="margin-block: var(--space-xl);">
+  {% for s in showcase %}
+  <a class="showcase-card" href="{{ s.url }}">
+    <div class="showcase-card__image">{{ s.name }}</div>
+    <div class="showcase-card__body">
+      <div class="card__title">{{ s.name }}</div>
+      <p class="card__summary">{{ s.summary }}</p>
+      <div class="showcase-card__tags">
+        {% for t in s.tags %}<span class="badge">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+<hr class="gold-rule">
+
+<section class="section-sm">
+  <h2 class="h3">Built with Project Broadsheet?</h2>
+  <p class="lead">Tell us — we'd love to feature your publication.</p>
+  <a class="btn btn--primary" href="/forms/contact/?subject=Showcase+submission">Submit your publication</a>
+</section>

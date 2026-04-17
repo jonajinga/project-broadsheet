@@ -1,0 +1,36 @@
+---
+layout: layouts/page.njk
+title: Features
+eyebrow: Product
+subtitle: Every capability Project Broadsheet ships with — organized the way you'd evaluate one.
+permalink: /features/
+---
+<div class="features-intro lead">
+  Project Broadsheet isn't a theme or a minimal starter. It's a full publication framework with everything an indie newsroom, newsletter, or small magazine needs — and nothing bolted on just to check a marketing box.
+</div>
+
+{% for f in features.highlights %}
+<section class="feature-block" id="{{ f.title | slugify }}">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">{{ loop.index | string | replace('0','0') }} · {{ f.title }}</span>
+      <h2>{{ f.title }}</h2>
+      <p class="feature-block__summary">{{ f.summary }}</p>
+    </header>
+    <ul class="feature-block__list">
+      {% for point in f.points %}<li>{{ point }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endfor %}
+
+<section class="section">
+  <div class="grid grid-4">
+    {% for s in features.stats %}
+    <div class="stat-card">
+      <div class="stat-card__value">{{ s.value }}</div>
+      <div class="stat-card__label">{{ s.label }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

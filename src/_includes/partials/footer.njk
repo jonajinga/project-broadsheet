@@ -1,0 +1,77 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-block">
+        <a class="site-footer__brand" href="/">
+          <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" fill="currentColor" font-family="'Playfair Display', Georgia, serif" font-weight="900" font-size="28" text-anchor="middle">PB</text>
+          </svg>
+          Project Broadsheet
+        </a>
+        <p class="site-footer__tagline">{{ meta.tagline }}</p>
+        <div class="site-footer__badges">
+          <span class="badge badge--mit">MIT</span>
+          <span class="badge badge--mit">v{{ meta.version }}</span>
+        </div>
+      </div>
+      <div>
+        <div class="site-footer__col-title">Product</div>
+        <ul class="site-footer__list">
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/showcase/">Showcase</a></li>
+          <li><a href="/compare/">Compare</a></li>
+          <li><a href="/get-started/">Get Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__col-title">Services</div>
+        <ul class="site-footer__list">
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/book-a-call/">Book a Call</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__col-title">Resources</div>
+        <ul class="site-footer__list">
+          <li><a href="/docs/">Docs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/changelog/">Changelog</a></li>
+          <li><a href="/roadmap/">Roadmap</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__col-title">Newsletter</div>
+        <p class="site-footer__newsletter">Release notes and tutorials. No tracking, unsubscribe anytime.</p>
+        {% if meta.buttondownUsername %}
+        <form class="site-footer__newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/{{ meta.buttondownUsername }}" method="post" target="_blank">
+          <label class="sr-only" for="footer-email">Email address</label>
+          <input id="footer-email" type="email" name="email" placeholder="you@example.com" required>
+          <button class="btn btn--primary btn--sm btn--block" type="submit">Subscribe</button>
+        </form>
+        {% else %}
+        <form class="site-footer__newsletter-form">
+          <label class="sr-only" for="footer-email">Email address</label>
+          <input id="footer-email" type="email" placeholder="Configure Buttondown in meta.js" disabled>
+          <button class="btn btn--primary btn--sm btn--block" type="button" disabled>Subscribe</button>
+        </form>
+        {% endif %}
+        <p class="site-footer__newsletter" style="margin-top: var(--space-md);">
+          GitHub: <a href="{{ meta.github }}">{{ meta.githubOwner }}/{{ meta.githubRepo }}</a>
+        </p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© {{ '' | year }} {{ meta.title }}. {{ meta.license }} License. Website by <a href="https://www.pikespeakwebdesigns.com">Pikes Peak Web Designs</a>.</div>
+      <div>
+        <a href="/privacy/">Privacy</a> ·
+        <a href="/terms/">Terms</a> ·
+        <a href="/license/">License</a> ·
+        <a href="/sitemap/">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,15 @@
+<aside class="sidebar-cta">
+  <div class="sidebar-cta__card">
+    <h3 class="sidebar-cta__title">{{ sidebar.title or "Prefer we do it for you?" }}</h3>
+    <p class="sidebar-cta__summary">{{ sidebar.summary or "We'll set up, deploy, and configure Project Broadsheet on your domain — start to finish in a week." }}</p>
+    <a class="btn btn--primary btn--block" href="{{ sidebar.ctaUrl or '/book-a-call/' }}">{{ sidebar.ctaLabel or "Book a Setup Call" }}</a>
+    {% if sidebar.list %}
+    <ul class="sidebar-cta__list">
+      {% for item in sidebar.list %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    <div class="sidebar-cta__contact">
+      Questions? <a href="mailto:{{ meta.email }}">{{ meta.email }}</a>
+    </div>
+  </div>
+</aside>
