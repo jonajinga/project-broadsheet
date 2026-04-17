@@ -30,8 +30,8 @@
 .site-header__actions { display: flex; align-items: center; gap: var(--space-xs); }
 
 .theme-toggle {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -21,9 +21,10 @@
 }
 .docs-sidebar__link {
   display: block;
-  padding: 0.4rem 0.6rem;
+  padding: 0.55rem 0.7rem;
   font-family: var(--font-ui);
   font-size: 0.92rem;
+  line-height: 1.4;
   color: var(--text-soft);
   text-decoration: none;
   border-left: 2px solid transparent;
@@ -40,7 +41,7 @@
 }
 .docs-toc__title { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); margin-bottom: var(--space-sm); }
 .docs-toc ol { display: flex; flex-direction: column; gap: 0.3rem; }
-.docs-toc a { display: block; color: var(--text-soft); text-decoration: none; padding: 0.3rem 0.5rem; border-left: 2px solid transparent; font-size: 0.88rem; line-height: 1.4; }
+.docs-toc a { display: block; color: var(--text-soft); text-decoration: none; padding: 0.45rem 0.55rem; border-left: 2px solid transparent; font-size: 0.88rem; line-height: 1.45; }
 .docs-toc a:hover { color: var(--text); text-decoration: none; }
 .docs-toc a.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
 .docs-toc .toc-h3 { padding-left: var(--space-md); font-size: 0.82rem; }

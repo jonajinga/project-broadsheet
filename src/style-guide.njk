@@ -1,0 +1,506 @@
+---
+layout: layouts/page.njk
+title: Style Guide
+eyebrow: Reference
+subtitle: Every design token, typographic specimen, component, and interaction pattern on the site — in one place.
+permalink: /style-guide/
+---
+<div class="sg-layout">
+  <aside class="sg-nav" aria-label="Style guide sections">
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#scale">Type scale</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms</a>
+    <a href="#cards">Cards</a>
+    <a href="#pricing-cards">Pricing cards</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#tables">Tables</a>
+    <a href="#badges">Badges</a>
+    <a href="#breadcrumbs">Breadcrumbs</a>
+    <a href="#doc-patterns">Doc patterns</a>
+    <a href="#icons">Icons</a>
+    <a href="#a11y">Accessibility</a>
+    <a href="#contrast">Contrast</a>
+  </aside>
+
+  <div>
+    <section class="sg-section" id="colors">
+      <h2>Colors</h2>
+      <p class="lead">Project Broadsheet's palette is newsprint — warm ink-on-paper by default, deep navy-black in dark mode. Every value is a CSS custom property in <code>tokens.css</code>.</p>
+
+      <div class="sg-subsection">
+        <h4>Surfaces</h4>
+        <div class="sg-color-grid">
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--paper);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Paper</span><span class="sg-color__value">--paper · #F4F1EB</span><span class="sg-color__contrast">Primary background</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--paper-raised);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Paper raised</span><span class="sg-color__value">--paper-raised · #FBF8F2</span><span class="sg-color__contrast">Cards, panels</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--paper-sunken);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Paper sunken</span><span class="sg-color__value">--paper-sunken · #EBE6DB</span><span class="sg-color__contrast">Footer, alt sections</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Text</h4>
+        <div class="sg-color-grid">
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--ink);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Ink</span><span class="sg-color__value">--ink · #1A1A1A</span><span class="sg-color__contrast">Body text — 15.6:1 on paper</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--ink-soft);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Ink soft</span><span class="sg-color__value">--ink-soft · #2C2C2C</span><span class="sg-color__contrast">Lead copy</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--muted);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Muted</span><span class="sg-color__value">--muted · #5C544A</span><span class="sg-color__contrast">Meta, captions — 7.1:1 on paper</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Accents</h4>
+        <div class="sg-color-grid">
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--vermillion);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Vermillion</span><span class="sg-color__value">--vermillion · #C0392B</span><span class="sg-color__contrast">Primary accent — 5.2:1 on paper</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--slate);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Slate</span><span class="sg-color__value">--slate · #2C5F8A</span><span class="sg-color__contrast">Links — 6.8:1 on paper</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--rule);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Rule</span><span class="sg-color__value">--rule · #8B6F47</span><span class="sg-color__contrast">Decorative dividers</span></div>
+          </div>
+          <div class="sg-color">
+            <div class="sg-color__swatch" style="background: var(--gold);"></div>
+            <div class="sg-color__body"><span class="sg-color__name">Gold</span><span class="sg-color__value">--gold · #B8862C</span><span class="sg-color__contrast">Borders, badges</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>State semantics</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">All borders and divider lines use semi-transparent text colors so they adapt automatically across themes.</p>
+        <div class="sg-demo sg-demo--row">
+          <span style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">--border (12% text)</span>
+          <span style="padding: 0.4rem 0.8rem; border: 1px solid var(--border-strong);">--border-strong (24% text)</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="typography">
+      <h2>Typography</h2>
+      <p class="lead">Four typefaces do all the work. All are served from Bunny Fonts with system-font fallbacks.</p>
+
+      <div class="sg-subsection">
+        <h4>Families</h4>
+        <div class="sg-type-specimen">
+          <div class="sg-type-specimen__meta">--font-masthead · Playfair Display 900</div>
+          <div class="sg-type-specimen__sample" style="font-family: var(--font-masthead); font-weight: 900; font-size: var(--step-5); line-height: 1.05;">Project Broadsheet</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Hero titles, masthead, page titles, decorative numerals.</p>
+        </div>
+        <div class="sg-type-specimen">
+          <div class="sg-type-specimen__meta">--font-headline · Lora 700</div>
+          <div class="sg-type-specimen__sample" style="font-family: var(--font-headline); font-weight: 700; font-size: var(--step-3); line-height: 1.2;">Publishing, owned by the publisher</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Subheads, card titles, article headlines.</p>
+        </div>
+        <div class="sg-type-specimen">
+          <div class="sg-type-specimen__meta">--font-body · Source Serif 4</div>
+          <div class="sg-type-specimen__sample" style="font-family: var(--font-body); font-size: var(--step-0); line-height: 1.7; max-width: 42rem;">Project Broadsheet is the free, open-source publication system for independent journalists and publishers. Own your content, your readers, and your platform. Forever. Every pixel of this paragraph is set in Source Serif 4, a humanist serif designed for long-form reading on screens.</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Article and page body copy — 17px base, 1.7 line-height.</p>
+        </div>
+        <div class="sg-type-specimen">
+          <div class="sg-type-specimen__meta">--font-ui · DM Sans</div>
+          <div class="sg-type-specimen__sample" style="font-family: var(--font-ui); font-size: 1rem;">Navigation, buttons, labels, meta</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">All UI chrome — nav, buttons, form labels, metadata.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="scale">
+      <h2>Type scale</h2>
+      <p class="lead">Fluid type scale via <code>clamp()</code>. Each step is defined in <code>tokens.css</code> and adjusts between a mobile minimum and a desktop maximum.</p>
+
+      <div class="sg-demo" style="gap: 0.25rem;">
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step--1</span><span class="sg-scale-row__value">~13–14px</span><div class="sg-scale-row__bar" style="height: var(--step--1);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-0</span><span class="sg-scale-row__value">~16–18px</span><div class="sg-scale-row__bar" style="height: var(--step-0);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-1</span><span class="sg-scale-row__value">~19–22px</span><div class="sg-scale-row__bar" style="height: var(--step-1);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-2</span><span class="sg-scale-row__value">~23–28px</span><div class="sg-scale-row__bar" style="height: var(--step-2);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-3</span><span class="sg-scale-row__value">~28–36px</span><div class="sg-scale-row__bar" style="height: var(--step-3);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-4</span><span class="sg-scale-row__value">~33–48px</span><div class="sg-scale-row__bar" style="height: var(--step-4);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-5</span><span class="sg-scale-row__value">~40–64px</span><div class="sg-scale-row__bar" style="height: var(--step-5);"></div></div>
+        <div class="sg-scale-row"><span class="sg-scale-row__token">--step-6</span><span class="sg-scale-row__value">~48–84px</span><div class="sg-scale-row__bar" style="height: var(--step-6);"></div></div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="spacing">
+      <h2>Spacing</h2>
+      <p class="lead">A consistent rhythm from 4px to 120px. Use spacing tokens — never hardcoded values.</p>
+      <div class="sg-demo" style="gap: 0.25rem;">
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-2xs</span><span class="sg-scale-row__value">0.25rem / 4px</span><div class="sg-space-row__bar" style="width: 0.25rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-xs</span><span class="sg-scale-row__value">0.5rem / 8px</span><div class="sg-space-row__bar" style="width: 0.5rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-sm</span><span class="sg-scale-row__value">0.75rem / 12px</span><div class="sg-space-row__bar" style="width: 0.75rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-md</span><span class="sg-scale-row__value">1rem / 16px</span><div class="sg-space-row__bar" style="width: 1rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-lg</span><span class="sg-scale-row__value">1.5rem / 24px</span><div class="sg-space-row__bar" style="width: 1.5rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-xl</span><span class="sg-scale-row__value">2rem / 32px</span><div class="sg-space-row__bar" style="width: 2rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-2xl</span><span class="sg-scale-row__value">3rem / 48px</span><div class="sg-space-row__bar" style="width: 3rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-3xl</span><span class="sg-scale-row__value">5rem / 80px</span><div class="sg-space-row__bar" style="width: 5rem;"></div></div>
+        <div class="sg-space-row"><span class="sg-scale-row__token">--space-4xl</span><span class="sg-scale-row__value">7.5rem / 120px</span><div class="sg-space-row__bar" style="width: 7.5rem;"></div></div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="buttons">
+      <h2>Buttons</h2>
+      <p class="lead">All buttons meet the 44×44px minimum touch target. Hover states have explicit color to beat parent link overrides.</p>
+
+      <div class="sg-subsection">
+        <h4>Variants</h4>
+        <div class="sg-demo sg-demo--row">
+          <button type="button" class="btn btn--primary">Primary</button>
+          <button type="button" class="btn btn--secondary">Secondary</button>
+          <button type="button" class="btn btn--outline">Outline</button>
+          <button type="button" class="btn btn--ghost">Ghost</button>
+        </div>
+        <pre class="sg-code">&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;</pre>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Sizes</h4>
+        <div class="sg-demo sg-demo--row">
+          <button type="button" class="btn btn--primary btn--sm">Small</button>
+          <button type="button" class="btn btn--primary">Default</button>
+          <button type="button" class="btn btn--primary btn--lg">Large</button>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Outline-light (dark backgrounds)</h4>
+        <div class="sg-demo sg-demo--row" style="background: var(--ink); color: var(--paper);">
+          <button type="button" class="btn btn--primary">Primary</button>
+          <button type="button" class="btn btn--outline-light">Outline light</button>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Group + block</h4>
+        <div class="sg-demo">
+          <div class="btn-group">
+            <button type="button" class="btn btn--primary">Accept</button>
+            <button type="button" class="btn btn--outline">Decline</button>
+          </div>
+          <button type="button" class="btn btn--primary btn--block">Full-width block</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="forms">
+      <h2>Forms</h2>
+      <p class="lead">All inputs are minimum 44px tall, use the UI typeface, and have a visible focus ring distinct from the hover state.</p>
+
+      <div class="sg-demo">
+        <form class="form" onsubmit="event.preventDefault();">
+          <div class="form__row">
+            <label class="form__label form__label--required" for="sg-name">Name</label>
+            <input class="form__input" id="sg-name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="sg-email">Email</label>
+            <input class="form__input" id="sg-email" type="email" placeholder="you@example.com">
+            <p class="form__hint">We'll never share this.</p>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="sg-select">Plan</label>
+            <select class="form__select" id="sg-select">
+              <option>Pick one</option>
+              <option>Launch</option>
+              <option>Signature</option>
+              <option>Publisher</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="sg-textarea">Message</label>
+            <textarea class="form__textarea" id="sg-textarea" placeholder="Say something…"></textarea>
+          </div>
+          <fieldset class="fieldset">
+            <legend>Fieldset legend</legend>
+            <div class="form__row">
+              <label class="form__label" for="sg-inline">Option</label>
+              <input class="form__input" id="sg-inline" type="text">
+            </div>
+          </fieldset>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Submit</button>
+            <button type="button" class="btn btn--outline">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="sg-section" id="cards">
+      <h2>Cards</h2>
+
+      <div class="sg-subsection">
+        <h4>Basic card</h4>
+        <div class="sg-demo">
+          <div class="grid grid-2">
+            <a class="card card--link" href="#cards">
+              <div class="card__eyebrow">Eyebrow</div>
+              <div class="card__title">Card title goes here</div>
+              <p class="card__summary">A short summary describing what's on the other side of this link. Usually 1–2 sentences.</p>
+            </a>
+            <div class="card">
+              <div class="card__eyebrow">Static</div>
+              <div class="card__title">Not linked</div>
+              <p class="card__summary">Same visual style, without hover behavior.</p>
+              <ul class="card__list"><li>First supporting point</li><li>Second supporting point</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Feature card</h4>
+        <div class="sg-demo">
+          <article class="feature-card">
+            <h3 class="feature-card__title">Feature heading</h3>
+            <p class="feature-card__summary">Top border in the accent color signals visual priority. Good for homepage feature grids and tiered comparison.</p>
+            <ul class="feature-card__list"><li>Supporting detail</li><li>Another detail</li><li>One more detail</li></ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Stat card</h4>
+        <div class="sg-demo">
+          <div class="grid grid-4">
+            <div class="stat-card"><div class="stat-card__value">27+</div><div class="stat-card__label">Reader tools</div></div>
+            <div class="stat-card"><div class="stat-card__value">9</div><div class="stat-card__label">Sections</div></div>
+            <div class="stat-card"><div class="stat-card__value">~12s</div><div class="stat-card__label">Build time</div></div>
+            <div class="stat-card"><div class="stat-card__value">$0</div><div class="stat-card__label">Recurring</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="pricing-cards">
+      <h2>Pricing cards</h2>
+      <div class="sg-demo">
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">Launch</h3>
+            <div><span class="pricing-card__price">$999</span><span class="pricing-card__cadence">one-time</span></div>
+            <p class="pricing-card__tagline">The fastest way to a live publication.</p>
+            <ul class="pricing-card__list"><li>Repo setup</li><li>Brand tokens</li><li>Deploy</li></ul>
+            <div class="pricing-card__cta"><a class="btn btn--primary btn--block" href="#pricing-cards">Choose Launch</a></div>
+          </article>
+          <article class="pricing-card pricing-card--featured">
+            <span class="pricing-card__tag">Most popular</span>
+            <h3 class="pricing-card__name">Signature</h3>
+            <div><span class="pricing-card__price">$2,499</span><span class="pricing-card__cadence">one-time</span></div>
+            <p class="pricing-card__tagline">Launch plus a custom look and migrated archive.</p>
+            <ul class="pricing-card__list"><li>Everything in Launch</li><li>Custom type</li><li>25 articles migrated</li></ul>
+            <div class="pricing-card__cta"><a class="btn btn--primary btn--block" href="#pricing-cards">Choose Signature</a></div>
+          </article>
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">Publisher</h3>
+            <div><span class="pricing-card__price">$4,999</span><span class="pricing-card__cadence">one-time</span></div>
+            <p class="pricing-card__tagline">White-glove for serious publications.</p>
+            <ul class="pricing-card__list"><li>Everything in Signature</li><li>Custom sections</li><li>100 articles migrated</li></ul>
+            <div class="pricing-card__cta"><a class="btn btn--primary btn--block" href="#pricing-cards">Choose Publisher</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="alerts">
+      <h2>Alerts &amp; callouts</h2>
+      <div class="sg-demo">
+        <div class="alert alert--info"><strong>Info</strong>Use for neutral, informational messages.</div>
+        <div class="alert alert--success"><strong>Success</strong>Use for confirmations and positive feedback.</div>
+        <div class="alert alert--warning"><strong>Warning</strong>Use for things the reader should know but not panic about.</div>
+        <div class="alert alert--danger"><strong>Danger</strong>Use for breaking errors or destructive actions.</div>
+        <div class="callout"><div class="callout__title">Callout title</div><p>A softer box with more room for prose. Good for sidebars, notes, and supplementary context within a longer article.</p></div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="tables">
+      <h2>Tables</h2>
+      <p class="lead">Data-dense comparison tables use <code>.compare-table</code> wrapped in <code>.table-wrap</code> for horizontal overflow on small screens.</p>
+      <div class="sg-demo" style="padding: 0;">
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead><tr><th scope="col">Criterion</th><th scope="col">Option A<small>free</small></th><th scope="col">Option B<small>$9/mo</small></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Starting cost</th><td>$0</td><td>$9/mo</td></tr>
+              <tr><th scope="row">Ownership</th><td>Full</td><td>Partial</td></tr>
+              <tr><th scope="row">Lock-in risk</th><td>None</td><td>Low</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="badges">
+      <h2>Badges</h2>
+      <div class="sg-demo sg-demo--row">
+        <span class="badge">Default</span>
+        <span class="badge badge--accent">Accent</span>
+        <span class="badge badge--mit">MIT</span>
+        <span class="badge badge--mit">v1.0.0</span>
+      </div>
+    </section>
+
+    <section class="sg-section" id="breadcrumbs">
+      <h2>Breadcrumbs</h2>
+      <div class="sg-demo">
+        <nav class="breadcrumbs" aria-label="Breadcrumb example">
+          <a href="/">Home</a><span class="breadcrumbs__sep">/</span>
+          <a href="/docs/">Docs</a><span class="breadcrumbs__sep">/</span>
+          <a href="/docs/getting-started/">Getting Started</a><span class="breadcrumbs__sep">/</span>
+          <span>Install</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="sg-section" id="doc-patterns">
+      <h2>Doc patterns</h2>
+
+      <div class="sg-subsection">
+        <h4>Doc meta row</h4>
+        <div class="sg-demo">
+          <div class="doc-meta">
+            <span class="doc-meta__item">Getting Started</span>
+            <span class="doc-meta__item">Updated April 17, 2026</span>
+            <span class="doc-meta__item">v1.0.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Was-this-helpful</h4>
+        <div class="sg-demo">
+          <div class="doc-feedback" style="margin: 0;">
+            <span class="doc-feedback__text">Was this helpful?</span>
+            <div class="doc-feedback__buttons">
+              <button type="button" class="btn btn--sm btn--outline">Yes</button>
+              <button type="button" class="btn btn--sm btn--outline">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Prev/next navigation</h4>
+        <div class="sg-demo">
+          <div class="doc-nav" style="margin: 0;">
+            <a class="doc-nav__item" href="#doc-patterns">
+              <div class="doc-nav__eyebrow">← Previous</div>
+              <div class="doc-nav__title">Installing Project Broadsheet</div>
+            </a>
+            <a class="doc-nav__item doc-nav__item--next" href="#doc-patterns">
+              <div class="doc-nav__eyebrow">Next →</div>
+              <div class="doc-nav__title">Deploy your first version</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="icons">
+      <h2>Icons</h2>
+      <p class="lead">Icons are inline SVG, 24×24 viewBox, <code>stroke-width: 2</code>, <code>fill: none</code>, and <code>currentColor</code> so they inherit text color in light and dark modes.</p>
+      <div class="sg-demo">
+        <div class="sg-icon-grid">
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="sg-icon__name">menu</span></div>
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6l-12 12"/></svg><span class="sg-icon__name">close</span></div>
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg><span class="sg-icon__name">chevron</span></div>
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span class="sg-icon__name">arrow-up</span></div>
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"/></svg><span class="sg-icon__name">sun</span></div>
+          <div class="sg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="sg-icon__name">moon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="a11y">
+      <h2>Accessibility patterns</h2>
+      <p class="lead">Every site-wide pattern we use to meet WCAG 2.2 AA — in one place, with live demos.</p>
+
+      <div class="sg-subsection">
+        <h4>Skip link</h4>
+        <p>Press <kbd>Tab</kbd> on any page. The first focusable element is a "Skip to content" link that jumps past navigation.</p>
+        <div class="sg-demo">
+          <a href="#main" class="skip-link" style="position: static; top: auto; left: auto;">Skip to content</a>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Focus ring</h4>
+        <p>Every interactive element shows a 2px vermillion outline with 3px offset on keyboard focus. Click the button below, then press <kbd>Tab</kbd> to see it.</p>
+        <div class="sg-demo sg-demo--row">
+          <button type="button" class="btn btn--outline">Tab to focus me</button>
+          <a class="btn btn--outline" href="#a11y">Tab to focus me</a>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Screen-reader-only content</h4>
+        <p>Use <code>.sr-only</code> to hide content visually while keeping it accessible to assistive tech.</p>
+        <pre class="sg-code">&lt;label class="sr-only" for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" placeholder="you@example.com"&gt;</pre>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Reduced motion</h4>
+        <p>All animations and scroll-behavior honor <code>prefers-reduced-motion</code>. Enable the OS-level setting, and motion drops to 0.01ms.</p>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>ARIA labels &amp; landmarks</h4>
+        <ul style="list-style: disc; padding-left: 1.5rem;">
+          <li><code>role="banner"</code> on site header, <code>role="contentinfo"</code> on footer</li>
+          <li><code>aria-label</code> on every icon-only button and every nav</li>
+          <li><code>aria-current="page"</code> on active nav and sidebar links</li>
+          <li><code>aria-hidden="true"</code> on decorative SVGs</li>
+          <li><code>&lt;main id="main"&gt;</code> as the skip-link target</li>
+        </ul>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Touch targets</h4>
+        <p>Every interactive element is a minimum of 44×44 CSS pixels — buttons, nav links, form inputs, theme toggle, hamburger, back-to-top, sidebar links.</p>
+      </div>
+    </section>
+
+    <section class="sg-section" id="contrast">
+      <h2>Contrast reference</h2>
+      <p class="lead">All text/background pairings target WCAG AA minimums: <strong>4.5:1 for normal text</strong>, <strong>3:1 for large text and UI components</strong>. Most exceed AAA.</p>
+      <div class="sg-demo" style="padding: 0;">
+        <div class="table-wrap">
+          <table class="compare-table sg-contrast-table">
+            <thead><tr><th>Pairing</th><th>Ratio</th><th>AA normal</th><th>AA large</th><th>AAA</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Ink on Paper</th><td>15.6 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td></tr>
+              <tr><th scope="row">Ink soft on Paper</th><td>12.4 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td></tr>
+              <tr><th scope="row">Muted on Paper</th><td>7.1 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td></tr>
+              <tr><th scope="row">Vermillion on Paper</th><td>5.2 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td>—</td></tr>
+              <tr><th scope="row">Slate on Paper</th><td>6.8 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td></tr>
+              <tr><th scope="row">White on Vermillion</th><td>5.4 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td>—</td></tr>
+              <tr><th scope="row">Paper on Ink (inverted)</th><td>15.6 : 1</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="margin-top: var(--space-md); color: var(--text-muted); font-size: 0.9rem;">Ratios above are for light mode; dark mode values are derived and independently verified at identical or better contrast.</p>
+    </section>
+  </div>
+</div>

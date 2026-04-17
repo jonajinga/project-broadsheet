@@ -8,7 +8,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.5rem 0.25rem;
+  padding: 0.9rem 0.4rem;
+  min-height: 2.75rem;
   font-family: var(--font-ui);
   font-weight: 500;
   font-size: 0.95rem;
@@ -22,6 +23,11 @@
 .site-nav__link[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
 .site-nav__chevron {
   padding: 0.25rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-muted);
   transition: transform var(--transition-fast);
   line-height: 0;

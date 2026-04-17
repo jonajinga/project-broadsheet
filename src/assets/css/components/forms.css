@@ -6,15 +6,19 @@
 .form__hint { font-size: 0.85rem; color: var(--text-muted); }
 .form__input, .form__textarea, .form__select {
   padding: 0.8rem 0.9rem;
+  min-height: 2.75rem;
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border-strong);
   font-family: var(--font-ui);
   font-size: 1rem;
+  line-height: 1.4;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .form__textarea { resize: vertical; min-height: 8rem; line-height: 1.5; }
-.form__input:focus, .form__textarea:focus, .form__select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,57,43,0.15); }
+.form__input:focus-visible, .form__textarea:focus-visible, .form__select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,57,43,0.15); }
+.form__input:focus:not(:focus-visible), .form__textarea:focus:not(:focus-visible), .form__select:focus:not(:focus-visible) { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,57,43,0.15); }
+.form__input:invalid:not(:focus):not(:placeholder-shown), .form__textarea:invalid:not(:focus):not(:placeholder-shown) { border-color: var(--vermillion); }
 .form__actions { margin-top: var(--space-sm); display: flex; gap: var(--space-sm); flex-wrap: wrap; }
 
 .form-grid {
