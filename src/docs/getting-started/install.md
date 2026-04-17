@@ -10,7 +10,7 @@ Project Broadsheet runs on Node.js 18 or later. If you haven't installed Node, d
 ## Clone the repository
 
 ```bash
-git clone https://github.com/jon-ajinga/broadsheet.git my-publication
+git clone https://github.com/jonajinga/broadsheet.git my-publication
 cd my-publication
 ```
 
