@@ -182,3 +182,4 @@ body { top: 0 !important; position: static !important; }
     max-height: min(70vh, 32rem);
   }
 }
+.gtranslate_wrapper { display: none !important; }

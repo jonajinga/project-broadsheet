@@ -85,22 +85,12 @@ window.pickLang = function (code) {
 
   var applyTranslation = function (attempt) {
     attempt = attempt || 0;
-    var sel = document.querySelector(".goog-te-combo");
-    if (sel) {
-      sel.value = code;
-      sel.dispatchEvent(new Event("change"));
+    if (typeof window.doGTranslate === "function") {
+      window.doGTranslate("en|" + code);
       return true;
     }
     if (attempt < 20) {
       setTimeout(function () { applyTranslation(attempt + 1); }, 250);
-    } else {
-      // Fallback: set the Google Translate cookie and reload.
-      try {
-        var host = window.location.hostname.replace(/^www\./, "");
-        document.cookie = "googtrans=/en/" + code + "; path=/";
-        document.cookie = "googtrans=/en/" + code + "; path=/; domain=." + host;
-        window.location.reload();
-      } catch (e) {}
     }
     return false;
   };
