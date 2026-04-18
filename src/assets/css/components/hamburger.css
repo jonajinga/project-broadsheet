@@ -6,8 +6,10 @@
   justify-content: center;
   color: var(--text);
   border: 1px solid transparent;
+  background: transparent;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
-.hamburger:hover { background: var(--surface-raised); }
+.hamburger:hover, .hamburger:focus-visible { background: var(--surface-raised); color: var(--accent); }
 .hamburger__icon { width: 1.3rem; height: 1.3rem; }
 
 .menu-panel {
@@ -17,7 +19,8 @@
   bottom: 0;
   width: min(22rem, 90vw);
   background: var(--surface);
-  border-left: 1px solid var(--border);
+  color: var(--text);
+  border-left: 1px solid var(--border-strong);
   box-shadow: var(--shadow-lg);
   z-index: 200;
   transform: translateX(100%);
@@ -27,11 +30,22 @@
   padding: var(--space-lg);
   overflow-y: auto;
 }
+html[data-theme="dark"] .menu-panel { background: #1A1815; }
 .menu-panel[data-open="true"] { transform: translateX(0); }
 .menu-panel__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); }
-.menu-panel__title { font-family: var(--font-masthead); font-weight: 700; font-size: 1.1rem; }
-.menu-panel__close { width: 2.75rem; height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; color: var(--text); }
-.menu-panel__close:hover { background: var(--surface-raised); }
+.menu-panel__title { font-family: var(--font-masthead); font-weight: 700; font-size: 1.1rem; color: var(--text); }
+.menu-panel__close {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.menu-panel__close:hover, .menu-panel__close:focus-visible { background: var(--surface-raised); color: var(--accent); }
 .menu-panel__close svg { width: 1.2rem; height: 1.2rem; }
 
 .menu-panel__section { margin-bottom: var(--space-lg); }
@@ -54,11 +68,15 @@
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   white-space: nowrap;
+  transition: color var(--transition-fast);
 }
 .menu-panel__link:hover,
+.menu-panel__link:focus-visible,
 .menu-panel__link[aria-current="page"] { color: var(--accent); text-decoration: none; }
 .menu-panel__cta { margin-top: var(--space-md); }
 .menu-panel__contact { margin-top: auto; padding-top: var(--space-lg); border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
+.menu-panel__contact a { color: var(--text); font-weight: 600; }
+.menu-panel__contact a:hover { color: var(--accent); }
 
 .menu-backdrop {
   position: fixed;

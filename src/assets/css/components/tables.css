@@ -1,7 +1,10 @@
-.table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--surface-raised); }
-.compare-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border-strong); background: var(--surface-raised); }
+html[data-theme="dark"] .table-wrap { background: #1A1815; border-color: rgba(232, 227, 214, 0.18); }
+
+.compare-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; color: var(--text); }
 .compare-table thead th {
   background: var(--surface-sunken);
+  color: var(--text);
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 0.85rem;
@@ -12,7 +15,8 @@
   border-bottom: 2px solid var(--border-strong);
   white-space: nowrap;
 }
-.compare-table thead th small { display: block; font-weight: 400; font-size: 0.7rem; letter-spacing: 0; text-transform: none; color: var(--text-muted); margin-top: 0.2rem; }
+html[data-theme="dark"] .compare-table thead th { background: #0D0C0B; border-bottom-color: rgba(232, 227, 214, 0.28); }
+.compare-table thead th small { display: block; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.02em; text-transform: none; color: var(--text-muted); margin-top: 0.25rem; }
 .compare-table thead th:first-child { color: var(--accent); }
 .compare-table tbody th {
   font-family: var(--font-ui);
@@ -20,16 +24,22 @@
   padding: var(--space-sm) var(--space-md);
   border-bottom: 1px solid var(--border);
   background: var(--surface-sunken);
+  color: var(--text);
   text-align: left;
   white-space: nowrap;
   min-width: 12rem;
 }
+html[data-theme="dark"] .compare-table tbody th { background: #15130F; border-bottom-color: rgba(232, 227, 214, 0.1); }
 .compare-table tbody td {
   padding: var(--space-sm) var(--space-md);
   border-bottom: 1px solid var(--border);
   vertical-align: top;
   line-height: 1.5;
+  color: var(--text-soft);
 }
-.compare-table tbody td:first-of-type { font-weight: 600; color: var(--accent); }
+html[data-theme="dark"] .compare-table tbody td { border-bottom-color: rgba(232, 227, 214, 0.1); }
+.compare-table tbody td:first-of-type { font-weight: 600; color: var(--text); }
 .compare-table tbody tr:hover td,
 .compare-table tbody tr:hover th { background: var(--surface); }
+html[data-theme="dark"] .compare-table tbody tr:hover td,
+html[data-theme="dark"] .compare-table tbody tr:hover th { background: #221F1B; }
