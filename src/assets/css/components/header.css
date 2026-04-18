@@ -149,13 +149,31 @@ html[data-theme="dark"] .lang-menu__item:focus-visible { background: #221F1B; }
 .lang-menu__flag { font-size: 1.05rem; line-height: 1; flex-shrink: 0; }
 .lang-menu__name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Hide GTranslate's own widget UI so our button is the only entry point. */
-.gtranslate_wrapper,
+/* Keep GTranslate's wrapper mounted (otherwise doGTranslate never gets defined)
+   but position it off-screen so only our header button is the visible entry. */
+.gtranslate_wrapper {
+  position: fixed !important;
+  left: -10000px !important;
+  top: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
 .gt_float_switcher,
 #gt_float_wrapper,
 .goog-te-banner-frame { display: none !important; }
 body { top: 0 !important; }
 
-@media (max-width: 560px) {
-  .lang-menu { right: -0.5rem; width: min(18rem, calc(100vw - 1rem)); }
+@media (max-width: 640px) {
+  .lang-menu {
+    position: fixed;
+    top: calc(var(--header-height) + 0.4rem);
+    left: 0.5rem;
+    right: 0.5rem;
+    width: auto;
+    max-width: none;
+    max-height: min(70vh, 32rem);
+  }
 }

@@ -25,21 +25,17 @@
             theme: "broadsheet",
             allowHTML: false,
             maxWidth: 320,
-            delay: [120, 0],
+            delay: [100, 0],
             placement: "top",
             interactive: false,
-            trigger: "mouseenter focus click",
-            touch: ["hold", 300],
-            hideOnClick: "toggle"
+            trigger: "click mouseenter focus",
+            touch: true,
+            hideOnClick: true,
+            appendTo: function () { return document.body; }
           });
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute("aria-label", entry.term + ": " + content);
-          // Prevent default on click/keyboard so we never navigate away; tippy handles the popup.
-          el.addEventListener("click", function (e) { e.preventDefault(); });
-          el.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") e.preventDefault();
-          });
         });
       });
     return true;

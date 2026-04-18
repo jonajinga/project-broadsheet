@@ -5,7 +5,7 @@
   align-items: start;
 }
 @media (max-width: 820px) {
-  .glossary-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+  .glossary-layout { grid-template-columns: minmax(0, 1fr) 2.5rem; gap: var(--space-md); }
 }
 
 .glossary-alpha {
@@ -60,22 +60,13 @@ html[data-theme="dark"] .glossary-alpha { background: #1A1815; border-color: rgb
 
 @media (max-width: 820px) {
   .glossary-alpha {
-    position: sticky;
-    top: var(--header-height);
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.2rem;
-    padding: var(--space-sm);
-    max-height: none;
-    text-align: left;
-    justify-content: center;
+    padding: 0.3rem 0.15rem;
+    font-size: 0.75rem;
+    top: calc(var(--header-height) + 0.5rem);
   }
-  .glossary-alpha__title { display: none; }
+  .glossary-alpha__title { font-size: 0.55rem; padding-bottom: 0.25rem; margin-bottom: 0.25rem; letter-spacing: 0.1em; }
   .glossary-alpha a,
-  .glossary-alpha__inactive {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
+  .glossary-alpha__inactive { height: 1.4rem; font-size: 0.72rem; }
 }
 
 .glossary-list { display: flex; flex-direction: column; gap: var(--space-xl); max-width: 46rem; min-width: 0; }
