@@ -49,6 +49,7 @@ html[data-theme="dark"] .glossary-alpha { background: #1A1815; border-color: rgb
 .glossary-entry {
   padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: calc(var(--header-height) + 4.5rem);
 }
 .glossary-entry:last-child { border-bottom: 0; padding-bottom: 0; }
 .glossary-entry__term {
