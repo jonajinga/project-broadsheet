@@ -13,9 +13,22 @@ layout: layouts/base.njk
     <span>{{ title }}</span>
   </nav>
 
-  <div class="docs-layout">
-    <aside class="docs-layout__sidebar">
+  <button class="docs-sidebar-toggle" type="button" onclick="toggleDocsSidebar()" aria-controls="docs-sidebar" aria-expanded="true">
+    <svg class="docs-sidebar-toggle__icon docs-sidebar-toggle__icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    <svg class="docs-sidebar-toggle__icon docs-sidebar-toggle__icon--closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <span class="docs-sidebar-toggle__label docs-sidebar-toggle__label--open">Hide menu</span>
+    <span class="docs-sidebar-toggle__label docs-sidebar-toggle__label--closed">Browse docs</span>
+  </button>
+
+  <div class="docs-layout" id="docs-layout" data-sidebar="open">
+    <aside class="docs-layout__sidebar" id="docs-sidebar">
       <div class="docs-sidebar">
+        <div class="docs-sidebar__header">
+          <span class="docs-sidebar__heading">Documentation</span>
+          <button class="docs-sidebar__close" type="button" onclick="toggleDocsSidebar()" aria-label="Close sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+          </button>
+        </div>
         {% for cat in docCategories %}
         <div class="docs-sidebar__group">
           <div class="docs-sidebar__title">{{ cat.name }}</div>
@@ -28,6 +41,7 @@ layout: layouts/base.njk
         {% endfor %}
       </div>
     </aside>
+    <div class="docs-sidebar-backdrop" onclick="toggleDocsSidebar()" aria-hidden="true"></div>
 
     <article class="doc-content" data-doc-slug="{{ page.url }}">
       <h1 style="font-family: var(--font-masthead); font-size: var(--step-5); line-height: 1.1; margin-bottom: var(--space-md);">{{ title }}</h1>
@@ -75,7 +89,7 @@ layout: layouts/base.njk
 
       <div class="callout" style="margin-top: var(--space-2xl);">
         <div class="callout__title">Still need help?</div>
-        <p>Browse <a href="/support/">Support</a> for community channels and paid support options, or <a href="/book-a-call/">book a call</a> if you'd like us to set it up for you.</p>
+        <p>Browse <a href="/support/">Support</a> for community channels and paid support options, or <a href="/book-a-call/">book a call</a> if you'd like me to set it up for you.</p>
       </div>
     </article>
 
