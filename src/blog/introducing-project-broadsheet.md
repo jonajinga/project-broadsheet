@@ -19,7 +19,7 @@ Project Broadsheet is what I built.
 It's an Eleventy starter, but that undersells it. It's:
 
 - **A full publishing framework** with nine editorial sections, reviews, a library, events, media, and games
-- **27 reader tools** (text-to-speech, highlights, reading ruler, focus mode, reading list…) that no other platform offers
+- **27 reader tools** for readers: text-to-speech, highlights, reading ruler, focus mode, reading list, and more
 - **Pagefind search**, **Buttondown newsletter**, **Umami analytics**, and **Cusdis comments** wired in
 - **Fully customizable** via a single config file and one CSS tokens file
 - **$0 forever**, no platform, no database, no lock-in

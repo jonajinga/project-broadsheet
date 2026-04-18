@@ -10,7 +10,7 @@ export default {
   language: "en",
   locale: "en_US",
   themeColor: "#1A1A1A",
-  ogImage: "/assets/img/og-default.jpg",
+  ogImage: "/assets/img/og-default.png",
   github: "https://github.com/jonajinga/broadsheet",
   githubOwner: "jonajinga",
   githubRepo: "broadsheet",

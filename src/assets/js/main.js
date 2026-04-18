@@ -127,3 +127,30 @@ document.addEventListener("keydown", function (event) {
     if (picked) picked.setAttribute("aria-current", "true");
   } catch (e) {}
 })();
+
+// Pre-select form fields from URL query params.
+// e.g. /book-a-call/?package=signature pre-selects the matching option.
+(function () {
+  if (!window.location.search) return;
+  var params = new URLSearchParams(window.location.search);
+  params.forEach(function (value, name) {
+    var fields = document.querySelectorAll('[name="' + name + '"]');
+    fields.forEach(function (field) {
+      if (field.tagName === "SELECT") {
+        var matched = false;
+        Array.prototype.forEach.call(field.options, function (opt) {
+          var optVal = (opt.value || opt.textContent || "").toLowerCase();
+          if (optVal === value.toLowerCase() || optVal.indexOf(value.toLowerCase()) === 0) {
+            opt.selected = true;
+            matched = true;
+          }
+        });
+        if (matched) field.dispatchEvent(new Event("change", { bubbles: true }));
+      } else if (field.type === "checkbox" || field.type === "radio") {
+        if (field.value.toLowerCase() === value.toLowerCase()) field.checked = true;
+      } else if (field.tagName === "INPUT" || field.tagName === "TEXTAREA") {
+        if (!field.value) field.value = value;
+      }
+    });
+  });
+})();

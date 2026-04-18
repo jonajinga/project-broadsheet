@@ -96,5 +96,5 @@ Useful for sidebars, footers, repeated boilerplate.
 ## What to do next
 
 - [Pagefind search setup](/docs/seo/pagefind-search/) for full configuration.
-- [Build errors](/docs/troubleshooting/build-errors.md) if Pagefind is failing during the build.
+- [Build errors](/docs/troubleshooting/build-errors/) if Pagefind is failing during the build.
 - [Deployment: Cloudflare Pages](/docs/deployment/cloudflare-pages/) for host-specific deploy notes.
