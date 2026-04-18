@@ -12,8 +12,9 @@ html[data-theme="dark"] .site-header { background: rgba(18, 16, 14, 0.92); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
-  height: var(--header-height);
+  gap: clamp(0.5rem, 2vw, var(--space-md));
+  min-height: var(--header-height);
+  flex-wrap: nowrap;
 }
 .site-header__brand {
   display: inline-flex;
@@ -36,7 +37,7 @@ html[data-theme="dark"] .site-header { background: rgba(18, 16, 14, 0.92); }
   .site-header__wordmark { display: none; }
   .site-header__brand { gap: 0; }
 }
-.site-header__actions { display: flex; align-items: center; gap: var(--space-xs); }
+.site-header__actions { display: flex; align-items: center; gap: var(--space-xs); flex-shrink: 0; }
 
 .search-toggle {
   width: 2.75rem;
