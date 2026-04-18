@@ -1,41 +1,41 @@
 ---
 title: Customize design tokens
-subtitle: Colors, typography, spacing — every design decision is a CSS variable you can edit in one place.
+subtitle: Every color, typeface, and spacing value on the site is defined once in a single CSS file. Edit a handful of variables to rebrand the entire publication.
 order: 1
 updated: 2026-04-17
 ---
 
-Project Broadsheet's entire visual language is defined in `src/assets/css/tokens.css`. Change these variables, and the site updates everywhere — light mode, dark mode, every page, every component.
+Project Broadsheet's visual language is controlled by a set of <span class="g-term" data-term="design token">design tokens</span> declared in `src/assets/css/tokens.css`. Tokens are named CSS custom properties — a value like `#C0392B` is given a descriptive name like `--vermillion`, and every component that uses vermillion references the name rather than the raw hex value. Change the variable once, and every button, link, badge, and accent updates in lockstep.
 
 ## Colors
 
 ```css
 :root {
-  --paper: #F4F1EB;      /* background */
+  --paper: #F4F1EB;      /* primary background */
   --ink: #1A1A1A;        /* body text */
   --vermillion: #C0392B; /* primary accent */
   --slate: #2C5F8A;      /* links */
 }
 ```
 
-Dark mode values live in `:root[data-theme="dark"]`. The theme toggle script flips `data-theme` and persists the choice in `localStorage`.
+<span class="g-term" data-term="dark mode">Dark mode</span> values are defined inside `:root[data-theme="dark"]`. The theme toggle script flips the `data-theme` attribute on the `<html>` element and persists the choice in `localStorage` — no flash, no round trip to a server.
 
 ## Typography
 
-Four families handle everything:
+Four font families handle every piece of text on the site:
 
 ```css
---font-masthead: "Playfair Display", serif; /* big display type */
---font-headline: "Lora", serif;             /* article headlines */
---font-body: "Source Serif 4", serif;       /* body copy */
---font-ui: "DM Sans", sans-serif;           /* nav, buttons, labels */
+--font-masthead: "Playfair Display", serif; /* hero and page titles */
+--font-headline: "Lora", serif;             /* article headlines and card titles */
+--font-body: "Source Serif 4", serif;       /* paragraph text */
+--font-ui: "DM Sans", sans-serif;           /* navigation, buttons, labels */
 ```
 
-Swap any of these for a different Bunny Font and the whole site reflows.
+All four are served from <span class="g-term" data-term="Bunny Fonts">Bunny Fonts</span>, which is privacy-respecting and GDPR-compliant. Swap any of them for another Bunny font and the full site re-typesets without any other changes.
 
 ## Spacing
 
-Fluid spacing via `clamp()`:
+Spacing tokens use fluid `clamp()` values where appropriate, so the rhythm compresses on small screens and expands on large ones:
 
 ```css
 --space-sm: 0.75rem;
@@ -45,7 +45,9 @@ Fluid spacing via `clamp()`:
 --space-2xl: 3rem;
 ```
 
-## What's next
+Every layout, card, form, and section uses these tokens rather than raw values, which means a single edit to the spacing scale propagates through every component.
 
-- [Pick fonts from Bunny Fonts](/docs/design/fonts/).
-- [Add per-section accent colors](/docs/content/sections/).
+## What to do next
+
+- [Pick fonts from Bunny Fonts](/docs/design/fonts/) and swap the font-family variables.
+- [Add per-section accent colors](/docs/content/sections/) so each editorial vertical has its own look.

@@ -3,16 +3,15 @@ export default {
     name: "Self-hosted",
     price: "$0",
     cadence: "forever",
-    tagline: "MIT-licensed. No account. No tracking. Yours to keep.",
+    tagline: "MIT-licensed. No account, no tracking, no limits. Take it and keep it.",
     features: [
       "Full source on GitHub",
-      "All 27 reader tools included",
-      "Every editorial section, review type, and collection",
+      "Every reader tool, editorial section, and content type included",
       "Pagefind search, Buttondown newsletter, Umami analytics ready",
-      "Cloudflare Pages / Netlify / Vercel one-click deploys",
-      "Community support on GitHub"
+      "One-click deploys to Cloudflare Pages, Netlify, or Vercel",
+      "Community support on GitHub Discussions"
     ],
-    cta: { label: "Get Started (Free)", url: "/get-started/" }
+    cta: { label: "Fork it and start", url: "/get-started/" }
   },
   packages: [
     {
@@ -20,26 +19,26 @@ export default {
       name: "Launch",
       price: "$999",
       cadence: "one-time",
-      hours: "~5 hours",
-      tagline: "The fastest way to a live publication.",
+      hours: "~5 hours of my time",
+      tagline: "A working publication on your own domain by the end of the week.",
       features: [
-        "Repo setup and configuration",
-        "Brand tokens (colors, fonts) applied",
+        "Repo setup and baseline configuration",
+        "Your brand applied via tokens",
         "Cloudflare Pages deployment",
         "Custom domain connected",
         "Three integrations configured (choose from Buttondown, Umami, Web3Forms, Cusdis, GTranslate, Pages CMS)",
         "One 60-minute training call",
-        "First article published together on the call"
+        "Your first article published together during the call"
       ],
-      cta: { label: "Book a Launch Call", url: "/book-a-call/?package=launch" }
+      cta: { label: "Book a launch call", url: "/book-a-call/?package=launch" }
     },
     {
       slug: "signature",
       name: "Signature",
       price: "$2,499",
       cadence: "one-time",
-      hours: "~12 hours",
-      tagline: "Launch plus a custom look and a migrated archive.",
+      hours: "~12 hours of my time",
+      tagline: "The Launch package, plus a custom look and a migrated archive.",
       features: [
         "Everything in Launch",
         "Custom color system and typography pairing",
@@ -48,7 +47,7 @@ export default {
         "Three 60-minute training calls",
         "30 days of email support after launch"
       ],
-      cta: { label: "Book a Signature Call", url: "/book-a-call/?package=signature" },
+      cta: { label: "Book a signature call", url: "/book-a-call/?package=signature" },
       featured: true
     },
     {
@@ -56,17 +55,17 @@ export default {
       name: "Publisher",
       price: "$4,999",
       cadence: "one-time",
-      hours: "~25 hours",
-      tagline: "White-glove for serious publications.",
+      hours: "~25 hours of my time",
+      tagline: "Hands-on for publications planning to ship meaningful work from day one.",
       features: [
         "Everything in Signature",
         "Custom section types or layouts (library, reviews, editions, etc.)",
         "Up to 100 articles migrated and formatted",
-        "Multi-author setup with author pages and RSS",
+        "Multi-author setup with author pages and per-author RSS",
         "Five 60-minute training calls",
         "60 days of priority email support"
       ],
-      cta: { label: "Book a Publisher Call", url: "/book-a-call/?package=publisher" }
+      cta: { label: "Book a publisher call", url: "/book-a-call/?package=publisher" }
     }
   ],
   migration: [
@@ -80,7 +79,7 @@ export default {
       name: "Care",
       price: "$149",
       cadence: "per month",
-      tagline: "Keep the lights on.",
+      tagline: "Security updates and small edits on retainer.",
       features: [
         "Security patches and dependency updates",
         "Monthly backup verification",
@@ -93,7 +92,7 @@ export default {
       name: "Care+",
       price: "$399",
       cadence: "per month",
-      tagline: "Keep the lights on and the articles flowing.",
+      tagline: "Care, plus article publishing and quarterly design review.",
       featured: true,
       features: [
         "Everything in Care",
@@ -108,7 +107,7 @@ export default {
       name: "Editorial",
       price: "$899",
       cadence: "per month",
-      tagline: "A publishing desk on retainer.",
+      tagline: "A publishing desk on retainer — for publications that ship regularly.",
       features: [
         "Everything in Care+",
         "Publish up to 20 articles per month",

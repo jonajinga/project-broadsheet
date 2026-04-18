@@ -26,7 +26,8 @@ export default {
       children: [
         { label: "Docs", url: "/docs/", description: "The full help center — install, configure, deploy, customize, and troubleshoot every feature." },
         { label: "Get Started", url: "/get-started/", description: "Fork the repo, run three commands, publish your first article. No account required." },
-        { label: "Blog", url: "/blog/", description: "Release notes, tutorials, case studies, and editorial from the maintainer." },
+        { label: "Glossary", url: "/glossary/", description: "Plain-language definitions for every piece of jargon used in the docs and throughout the site." },
+        { label: "Blog", url: "/blog/", description: "Release notes, tutorials, and essays on the project written by me, the maintainer." },
         { label: "Support", url: "/support/", description: "Community channels, paid support, bug reports, and feature requests — all in one place." }
       ]
     }

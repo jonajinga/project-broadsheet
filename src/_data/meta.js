@@ -1,7 +1,7 @@
 export default {
   title: "Project Broadsheet",
   shortTitle: "Project Broadsheet",
-  description: "Project Broadsheet is the free, open-source publication system for independent journalists and publishers. Own your content, your readers, and your platform. Forever.",
+  description: "A passion project to democratize publishing. Project Broadsheet is a full newsroom-in-a-box — nine editorial sections, reviews, a library, reader tools, search, and SEO — free to fork and keep.",
   url: process.env.SITE_URL || "https://projectbroadsheet.com",
   phone: "",
   email: "hello@projectbroadsheet.com",
@@ -20,9 +20,15 @@ export default {
   umamiWebsiteId: "",
   umamiSrc: "",
   web3formsKey: "",
-  tagline: "Publishing, owned by the publisher.",
-  subhead: "Project Broadsheet is an open-source publication framework with 27 reader tools, nine editorial sections, and zero recurring fees. Your content stays in Markdown, in Git, under your name.",
+  tagline: "A real newsroom, for anyone who wants one.",
+  subhead: "Project Broadsheet is a passion project: a full publishing system with nine editorial sections, a reviews stack, a library, twenty-seven reader tools, search, and SEO. Free to fork, yours to keep — because publishing shouldn't be rented from a SaaS.",
+  missionShort: "Democratizing publishing, one fork at a time.",
   license: "MIT",
   version: "1.0.0",
-  founded: 2026
+  founded: 2026,
+  gtranslate: {
+    enabled: false,
+    languages: ["en", "es", "fr", "de", "pt", "ja", "zh-CN", "ar", "hi"],
+    defaultLanguage: "en"
+  }
 };

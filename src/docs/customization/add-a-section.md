@@ -1,15 +1,15 @@
 ---
 title: Add a new editorial section
-subtitle: Sections are defined in site.json. Adding one is a three-step process.
+subtitle: Editorial sections are defined in a single data file. Adding one is a three-step process that takes less than five minutes and requires no template changes.
 order: 1
 updated: 2026-04-17
 ---
 
-Project Broadsheet ships with nine editorial sections: News, Opinion, Analysis, Arts & Culture, Science & Tech, History, Letters, Reviews, and Editions. Adding a tenth takes about five minutes.
+Project Broadsheet ships with nine <span class="g-term" data-term="editorial section">editorial sections</span> by default: News, Opinion, Analysis, Arts & Culture, Science & Tech, History, Letters, Reviews, and Editions. You can add, remove, or rename sections without editing any templates — the entire site regenerates from a single data file.
 
-## Define the section
+## Step 1 — Define the section
 
-In `src/_data/site.json`, append to the `sections` array:
+Open `src/_data/site.json` and append a new object to the `sections` array:
 
 ```json
 {
@@ -20,15 +20,19 @@ In `src/_data/site.json`, append to the `sections` array:
 }
 ```
 
-## Create the folder
+The `slug` is the URL segment (e.g. `/science/`). The `label` is the human-readable name that appears in navigation. The `color` is the accent used for section headlines and breadcrumbs. The `description` feeds into the section's meta description and RSS feed subtitle.
+
+## Step 2 — Create the content folder
 
 ```bash
 mkdir src/content/science
 ```
 
-## Write an article
+Project Broadsheet reads articles from `src/content/{slug}/`. Without the matching folder, the section index page has nothing to show.
 
-Add `src/content/science/first-article.md` with appropriate front matter:
+## Step 3 — Write an article
+
+Create `src/content/science/first-article.md` with standard <span class="g-term" data-term="front matter">front matter</span>:
 
 ```yaml
 ---
@@ -38,14 +42,16 @@ date: 2026-04-17
 ---
 ```
 
-## What you get automatically
+Everything below the closing `---` is the article body, written in <span class="g-term" data-term="Markdown">Markdown</span>.
 
-- `/science/` index page with pagination
-- `/science/feed.xml` RSS feed
-- Section accent color applied to headlines and breadcrumbs
-- Inclusion in search, sitemap, and the homepage
+## What Project Broadsheet generates automatically
 
-## What's next
+- An index page at `/science/` with pagination across articles.
+- An <span class="g-term" data-term="RSS">RSS</span> feed at `/science/feed.xml`.
+- The section's accent color applied to headlines, breadcrumbs, and section badges.
+- Inclusion in on-site search, the XML <span class="g-term" data-term="sitemap">sitemap</span>, and the homepage (where applicable).
 
-- [Add author pages](/docs/content/authors/) for contributor bios.
-- [Customize the section layout](/docs/customization/custom-section-layouts/).
+## What to do next
+
+- [Add author pages](/docs/content/authors/) so contributor bylines resolve to bio pages.
+- [Customize the section layout](/docs/customization/custom-section-layouts/) if you want a section to look different from the others.

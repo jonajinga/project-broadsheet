@@ -1,0 +1,49 @@
+---
+layout: layouts/page.njk
+title: Glossary
+eyebrow: Reference
+subtitle: Every piece of jargon we use in the docs, explained in plain language.
+permalink: /glossary/
+---
+<div class="lead" style="margin-bottom: var(--space-xl);">
+  Software has vocabulary. Publishing software has more. This page is a standing translator — hover the underlined terms anywhere on the site to get a short definition, or read the full entries below.
+</div>
+
+<nav class="glossary-alpha" aria-label="Jump to letter">
+  {% set letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split("") %}
+  {% for letter in letters %}
+    {% set hasTerm = false %}
+    {% for entry in glossary %}
+      {% if (entry.term[0] | upper) == letter %}{% set hasTerm = true %}{% endif %}
+    {% endfor %}
+    {% if hasTerm %}
+      <a href="#letter-{{ letter | lower }}">{{ letter }}</a>
+    {% else %}
+      <span class="glossary-alpha__inactive" aria-disabled="true">{{ letter }}</span>
+    {% endif %}
+  {% endfor %}
+</nav>
+
+<div class="glossary-list">
+  {% set lastLetter = "" %}
+  {% for entry in glossary %}
+    {% set letter = entry.term[0] | upper %}
+    {% if letter != lastLetter %}
+      <h2 class="glossary-letter" id="letter-{{ letter | lower }}">{{ letter }}</h2>
+      {% set lastLetter = letter %}
+    {% endif %}
+    <article class="glossary-entry" id="term-{{ entry.term | lower | replace(' ', '-') }}">
+      <h3 class="glossary-entry__term">
+        {{ entry.term }}
+        {% if entry.alt %}<span class="glossary-entry__alt">· also {{ entry.alt }}</span>{% endif %}
+      </h3>
+      <p class="glossary-entry__short">{{ entry.short }}</p>
+      {% if entry.long %}<p class="glossary-entry__long">{{ entry.long }}</p>{% endif %}
+    </article>
+  {% endfor %}
+</div>
+
+<div class="callout" style="margin-top: var(--space-2xl);">
+  <div class="callout__title">Term missing?</div>
+  <p>If the docs use a word we haven't defined, <a href="/forms/docs-feedback/">let me know</a>. I'll add it to the glossary.</p>
+</div>

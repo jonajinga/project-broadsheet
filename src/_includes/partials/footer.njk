@@ -37,6 +37,7 @@
         <div class="site-footer__col-title">Resources</div>
         <ul class="site-footer__list">
           <li><a href="/docs/">Docs</a></li>
+          <li><a href="/glossary/">Glossary</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/changelog/">Changelog</a></li>
           <li><a href="/roadmap/">Roadmap</a></li>
@@ -45,19 +46,15 @@
       </div>
       <div>
         <div class="site-footer__col-title">Newsletter</div>
-        <p class="site-footer__newsletter">Release notes and tutorials. No tracking, unsubscribe anytime.</p>
         {% if meta.buttondownUsername %}
+        <p class="site-footer__newsletter">Release notes and occasional essays, written by me. No tracking, no sales pitches.</p>
         <form class="site-footer__newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/{{ meta.buttondownUsername }}" method="post" target="_blank">
           <label class="sr-only" for="footer-email">Email address</label>
           <input id="footer-email" type="email" name="email" placeholder="you@example.com" required>
           <button class="btn btn--primary btn--sm btn--block" type="submit">Subscribe</button>
         </form>
         {% else %}
-        <form class="site-footer__newsletter-form">
-          <label class="sr-only" for="footer-email">Email address</label>
-          <input id="footer-email" type="email" placeholder="Configure Buttondown in meta.js" disabled>
-          <button class="btn btn--primary btn--sm btn--block" type="button" disabled>Subscribe</button>
-        </form>
+        <p class="site-footer__newsletter site-footer__newsletter--soon">A newsletter is on the way. Check back soon, or follow along on <a href="{{ meta.github }}">GitHub</a>.</p>
         {% endif %}
         <p class="site-footer__newsletter" style="margin-top: var(--space-md);">
           GitHub: <a href="{{ meta.github }}">{{ meta.githubOwner }}/{{ meta.githubRepo }}</a>

@@ -1,36 +1,56 @@
 ---
 title: Common issues and fixes
-subtitle: The problems we see most often and how to get unstuck fast.
+subtitle: A running list of the problems that come up most often and the diagnostic steps that resolve them. Check here before opening a bug report.
 order: 1
 updated: 2026-04-17
 ---
 
-## "npm install" fails
+## `npm install` fails
 
-Make sure you're on Node 18 or later: `node --version`. If you have an older version, upgrade via [nvm](https://github.com/nvm-sh/nvm) (macOS/Linux) or [fnm](https://github.com/Schniz/fnm) (Windows, macOS, Linux).
+The most common cause is an outdated Node.js runtime. Confirm with:
 
-## Pagefind index is empty
+```bash
+node --version
+```
 
-Pagefind runs after a production build, not during `npm start`. Run `npm run build` and check `_site/pagefind/`. The index should contain a `pagefind.js` and several `.pf_fragment` files.
+If the output is earlier than 18, upgrade. On macOS and Linux, [nvm](https://github.com/nvm-sh/nvm) is a common version manager; on Windows, [fnm](https://github.com/Schniz/fnm) works cross-platform.
 
-## Dark mode flashes on load
+## Pagefind search returns nothing
 
-The theme-init script needs to run before CSS loads. Make sure `{% include "partials/theme-init.inline.njk" %}` is in the `<head>` of `base.njk`, before the stylesheet link.
+<span class="g-term" data-term="Pagefind">Pagefind</span> runs at the end of a **production build**, not during the live preview. When you use `npm start` (which starts the dev server), the Pagefind index is not regenerated. Run:
+
+```bash
+npm run build
+```
+
+Then confirm `_site/pagefind/` exists and contains both `pagefind.js` and several `.pf_fragment` files.
+
+## Dark mode flashes a light theme on load
+
+The theme-detection script must execute **before** the stylesheet loads; otherwise the browser renders the default theme briefly before switching. Confirm that `{% raw %}{% include "partials/theme-init.inline.njk" %}{% endraw %}` appears inside the `<head>` of `base.njk`, before the `<link rel="stylesheet">` tag.
 
 ## Buttondown signup does nothing
 
-Check `site.json` — the `buttondown.username` field must match your Buttondown username exactly. Also check the signup form's `action` URL in the page source.
+Two things to check in order:
+
+1. **Config:** Open `src/_data/site.json` and confirm the `buttondown.username` field matches your Buttondown account username exactly (case-sensitive).
+2. **Form action:** View the signup form's page source. The `action` attribute should read `https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME`.
 
 ## CSS changes don't appear
 
-Clear your browser cache (Cmd+Shift+R / Ctrl+Shift+R). Project Broadsheet adds a `?v=` cache-buster on the stylesheet link tied to the version in `meta.js` — bump the version if you're deploying frequently.
+Your browser is almost certainly serving a cached stylesheet. Force a reload with Cmd+Shift+R (macOS) or Ctrl+Shift+R (Windows/Linux). Project Broadsheet appends a `?v=` cache-busting query to the stylesheet link, derived from the version in `meta.js` — bumping the version forces every visitor to pull the new file.
 
-## Article doesn't show on the homepage or section page
+## An article does not appear in its section or on the homepage
 
-Verify the front matter. Missing `section`, `date`, or `title` will exclude it from collections. Also confirm the file extension is `.md` (not `.markdown`).
+Verify the <span class="g-term" data-term="front matter">front matter</span>:
+
+- `title`, `date`, and `section` are all required.
+- `date` must be a valid ISO date (e.g. `2026-04-17`).
+- The file extension must be `.md` — `.markdown` is not recognized.
+- The containing folder's name must match the `section` value.
 
 ## Still stuck?
 
-- [Browse GitHub Discussions]({{ meta.github }}/discussions)
-- [Report a bug](/forms/bug-report/)
-- [Book a call](/book-a-call/) for paid support
+- [Browse GitHub Discussions]({{ meta.github }}/discussions) to see whether someone else has reported the same issue.
+- [Report a bug](/forms/bug-report/) if the issue looks new.
+- [Book a call](/book-a-call/) if you would like one-on-one help.

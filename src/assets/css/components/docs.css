@@ -137,6 +137,9 @@ html[data-theme="dark"] .doc-nav__item { background: #1A1815; border-color: rgba
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: var(--space-lg);
 }
+.docs-category-articles { margin-block: var(--space-xl) var(--space-2xl); }
+.docs-category-empty { margin-block: var(--space-xl); }
+.docs-category-feedback { margin-top: var(--space-2xl); }
 .docs-category-card {
   display: flex;
   flex-direction: column;

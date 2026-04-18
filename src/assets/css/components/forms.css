@@ -59,3 +59,19 @@ html[data-theme="dark"] .form__select {
 .fieldset { border: 1px solid var(--border-strong); padding: var(--space-md) var(--space-lg) var(--space-lg); background: var(--surface-raised); display: flex; flex-direction: column; gap: var(--space-md); }
 html[data-theme="dark"] .fieldset { background: #1A1815; border-color: rgba(232, 227, 214, 0.2); }
 .fieldset legend { padding: 0 0.4rem; font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+
+.form-note {
+  margin-top: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--accent);
+  background: var(--surface-raised);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 38rem;
+}
+html[data-theme="dark"] .form-note { background: #1A1815; }
+.form-note p { margin: 0; color: var(--text-soft); }
+.form-note p + p { margin-top: 0.5rem; }
+.form-note strong { color: var(--text); font-family: var(--font-ui); font-weight: 700; }
+.form-note__sign { font-family: var(--font-headline); font-style: italic; color: var(--accent); font-weight: 600; }

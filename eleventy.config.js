@@ -32,7 +32,8 @@ const CSS_PARTIALS = [
   "pages/blog.css",
   "pages/contact.css",
   "pages/style-guide.css",
-  "pages/sitemap.css"
+  "pages/sitemap.css",
+  "pages/glossary.css"
 ];
 
 export default function (eleventyConfig) {
@@ -117,6 +118,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("where", (arr, key, value) => {
     if (!Array.isArray(arr)) return [];
     return arr.filter((item) => item?.[key] === value);
+  });
+
+  eleventyConfig.addFilter("split", (str, sep = "") => {
+    if (typeof str !== "string") return [];
+    return str.split(sep);
   });
 
   eleventyConfig.addCollection("docs", (api) => {

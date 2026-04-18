@@ -1,19 +1,23 @@
 ---
 title: Reviews (books, films, podcasts, documentaries)
-subtitle: A dedicated review content type with star ratings, metadata, and filtering.
+subtitle: Reviews are a dedicated content type in Project Broadsheet, with structured metadata, star ratings, and a filterable index. This page explains how to create and configure them.
 order: 1
 updated: 2026-04-17
 ---
 
-Reviews are a first-class content type in Project Broadsheet. They live at `src/content/reviews/`, share the reviews index, and support filtering by type and rating.
+Reviews are a first-class content type in Project Broadsheet — distinct from regular articles. They live at `src/content/reviews/`, appear on the shared reviews index with filtering by type and rating, and render with a review-specific layout that highlights structured metadata (author, publisher, year, ISBN, and so on).
 
-## Create a review
+## Create a review file
 
 ```
 src/content/reviews/book-of-example.md
 ```
 
+Naming the file with the reviewed subject's slug keeps the URL readable: `/reviews/book-of-example/`.
+
 ## Front matter
+
+Reviews use a richer <span class="g-term" data-term="front matter">front matter</span> block than regular articles:
 
 ```yaml
 ---
@@ -34,18 +38,18 @@ subject:
 Your review body here, in Markdown.
 ```
 
-## Review types
+The `layout` field points at the review-specific template. `review_type` determines the filter category and the icon shown on the index. `rating` is a decimal between 0 and 5. The `subject` block holds the structured data about what's being reviewed.
 
-Supported out of the box:
+## Supported review types
 
 - `book` — book reviews
 - `film` — film reviews
 - `podcast` — podcast reviews
 - `documentary` — documentary reviews
 
-Each type has a matching icon and filter on the reviews index page.
+Each type is associated with an icon and a filter toggle on the reviews index page. Adding a new type is a template-level change; contact me if you need a custom type that isn't in the list.
 
-## What's next
+## What to do next
 
-- [Library and public domain chapters](/docs/specialty-content/library/).
-- [Events calendar](/docs/specialty-content/events/).
+- [Library and public-domain chapters](/docs/specialty-content/library/) — long-form source material organized by work.
+- [Events calendar](/docs/specialty-content/events/) — time-based entries with recurrence support.

@@ -2,13 +2,17 @@
 layout: layouts/page.njk
 title: Pricing
 eyebrow: Services
-subtitle: Self-host Project Broadsheet for free. Or hire us to launch, migrate, and maintain.
+subtitle: Self-host Project Broadsheet for free, or bring me in to handle setup, migration, design, or ongoing care.
 permalink: /pricing/
 ---
+<div class="lead" style="margin-bottom: var(--space-2xl);">
+  Project Broadsheet is free to fork and free to keep — that part doesn't change. The pricing below is for the cases where you'd rather not spend a weekend on setup, or where you need help that isn't in the documentation. I take on a small number of engagements at a time.
+</div>
+
 <section class="pricing-section">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Self-hosted</h2>
-    <p class="pricing-section__summary">Fork the repo and deploy yourself. Everything is included — no paywalled features, no "pro tier".</p>
+    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default — there is no "pro tier" holding anything back.</p>
   </header>
   <div class="pricing-free">
     <div>
@@ -28,12 +32,12 @@ permalink: /pricing/
 <section class="pricing-section" id="launch-packages">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Launch packages</h2>
-    <p class="pricing-section__summary">Done-for-you setup, branding, and deployment — the fastest path from "I want a publication" to "I just published my first article."</p>
+    <p class="pricing-section__summary">Done-with-you setup, branding, and deployment. The package names are just shorthand for scope — pick the one that matches how much help you want.</p>
   </header>
   <div class="pricing-grid">
     {% for pkg in pricing.packages %}
     <article class="pricing-card{% if pkg.featured %} pricing-card--featured{% endif %}">
-      {% if pkg.featured %}<span class="pricing-card__tag">Most popular</span>{% endif %}
+      {% if pkg.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
       <h3 class="pricing-card__name">{{ pkg.name }}</h3>
       <div>
         <span class="pricing-card__price">{{ pkg.price }}</span>
@@ -54,7 +58,7 @@ permalink: /pricing/
 <section class="pricing-section" id="migration">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Content migration</h2>
-    <p class="pricing-section__summary">Move your archive from Ghost, WordPress, Substack, or Medium. Clean Markdown, preserved images, redirect map included.</p>
+    <p class="pricing-section__summary">Moving an archive from Ghost, WordPress, Substack, or Medium. You get clean Markdown, your images preserved, and a redirect map covering every legacy URL.</p>
   </header>
   <div class="migration-grid">
     {% for m in pricing.migration %}
@@ -65,18 +69,18 @@ permalink: /pricing/
     </div>
     {% endfor %}
   </div>
-  <p style="margin-top: var(--space-md); color: var(--text-muted);">Larger archives or complex sources? <a href="/forms/quote-migration/">Request a migration quote</a>.</p>
+  <p style="margin-top: var(--space-md); color: var(--text-muted);">Larger archive or unusual source? <a href="/forms/quote-migration/">Request a migration quote</a> and I'll reply personally.</p>
 </section>
 
 <section class="pricing-section" id="care">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Care plans</h2>
-    <p class="pricing-section__summary">Ongoing security updates, dependency bumps, content publishing, and priority support. Cancel anytime.</p>
+    <p class="pricing-section__summary">Ongoing maintenance, content publishing, and priority support. Cancel any month, no penalties.</p>
   </header>
   <div class="pricing-grid">
     {% for plan in pricing.care %}
     <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}">
-      {% if plan.featured %}<span class="pricing-card__tag">Most popular</span>{% endif %}
+      {% if plan.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
       <h3 class="pricing-card__name">{{ plan.name }}</h3>
       <div>
         <span class="pricing-card__price">{{ plan.price }}</span>
@@ -97,7 +101,7 @@ permalink: /pricing/
 <section class="pricing-section" id="hourly">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Hourly and training</h2>
-    <p class="pricing-section__summary">For custom features, one-off requests, or knowledge transfer.</p>
+    <p class="pricing-section__summary">For custom work, one-off requests, or knowledge transfer.</p>
   </header>
   <div class="hourly-grid">
     {% for h in pricing.hourly %}
@@ -109,3 +113,8 @@ permalink: /pricing/
     {% endfor %}
   </div>
 </section>
+
+<div class="callout" style="margin-top: var(--space-2xl);">
+  <div class="callout__title">One person on the other end</div>
+  <p>Every engagement is with me — Jon. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it. That means occasional delays (I sleep, I have a kid, I write for my own publication too) but it means you always know who you're dealing with.</p>
+</div>
