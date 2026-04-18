@@ -71,8 +71,8 @@ html[data-theme="dark"] .site-header { background: rgba(18, 16, 14, 0.92); }
 html[data-theme="dark"] .theme-toggle__sun { display: none; }
 html[data-theme="dark"] .theme-toggle__moon { display: block; }
 
-.header-cta { white-space: nowrap; min-height: 2.5rem; padding-block: 0.55rem; }
-@media (max-width: 640px) { .header-cta { display: none; } }
+.header-cta { white-space: nowrap; min-height: 2.5rem; padding-block: 0.55rem; flex-shrink: 0; }
+@media (max-width: 1200px) { .header-cta { display: none; } }
 
 .lang-switcher { position: relative; }
 .lang-toggle {
@@ -119,6 +119,21 @@ html[data-theme="dark"] .lang-menu { background: #1A1815; border-color: rgba(232
   cursor: pointer;
 }
 html[data-theme="dark"] .gtranslate_wrapper select { background: #1A1815; border-color: rgba(232, 227, 214, 0.22); }
+.lang-reset {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.3rem 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  text-align: left;
+}
+.lang-reset:hover { color: var(--accent); }
 
 @media (max-width: 640px) {
   .lang-menu {
