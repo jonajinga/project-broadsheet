@@ -25,25 +25,21 @@
             theme: "broadsheet",
             allowHTML: false,
             maxWidth: 320,
-            delay: [150, 0],
+            delay: [120, 0],
             placement: "top",
-            interactive: false
+            interactive: false,
+            trigger: "mouseenter focus click",
+            touch: ["hold", 300],
+            hideOnClick: "toggle"
           });
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute("aria-label", entry.term + ": " + content);
-          if (!el.getAttribute("href")) {
-            el.dataset.glossarySlug = entry.term.toLowerCase().replace(/\s+/g, "-");
-            el.addEventListener("click", function () {
-              location.href = "/glossary/#term-" + el.dataset.glossarySlug;
-            });
-            el.addEventListener("keydown", function (e) {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                location.href = "/glossary/#term-" + el.dataset.glossarySlug;
-              }
-            });
-          }
+          // Prevent default on click/keyboard so we never navigate away; tippy handles the popup.
+          el.addEventListener("click", function (e) { e.preventDefault(); });
+          el.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") e.preventDefault();
+          });
         });
       });
     return true;

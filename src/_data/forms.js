@@ -1,6 +1,6 @@
 export default [
   { slug: "contact", name: "Contact", purpose: "General inquiries, anything that doesn't fit another form.", subject: "New contact message" },
-  { slug: "book-a-call", name: "Book a Call", purpose: "Book a setup, onboarding, or training call.", subject: "New call booking" },
+  { slug: "book-a-call", url: "/book-a-call/", name: "Book a Call", purpose: "Book a setup, onboarding, or training call.", subject: "New call booking" },
   { slug: "quote-custom", name: "Custom Quote", purpose: "Request a scoped quote for custom development or design.", subject: "New custom quote request" },
   { slug: "quote-migration", name: "Migration Quote", purpose: "Request a quote to migrate content from Ghost, WordPress, Substack, or Medium.", subject: "New migration quote request" },
   { slug: "care-inquiry", name: "Care Plan Inquiry", purpose: "Ask about a monthly care plan.", subject: "New care plan inquiry" },

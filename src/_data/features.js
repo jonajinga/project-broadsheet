@@ -2,18 +2,18 @@ export default {
   highlights: [
     {
       title: "Reader experience",
-      summary: "Twenty-seven reader tools that other platforms don't have, and never will.",
+      summary: "A set of reader-side controls applied to every article: font selection, highlights, notes, text-to-speech, a reading ruler, focus mode, and a save-for-later reading list.",
       points: [
         "Text-to-speech with synced word highlighting",
-        "27 font choices with six highlight colors",
+        "27 font choices and six highlight colors",
         "Reading ruler, focus mode, and reading list",
         "Voice search and form dictation",
-        "Export everything as portable JSON"
+        "Import and export reader data as JSON"
       ]
     },
     {
       title: "Editorial sections",
-      summary: "Nine editorial verticals configured out of the box, each with pagination and its own RSS feed.",
+      summary: "Nine top-level editorial categories configured by default, each with its own index page, RSS feed, and accent color. Sections are defined in a single data file and easy to add, remove, or rename.",
       points: [
         "News, Opinion, Analysis, Arts & Culture",
         "Science & Tech, History, Letters, Reviews",
@@ -23,8 +23,8 @@ export default {
       ]
     },
     {
-      title: "Specialty content",
-      summary: "Formats designed for real publications, not blogs.",
+      title: "Specialty content types",
+      summary: "Dedicated templates for reviews, long-form library works, events, media, and curated collections. Each has its own front-matter schema and layout.",
       points: [
         "Reviews: books, films, podcasts, documentaries",
         "Public-domain library with chapter navigation",
@@ -35,7 +35,7 @@ export default {
     },
     {
       title: "Search and SEO",
-      summary: "Built to rank, built to find.",
+      summary: "Client-side full-text search via Pagefind. Structured data, Open Graph, and per-section RSS feeds generated automatically at build time.",
       points: [
         "Pagefind full-text search, client-side",
         "JSON-LD structured data",
@@ -46,25 +46,25 @@ export default {
     },
     {
       title: "Integrations",
-      summary: "Everything you'd pay a SaaS for, wired up in a single config file.",
+      summary: "A handful of optional third-party services, each enabled by a single configuration field. Nothing is wired up until you opt in.",
       points: [
         "Buttondown newsletter (no tracking)",
         "Umami analytics (cookieless)",
         "Cusdis comments (privacy-first)",
-        "Web3Forms for any submission form",
+        "Web3Forms for every contact form",
         "Pages CMS for browser-based editing",
-        "GTranslate across nine languages"
+        "GTranslate across 80+ languages"
       ]
     },
     {
-      title: "Zero lock-in",
-      summary: "Plain Markdown in Git. Migrate away in an afternoon.",
+      title: "Portability",
+      summary: "Content is plain Markdown in Git. The built site is static HTML deployable to any host. Migrating away is a folder copy.",
       points: [
-        "MIT license, use it for anything",
-        "No database, no runtime, no platform fees",
-        "Content portability by design",
-        "Static output deploys anywhere",
-        "~12-second builds for 500+ pages"
+        "MIT licensed",
+        "No database or runtime server required",
+        "Static output deploys to any host",
+        "Build times around 12 seconds for 500 pages",
+        "Full source available on GitHub"
       ]
     }
   ],

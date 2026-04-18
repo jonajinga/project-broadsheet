@@ -200,5 +200,169 @@ export default [
     term: "YAML",
     short: "A human-readable data format, used in Markdown front matter.",
     long: "YAML (YAML Ain't Markup Language) represents structured data as key-value pairs with indentation. Project Broadsheet uses YAML between `---` fences at the top of every Markdown file to hold metadata."
+  },
+  {
+    term: "alt text",
+    alt: "alt attribute",
+    short: "A short text description of an image, used by screen readers and shown when the image fails to load.",
+    long: "Alt text describes what an image shows so that readers using assistive technology can understand the page. It is required for accessibility and helps search engines index visual content. Every meaningful image in Project Broadsheet should have an alt attribute."
+  },
+  {
+    term: "ARIA",
+    short: "Accessible Rich Internet Applications, a set of HTML attributes that make custom UI understandable to assistive technology.",
+    long: "ARIA attributes (role, aria-label, aria-current, aria-expanded) tell screen readers what a custom component is and what state it's in. Project Broadsheet uses them on nav links, icon buttons, disclosure toggles, and modal dialogs."
+  },
+  {
+    term: "Atom",
+    short: "A syndication format similar to RSS, used for newer feeds.",
+    long: "Atom is a more modern XML feed format that addresses some of RSS's ambiguities. Most feed readers accept both. Project Broadsheet's main feed is published as Atom; per-section feeds use RSS."
+  },
+  {
+    term: "branch",
+    short: "A parallel line of edits in a Git repository.",
+    long: "A Git branch lets you work on changes without affecting the main line of work. Typical publication workflow: create a branch for a new article, write it, open a pull request, get it reviewed, then merge back into main."
+  },
+  {
+    term: "breakpoint",
+    short: "A screen width at which a site changes layout.",
+    long: "CSS media queries fire at breakpoints to adjust layout for phones, tablets, and desktops. Project Broadsheet's primary breakpoints are 560px, 820px, and 1160px, matching common device widths."
+  },
+  {
+    term: "canonical URL",
+    short: "The official address of a page, declared in the HTML so search engines know which version to rank.",
+    long: "When the same content exists at multiple URLs (with and without a trailing slash, on multiple domains, or with tracking parameters), the canonical tag points search engines at the single version that should be indexed."
+  },
+  {
+    term: "CDN",
+    alt: "content delivery network",
+    short: "A global network of servers that caches your site close to each visitor for faster load times.",
+    long: "A CDN replicates your static files to data centers around the world. When a reader in Tokyo visits, they fetch from the Tokyo node instead of crossing the ocean to your origin. Cloudflare Pages, Netlify, and Vercel all include a CDN by default."
+  },
+  {
+    term: "CNAME record",
+    short: "A DNS record that aliases one domain name to another.",
+    long: "When you point `blog.example.com` to `yoursite.pages.dev`, you do it with a CNAME record. Every static host provides the exact CNAME value when you add a custom domain."
+  },
+  {
+    term: "clone",
+    short: "To download a complete copy of a Git repository onto your machine.",
+    long: "`git clone <url>` copies every file and the full commit history of a repository locally. Project Broadsheet starts with `git clone https://github.com/jonajinga/broadsheet.git`."
+  },
+  {
+    term: "commit",
+    short: "A saved snapshot of changes in a Git repository, with a message describing what was done.",
+    long: "Commits are the unit of change in Git. Every push you make to GitHub is a bundle of commits. Each commit has a unique hash, a message, an author, and a timestamp."
+  },
+  {
+    term: "CommonMark",
+    short: "The widely-accepted standardized specification of Markdown.",
+    long: "CommonMark is the reference specification Project Broadsheet's Markdown renderer targets. It defines exactly how headings, lists, emphasis, links, and code blocks should be parsed so behavior is consistent across tools."
+  },
+  {
+    term: "CSS variable",
+    alt: "custom property",
+    short: "A named value in CSS you declare once and reference throughout the stylesheet.",
+    long: "Custom properties (`--paper`, `--ink`, `--space-md`) are CSS's native tokenization mechanism. Project Broadsheet's entire design system is built on them, which is why changing one value in `tokens.css` updates every component."
+  },
+  {
+    term: "dependency",
+    short: "An external package your project needs in order to run or build.",
+    long: "Dependencies are listed in `package.json` and installed via `npm install`. Project Broadsheet's dependencies include Eleventy, Pagefind, the RSS plugin, and an HTML minifier. They run only at build time, not in production."
+  },
+  {
+    term: "DNS",
+    alt: "Domain Name System",
+    short: "The internet's phone book, which translates domain names like example.com into the server IPs that actually host the site.",
+    long: "When a reader types your URL, their browser asks a DNS server for the IP address, then connects there. Pointing a custom domain at a static host means adding a DNS record that points at that host's servers."
+  },
+  {
+    term: "draft",
+    short: "An article that isn't yet ready for publication.",
+    long: "Setting `draft: true` in an article's front matter excludes it from production builds. Drafts still render during `npm start` so you can preview them locally. Remove the flag or set `draft: false` to ship."
+  },
+  {
+    term: "ESM",
+    alt: "ES module",
+    short: "The native JavaScript module system used in modern Node and browsers.",
+    long: "ESM uses `import` and `export` syntax. Project Broadsheet's `eleventy.config.js` and every data file under `src/_data/` are written as ES modules, indicated by `\"type\": \"module\"` in `package.json`."
+  },
+  {
+    term: "focus ring",
+    short: "The visible outline around a keyboard-focused element.",
+    long: "When a reader tabs through a page, each interactive element shows a focus ring so they always know where they are. Project Broadsheet uses a 2px vermillion outline with 3px offset, applied via `:focus-visible` so mouse clicks don't show the ring."
+  },
+  {
+    term: "hex color",
+    short: "A color written as a six-digit hexadecimal number, like #C0392B.",
+    long: "The first two digits are red, next two green, last two blue, each 00 to FF. Every color token in Project Broadsheet's `tokens.css` is defined as a hex value."
+  },
+  {
+    term: "HTTPS",
+    short: "HTTP over an encrypted TLS connection, the default protocol for modern websites.",
+    long: "HTTPS prevents eavesdropping and tampering between reader and server. Every static host Project Broadsheet supports issues TLS certificates automatically; you never configure them manually."
+  },
+  {
+    term: "localStorage",
+    short: "A browser storage mechanism for keeping small amounts of data on the reader's device.",
+    long: "localStorage stores data per-domain, persists across visits, and never leaves the device. Project Broadsheet uses it for theme preferences, highlight colors, saved reader data, and the closed/open state of the docs sidebar."
+  },
+  {
+    term: "minification",
+    short: "Removing whitespace and comments from code to reduce file size.",
+    long: "Project Broadsheet minifies every HTML file in production via `@sardine/eleventy-plugin-tinyhtml`. CSS is already concatenated at build time; JS is served as-is because there's not enough of it to matter."
+  },
+  {
+    term: "Node.js",
+    alt: "node",
+    short: "A JavaScript runtime used to run tools like Eleventy and npm outside of a browser.",
+    long: "Node.js is required only to build Project Broadsheet. The built site is plain HTML/CSS/JS and doesn't need Node at runtime. Version 18 or later is required for the build; 20 is recommended."
+  },
+  {
+    term: "npm",
+    short: "The default package manager for Node.js, used to install dependencies and run scripts.",
+    long: "`npm install` pulls down every dependency listed in `package.json`. `npm start` runs the dev server. `npm run build` produces the production site. Each script's exact command is defined in the `scripts` section of `package.json`."
+  },
+  {
+    term: "package.json",
+    short: "The file at the root of a Node project that lists its dependencies and scripts.",
+    long: "Project Broadsheet's `package.json` declares Eleventy, Pagefind, and a handful of plugins as dependencies, plus the `start`, `dev`, and `build` scripts. Edit it when adding or removing packages."
+  },
+  {
+    term: "pull request",
+    alt: "PR",
+    short: "A proposal to merge one Git branch into another, used for review before changes go live.",
+    long: "Pull requests (or 'merge requests' on GitLab) let you see a diff of proposed changes, discuss them, and approve before merging. Project Broadsheet's typical workflow uses pull requests even for one-person publications so every change gets a preview deploy."
+  },
+  {
+    term: "redirect",
+    alt: "301",
+    short: "A rule that sends visitors from an old URL to a new one.",
+    long: "301 redirects are permanent and preserve search-engine rankings. Project Broadsheet sites use a `_redirects` file on Cloudflare Pages / Netlify or a `vercel.json` redirects block on Vercel. Critical during platform migrations."
+  },
+  {
+    term: "screen reader",
+    short: "Software that reads a web page aloud for readers who are blind or have low vision.",
+    long: "Popular screen readers include VoiceOver (macOS/iOS), NVDA (Windows), and JAWS (Windows). Project Broadsheet is tested with both VoiceOver and NVDA. ARIA attributes and semantic HTML are what make the site intelligible to them."
+  },
+  {
+    term: "slug",
+    short: "The URL-safe version of a word or phrase, typically lowercase with hyphens.",
+    long: "A slug turns 'My First Article' into 'my-first-article'. Project Broadsheet uses slugs for section IDs, author identifiers, and filenames of articles. The `slugify` template filter converts any string into a slug."
+  },
+  {
+    term: "tag",
+    short: "A keyword attached to an article for cross-referencing related content.",
+    long: "Tags are declared in article front matter as an array (e.g. `tags: [politics, local, 2026]`). They power related-article suggestions and future tag index pages. Unlike sections, an article can have many tags."
+  },
+  {
+    term: "TLS certificate",
+    alt: "SSL certificate",
+    short: "A digital certificate that authenticates a website and enables HTTPS encryption.",
+    long: "Modern static hosts issue free TLS certificates via Let's Encrypt or their own CA. You never pay for one, never install one manually. Renewal is automatic."
+  },
+  {
+    term: "viewport",
+    short: "The visible area of a web page in the reader's browser window.",
+    long: "Responsive design adapts the layout to the viewport's size. The HTML `<meta name='viewport'>` tag tells mobile browsers to render the page at device width rather than simulating a desktop."
   }
 ];
