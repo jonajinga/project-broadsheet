@@ -45,15 +45,16 @@
 {% endif %}
 {% if meta.gtranslate.enabled %}
 <script>
-  window.gtranslateSettings = {
-    "default_language": "{{ meta.gtranslate.defaultLanguage }}",
-    "languages": {{ meta.gtranslate.languages | dump | safe }},
-    "wrapper_selector": ".gtranslate_wrapper",
-    "flag_style": "3d",
-    "flag_size": 20
-  };
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: "{{ meta.gtranslate.defaultLanguage }}",
+      includedLanguages: {{ meta.gtranslate.languages | dump | safe }}.join(","),
+      autoDisplay: false,
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, "google_translate_element");
+  }
 </script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 {% endif %}
 </head>
 <body data-w3f-key="{{ meta.web3formsKey }}"{% if body_attrs %} {{ body_attrs | safe }}{% endif %}>
@@ -69,7 +70,7 @@
 <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" onclick="scrollToTop()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
-{% if meta.gtranslate.enabled %}<div class="gtranslate_wrapper" aria-hidden="true"></div>{% endif %}
+{% if meta.gtranslate.enabled %}<div id="google_translate_element" aria-hidden="true"></div>{% endif %}
 <script src="https://instant.page/5.2.0" type="module" defer integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>

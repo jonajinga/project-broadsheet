@@ -364,5 +364,190 @@ export default [
     term: "viewport",
     short: "The visible area of a web page in the reader's browser window.",
     long: "Responsive design adapts the layout to the viewport's size. The HTML `<meta name='viewport'>` tag tells mobile browsers to render the page at device width rather than simulating a desktop."
+  },
+  {
+    term: "API",
+    alt: "application programming interface",
+    short: "A defined set of endpoints or functions one program uses to talk to another.",
+    long: "Web APIs let your site pull data from external services, and let external services act on your site. Project Broadsheet doesn't require any APIs at runtime because it's static, but integrations like Web3Forms and Buttondown are accessed through theirs."
+  },
+  {
+    term: "backup",
+    short: "A separate copy of your content kept in case the primary copy is lost.",
+    long: "Because Project Broadsheet stores content in Git, every commit on GitHub is already a backup. For belt-and-suspenders safety, you can also push to a second Git remote or run periodic exports of your subscriber list and reader data."
+  },
+  {
+    term: "breadcrumb",
+    short: "A navigation trail showing where the current page sits in the site's hierarchy.",
+    long: "Breadcrumbs help readers orient themselves. Project Broadsheet shows them on docs pages and article sections, typically as 'Home / Section / Article Title'. They also help search engines understand site structure."
+  },
+  {
+    term: "CCPA",
+    short: "California Consumer Privacy Act, a state-level privacy regulation for California residents.",
+    long: "CCPA gives California residents the right to know what personal data a business collects, request deletion, and opt out of the sale of their data. If you have California readers, CCPA applies even if your publication is based elsewhere."
+  },
+  {
+    term: "changelog",
+    short: "A record of what changed in each release of a software project.",
+    long: "Project Broadsheet's changelog lives at `/changelog/` and is generated from Markdown files under `src/changelog/`. Each release gets one file with its version, date, and the Added/Changed/Fixed/Removed sections readers care about."
+  },
+  {
+    term: "color contrast",
+    short: "The luminance difference between two colors, important for readability and accessibility.",
+    long: "WCAG 2.2 requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Project Broadsheet's tokens are chosen to exceed both. The Style Guide page shows measured ratios for every pairing in light and dark mode."
+  },
+  {
+    term: "cookie",
+    short: "A small piece of data a website stores on the reader's device, sent back on every subsequent request.",
+    long: "Cookies are how web sessions work. Project Broadsheet's core doesn't set any first-party cookies. Third-party integrations (Google Translate, embedded videos, comments) may set their own; we disclose which ones in the privacy policy."
+  },
+  {
+    term: "data URI",
+    short: "A way of embedding file contents directly into a URL using base64 or URL encoding.",
+    long: "Small SVG icons, font subsets, or tiny images can be inlined as data URIs in CSS to avoid extra HTTP requests. Project Broadsheet uses them sparingly; most assets are served as separate files behind a CDN."
+  },
+  {
+    term: "favicon",
+    short: "The small icon shown in a browser tab, bookmark, or home-screen shortcut for a site.",
+    long: "Project Broadsheet ships with an SVG favicon (`favicon.svg`), a 32×32 PNG fallback (`favicon-32.png`), a 180×180 apple-touch-icon, and 192/512 icons for PWA installs. All derive from the PB monogram."
+  },
+  {
+    term: "flexbox",
+    short: "A CSS layout mode for arranging items in one dimension, with control over alignment, spacing, and wrap behavior.",
+    long: "Flexbox handles most simple layouts: horizontal nav rows, card groups, button bars. Project Broadsheet uses flexbox for inline component layout (button groups, form rows) and grid for page-level layout."
+  },
+  {
+    term: "GitHub Actions",
+    short: "GitHub's built-in automation platform for running CI, tests, deploys, and scheduled tasks.",
+    long: "Many Project Broadsheet publishers use GitHub Actions for linting, testing, or custom deploy steps. The site doesn't require Actions because hosts like Cloudflare Pages build on their side, but Actions can extend that pipeline."
+  },
+  {
+    term: "grid",
+    alt: "CSS Grid",
+    short: "A CSS layout mode for arranging items in two dimensions, with named rows, columns, and areas.",
+    long: "Project Broadsheet uses CSS Grid for page-level layouts: docs sidebar + content + TOC, the compare table, pricing card grids, footer columns. Grid makes responsive column changes trivial."
+  },
+  {
+    term: "hCaptcha",
+    short: "A privacy-respecting alternative to Google reCAPTCHA for blocking spam form submissions.",
+    long: "hCaptcha doesn't require user tracking and is GDPR-friendlier than reCAPTCHA. Web3Forms supports hCaptcha as an add-on. Most Project Broadsheet sites get away with the honeypot field instead."
+  },
+  {
+    term: "hosting",
+    short: "The service that actually serves your site's files to visitors.",
+    long: "Project Broadsheet recommends Cloudflare Pages, Netlify, or Vercel for free static hosting. I also offer managed hosting at $25 / $39 / $79 per month on my own Cloudflare account if you'd rather not set it up yourself."
+  },
+  {
+    term: "i18n",
+    alt: "internationalization",
+    short: "The practice of designing software so it can be adapted to multiple languages and regions.",
+    long: "Project Broadsheet's i18n is handled by GTranslate for machine translation into 80+ languages. True hand-translated multilingual publications would require a more structured approach (per-language content folders, locale-aware routing)."
+  },
+  {
+    term: "iframe",
+    short: "An HTML element that embeds another HTML document inside the current page.",
+    long: "Iframes are used for embedded YouTube videos, Buttondown signup forms, Google Maps, and similar third-party widgets. Each iframe carries its own accessibility and privacy profile; we disclose them in the Accessibility and Privacy pages."
+  },
+  {
+    term: "image CDN",
+    short: "A content delivery network specialized for serving images with on-the-fly resizing and format conversion.",
+    long: "Project Broadsheet uses `@11ty/eleventy-img` at build time to produce WebP, AVIF, and JPEG variants of every image. Combined with the CDN of your static host, that's usually enough. Dedicated image CDNs (Cloudinary, Imgix) are optional for very large archives."
+  },
+  {
+    term: "ISO 8601",
+    short: "The international standard format for dates and times (YYYY-MM-DD).",
+    long: "Project Broadsheet requires ISO 8601 dates in article front matter. `2026-04-17` is valid; `04/17/2026` is not. The reason: ISO sorts correctly as text, parses unambiguously, and is timezone-friendly."
+  },
+  {
+    term: "JAMstack",
+    short: "An architecture pattern: static content rendered at build time, served from a CDN, with JavaScript and APIs for interactive bits.",
+    long: "Project Broadsheet is a textbook JAMstack site. Content is pre-rendered HTML, served from a CDN, with minimal client-side JS for progressive enhancement. The result: fast, cheap, secure, and simple to operate."
+  },
+  {
+    term: "JSON",
+    short: "A lightweight text format for structured data.",
+    long: "JSON represents objects and arrays in a way both humans and computers can read. Project Broadsheet uses JSON for the Pagefind search index, glossary data, form submissions, and the optional site.json configuration."
+  },
+  {
+    term: "lazy loading",
+    short: "Loading something only when it's needed, not on first page load.",
+    long: "Project Broadsheet lazy-loads images below the fold, lazy-loads web fonts from the reader picker, and lazy-loads Pagefind's search index the first time a reader opens the search modal. Each saves bandwidth and improves initial load times."
+  },
+  {
+    term: "meta description",
+    short: "A summary of a page's content shown in search-engine results.",
+    long: "Keep descriptions under 160 characters. Project Broadsheet pulls them from the `description` field in front matter, falling back to the site-wide default in `meta.js`. Good descriptions improve click-through from search."
+  },
+  {
+    term: "PWA",
+    alt: "Progressive Web App",
+    short: "A website that behaves like a native app: installable, offline-capable, full-screen.",
+    long: "Project Broadsheet supports PWA features via a service worker and a web manifest. Readers can 'Add to home screen' on mobile and get offline access to any article they've already loaded."
+  },
+  {
+    term: "preload",
+    short: "A hint telling the browser to start downloading a resource early, before the parser discovers it.",
+    long: "Project Broadsheet preloads its web fonts so the first paint has the correct typography. Over-preloading hurts performance; the defaults are chosen carefully."
+  },
+  {
+    term: "progressive enhancement",
+    short: "The practice of building a site that works without JavaScript first, then adding JavaScript for extra polish.",
+    long: "Project Broadsheet's articles, navigation, and forms work with JavaScript disabled. Interactive bits (the theme toggle, the language switcher, the search modal, tooltips) enhance the experience for readers who have JS enabled."
+  },
+  {
+    term: "responsive design",
+    short: "A design approach where layout and typography adapt fluidly to the screen size.",
+    long: "Project Broadsheet is responsive from a 320px phone to a 2560px monitor. Breakpoints at 560px, 640px, 820px, 960px, and 1160px reshape the layout for progressively more space."
+  },
+  {
+    term: "robots.txt",
+    short: "A text file at the root of a site that tells search-engine crawlers what they can and can't access.",
+    long: "Project Broadsheet ships with a default `/robots.txt` that allows all crawlers and points at the XML sitemap. Disallow rules can be added for staging sites or admin areas if needed."
+  },
+  {
+    term: "semver",
+    alt: "semantic versioning",
+    short: "A version-numbering convention: MAJOR.MINOR.PATCH.",
+    long: "Under semver, a MAJOR bump signals a breaking change, MINOR signals new features without breaking anything, PATCH signals bug fixes. Project Broadsheet follows semver for releases. The current version is always visible in the footer."
+  },
+  {
+    term: "service worker",
+    short: "A script that runs in the background of a browser, separate from the web page, enabling offline support and push notifications.",
+    long: "Project Broadsheet's service worker caches recently-visited articles so readers can revisit them offline. It also enables 'Add to home screen' PWA installation on mobile."
+  },
+  {
+    term: "shortcode",
+    short: "A template-engine construct that renders a block of HTML from a small input.",
+    long: "Eleventy shortcodes are registered in `eleventy.config.js` and called from templates. They're useful for repeated patterns (a pull quote, a newsletter callout) that don't warrant a separate file."
+  },
+  {
+    term: "SVG",
+    short: "Scalable Vector Graphics: an XML-based image format that scales crisply at any size.",
+    long: "Project Broadsheet uses SVG for the PB logo, every UI icon, and simple decorative graphics. SVG files are tiny, accessible (they can carry titles and descriptions), and theme-aware via `currentColor`."
+  },
+  {
+    term: "syntax highlighting",
+    short: "Colorizing code so different parts (keywords, strings, comments) are visually distinct.",
+    long: "Project Broadsheet's code blocks support syntax highlighting via the Markdown renderer. Languages are specified in the fence (e.g. ` ```js ` or ` ```bash `). A small CSS file in `components/code-block.css` handles the colors."
+  },
+  {
+    term: "UTC",
+    short: "Coordinated Universal Time, the time standard used to avoid time-zone ambiguity.",
+    long: "When specifying publish times in article front matter, use an ISO 8601 timestamp with a UTC offset (e.g. `2026-04-17T12:00:00-06:00`). Project Broadsheet renders the reader's local time from the stored value."
+  },
+  {
+    term: "web manifest",
+    short: "A JSON file describing a web app for 'install to home screen' and PWA features.",
+    long: "The manifest declares the app's name, icons, theme color, and launch URL. Project Broadsheet's manifest is generated at build time and points at the PNG icons derived from the PB monogram."
+  },
+  {
+    term: "webhook",
+    short: "An HTTP endpoint another service calls when something happens.",
+    long: "Webhooks trigger builds on Cloudflare Pages / Netlify / Vercel when you push to GitHub. They're also used to link external services (Buttondown, Web3Forms) to your publication without polling."
+  },
+  {
+    term: "WebP",
+    short: "A modern image format that compresses better than JPEG at similar quality.",
+    long: "Project Broadsheet's image pipeline (via `@11ty/eleventy-img`) produces WebP alongside traditional JPEG so modern browsers get the smaller file. AVIF, an even newer format, is generated too when supported."
   }
 ];

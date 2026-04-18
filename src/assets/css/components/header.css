@@ -149,9 +149,10 @@ html[data-theme="dark"] .lang-menu__item:focus-visible { background: #221F1B; }
 .lang-menu__flag { font-size: 1.05rem; line-height: 1; flex-shrink: 0; }
 .lang-menu__name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Keep GTranslate's wrapper mounted (otherwise doGTranslate never gets defined)
-   but position it off-screen so only our header button is the visible entry. */
-.gtranslate_wrapper {
+/* Google Translate widget: keep #google_translate_element mounted so the widget
+   initializes and exposes .goog-te-combo, but hide the default Google banner and UI
+   so our custom header switcher is the only visible entry point. */
+#google_translate_element {
   position: fixed !important;
   left: -10000px !important;
   top: -10000px !important;
@@ -161,10 +162,14 @@ html[data-theme="dark"] .lang-menu__item:focus-visible { background: #221F1B; }
   pointer-events: none !important;
   opacity: 0 !important;
 }
-.gt_float_switcher,
-#gt_float_wrapper,
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate iframe.goog-te-banner-frame,
+.goog-logo-link,
+.goog-te-gadget > span > a { display: none !important; }
+body { top: 0 !important; position: static !important; }
+.goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlighted { background-color: transparent !important; box-shadow: none !important; }
 
 @media (max-width: 640px) {
   .lang-menu {

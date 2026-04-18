@@ -25,10 +25,10 @@
             theme: "broadsheet",
             allowHTML: false,
             maxWidth: 320,
-            delay: [100, 0],
+            delay: [80, 0],
             placement: "top",
             interactive: false,
-            trigger: "click mouseenter focus",
+            trigger: "click",
             touch: true,
             hideOnClick: true,
             appendTo: function () { return document.body; }
