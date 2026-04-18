@@ -265,9 +265,20 @@ export default [
     long: "Custom properties (`--paper`, `--ink`, `--space-md`) are CSS's native tokenization mechanism. Project Broadsheet's entire design system is built on them, which is why changing one value in `tokens.css` updates every component."
   },
   {
+    term: "deploy",
+    short: "To publish a built website so the public can visit it.",
+    long: "Deploying copies the contents of `_site/` (the built site) to a web host. With Cloudflare Pages or Netlify, deployment happens automatically every time you push to the `main` branch on GitHub. The process takes 30–90 seconds end to end."
+  },
+  {
     term: "dependency",
     short: "An external package your project needs in order to run or build.",
     long: "Dependencies are listed in `package.json` and installed via `npm install`. Project Broadsheet's dependencies include Eleventy, Pagefind, the RSS plugin, and an HTML minifier. They run only at build time, not in production."
+  },
+  {
+    term: "environment variable",
+    alt: "env var",
+    short: "A named value passed to a program from its environment, not hard-coded in source files.",
+    long: "Environment variables keep sensitive values (API keys, site URLs) out of your source code. In Project Broadsheet, `SITE_URL` is the most common one — it's read in `meta.js` via `process.env.SITE_URL` and set in your hosting dashboard's environment settings. Never commit secrets to a public GitHub repository."
   },
   {
     term: "DNS",
@@ -312,6 +323,11 @@ export default [
     long: "Project Broadsheet minifies every HTML file in production via `@sardine/eleventy-plugin-tinyhtml`. CSS is already concatenated at build time; JS is served as-is because there's not enough of it to matter."
   },
   {
+    term: "object",
+    short: "A collection of named values (key-value pairs) in JavaScript or YAML.",
+    long: "In JavaScript: `{ slug: 'news', label: 'News', color: '#C0392B' }`. In YAML, objects are expressed with indented key-value pairs. Project Broadsheet's data files (`authors.js`, `nav.js`, etc.) export arrays of objects, each representing one item with named properties."
+  },
+  {
     term: "Node.js",
     alt: "node",
     short: "A JavaScript runtime used to run tools like Eleventy and npm outside of a browser.",
@@ -321,6 +337,21 @@ export default [
     term: "npm",
     short: "The default package manager for Node.js, used to install dependencies and run scripts.",
     long: "`npm install` pulls down every dependency listed in `package.json`. `npm start` runs the dev server. `npm run build` produces the production site. Each script's exact command is defined in the `scripts` section of `package.json`."
+  },
+  {
+    term: "partial",
+    short: "A reusable template fragment included inside other templates.",
+    long: "Partials live in `src/_includes/partials/` and contain chunks of HTML that appear on many pages — the site header, footer, newsletter signup, article card. They're included with `{% include 'partials/header.njk' %}`. Editing one partial updates every page that includes it."
+  },
+  {
+    term: "plugin",
+    short: "An npm package that extends Eleventy with additional features.",
+    long: "Project Broadsheet uses plugins for RSS feed generation (`@11ty/eleventy-plugin-rss`), HTML minification (`@sardine/eleventy-plugin-tinyhtml`), and image optimization (`@11ty/eleventy-img`). Plugins are registered in `eleventy.config.js` and installed via `npm install`."
+  },
+  {
+    term: "push",
+    short: "To upload local Git commits to a remote repository like GitHub.",
+    long: "`git push` sends your committed changes to GitHub. For Project Broadsheet, every push to the `main` branch automatically triggers a new build and deploy on Cloudflare Pages or Netlify. Don't push until you're ready to publish — or keep working on a separate branch."
   },
   {
     term: "package.json",
@@ -334,10 +365,32 @@ export default [
     long: "Pull requests (or 'merge requests' on GitLab) let you see a diff of proposed changes, discuss them, and approve before merging. Project Broadsheet's typical workflow uses pull requests even for one-person publications so every change gets a preview deploy."
   },
   {
+    term: "render",
+    short: "To process a template and produce finished HTML output.",
+    long: "Eleventy renders your Markdown and Nunjucks templates into HTML files at build time. The browser renders HTML into a visual page. When docs say 'this renders as…' they mean 'the output HTML looks like…'."
+  },
+  {
+    term: "repository",
+    alt: "repo",
+    short: "A Git-managed folder containing all the files and history for a project.",
+    long: "Your Project Broadsheet site lives in a repository: all source files, templates, CSS, articles, and the full history of every change. You store it on GitHub and deploy from it. The main branch is `main` by convention."
+  },
+  {
     term: "redirect",
     alt: "301",
     short: "A rule that sends visitors from an old URL to a new one.",
     long: "301 redirects are permanent and preserve search-engine rankings. Project Broadsheet sites use a `_redirects` file on Cloudflare Pages / Netlify or a `vercel.json` redirects block on Vercel. Critical during platform migrations."
+  },
+  {
+    term: "template",
+    short: "A file that defines the structure and layout of a page, with placeholders filled in at build time.",
+    long: "Project Broadsheet's templates are Nunjucks `.njk` files in `src/_includes/layouts/`. They receive data (title, content, tags) from the Markdown front matter and render it into a complete HTML page. Changing a template updates every page that uses it in the next build."
+  },
+  {
+    term: "terminal",
+    alt: "command line",
+    short: "A text-based interface for running commands on your computer.",
+    long: "You use the terminal to install dependencies (`npm install`), start the dev server (`npm start`), run builds (`npm run build`), and interact with Git. On macOS it's called Terminal; on Windows, PowerShell or Windows Terminal. Most commands in the Project Broadsheet docs are written for bash syntax."
   },
   {
     term: "screen reader",
@@ -366,15 +419,46 @@ export default [
     long: "Responsive design adapts the layout to the viewport's size. The HTML `<meta name='viewport'>` tag tells mobile browsers to render the page at device width rather than simulating a desktop."
   },
   {
+    term: "array",
+    short: "An ordered list of values in code or data.",
+    long: "In YAML front matter, square brackets denote an array: `tags: [politics, local, 2026]`. In JavaScript, arrays are written the same way. Project Broadsheet uses arrays for tags, sections, authors, and language lists."
+  },
+  {
+    term: "AVIF",
+    short: "A next-generation image format that achieves smaller file sizes than WebP at equivalent quality.",
+    long: "AVIF (AV1 Image File Format) is supported by Chrome, Firefox, and Safari 16+. Project Broadsheet's image pipeline (via `@11ty/eleventy-img`) generates AVIF, WebP, and JPEG variants so the browser chooses the smallest format it understands."
+  },
+  {
     term: "API",
     alt: "application programming interface",
     short: "A defined set of endpoints or functions one program uses to talk to another.",
     long: "Web APIs let your site pull data from external services, and let external services act on your site. Project Broadsheet doesn't require any APIs at runtime because it's static, but integrations like Web3Forms and Buttondown are accessed through theirs."
   },
   {
+    term: "build",
+    short: "The process of converting source files into a ready-to-serve website.",
+    long: "Running `npm run build` tells Eleventy to read every Markdown file, apply templates, concatenate CSS, minify HTML, and write the result to the `_site/` folder. That folder is what gets deployed. The dev server (`npm start`) also builds but skips Pagefind indexing."
+  },
+  {
     term: "backup",
     short: "A separate copy of your content kept in case the primary copy is lost.",
     long: "Because Project Broadsheet stores content in Git, every commit on GitHub is already a backup. For belt-and-suspenders safety, you can also push to a second Git remote or run periodic exports of your subscriber list and reader data."
+  },
+  {
+    term: "cache",
+    short: "A stored copy of a file kept so it can be served faster on repeat visits.",
+    long: "Browsers cache stylesheets, images, and scripts to avoid re-downloading them on every page load. CDNs cache pages at edge servers close to readers. The flip side: a cached file won't update until the cache expires or is purged. Project Broadsheet uses a `?v=` version string on its stylesheet to bust the cache when the CSS changes."
+  },
+  {
+    term: "CI/CD",
+    alt: "continuous integration / continuous deployment",
+    short: "Automated pipelines that build, test, and deploy code whenever you push to a repository.",
+    long: "CI runs checks on every commit (does the build pass? do tests pass?). CD automatically deploys a passing build to a live environment. Cloudflare Pages and Netlify handle CD for Project Broadsheet out of the box; GitHub Actions can add CI steps like build checks or scheduled rebuilds."
+  },
+  {
+    term: "collection",
+    short: "A named group of pages that Eleventy assembles at build time, used to build indexes, feeds, and related-content lists.",
+    long: "Eleventy collections group pages by tag, glob pattern, or custom logic. Project Broadsheet defines collections for `posts`, `docs`, and each editorial section (e.g. `collections.news`). Templates loop over a collection to render article lists, sidebars, and RSS feeds."
   },
   {
     term: "breadcrumb",
@@ -407,6 +491,16 @@ export default [
     long: "Small SVG icons, font subsets, or tiny images can be inlined as data URIs in CSS to avoid extra HTTP requests. Project Broadsheet uses them sparingly; most assets are served as separate files behind a CDN."
   },
   {
+    term: "fenced code block",
+    short: "A block of code in Markdown delimited by triple backticks.",
+    long: "Opening with ` ``` ` (and optionally a language name like ` ```js ` or ` ```bash `) and closing with ` ``` ` tells the Markdown renderer to display the content as preformatted code, with optional syntax highlighting. Used throughout Project Broadsheet docs and is the recommended way to show code in articles."
+  },
+  {
+    term: "filter",
+    short: "A named function in a Nunjucks template that transforms a value with a pipe character.",
+    long: "Filters are called with `| filterName`. For example, `post.date | readableDate` formats a date as 'April 17, 2026'. Project Broadsheet registers filters for dates, reading time, truncation, slugifying, and array manipulation in `eleventy.config.js`."
+  },
+  {
     term: "favicon",
     short: "The small icon shown in a browser tab, bookmark, or home-screen shortcut for a site.",
     long: "Project Broadsheet ships with an SVG favicon (`favicon.svg`), a 32×32 PNG fallback (`favicon-32.png`), a 180×180 apple-touch-icon, and 192/512 icons for PWA installs. All derive from the PB monogram."
@@ -428,6 +522,12 @@ export default [
     long: "Project Broadsheet uses CSS Grid for page-level layouts: docs sidebar + content + TOC, the compare table, pricing card grids, footer columns. Grid makes responsive column changes trivial."
   },
   {
+    term: "hot reload",
+    alt: "live reload",
+    short: "Automatic browser refresh when a file changes during local development.",
+    long: "When you run `npm start`, Eleventy watches your source files. Save a Markdown file or CSS change and the browser refreshes in under a second showing the updated page. Hot reload does not run Pagefind, so search won't reflect changes until a full production build."
+  },
+  {
     term: "hCaptcha",
     short: "A privacy-respecting alternative to Google reCAPTCHA for blocking spam form submissions.",
     long: "hCaptcha doesn't require user tracking and is GDPR-friendlier than reCAPTCHA. Web3Forms supports hCaptcha as an add-on. Most Project Broadsheet sites get away with the honeypot field instead."
@@ -447,6 +547,12 @@ export default [
     term: "iframe",
     short: "An HTML element that embeds another HTML document inside the current page.",
     long: "Iframes are used for embedded YouTube videos, Buttondown signup forms, Google Maps, and similar third-party widgets. Each iframe carries its own accessibility and privacy profile; we disclose them in the Accessibility and Privacy pages."
+  },
+  {
+    term: "HTML",
+    alt: "HyperText Markup Language",
+    short: "The standard language for structuring web pages.",
+    long: "HTML uses tags like `<h1>`, `<p>`, `<img>`, and `<a>` to define the meaning and structure of content. Eleventy compiles your Markdown and Nunjucks templates into HTML files. The built `_site/` folder is full of HTML that browsers render into pages."
   },
   {
     term: "image CDN",
@@ -472,6 +578,11 @@ export default [
     term: "lazy loading",
     short: "Loading something only when it's needed, not on first page load.",
     long: "Project Broadsheet lazy-loads images below the fold, lazy-loads web fonts from the reader picker, and lazy-loads Pagefind's search index the first time a reader opens the search modal. Each saves bandwidth and improves initial load times."
+  },
+  {
+    term: "merge",
+    short: "Combining changes from one Git branch into another.",
+    long: "Merging is how a finished article or feature moves from a working branch into `main`. On GitHub you merge via a pull request. Once merged, the next push (or automatic deploy trigger) publishes the changes to your live site."
   },
   {
     term: "meta description",
