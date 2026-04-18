@@ -24,6 +24,7 @@ const CSS_PARTIALS = [
   "components/footer-cta.css",
   "components/docs.css",
   "components/search.css",
+  "components/search-modal.css",
   "components/code-block.css",
   "pages/home.css",
   "pages/features.css",

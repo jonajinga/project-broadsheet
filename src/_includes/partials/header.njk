@@ -9,7 +9,7 @@
           <line x1="10" y1="50" x2="54" y2="50" stroke="currentColor" stroke-width="1"/>
           <line x1="10" y1="54" x2="44" y2="54" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <span>Project Broadsheet</span>
+        <span class="site-header__wordmark">Project Broadsheet</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <ul class="site-nav__list">
@@ -36,6 +36,9 @@
         </ul>
       </nav>
       <div class="site-header__actions">
+        <button class="search-toggle" type="button" aria-label="Search the site" onclick="openSearch()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
         {% if meta.gtranslate.enabled %}
         <div class="lang-switcher" data-open="false">
           <button class="lang-toggle" type="button" aria-label="Translate this page" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu(event)">

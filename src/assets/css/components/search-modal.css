@@ -1,0 +1,87 @@
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-block: 6vh 2rem;
+  padding-inline: var(--space-md);
+}
+.search-modal[data-open="true"] { display: flex; }
+body[data-search-open="true"] { overflow: hidden; }
+
+.search-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.search-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 38rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  max-height: min(80vh, 44rem);
+  overflow: hidden;
+}
+html[data-theme="dark"] .search-modal__panel { background: #1A1815; border-color: rgba(232, 227, 214, 0.24); }
+
+.search-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-ui);
+  background: var(--surface-raised);
+}
+html[data-theme="dark"] .search-modal__header { background: #221F1B; }
+.search-modal__title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+.search-modal__close {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.search-modal__close:hover, .search-modal__close:focus-visible { background: var(--surface); color: var(--accent); }
+.search-modal__close svg { width: 1.1rem; height: 1.1rem; }
+
+#pagefind-search { padding: var(--space-md); overflow-y: auto; flex: 1; }
+
+.search-modal__hint {
+  padding: 0.5rem 1rem 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+html[data-theme="dark"] .search-modal__hint { background: #221F1B; }
+.search-modal__hint kbd {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.1em 0.35em;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+html[data-theme="dark"] .search-modal__hint kbd { background: #0D0C0B; border-color: rgba(232, 227, 214, 0.22); }

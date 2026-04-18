@@ -29,9 +29,29 @@ html[data-theme="dark"] .site-header { background: rgba(18, 16, 14, 0.92); }
 }
 .site-header__brand:hover,
 .site-header__brand:focus-visible { color: var(--accent); text-decoration: none; }
-.site-header__logo { width: 2.25rem; height: 2.25rem; display: inline-block; color: var(--text); }
+.site-header__logo { width: 2.25rem; height: 2.25rem; display: inline-block; color: var(--text); flex-shrink: 0; }
 .site-header__brand:hover .site-header__logo { color: var(--accent); }
+.site-header__wordmark { display: inline; }
+@media (max-width: 640px) {
+  .site-header__wordmark { display: none; }
+  .site-header__brand { gap: 0; }
+}
 .site-header__actions { display: flex; align-items: center; gap: var(--space-xs); }
+
+.search-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.search-toggle:hover, .search-toggle:focus-visible { background: var(--surface-raised); color: var(--accent); }
+.search-toggle svg { width: 1.15rem; height: 1.15rem; display: block; }
 
 .theme-toggle {
   width: 2.75rem;

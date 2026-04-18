@@ -1,7 +1,8 @@
 .table-wrap { overflow-x: auto; border: 1px solid var(--border-strong); background: var(--surface-raised); }
 html[data-theme="dark"] .table-wrap { background: #1A1815; border-color: rgba(232, 227, 214, 0.18); }
 
-.compare-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; color: var(--text); }
+.compare-table { width: 100%; min-width: 62rem; border-collapse: collapse; font-size: 0.95rem; color: var(--text); }
+.compare-table thead th, .compare-table tbody td { min-width: 9.5rem; }
 .compare-table thead th {
   background: var(--surface-sunken);
   color: var(--text);
