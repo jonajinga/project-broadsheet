@@ -33,7 +33,7 @@ Symptom:
 [11ty] unexpected end of template
 ```
 
-A Nunjucks tag was left open. Usually a missing `{% endraw %}%}`, `{% endif %}`, or `{% endfor %}`.
+A Nunjucks tag was left open. Usually a missing `{% raw %}{% endif %}{% endraw %}` or `{% raw %}{% endfor %}{% endraw %}` somewhere in a template.
 
 Look at the line number in the error. Nunjucks counts lines inclusive of front matter.
 
