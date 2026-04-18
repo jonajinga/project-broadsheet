@@ -34,6 +34,36 @@ html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgb
 .page-body { padding-bottom: var(--space-3xl); }
 @media (max-width: 640px) { .page-body { padding-bottom: var(--space-2xl); } }
 
+/* Prose rhythm for Markdown-rendered content in page layouts.
+   Applies only to direct children so it doesn't interfere with pages that
+   wrap their content in sections/cards/grids. */
+.page-body > h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); line-height: 1.15; }
+.page-body > h3 { margin-top: var(--space-xl); margin-bottom: var(--space-sm); line-height: 1.2; }
+.page-body > h4 { margin-top: var(--space-lg); margin-bottom: var(--space-xs); line-height: 1.25; }
+.page-body > p { margin-block: 0 var(--space-md); line-height: 1.7; max-width: 48rem; }
+.page-body > p:last-child { margin-bottom: 0; }
+.page-body > ul,
+.page-body > ol { margin-block: var(--space-sm) var(--space-md); padding-left: 1.5rem; max-width: 48rem; }
+.page-body > ul { list-style: disc; }
+.page-body > ol { list-style: decimal; }
+.page-body > ul li,
+.page-body > ol li { margin-bottom: 0.4rem; line-height: 1.6; color: var(--text); }
+.page-body > blockquote { margin-block: var(--space-md); }
+.page-body > pre { margin-block: var(--space-md); }
+.page-body > hr { margin-block: var(--space-2xl); }
+.page-body > table { margin-block: var(--space-md) var(--space-xl); width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.page-body > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); }
+html[data-theme="dark"] .page-body > table thead th { background: #0D0C0B; }
+.page-body > table tbody td { padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+.page-body > table tbody td:first-child { font-weight: 600; white-space: nowrap; }
+.page-body > table tbody tr:last-child td { border-bottom: 0; }
+.page-body > a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.page-body > a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+.page-body > * + h2 { margin-top: var(--space-2xl); }
+.page-body > * + h3 { margin-top: var(--space-xl); }
+.page-body > h2:first-child,
+.page-body > h3:first-child { margin-top: 0; }
+
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }
 .text-accent { color: var(--accent); }
