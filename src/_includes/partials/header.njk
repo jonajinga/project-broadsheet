@@ -41,19 +41,11 @@
         </button>
         {% if meta.gtranslate.enabled %}
         <div class="lang-switcher" data-open="false">
-          <button class="lang-toggle" type="button" aria-label="Translate this page" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu(event)">
+          <button class="lang-toggle" type="button" aria-label="Translate this page" aria-haspopup="true" aria-expanded="false" onclick="event.stopPropagation();var w=this.parentElement;var open=w.getAttribute('data-open')==='true';w.setAttribute('data-open',open?'false':'true');this.setAttribute('aria-expanded',open?'false':'true');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
           </button>
-          <div class="lang-menu" role="menu" aria-label="Language selection">
-            <div class="lang-menu__header">Translate</div>
-            <div class="lang-menu__list">
-              {% for lang in languages %}
-              <button type="button" role="menuitem" class="lang-menu__item" data-lang="{{ lang.code }}" onclick="pickLang('{{ lang.code }}')">
-                <span class="lang-menu__flag" aria-hidden="true">{{ lang.flag }}</span>
-                <span class="lang-menu__name">{{ lang.name }}</span>
-              </button>
-              {% endfor %}
-            </div>
+          <div class="lang-menu">
+            <div class="gtranslate_wrapper"></div>
           </div>
         </div>
         {% endif %}

@@ -44,17 +44,9 @@
 <script async defer src="{{ meta.umamiSrc }}" data-website-id="{{ meta.umamiWebsiteId }}"></script>
 {% endif %}
 {% if meta.gtranslate.enabled %}
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: "{{ meta.gtranslate.defaultLanguage }}",
-      includedLanguages: {{ meta.gtranslate.languages | dump | safe }}.join(","),
-      autoDisplay: false,
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, "google_translate_element");
-  }
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","af","sq","am","ar","hy","az","eu","be","bn","bs","bg","ca","ceb","zh-CN","zh-TW","co","hr","cs","da","nl","eo","et","fi","fr","fy","gl","ka","de","el","gu","ht","ha","haw","he","hi","hmn","hu","is","ig","id","ga","it","ja","jw","kn","kk","km","rw","ko","ku","ky","lo","la","lv","lt","lb","mk","mg","ms","ml","mt","mi","mr","mn","my","ne","no","ny","or","ps","fa","pl","pt","pa","ro","ru","sm","gd","sr","st","sn","sd","si","sk","sl","so","es","su","sw","sv","tl","tg","ta","tt","te","th","tr","tk","uk","ur","ug","uz","vi","cy","xh","yi","yo","zu"],"wrapper_selector":".gtranslate_wrapper","flag_size":16,"flag_style":"3d","alt_flags":{"en":"usa"}};</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+<script>document.addEventListener("click",function(e){var w=document.querySelector(".lang-switcher");if(w&&!w.contains(e.target)){w.setAttribute("data-open","false");var b=w.querySelector(".lang-toggle");if(b)b.setAttribute("aria-expanded","false");}});</script>
 {% endif %}
 </head>
 <body data-w3f-key="{{ meta.web3formsKey }}"{% if body_attrs %} {{ body_attrs | safe }}{% endif %}>
@@ -70,7 +62,6 @@
 <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" onclick="scrollToTop()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
-{% if meta.gtranslate.enabled %}<div id="google_translate_element" aria-hidden="true"></div>{% endif %}
 <script src="https://instant.page/5.2.0" type="module" defer integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>

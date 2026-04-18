@@ -69,83 +69,16 @@ window.scrollToTop = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-// Language switcher
-window.toggleLangMenu = function (event) {
-  if (event) event.stopPropagation();
-  var wrap = document.querySelector(".lang-switcher");
-  if (!wrap) return;
-  var open = wrap.getAttribute("data-open") === "true";
-  wrap.setAttribute("data-open", open ? "false" : "true");
-  var btn = wrap.querySelector(".lang-toggle");
-  if (btn) btn.setAttribute("aria-expanded", open ? "false" : "true");
-};
-
-window.pickLang = function (code) {
-  if (!code) return;
-
-  var applyTranslation = function (attempt) {
-    attempt = attempt || 0;
-    var sel = document.querySelector(".goog-te-combo");
-    if (sel) {
-      sel.value = code;
-      sel.dispatchEvent(new Event("change"));
-      return true;
-    }
-    if (attempt < 20) {
-      setTimeout(function () { applyTranslation(attempt + 1); }, 250);
-    } else {
-      // Fallback: set the Google Translate cookie and reload.
-      try {
-        var host = window.location.hostname.replace(/^www\./, "");
-        document.cookie = "googtrans=/en/" + code + "; path=/";
-        document.cookie = "googtrans=/en/" + code + "; path=/; domain=." + host;
-        window.location.reload();
-      } catch (e) {}
-    }
-    return false;
-  };
-
-  applyTranslation();
-
-  var wrap = document.querySelector(".lang-switcher");
-  if (wrap) {
-    wrap.setAttribute("data-open", "false");
-    wrap.querySelectorAll(".lang-menu__item").forEach(function (el) { el.removeAttribute("aria-current"); });
-    var picked = wrap.querySelector('.lang-menu__item[data-lang="' + code + '"]');
-    if (picked) picked.setAttribute("aria-current", "true");
-  }
-  try { localStorage.setItem("pb-lang", code); } catch (e) {}
-};
-
-document.addEventListener("click", function (event) {
-  var wrap = document.querySelector(".lang-switcher");
-  if (wrap && !event.target.closest(".lang-switcher")) {
-    wrap.setAttribute("data-open", "false");
-    var btn = wrap.querySelector(".lang-toggle");
-    if (btn) btn.setAttribute("aria-expanded", "false");
-  }
-});
-
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     var wrap = document.querySelector(".lang-switcher");
     if (wrap && wrap.getAttribute("data-open") === "true") {
       wrap.setAttribute("data-open", "false");
       var btn = wrap.querySelector(".lang-toggle");
-      if (btn) btn.setAttribute("aria-expanded", "false");
+      if(btn) { btn.setAttribute("aria-expanded", "false"); btn.focus(); }
     }
   }
 });
-
-// Restore previously chosen language's aria-current on load.
-(function () {
-  try {
-    var stored = localStorage.getItem("pb-lang");
-    if (!stored) return;
-    var picked = document.querySelector('.lang-menu__item[data-lang="' + stored + '"]');
-    if (picked) picked.setAttribute("aria-current", "true");
-  } catch (e) {}
-})();
 
 // Pre-select form fields from URL query params.
 // e.g. /book-a-call/?package=signature pre-selects the matching option.
