@@ -9,7 +9,7 @@ Cloudflare Pages and Netlify already build and deploy your site automatically wh
 
 ## The simplest workflow: push-to-deploy
 
-If you are using Cloudflare Pages or Netlify, push-to-deploy is already configured through their dashboard — you do not need a GitHub Actions workflow for basic deploys. Skip ahead to scheduled rebuilds if that is all you need.
+If you are using Cloudflare Pages or Netlify, push-to-deploy is already configured through their dashboard - you do not need a GitHub Actions workflow for basic deploys. Skip ahead to scheduled rebuilds if that is all you need.
 
 ## Manual deploy with GitHub Actions (Cloudflare Pages)
 
@@ -48,7 +48,7 @@ Add `CF_API_TOKEN` and `CF_ACCOUNT_ID` as repository secrets under **Settings �
 
 ## Scheduled rebuilds
 
-A scheduled rebuild is useful when you use `draft: true` combined with a future `date` field — the article stays hidden until you remove the draft flag, but you can queue rebuilds to check daily:
+A scheduled rebuild is useful when you use `draft: true` combined with a future `date` field - the article stays hidden until you remove the draft flag, but you can queue rebuilds to check daily:
 
 ```yaml
 name: Scheduled rebuild

@@ -33,7 +33,7 @@ export default [
 
 ## Change the default font
 
-The default is whichever font the reader last chose, or — for first-time visitors — the first entry in `readerFonts.js`. To change the first-time default, reorder the array.
+The default is whichever font the reader last chose, or - for first-time visitors - the first entry in `readerFonts.js`. To change the first-time default, reorder the array.
 
 ## High-legibility options
 

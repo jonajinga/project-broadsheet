@@ -5,7 +5,7 @@ order: 6
 updated: 2026-04-18
 ---
 
-Static assets — stylesheets, images, and scripts — are aggressively cached by browsers and CDNs. When a change does not appear after a deploy, a cache is almost always the reason.
+Static assets - stylesheets, images, and scripts - are aggressively cached by browsers and CDNs. When a change does not appear after a deploy, a cache is almost always the reason.
 
 ---
 
@@ -31,7 +31,7 @@ version: "1.0.1",  // was "1.0.0"
 
 ## CSS changes appear locally but not in production
 
-**Check 1 — the change is in the build output:**
+**Check 1 - the change is in the build output:**
 
 ```bash
 npm run build
@@ -40,11 +40,11 @@ grep "your-new-rule" _site/assets/css/global.css
 
 If the rule is absent from `_site/`, it may be in a CSS partial that is not included in the concatenation order. Open `eleventy.config.js` and confirm your partial file is listed in the CSS build step.
 
-**Check 2 — the deploy actually ran:**
+**Check 2 - the deploy actually ran:**
 
 Confirm the hosting dashboard shows a completed deploy *after* your push. If the deploy triggered before your push completed (rare), trigger a manual redeploy.
 
-**Check 3 — Cloudflare cache:**
+**Check 3 - Cloudflare cache:**
 
 Cloudflare caches static assets at the edge. A new deploy purges HTML pages, but assets at stable URLs (like `/assets/css/global.css`) may be cached independently. Bumping the `?v=` version string in `meta.js` forces a new URL and bypasses the CDN cache.
 
@@ -52,7 +52,7 @@ Cloudflare caches static assets at the edge. A new deploy purges HTML pages, but
 
 ## A new image does not appear after deploy
 
-**Check 1 — the file is committed:**
+**Check 1 - the file is committed:**
 
 ```bash
 git status src/assets/img/
@@ -66,7 +66,7 @@ git commit -m "add article cover image"
 git push
 ```
 
-**Check 2 — the path in front matter or Markdown is correct:**
+**Check 2 - the path in front matter or Markdown is correct:**
 
 Image paths must start with `/assets/img/` (absolute from the site root). Relative paths like `../img/` do not work in Eleventy's output structure.
 
@@ -76,7 +76,7 @@ Correct:
 cover_image: "/assets/img/covers/my-article.jpg"
 ```
 
-**Check 3 — the file is not in `.gitignore`:**
+**Check 3 - the file is not in `.gitignore`:**
 
 Run `git check-ignore -v src/assets/img/my-new-image.jpg`. If it is ignored, remove the rule from `.gitignore`.
 
@@ -98,7 +98,7 @@ git mv src/assets/img/covers/MyArticle.jpg src/assets/img/covers/myarticle.jpg
 
 ## OG / social preview images are stale
 
-Social platforms (LinkedIn, X/Twitter, Slack) cache Open Graph images aggressively — sometimes for days.
+Social platforms (LinkedIn, X/Twitter, Slack) cache Open Graph images aggressively - sometimes for days.
 
 **Force a re-fetch:**
 

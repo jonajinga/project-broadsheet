@@ -31,7 +31,7 @@ export default {
   hourly: {
     price: "$150",
     cadence: "per hour",
-    tagline: "Any hands-on work — setup, migration, training, consulting, custom development, or support. Billed only for time actually spent. No retainer, no minimum commitment.",
+    tagline: "Any hands-on work - setup, migration, training, consulting, custom development, or support. Billed only for time actually spent. No retainer, no minimum commitment.",
     includes: [
       "Initial setup and deployment",
       "Content migration from any platform",

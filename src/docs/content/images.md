@@ -66,10 +66,10 @@ Add a caption by placing italic text immediately below the image:
 
 ## Image formats
 
-- **JPEG** — photographs and images with many colors
-- **PNG** — screenshots, diagrams, images with transparency
-- **WebP** — a modern format roughly 30% smaller than JPEG/PNG at equal quality; supported by all modern browsers
-- **SVG** — logos and icons; scales perfectly at any size
+- **JPEG** - photographs and images with many colors
+- **PNG** - screenshots, diagrams, images with transparency
+- **WebP** - a modern format roughly 30% smaller than JPEG/PNG at equal quality; supported by all modern browsers
+- **SVG** - logos and icons; scales perfectly at any size
 
 Prefer WebP for photographs when you can produce it. If you need maximum compatibility, JPEG is safe.
 

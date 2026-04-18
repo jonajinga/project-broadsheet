@@ -278,7 +278,7 @@ export default [
     term: "environment variable",
     alt: "env var",
     short: "A named value passed to a program from its environment, not hard-coded in source files.",
-    long: "Environment variables keep sensitive values (API keys, site URLs) out of your source code. In Project Broadsheet, `SITE_URL` is the most common one — it's read in `meta.js` via `process.env.SITE_URL` and set in your hosting dashboard's environment settings. Never commit secrets to a public GitHub repository."
+    long: "Environment variables keep sensitive values (API keys, site URLs) out of your source code. In Project Broadsheet, `SITE_URL` is the most common one - it's read in `meta.js` via `process.env.SITE_URL` and set in your hosting dashboard's environment settings. Never commit secrets to a public GitHub repository."
   },
   {
     term: "DNS",
@@ -341,7 +341,7 @@ export default [
   {
     term: "partial",
     short: "A reusable template fragment included inside other templates.",
-    long: "Partials live in `src/_includes/partials/` and contain chunks of HTML that appear on many pages — the site header, footer, newsletter signup, article card. They're included with `{% include 'partials/header.njk' %}`. Editing one partial updates every page that includes it."
+    long: "Partials live in `src/_includes/partials/` and contain chunks of HTML that appear on many pages - the site header, footer, newsletter signup, article card. They're included with `{% include 'partials/header.njk' %}`. Editing one partial updates every page that includes it."
   },
   {
     term: "plugin",
@@ -351,7 +351,7 @@ export default [
   {
     term: "push",
     short: "To upload local Git commits to a remote repository like GitHub.",
-    long: "`git push` sends your committed changes to GitHub. For Project Broadsheet, every push to the `main` branch automatically triggers a new build and deploy on Cloudflare Pages or Netlify. Don't push until you're ready to publish — or keep working on a separate branch."
+    long: "`git push` sends your committed changes to GitHub. For Project Broadsheet, every push to the `main` branch automatically triggers a new build and deploy on Cloudflare Pages or Netlify. Don't push until you're ready to publish - or keep working on a separate branch."
   },
   {
     term: "package.json",

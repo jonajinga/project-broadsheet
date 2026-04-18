@@ -60,7 +60,7 @@ Jekyll uses Liquid templating in Markdown body content. Project Broadsheet does 
 | link tag | Plain relative link: `[About](/about/)` |
 | site.baseurl variable | `/assets/img/` (bare path) |
 | include tag | `![alt](/assets/img/…)` standard Markdown image |
-| raw/endraw tags | Remove them — Markdown body is not Liquid-processed |
+| raw/endraw tags | Remove them - Markdown body is not Liquid-processed |
 
 Search for remaining Liquid tags after migration:
 

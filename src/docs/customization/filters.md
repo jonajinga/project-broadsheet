@@ -39,7 +39,7 @@ Use it immediately:
 {% raw %}{{ "hello" | uppercase }}{% endraw %}
 ```
 
-The dev server hot-reloads config changes — no restart needed.
+The dev server hot-reloads config changes - no restart needed.
 
 ## Chaining filters
 

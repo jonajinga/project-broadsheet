@@ -5,7 +5,7 @@ order: 7
 updated: 2026-04-18
 ---
 
-Project Broadsheet includes a voice input button in the search bar. Readers can click the microphone icon, speak a query, and have the words transcribed into the search field automatically. The feature runs entirely in the browser using the Web Speech API — no audio is sent to any server.
+Project Broadsheet includes a voice input button in the search bar. Readers can click the microphone icon, speak a query, and have the words transcribed into the search field automatically. The feature runs entirely in the browser using the Web Speech API - no audio is sent to any server.
 
 ## How readers use it
 

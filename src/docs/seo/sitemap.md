@@ -13,10 +13,10 @@ Project Broadsheet generates the sitemap automatically. The template is at `src/
 
 The template iterates over `collections.all` (every page and article in the site), filters out pages that set `eleventyExcludeFromCollections: true` or that live under `/assets/` or `/thank-you/`, and writes a `<url>` entry for each with:
 
-- `<loc>` — full URL
-- `<lastmod>` — the page's `date` front-matter value
-- `<changefreq>` — `weekly` for the homepage, `monthly` otherwise
-- `<priority>` — `1.0` for the homepage, `0.9` for docs/features/pricing, `0.7` for everything else
+- `<loc>` - full URL
+- `<lastmod>` - the page's `date` front-matter value
+- `<changefreq>` - `weekly` for the homepage, `monthly` otherwise
+- `<priority>` - `1.0` for the homepage, `0.9` for docs/features/pricing, `0.7` for everything else
 
 ## Excluding a page
 

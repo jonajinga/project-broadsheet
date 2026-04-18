@@ -15,7 +15,7 @@ Editions are Markdown files at `src/content/editions/{number}.md`:
 ---
 layout: layouts/edition.njk
 edition_number: 42
-title: "Issue 42 — Spring 2026"
+title: "Issue 42 - Spring 2026"
 edition_date: "2026-04-01"
 cover_image: "/assets/img/editions/42-cover.jpg"
 articles:

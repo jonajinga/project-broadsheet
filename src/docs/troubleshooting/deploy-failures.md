@@ -5,7 +5,7 @@ order: 4
 updated: 2026-04-18
 ---
 
-A deploy failure means the build completed on your machine but failed in CI. The cause is almost always an environment difference — Node version, missing environment variable, or a file that was not committed. Start with the build log in your hosting dashboard.
+A deploy failure means the build completed on your machine but failed in CI. The cause is almost always an environment difference - Node version, missing environment variable, or a file that was not committed. Start with the build log in your hosting dashboard.
 
 ## How to read the build log
 
@@ -32,7 +32,7 @@ Confirm your local version with `node --version` and match it exactly.
 
 ---
 
-## `npm ci` fails — missing package-lock.json
+## `npm ci` fails - missing package-lock.json
 
 **Symptom:** `npm ci can only install packages when your package.json and package-lock.json are in sync`
 
@@ -42,7 +42,7 @@ Confirm your local version with `node --version` and match it exactly.
 
 ## Pagefind fails at the end of the build
 
-Project Broadsheet runs Pagefind as an Eleventy `after` hook — it indexes `_site/` once the HTML is generated. If Pagefind has no files to index, the build may error.
+Project Broadsheet runs Pagefind as an Eleventy `after` hook - it indexes `_site/` once the HTML is generated. If Pagefind has no files to index, the build may error.
 
 **Symptom:** `Error: Could not find any HTML files in _site/`
 
@@ -79,9 +79,9 @@ Cloudflare Pages has a 20-minute build timeout; Netlify's free tier has 15 minut
 
 **Causes and fixes:**
 
-- **Large image assets committed to the repo** — move images to a CDN or image host rather than committing them. Large binary files slow both clone and build times.
-- **Pagefind indexing a very large archive** — Pagefind performance degrades above ~5,000 pages. Consider excluding low-value pages with `data-pagefind-ignore` attributes.
-- **`npm install` instead of `npm ci`** — use `npm ci` for faster, reproducible installs in CI.
+- **Large image assets committed to the repo** - move images to a CDN or image host rather than committing them. Large binary files slow both clone and build times.
+- **Pagefind indexing a very large archive** - Pagefind performance degrades above ~5,000 pages. Consider excluding low-value pages with `data-pagefind-ignore` attributes.
+- **`npm install` instead of `npm ci`** - use `npm ci` for faster, reproducible installs in CI.
 
 ---
 
@@ -91,9 +91,9 @@ Cloudflare Pages has a 20-minute build timeout; Netlify's free tier has 15 minut
 
 **Causes:**
 
-1. **Cloudflare cache** — Cloudflare Pages has a global CDN cache. A new deploy automatically invalidates pages, but CDN propagation can take 30–60 seconds. Wait and hard-refresh.
-2. **Browser cache** — try opening the URL in a private/incognito window.
-3. **Wrong branch** — confirm the production branch in the dashboard is set to `main`, not another branch.
+1. **Cloudflare cache** - Cloudflare Pages has a global CDN cache. A new deploy automatically invalidates pages, but CDN propagation can take 30–60 seconds. Wait and hard-refresh.
+2. **Browser cache** - try opening the URL in a private/incognito window.
+3. **Wrong branch** - confirm the production branch in the dashboard is set to `main`, not another branch.
 
 ## What to do next
 

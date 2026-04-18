@@ -31,7 +31,7 @@ Hugo and Project Broadsheet share many front matter conventions, but some fields
 |------|--------------------|-------|
 | `title` | `title` | Same |
 | `date` | `date` | Same format (YYYY-MM-DD) |
-| `draft` | `draft` | Same — `true` excludes from production |
+| `draft` | `draft` | Same - `true` excludes from production |
 | `tags` | `tags` | Same |
 | `description` | `description` | Same |
 | `author` | `author` | Must be a slug matching `authors.js` |
@@ -71,7 +71,7 @@ Hugo's `content/posts/` folder maps to whichever section you designate as the de
 
 ## Step 4. Replace Hugo shortcodes
 
-Hugo shortcodes have no equivalent in Project Broadsheet — the template engine is Nunjucks, not Go templates. Common shortcodes and their Markdown replacements:
+Hugo shortcodes have no equivalent in Project Broadsheet - the template engine is Nunjucks, not Go templates. Common shortcodes and their Markdown replacements:
 
 | Hugo shortcode | Project Broadsheet equivalent |
 |----------------|-------------------------------|

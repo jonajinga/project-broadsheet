@@ -2,7 +2,7 @@ export default [
   {
     slug: "hosting",
     name: "Monthly hosting",
-    summary: "Managed hosting on my Cloudflare account. You get a domain, HTTPS, weekly backups, and updates applied — without ever opening a terminal. Cancel any month.",
+    summary: "Managed hosting on my Cloudflare account. You get a domain, HTTPS, weekly backups, and updates applied - without ever opening a terminal. Cancel any month.",
     includes: [
       "Production site hosted on Cloudflare Pages",
       "HTTPS, DNS, and weekly backups",
@@ -16,7 +16,7 @@ export default [
   {
     slug: "setup",
     name: "Setup and launch",
-    summary: "Repository configuration, brand tokens, Cloudflare Pages deployment, domain wiring, and integration setup — billed at the standard hourly rate.",
+    summary: "Repository configuration, brand tokens, Cloudflare Pages deployment, domain wiring, and integration setup - billed at the standard hourly rate.",
     includes: [
       "Repository fork, rename, and baseline configuration",
       "Brand tokens applied (colors, typography, logo)",

@@ -5,7 +5,7 @@ order: 2
 updated: 2026-04-17
 ---
 
-The library is a dedicated content type for long-form works — public-domain books, serialized essays, lengthy reports. It gives each work its own index page, individual chapter pages, a floating table of contents, reading-progress persistence, and chapter-to-chapter navigation that preserves the reader's place.
+The library is a dedicated content type for long-form works - public-domain books, serialized essays, lengthy reports. It gives each work its own index page, individual chapter pages, a floating table of contents, reading-progress persistence, and chapter-to-chapter navigation that preserves the reader's place.
 
 ## Define a work
 

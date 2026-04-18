@@ -7,25 +7,25 @@ updated: 2026-04-17
 
 Substack's export is simpler than WordPress but has two pieces that need separate attention: the post archive (a CSV with an HTML body column) and the subscriber list (a separate CSV). Both export cleanly; migration is mostly a matter of converting the HTML and moving the subscribers to a newsletter service you control.
 
-## Step 1 — Export posts from Substack
+## Step 1 - Export posts from Substack
 
 1. In Substack, visit **Settings** → **Exports** → **Create a new export**.
 2. Wait for the email notification (usually within a few minutes).
 3. Download the zip.
 
 The archive contains:
-- `posts.csv` — every published post with title, subtitle, publish date, HTML body, and subtitle fields.
-- `posts/` — individual `.html` files for each post.
-- `comments.csv` — every comment on every post.
+- `posts.csv` - every published post with title, subtitle, publish date, HTML body, and subtitle fields.
+- `posts/` - individual `.html` files for each post.
+- `comments.csv` - every comment on every post.
 
-## Step 2 — Export subscribers
+## Step 2 - Export subscribers
 
 1. **Settings** → **Publication** → **Subscribers** → **Export**.
 2. Download the `subscribers.csv`.
 
 This contains email addresses and signup dates. No other personal data is exported by default.
 
-## Step 3 — Convert post HTML to Markdown
+## Step 3 - Convert post HTML to Markdown
 
 Each post's body is HTML. Use a Node script with `turndown` (<https://github.com/mixmark-io/turndown>) to convert:
 
@@ -37,7 +37,7 @@ const markdown = turndown.turndown(htmlBody);
 
 Substack's HTML is mostly clean paragraphs and headings. Tables convert well; embedded tweets and YouTube embeds need manual attention (they come through as Substack-specific components).
 
-## Step 4 — Wrap posts with Project Broadsheet front matter
+## Step 4 - Wrap posts with Project Broadsheet front matter
 
 For each converted post, wrap with front matter:
 
@@ -53,7 +53,7 @@ section: news
 
 The `description` field maps well to Substack's "subtitle." The `section` you'll assign based on your new structure.
 
-## Step 5 — Rehost images
+## Step 5 - Rehost images
 
 Substack hosts images at `https://substackcdn.com/...`. Those URLs typically keep working even after you leave Substack (they're served via CDN, independent of your publication), so you can leave image paths untouched initially. To fully de-couple:
 
@@ -61,7 +61,7 @@ Substack hosts images at `https://substackcdn.com/...`. Those URLs typically kee
 2. Place them in `src/assets/img/migrated/`.
 3. Rewrite the paths in your Markdown.
 
-## Step 6 — Move subscribers to Buttondown
+## Step 6 - Move subscribers to Buttondown
 
 <span class="g-term" data-term="Buttondown">Buttondown</span> imports Substack's subscriber CSV directly:
 
@@ -71,7 +71,7 @@ Substack hosts images at `https://substackcdn.com/...`. Those URLs typically kee
 
 All subscribers are imported as "confirmed" (double-opt-in isn't required since they already opted in on Substack). You should send a first email from Buttondown explaining the move so subscribers know to expect mail from the new sender address.
 
-## Step 7 — URL redirects
+## Step 7 - URL redirects
 
 Substack URLs look like `https://yourpub.substack.com/p/post-slug`. Once you move off Substack, those URLs point to your subdomain on substack.com, which still works.
 

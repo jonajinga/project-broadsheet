@@ -33,16 +33,16 @@ Project Broadsheet's palette is a newsprint-inspired set: warm cream paper, ink 
 
 | Token | Role | Contrast on paper |
 |---|---|---|
-| `--paper` | Primary page background | — |
-| `--paper-raised` | Cards, panels, alert boxes | — |
-| `--paper-sunken` | Footer, alt sections, code blocks | — |
+| `--paper` | Primary page background | - |
+| `--paper-raised` | Cards, panels, alert boxes | - |
+| `--paper-sunken` | Footer, alt sections, code blocks | - |
 | `--ink` | Body text | 15.6 : 1 |
 | `--ink-soft` | Lead paragraphs | 12.4 : 1 |
 | `--muted` | Meta, captions, eyebrows | 7.1 : 1 |
 | `--vermillion` | Primary accent, buttons, emphasis | 5.2 : 1 |
 | `--slate` | Links | 6.8 : 1 |
-| `--rule` | Decorative horizontal rules | — |
-| `--gold` | Badge borders, callout accents | — |
+| `--rule` | Decorative horizontal rules | - |
+| `--gold` | Badge borders, callout accents | - |
 
 Contrast ratios are measured against `--paper`. All body pairings meet or exceed <span class="g-term" data-term="WCAG">WCAG</span> 2.2 Level AA.
 

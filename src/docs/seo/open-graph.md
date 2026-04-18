@@ -54,7 +54,7 @@ Twitter/X reads both `og:*` and `twitter:*`, preferring the latter when both are
 
 After deploy:
 
-- **Facebook / LinkedIn**: <https://developers.facebook.com/tools/debug/> — paste your URL, click "Debug."
+- **Facebook / LinkedIn**: <https://developers.facebook.com/tools/debug/> - paste your URL, click "Debug."
 - **Twitter**: its card validator has been deprecated; the Facebook tool is a decent substitute.
 - **Slack / Discord**: paste the link into a test channel; they display the preview in real time.
 - **iMessage**: same, in a private thread.

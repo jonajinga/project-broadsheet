@@ -13,7 +13,7 @@ Squarespace exports content as a WordPress-compatible XML file. The migration pr
 2. Click **Export** and choose **WordPress** format.
 3. Squarespace downloads a `.xml` file containing all your posts, pages, and metadata.
 
-Note: Squarespace does **not** include image files in the export — images are hosted on Squarespace's CDN and referenced by URL in the XML. You will need to download them separately (Step 4).
+Note: Squarespace does **not** include image files in the export - images are hosted on Squarespace's CDN and referenced by URL in the XML. You will need to download them separately (Step 4).
 
 ## Step 2. Parse the XML
 
@@ -24,7 +24,7 @@ npm install -g wordpress-export-to-markdown
 wordpress-export-to-markdown --input=export.xml --output=posts/
 ```
 
-This produces one Markdown file per post. Review the output — body content will be converted from HTML but may need manual cleanup for complex blocks (galleries, embedded forms, etc.).
+This produces one Markdown file per post. Review the output - body content will be converted from HTML but may need manual cleanup for complex blocks (galleries, embedded forms, etc.).
 
 ## Step 3. Map front matter fields
 
@@ -43,7 +43,7 @@ tags: [tag1, tag2]
 description: "A 120-character summary for SEO."
 ```
 
-Remove Squarespace-specific fields like `status`, `post_id`, and `wp:post_type` — they have no meaning in Project Broadsheet.
+Remove Squarespace-specific fields like `status`, `post_id`, and `wp:post_type` - they have no meaning in Project Broadsheet.
 
 ## Step 4. Rehost images
 
@@ -82,7 +82,7 @@ Squarespace blog post URLs are typically `/blog/post-slug`. Project Broadsheet u
 /blog/another-post /opinion/another-post/ 301
 ```
 
-Squarespace pages (About, Contact) map to top-level URLs that Project Broadsheet also uses at the top level — those may not need redirects at all.
+Squarespace pages (About, Contact) map to top-level URLs that Project Broadsheet also uses at the top level - those may not need redirects at all.
 
 To generate the redirect list from your export:
 
@@ -95,7 +95,7 @@ grep -o '<link>[^<]*</link>' export.xml | \
 
 ## What about Squarespace pages?
 
-Squarespace pages (About, FAQ, etc.) do not export as blog posts — they appear as `<wp:post_type>page</wp:post_type>` entries in the XML. Recreate these as Nunjucks pages in `src/pages/` or as standalone Markdown files. For a simple About page, add `src/about.md` with the relevant front matter.
+Squarespace pages (About, FAQ, etc.) do not export as blog posts - they appear as `<wp:post_type>page</wp:post_type>` entries in the XML. Recreate these as Nunjucks pages in `src/pages/` or as standalone Markdown files. For a simple About page, add `src/about.md` with the relevant front matter.
 
 ## Would you rather hand this off?
 

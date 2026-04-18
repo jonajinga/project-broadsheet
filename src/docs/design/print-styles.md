@@ -5,7 +5,7 @@ order: 5
 updated: 2026-04-18
 ---
 
-Project Broadsheet ships with print stylesheets for articles and <span class="g-term" data-term="edition">editions</span>. When a reader chooses **File → Print** or **Ctrl+P**, the browser switches to the print stylesheet automatically — no reader action required.
+Project Broadsheet ships with print stylesheets for articles and <span class="g-term" data-term="edition">editions</span>. When a reader chooses **File → Print** or **Ctrl+P**, the browser switches to the print stylesheet automatically - no reader action required.
 
 ## What print styles do
 
@@ -54,7 +54,7 @@ Print rules are in `src/assets/css/print.css`. They use a standard `@media print
 }
 ```
 
-`print.css` is concatenated into `global.css` at build time along with all other partials — it does not load as a separate stylesheet.
+`print.css` is concatenated into `global.css` at build time along with all other partials - it does not load as a separate stylesheet.
 
 ## Hiding an element from print
 

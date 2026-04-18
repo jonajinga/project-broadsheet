@@ -57,7 +57,7 @@ Project Broadsheet content is Markdown in Git. Moving between static site genera
 
 ## Plugin ecosystem
 
-WordPress has more plugins than any other CMS. If you need a specific feature — event ticketing, directory listings, forums, e-commerce — a plugin probably exists. Quality ranges from excellent to abandoned.
+WordPress has more plugins than any other CMS. If you need a specific feature - event ticketing, directory listings, forums, e-commerce - a plugin probably exists. Quality ranges from excellent to abandoned.
 
 Project Broadsheet has a small set of first-party integrations (Buttondown, Umami, Cusdis, Web3Forms, GTranslate, Pages CMS) and no plugin marketplace. For features outside the core, you write them (or hire it out).
 
