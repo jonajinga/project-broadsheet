@@ -5,19 +5,21 @@ eyebrow: Contact
 subtitle: Send a message and I'll reply personally within one business day.
 permalink: /contact/
 narrow: true
+centered: true
 ---
-<div class="lead" style="margin-bottom: var(--space-lg);">
-  The form below is the most reliable way to reach me. It lands in my inbox via Web3Forms, there's no intake queue, no chatbot, no automated triage. Just me reading whatever you write.
+<div class="lead" style="margin: 0 auto var(--space-xl); text-align: center;">
+  The form below lands in my inbox via Web3Forms. No intake queue, no chatbot, no automated triage. Just me reading whatever you write.
 </div>
 
-<div class="stack-lg">
-  <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text);">
-    <li><a href="/book-a-call/">Book a call</a> if you're considering a launch package.</li>
-    <li><a href="/forms/quote-custom/">Request a custom quote</a> for design or development work.</li>
-    <li><a href="/forms/quote-migration/">Request a migration quote</a> for moving an existing publication.</li>
-    <li><a href="/forms/bug-report/">Report a bug</a> if something's broken in Project Broadsheet.</li>
-    <li><a href="/forms/feature-request/">Request a feature</a> if you have an idea.</li>
-  </ul>
+<div class="stack-lg" style="max-width: 38rem; margin-inline: auto;">
+  <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+    If you already know what you need:
+    <a href="/book-a-call/">book a call</a>,
+    <a href="/forms/quote-custom/">request a custom quote</a>,
+    <a href="/forms/quote-migration/">request a migration quote</a>,
+    <a href="/forms/bug-report/">report a bug</a>, or
+    <a href="/forms/feature-request/">suggest a feature</a>.
+  </p>
 
   <form class="form" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
