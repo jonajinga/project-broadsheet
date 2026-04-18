@@ -14,7 +14,7 @@ layout: layouts/base.njk
       {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
       <div class="post-header__meta">
         {% if date %}<time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>{% endif %}
-        {% if author %}<span class="post-byline"><img src="/assets/img/jon-ajinga.webp" alt="{{ author }}" width="28" height="28" loading="lazy" style="border-radius:50%;vertical-align:middle;margin-right:0.4em;">{{ author }}</span>{% endif %}
+        {% if author %}<span>{{ author }}</span>{% endif %}
         <span>{{ content | readingTime }} min read</span>
       </div>
     </header>
