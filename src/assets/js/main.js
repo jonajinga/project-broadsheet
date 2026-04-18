@@ -68,3 +68,62 @@ document.addEventListener("keydown", function (event) {
 window.scrollToTop = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+// Language switcher
+window.toggleLangMenu = function (event) {
+  if (event) event.stopPropagation();
+  var wrap = document.querySelector(".lang-switcher");
+  if (!wrap) return;
+  var open = wrap.getAttribute("data-open") === "true";
+  wrap.setAttribute("data-open", open ? "false" : "true");
+  var btn = wrap.querySelector(".lang-toggle");
+  if (btn) btn.setAttribute("aria-expanded", open ? "false" : "true");
+};
+
+window.pickLang = function (code) {
+  if (!code) return;
+  if (typeof window.doGTranslate === "function") {
+    window.doGTranslate("en|" + code);
+  } else {
+    try { document.cookie = "googtrans=/en/" + code + "; path=/"; } catch (e) {}
+    window.location.reload();
+  }
+  var wrap = document.querySelector(".lang-switcher");
+  if (wrap) {
+    wrap.setAttribute("data-open", "false");
+    wrap.querySelectorAll(".lang-menu__item").forEach(function (el) { el.removeAttribute("aria-current"); });
+    var picked = wrap.querySelector('.lang-menu__item[data-lang="' + code + '"]');
+    if (picked) picked.setAttribute("aria-current", "true");
+  }
+  try { localStorage.setItem("pb-lang", code); } catch (e) {}
+};
+
+document.addEventListener("click", function (event) {
+  var wrap = document.querySelector(".lang-switcher");
+  if (wrap && !event.target.closest(".lang-switcher")) {
+    wrap.setAttribute("data-open", "false");
+    var btn = wrap.querySelector(".lang-toggle");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    var wrap = document.querySelector(".lang-switcher");
+    if (wrap && wrap.getAttribute("data-open") === "true") {
+      wrap.setAttribute("data-open", "false");
+      var btn = wrap.querySelector(".lang-toggle");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    }
+  }
+});
+
+// Restore previously chosen language's aria-current on load.
+(function () {
+  try {
+    var stored = localStorage.getItem("pb-lang");
+    if (!stored) return;
+    var picked = document.querySelector('.lang-menu__item[data-lang="' + stored + '"]');
+    if (picked) picked.setAttribute("aria-current", "true");
+  } catch (e) {}
+})();

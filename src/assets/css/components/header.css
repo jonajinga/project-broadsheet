@@ -52,3 +52,90 @@ html[data-theme="dark"] .theme-toggle__moon { display: block; }
 
 .header-cta { white-space: nowrap; min-height: 2.5rem; padding-block: 0.55rem; }
 @media (max-width: 640px) { .header-cta { display: none; } }
+
+.lang-switcher { position: relative; }
+.lang-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.lang-toggle:hover, .lang-toggle:focus-visible { background: var(--surface-raised); color: var(--accent); }
+.lang-toggle svg { width: 1.2rem; height: 1.2rem; display: block; }
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  width: min(20rem, calc(100vw - 2rem));
+  max-height: min(70vh, 32rem);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  z-index: 120;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+html[data-theme="dark"] .lang-menu { background: #1A1815; border-color: rgba(232, 227, 214, 0.22); }
+.lang-switcher[data-open="true"] .lang-menu { display: flex; }
+.lang-switcher[data-open="true"] .lang-toggle { background: var(--surface-raised); color: var(--accent); }
+
+.lang-menu__header {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+html[data-theme="dark"] .lang-menu__header { background: #221F1B; }
+
+.lang-menu__list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.25rem 0;
+}
+
+.lang-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), color var(--transition-fast), border-left-color var(--transition-fast);
+}
+.lang-menu__item:hover, .lang-menu__item:focus-visible { background: var(--surface-raised); border-left-color: var(--accent); color: var(--accent); }
+html[data-theme="dark"] .lang-menu__item:hover,
+html[data-theme="dark"] .lang-menu__item:focus-visible { background: #221F1B; }
+.lang-menu__item[aria-current="true"] { color: var(--accent); font-weight: 600; background: var(--surface-raised); border-left-color: var(--accent); }
+.lang-menu__flag { font-size: 1.05rem; line-height: 1; flex-shrink: 0; }
+.lang-menu__name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Hide GTranslate's own widget UI so our button is the only entry point. */
+.gtranslate_wrapper,
+.gt_float_switcher,
+#gt_float_wrapper,
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+
+@media (max-width: 560px) {
+  .lang-menu { right: -0.5rem; width: min(18rem, calc(100vw - 1rem)); }
+}
