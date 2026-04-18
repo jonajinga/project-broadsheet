@@ -12,6 +12,8 @@ permalink: /style-guide/
     <a href="#scale">Type scale</a>
     <a href="#spacing">Spacing</a>
     <a href="#buttons">Buttons</a>
+    <a href="#button-groups">Button groups</a>
+    <a href="#guide-steps">Guide steps</a>
     <a href="#forms">Forms</a>
     <a href="#cards">Cards</a>
     <a href="#pricing-cards">Pricing cards</a>
@@ -201,6 +203,75 @@ permalink: /style-guide/
           <button type="button" class="btn btn--primary btn--block">Full-width block</button>
         </div>
       </div>
+    </section>
+
+    <section class="sg-section" id="button-groups">
+      <h2>Button groups</h2>
+      <p class="lead">Use <code>.btn-group--balanced</code> when you want two or more buttons to share equal width. Stacks to full width on narrow screens.</p>
+
+      <div class="sg-subsection">
+        <h4>Balanced (equal width)</h4>
+        <div class="sg-demo">
+          <div class="btn-group btn-group--balanced">
+            <button type="button" class="btn btn--primary btn--lg">Get Started (Free)</button>
+            <button type="button" class="btn btn--outline btn--lg">See pricing</button>
+          </div>
+        </div>
+        <pre class="sg-code">&lt;div class="btn-group btn-group--balanced"&gt;
+  &lt;a class="btn btn--primary btn--lg"&gt;Primary&lt;/a&gt;
+  &lt;a class="btn btn--outline btn--lg"&gt;Secondary&lt;/a&gt;
+&lt;/div&gt;</pre>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Balanced + centered</h4>
+        <div class="sg-demo">
+          <div class="btn-group btn-group--balanced btn-group--center">
+            <button type="button" class="btn btn--primary">Primary action</button>
+            <button type="button" class="btn btn--outline">Secondary action</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h4>Default inline</h4>
+        <div class="sg-demo">
+          <div class="btn-group">
+            <button type="button" class="btn btn--primary">Save</button>
+            <button type="button" class="btn btn--outline">Cancel</button>
+            <button type="button" class="btn btn--ghost">Discard</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="guide-steps">
+      <h2>Guide steps</h2>
+      <p class="lead">Use <code>.guide-steps</code> with <code>.guide-step</code> children for numbered tutorials. Consistent rhythm, auto-numbered, mobile-aware.</p>
+
+      <div class="sg-demo">
+        <ol class="guide-steps" style="max-width: 100%;">
+          <li class="guide-step">
+            <h3 class="guide-step__title">First step</h3>
+            <div class="guide-step__body">
+              <p>Every step has a number, a title, and a body. The body can contain paragraphs, code blocks, lists, anything.</p>
+              <pre><code>example command</code></pre>
+            </div>
+          </li>
+          <li class="guide-step">
+            <h3 class="guide-step__title">Second step</h3>
+            <div class="guide-step__body">
+              <p>A divider separates steps. The rhythm is identical between steps, so readers always know where one ends and the next begins.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <pre class="sg-code">&lt;ol class="guide-steps"&gt;
+  &lt;li class="guide-step"&gt;
+    &lt;h2 class="guide-step__title"&gt;Title&lt;/h2&gt;
+    &lt;div class="guide-step__body"&gt;&lt;p&gt;Body…&lt;/p&gt;&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</pre>
     </section>
 
     <section class="sg-section" id="forms">

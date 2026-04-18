@@ -6,10 +6,10 @@ subtitle: Every page on the site, organized by section.
 permalink: /sitemap/
 eleventyExcludeFromCollections: true
 ---
-<div class="grid grid-2" style="margin-block: var(--space-xl);">
-  <section>
-    <h2 class="h4">Product</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+<div class="sitemap-grid">
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Product</h2>
+    <ul class="sitemap-list">
       <li><a href="/">Home</a></li>
       <li><a href="/features/">Features</a></li>
       <li><a href="/showcase/">Showcase</a></li>
@@ -19,9 +19,10 @@ eleventyExcludeFromCollections: true
       <li><a href="/get-started/">Get Started</a></li>
     </ul>
   </section>
-  <section>
-    <h2 class="h4">Services</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Services</h2>
+    <ul class="sitemap-list">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/services/">Services</a></li>
       <li><a href="/book-a-call/">Book a Call</a></li>
@@ -29,45 +30,44 @@ eleventyExcludeFromCollections: true
       <li><a href="/support/">Support</a></li>
     </ul>
   </section>
-  <section>
-    <h2 class="h4">Docs</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Docs</h2>
+    <ul class="sitemap-list">
       <li><a href="/docs/">Docs home</a></li>
       {% for cat in docCategories %}
       <li><a href="/docs/{{ cat.slug }}/">{{ cat.name }}</a></li>
       {% endfor %}
     </ul>
   </section>
-  <section>
-    <h2 class="h4">Resources</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Resources</h2>
+    <ul class="sitemap-list">
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/forms/">Forms</a></li>
       <li><a href="/feed.xml">RSS feed</a></li>
       <li><a href="/sitemap.xml">XML sitemap</a></li>
+      <li><a href="/style-guide/">Style Guide</a></li>
     </ul>
   </section>
-  <section>
-    <h2 class="h4">Blog posts</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Blog posts</h2>
+    <ul class="sitemap-list">
       {% for post in collections.posts %}
       <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
       {% endfor %}
     </ul>
   </section>
-  <section>
-    <h2 class="h4">Legal</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
+
+  <section class="sitemap-col">
+    <h2 class="sitemap-col__title">Legal</h2>
+    <ul class="sitemap-list">
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
       <li><a href="/accessibility/">Accessibility Statement</a></li>
       <li><a href="/license/">License</a></li>
-    </ul>
-  </section>
-  <section>
-    <h2 class="h4">Design reference</h2>
-    <ul class="stack" style="padding-left: 1rem; list-style: disc;">
-      <li><a href="/style-guide/">Style Guide</a></li>
     </ul>
   </section>
 </div>

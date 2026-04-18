@@ -1,9 +1,15 @@
 ---
 layout: layouts/base.njk
 ---
+{%- set containerClass = "container" -%}
+{%- if narrow -%}{%- set containerClass = "container container-narrow" -%}{%- endif -%}
+{%- if wide -%}{%- set containerClass = "container container-wide" -%}{%- endif -%}
+{%- set headerAlign = "" -%}
+{%- if centered -%}{%- set headerAlign = " page-header--center" -%}{%- endif -%}
+
 {% if not hide_header %}
-<section class="section-sm">
-  <div class="container">
+<section class="section-sm page-header{{ headerAlign }}">
+  <div class="{{ containerClass }}">
     {% if breadcrumbs %}
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       {% for crumb in breadcrumbs %}
@@ -21,6 +27,6 @@ layout: layouts/base.njk
   </div>
 </section>
 {% endif %}
-<div class="container">
+<div class="{{ containerClass }} page-body">
   {{ content | safe }}
 </div>

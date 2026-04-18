@@ -1,4 +1,6 @@
 {
   "layout": "layouts/page.njk",
-  "eyebrow": "Form"
+  "eyebrow": "Form",
+  "narrow": true,
+  "centered": true
 }

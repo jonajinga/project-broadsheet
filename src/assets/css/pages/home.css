@@ -1,9 +1,10 @@
-.hero { padding-block: var(--space-4xl) var(--space-3xl); position: relative; border-bottom: 1px solid var(--border); }
+.hero { padding-block: var(--space-3xl) var(--space-2xl); position: relative; border-bottom: 1px solid var(--border); }
+@media (min-width: 820px) { .hero { padding-block: var(--space-4xl) var(--space-3xl); } }
 .hero__inner { display: grid; gap: var(--space-xl); max-width: var(--container); margin-inline: auto; }
 .hero__eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: var(--space-sm); }
 .hero__title { font-family: var(--font-masthead); font-weight: 900; font-size: var(--step-6); line-height: 1; letter-spacing: -0.03em; margin-bottom: var(--space-md); max-width: 28ch; color: var(--text); }
 .hero__subhead { font-family: var(--font-headline); font-weight: 400; font-size: var(--step-1); color: var(--text-soft); line-height: 1.55; max-width: 50ch; margin-bottom: var(--space-lg); }
-.hero__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+.hero__actions { margin-bottom: var(--space-lg); }
 .hero__meta { display: flex; gap: var(--space-lg); flex-wrap: wrap; font-family: var(--font-ui); font-size: 0.88rem; color: var(--text-muted); }
 .hero__meta-item { display: inline-flex; align-items: center; gap: 0.4rem; line-height: 1.4; }
 .hero__rule { margin-top: var(--space-xl); }

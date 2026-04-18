@@ -31,7 +31,8 @@ const CSS_PARTIALS = [
   "pages/docs.css",
   "pages/blog.css",
   "pages/contact.css",
-  "pages/style-guide.css"
+  "pages/style-guide.css",
+  "pages/sitemap.css"
 ];
 
 export default function (eleventyConfig) {

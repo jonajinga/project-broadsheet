@@ -1,6 +1,10 @@
-.docs-layout { display: grid; grid-template-columns: 18rem 1fr 16rem; gap: var(--space-xl); align-items: start; }
-@media (max-width: 1160px) { .docs-layout { grid-template-columns: 16rem 1fr; } .docs-layout__toc { display: none; } }
-@media (max-width: 820px) { .docs-layout { grid-template-columns: 1fr; } .docs-layout__sidebar { display: none; } }
+.docs-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr) 15rem; gap: var(--space-xl); align-items: start; }
+@media (max-width: 1160px) { .docs-layout { grid-template-columns: 16rem minmax(0, 1fr); } .docs-layout__toc { display: none; } }
+@media (max-width: 820px) {
+  .docs-layout { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .docs-layout__sidebar { display: none; }
+  .doc-content { width: 100%; max-width: 44rem; margin-inline: auto; }
+}
 
 .docs-sidebar {
   position: sticky;

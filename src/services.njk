@@ -16,8 +16,8 @@ permalink: /services/
       <span class="eyebrow">{{ svc.name }}</span>
       <h2>{{ svc.name }}</h2>
       <p class="feature-block__summary">{{ svc.summary }}</p>
-      <p style="margin-top: var(--space-sm); font-family: var(--font-ui); color: var(--text);"><strong>Starting at {{ svc.startingAt }}</strong></p>
-      <div style="margin-top: var(--space-md);">
+      <p class="feature-block__price"><strong>Starting at {{ svc.startingAt }}</strong></p>
+      <div class="feature-block__cta">
         <a class="btn btn--primary" href="{{ svc.cta.url }}">{{ svc.cta.label }}</a>
       </div>
     </header>
