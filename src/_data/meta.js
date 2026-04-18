@@ -27,8 +27,17 @@ export default {
   version: "1.0.0",
   founded: 2026,
   gtranslate: {
-    enabled: false,
-    languages: ["en", "es", "fr", "de", "pt", "ja", "zh-CN", "ar", "hi"],
-    defaultLanguage: "en"
+    enabled: true,
+    defaultLanguage: "en",
+    languages: [
+      "en", "es", "fr", "de", "it", "pt", "nl", "sv", "da", "no", "fi",
+      "is", "pl", "cs", "sk", "hu", "ro", "bg", "uk", "ru", "be", "hr",
+      "sl", "sr", "mk", "sq", "el", "tr", "lt", "lv", "et", "mt", "ga",
+      "cy", "ca", "gl", "eu", "lb", "ja", "ko", "zh-CN", "zh-TW", "vi",
+      "th", "id", "ms", "tl", "hi", "bn", "ta", "te", "ml", "kn", "gu",
+      "pa", "mr", "ne", "si", "ur", "fa", "ar", "he", "am", "sw", "zu",
+      "af", "yo", "ig", "ha", "mg", "hy", "az", "ka", "kk", "uz", "ky",
+      "tg", "mn", "my", "km", "lo"
+    ]
   }
 };
