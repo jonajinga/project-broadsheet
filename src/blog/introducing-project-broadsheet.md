@@ -30,6 +30,6 @@ It's not a SaaS, not a hosted platform, not a no-code builder. You need to be co
 
 ## What's next
 
-The [roadmap](/roadmap/) covers what's coming. The [docs](/docs/) cover what's here. If you want help getting set up, [book a call](/book-a-call/). I offer launch packages starting at $999.
+The [roadmap](/roadmap/) covers what's coming. The [docs](/docs/) cover what's here. If you want help getting set up, [book a call](/book-a-call/). I offer launch packages starting at $499 and monthly managed hosting from $25.
 
 Thanks to everyone who contributed beta feedback, suggestions, and bug reports. Onward.
