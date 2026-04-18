@@ -3,6 +3,7 @@ html[data-theme="dark"] .docs-hero { background: #1A1815; border-bottom-color: r
 .docs-hero__inner { max-width: var(--container); margin-inline: auto; padding-inline: var(--space-lg); }
 .docs-hero__title { font-family: var(--font-masthead); font-weight: 700; font-size: var(--step-5); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: var(--space-sm); color: var(--text); }
 .docs-hero__subtitle { color: var(--text-soft); font-size: var(--step-0); line-height: 1.6; max-width: 44rem; margin-bottom: var(--space-lg); }
+.docs-hero #pagefind-search { max-width: 44rem; margin-bottom: var(--space-md); }
 .docs-quicklinks { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
 .docs-quicklinks__link {
   padding: 0.55rem 0.9rem;
