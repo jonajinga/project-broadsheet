@@ -61,7 +61,7 @@ html[data-theme="dark"] .fieldset { background: #1A1815; border-color: rgba(232,
 .fieldset legend { padding: 0 0.4rem; font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
 
 .form-note {
-  margin-top: var(--space-xl);
+  margin: var(--space-xl) auto 0;
   padding: var(--space-md) var(--space-lg);
   border-left: 3px solid var(--accent);
   background: var(--surface-raised);
