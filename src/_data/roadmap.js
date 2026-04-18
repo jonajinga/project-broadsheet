@@ -15,7 +15,7 @@ export default {
     subtitle: "Scoped and prioritized, but not yet in build.",
     items: [
       { label: "Plugin system", note: "Drop-in extensions for sections, layouts, and integrations." },
-      { label: "Documentation site", note: "A formal help center — exactly what you're reading now is the first step." },
+      { label: "Documentation site", note: "A formal help center, exactly what you're reading now is the first step." },
       { label: "Visual editor", note: "Lightweight browser editor, optional alongside Pages CMS." },
       { label: "Broadsheet Cloud", note: "Optional managed hosting for publishers who want hands-off." }
     ]

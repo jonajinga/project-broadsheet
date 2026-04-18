@@ -16,7 +16,7 @@ This Site is operated by {{ meta.maintainer }}, doing business as {{ meta.author
 
 ## 2. The software
 
-Project Broadsheet — the framework referenced throughout this Site — is distributed under the **[MIT License](/license/)**. You may use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the software. You don't need our permission. You don't have to attribute us (though we appreciate it).
+Project Broadsheet, the framework referenced throughout this Site, is distributed under the **[MIT License](/license/)**. You may use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the software. You don't need our permission. You don't have to attribute us (though we appreciate it).
 
 The MIT License is the governing legal instrument for the software. These Terms of Use apply to this website only.
 

@@ -5,7 +5,7 @@ order: 1
 updated: 2026-04-17
 ---
 
-Reviews are a first-class content type in Project Broadsheet — distinct from regular articles. They live at `src/content/reviews/`, appear on the shared reviews index with filtering by type and rating, and render with a review-specific layout that highlights structured metadata (author, publisher, year, ISBN, and so on).
+Reviews are a first-class content type in Project Broadsheet, distinct from regular articles. They live at `src/content/reviews/`, appear on the shared reviews index with filtering by type and rating, and render with a review-specific layout that highlights structured metadata (author, publisher, year, ISBN, and so on).
 
 ## Create a review file
 
@@ -42,14 +42,14 @@ The `layout` field points at the review-specific template. `review_type` determi
 
 ## Supported review types
 
-- `book` — book reviews
-- `film` — film reviews
-- `podcast` — podcast reviews
-- `documentary` — documentary reviews
+- `book`, book reviews
+- `film`, film reviews
+- `podcast`, podcast reviews
+- `documentary`, documentary reviews
 
 Each type is associated with an icon and a filter toggle on the reviews index page. Adding a new type is a template-level change; contact me if you need a custom type that isn't in the list.
 
 ## What to do next
 
-- [Library and public-domain chapters](/docs/specialty-content/library/) — long-form source material organized by work.
-- [Events calendar](/docs/specialty-content/events/) — time-based entries with recurrence support.
+- [Library and public-domain chapters](/docs/specialty-content/library/), long-form source material organized by work.
+- [Events calendar](/docs/specialty-content/events/), time-based entries with recurrence support.

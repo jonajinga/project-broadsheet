@@ -5,7 +5,7 @@ order: 1
 updated: 2026-04-17
 ---
 
-Project Broadsheet's visual language is controlled by a set of <span class="g-term" data-term="design token">design tokens</span> declared in `src/assets/css/tokens.css`. Tokens are named CSS custom properties — a value like `#C0392B` is given a descriptive name like `--vermillion`, and every component that uses vermillion references the name rather than the raw hex value. Change the variable once, and every button, link, badge, and accent updates in lockstep.
+Project Broadsheet's visual language is controlled by a set of <span class="g-term" data-term="design token">design tokens</span> declared in `src/assets/css/tokens.css`. Tokens are named CSS custom properties, a value like `#C0392B` is given a descriptive name like `--vermillion`, and every component that uses vermillion references the name rather than the raw hex value. Change the variable once, and every button, link, badge, and accent updates in lockstep.
 
 ## Colors
 
@@ -18,7 +18,7 @@ Project Broadsheet's visual language is controlled by a set of <span class="g-te
 }
 ```
 
-<span class="g-term" data-term="dark mode">Dark mode</span> values are defined inside `:root[data-theme="dark"]`. The theme toggle script flips the `data-theme` attribute on the `<html>` element and persists the choice in `localStorage` — no flash, no round trip to a server.
+<span class="g-term" data-term="dark mode">Dark mode</span> values are defined inside `:root[data-theme="dark"]`. The theme toggle script flips the `data-theme` attribute on the `<html>` element and persists the choice in `localStorage`, no flash, no round trip to a server.
 
 ## Typography
 

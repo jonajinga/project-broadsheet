@@ -3,7 +3,7 @@ export default [
     term: "11ty",
     alt: "Eleventy",
     short: "A JavaScript static site generator.",
-    long: "Eleventy (written 11ty) is the build tool that turns your Markdown files and templates into a ready-to-publish website. It runs once, produces plain HTML/CSS/JS, and then goes away — nothing runs on your server at visit time."
+    long: "Eleventy (written 11ty) is the build tool that turns your Markdown files and templates into a ready-to-publish website. It runs once, produces plain HTML/CSS/JS, and then goes away, nothing runs on your server at visit time."
   },
   {
     term: "AA",
@@ -14,7 +14,7 @@ export default [
   {
     term: "accent color",
     short: "The one brand color used for emphasis, links, and calls to action.",
-    long: "In Project Broadsheet the accent is vermillion (#C0392B by default). Changing one CSS variable swaps it everywhere — buttons, links, badges, section dividers."
+    long: "In Project Broadsheet the accent is vermillion (#C0392B by default). Changing one CSS variable swaps it everywhere, buttons, links, badges, section dividers."
   },
   {
     term: "Bunny Fonts",
@@ -35,7 +35,7 @@ export default [
     term: "CMS",
     alt: "content management system",
     short: "Software for creating and editing website content.",
-    long: "A CMS lets non-technical people add and update articles through a browser interface. WordPress is the classic example. Project Broadsheet is file-based instead — your articles live as Markdown files in Git — but optionally supports Pages CMS for browser-based editing."
+    long: "A CMS lets non-technical people add and update articles through a browser interface. WordPress is the classic example. Project Broadsheet is file-based instead, your articles live as Markdown files in Git, but optionally supports Pages CMS for browser-based editing."
   },
   {
     term: "Cusdis",
@@ -60,27 +60,27 @@ export default [
   {
     term: "Eleventy",
     short: "The JavaScript static site generator Project Broadsheet is built on.",
-    long: "Eleventy (often written 11ty) reads your Markdown files, runs them through Nunjucks templates, and outputs a complete static website. It doesn't need a database or a running server — just the files it produces."
+    long: "Eleventy (often written 11ty) reads your Markdown files, runs them through Nunjucks templates, and outputs a complete static website. It doesn't need a database or a running server, just the files it produces."
   },
   {
     term: "fork",
     short: "To copy a Git repository so you have your own editable version of it.",
-    long: "Forking creates an independent copy of the source code under your own account. You can modify, publish, and distribute your fork freely — Project Broadsheet's MIT license grants this explicitly."
+    long: "Forking creates an independent copy of the source code under your own account. You can modify, publish, and distribute your fork freely. Project Broadsheet's MIT license grants this explicitly."
   },
   {
     term: "front matter",
     short: "Metadata at the top of a Markdown file, written in YAML between --- fences.",
-    long: "Front matter tells Eleventy what an article is — title, author, section, date, tags, layout. Everything below the second fence is the article body. Front matter is how you assign an article to a section or mark it as featured."
+    long: "Front matter tells Eleventy what an article is, title, author, section, date, tags, layout. Everything below the second fence is the article body. Front matter is how you assign an article to a section or mark it as featured."
   },
   {
     term: "GDPR",
-    short: "Europe's General Data Protection Regulation — strict privacy rules.",
+    short: "Europe's General Data Protection Regulation, strict privacy rules.",
     long: "GDPR governs how personal data (including IP addresses) is collected and stored in the European Union. Project Broadsheet's default integrations (Bunny Fonts, Buttondown, Umami) are GDPR-compliant."
   },
   {
     term: "Git",
     short: "A version-control system that tracks every change to your files.",
-    long: "Git keeps a full history of your publication — every article, every edit, every image. You can roll back mistakes, work on drafts in branches, and collaborate with others. Project Broadsheet treats Git as its database."
+    long: "Git keeps a full history of your publication, every article, every edit, every image. You can roll back mistakes, work on drafts in branches, and collaborate with others. Project Broadsheet treats Git as its database."
   },
   {
     term: "GitHub",
@@ -90,12 +90,12 @@ export default [
   {
     term: "GTranslate",
     short: "A translation widget that adds a language switcher to a website.",
-    long: "GTranslate offers free, plug-in-and-go translation for nine or more languages. Project Broadsheet includes an opt-in integration controlled by a config flag — when enabled, a floating language selector appears on every page."
+    long: "GTranslate offers free, plug-in-and-go translation for nine or more languages. Project Broadsheet includes an opt-in integration controlled by a config flag, when enabled, a floating language selector appears on every page."
   },
   {
     term: "instant.page",
     short: "A tiny script that preloads a linked page when the visitor hovers its link.",
-    long: "By the time a reader clicks, the next page is already starting to load — making navigation feel instant. instant.page adds about 1 KB to the site. Project Broadsheet includes it by default."
+    long: "By the time a reader clicks, the next page is already starting to load, making navigation feel instant, instant.page adds about 1 KB to the site. Project Broadsheet includes it by default."
   },
   {
     term: "JSON-LD",
@@ -105,12 +105,12 @@ export default [
   {
     term: "Markdown",
     short: "A plain-text format for writing that converts cleanly to HTML.",
-    long: "Markdown uses simple characters (**bold**, *italic*, # Heading) to mark up text. It's readable as plain text and portable — nothing is locked inside a proprietary format. Project Broadsheet articles are all Markdown files."
+    long: "Markdown uses simple characters (**bold**, *italic*, # Heading) to mark up text. It's readable as plain text and portable, nothing is locked inside a proprietary format. Project Broadsheet articles are all Markdown files."
   },
   {
     term: "MIT license",
     short: "A permissive open-source license that allows nearly any use of the software.",
-    long: "The MIT license lets you copy, modify, distribute, and sell the software — even commercially — as long as you keep the original copyright notice. Project Broadsheet is MIT-licensed."
+    long: "The MIT license lets you copy, modify, distribute, and sell the software, even commercially, as long as you keep the original copyright notice. Project Broadsheet is MIT-licensed."
   },
   {
     term: "Nunjucks",
@@ -135,7 +135,7 @@ export default [
   {
     term: "passthrough copy",
     short: "An Eleventy mechanism that copies files from source to output without processing them.",
-    long: "Images, fonts, JavaScript — anything that doesn't need templating — is declared as passthrough copy in the Eleventy config and lands in the built site unchanged."
+    long: "Images, fonts, JavaScript, anything that doesn't need templating, is declared as passthrough copy in the Eleventy config and lands in the built site unchanged."
   },
   {
     term: "permalink",
@@ -152,7 +152,7 @@ export default [
     term: "SaaS",
     alt: "software as a service",
     short: "Software you rent by the month rather than install yourself.",
-    long: "SaaS products (Ghost, Substack, Squarespace) handle hosting, updates, and support for you — in exchange for recurring fees and control over your content. Project Broadsheet is the opposite: self-hosted, one-time setup, yours forever."
+    long: "SaaS products (Ghost, Substack, Squarespace) handle hosting, updates, and support for you, in exchange for recurring fees and control over your content. Project Broadsheet is the opposite: self-hosted, one-time setup, yours forever."
   },
   {
     term: "section",
@@ -189,12 +189,12 @@ export default [
     term: "WCAG",
     alt: "Web Content Accessibility Guidelines",
     short: "The international standard for web accessibility, published by the W3C.",
-    long: "WCAG 2.2 has three levels — A, AA, and AAA. Most legal requirements target AA. Project Broadsheet is designed to meet WCAG 2.2 AA; see the Accessibility Statement for details."
+    long: "WCAG 2.2 has three levels. A, AA, and AAA. Most legal requirements target AA. Project Broadsheet is designed to meet WCAG 2.2 AA; see the Accessibility Statement for details."
   },
   {
     term: "Web3Forms",
     short: "A forwarding service that turns any HTML form into an email to your inbox.",
-    long: "Web3Forms takes a form submission, validates it, and emails the contents to your address — no backend required. Project Broadsheet uses it for every contact, booking, and quote form."
+    long: "Web3Forms takes a form submission, validates it, and emails the contents to your address, no backend required. Project Broadsheet uses it for every contact, booking, and quote form."
   },
   {
     term: "YAML",

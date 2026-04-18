@@ -68,7 +68,7 @@ html[data-theme="dark"] .docs-toc a:focus-visible { background: #1F1D1A; }
 .doc-meta { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-ui); margin-bottom: var(--space-lg); }
 .doc-meta__item { display: inline-flex; align-items: center; gap: 0.3rem; }
 
-.doc-content { max-width: 42rem; font-size: var(--step-0); line-height: 1.7; color: var(--text); }
+.doc-content { max-width: 44rem; margin-inline: auto; width: 100%; font-size: var(--step-0); line-height: 1.7; color: var(--text); }
 .doc-content > * + * { margin-top: var(--space-md); }
 .doc-content h2 { margin-top: var(--space-2xl); font-family: var(--font-headline); font-size: var(--step-3); scroll-margin-top: calc(var(--header-height) + 1rem); color: var(--text); }
 .doc-content h3 { margin-top: var(--space-xl); font-family: var(--font-headline); font-size: var(--step-2); scroll-margin-top: calc(var(--header-height) + 1rem); color: var(--text); }

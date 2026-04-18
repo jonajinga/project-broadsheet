@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
 title: ""
-description: "A passion project to democratize publishing. Project Broadsheet is a full newsroom — editorial sections, reviews, a library, reader tools, search, and SEO — free to fork and keep."
+description: "Project Broadsheet is an open-source publishing framework built on Eleventy. It includes nine editorial sections, a reviews stack, a public-domain library, reader tools, search, and SEO."
 permalink: /index.html
 ---
 <section class="hero">
   <div class="container">
     <div class="hero__inner">
       <div>
-        <span class="hero__eyebrow">v{{ meta.version }} · MIT · A passion project</span>
+        <span class="hero__eyebrow">v{{ meta.version }} · MIT · Built by one person</span>
         <h1 class="hero__title">{{ meta.tagline }}</h1>
         <p class="hero__subhead">{{ meta.subhead }}</p>
         <div class="hero__actions btn-group btn-group--balanced">
@@ -42,8 +42,8 @@ permalink: /index.html
   <div class="container">
     <header class="home-features__header">
       <span class="eyebrow">What's included</span>
-      <h2 class="home-features__title">A newsroom's worth of tools, packaged for one.</h2>
-      <p class="home-features__summary">For a long time, the infrastructure that makes a publication feel like a publication — proper editorial sections, a reviews stack, a searchable archive, thoughtful reader tools — lived only inside major news organizations or behind SaaS paywalls. Project Broadsheet brings those tools out in the open.</p>
+      <h2 class="home-features__title">A newsroom's worth of tools, packaged for one person.</h2>
+      <p class="home-features__summary">Most of what makes a publication feel like a publication (proper editorial sections, a reviews stack, a searchable archive, reader-focused tools) used to live only inside major news organizations or behind subscription paywalls. Project Broadsheet brings those tools out in the open.</p>
     </header>
     <div class="home-features__grid">
       {% for f in features.highlights %}
@@ -95,17 +95,6 @@ permalink: /index.html
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="comparison-teaser">
-      <span class="eyebrow">Why this exists</span>
-      <p class="comparison-teaser__kicker">Because <strong>publishing shouldn't be rented</strong>, and because the tools big publications use shouldn't stay locked inside them.</p>
-      <p style="color: var(--text-soft); max-width: 42rem; margin: 0 auto var(--space-lg); line-height: 1.6;">Substack takes 10% of your revenue. Ghost charges $9 to $199 a month for features. WordPress is its own whole ordeal. Those are fine options — they just aren't the only options. Project Broadsheet is what I wanted to use instead.</p>
-      <a class="btn btn--outline btn--lg" href="/compare/">See the full comparison</a>
-    </div>
-  </div>
-</section>
-
 <section class="section section-alt">
   <div class="container">
     <header class="home-features__header">
@@ -134,8 +123,8 @@ permalink: /index.html
 
 <section class="pricing-teaser section-sunken">
   <div class="container">
-    <h2 class="pricing-teaser__title">Self-host it for free — or work with me directly.</h2>
-    <p class="pricing-teaser__summary">Project Broadsheet is free to use forever. If you'd rather not spend a weekend on setup, I also offer hands-on help: setup, migration, custom work, and ongoing care. I'm selective about what I take on — I want to work on publications I'm proud to point at.</p>
+    <h2 class="pricing-teaser__title">Self-host it for free, or work with me.</h2>
+    <p class="pricing-teaser__summary">Project Broadsheet is free to use forever. I also offer setup, migration, monthly hosting, and custom work for people who'd rather not spend a weekend on it. I take on a small number of engagements at a time, and I prefer to work with independent publishers and organizations I admire.</p>
     <div class="btn-group btn-group--balanced btn-group--center">
       <a class="btn btn--primary btn--lg" href="/get-started/">Fork it and start</a>
       <a class="btn btn--outline btn--lg" href="/services/">Work with me</a>

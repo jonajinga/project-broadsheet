@@ -2,7 +2,7 @@ export default {
   highlights: [
     {
       title: "Reader experience",
-      summary: "Twenty-seven reader tools that other platforms don't have — and never will.",
+      summary: "Twenty-seven reader tools that other platforms don't have, and never will.",
       points: [
         "Text-to-speech with synced word highlighting",
         "27 font choices with six highlight colors",
@@ -60,7 +60,7 @@ export default {
       title: "Zero lock-in",
       summary: "Plain Markdown in Git. Migrate away in an afternoon.",
       points: [
-        "MIT license — use it for anything",
+        "MIT license, use it for anything",
         "No database, no runtime, no platform fees",
         "Content portability by design",
         "Static output deploys anywhere",

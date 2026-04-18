@@ -5,7 +5,7 @@ order: 2
 updated: 2026-04-17
 ---
 
-Once Project Broadsheet runs locally, the next step is deployment — placing the built site on a public web server so anyone can visit it. The fastest path is <span class="g-term" data-term="Cloudflare Pages">Cloudflare Pages</span>, which deploys directly from a <span class="g-term" data-term="GitHub">GitHub</span> repository every time you push a change.
+Once Project Broadsheet runs locally, the next step is deployment, placing the built site on a public web server so anyone can visit it. The fastest path is <span class="g-term" data-term="Cloudflare Pages">Cloudflare Pages</span>, which deploys directly from a <span class="g-term" data-term="GitHub">GitHub</span> repository every time you push a change.
 
 ## Push the repository to GitHub
 
@@ -36,7 +36,7 @@ From the Pages project dashboard, open **Custom domains**, then **Set up a custo
 
 ## What happens on each future push
 
-Every commit pushed to the `main` branch triggers a fresh production build. Pull requests receive their own preview deploy at a unique URL — useful when you want to review an article with an editor before it goes live.
+Every commit pushed to the `main` branch triggers a fresh production build. Pull requests receive their own preview deploy at a unique URL, useful when you want to review an article with an editor before it goes live.
 
 ## What to do next
 

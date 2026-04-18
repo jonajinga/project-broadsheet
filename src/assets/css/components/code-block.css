@@ -1,0 +1,40 @@
+.code-block { position: relative; margin: var(--space-md) 0; }
+.code-block pre { margin: 0; padding-right: 5rem; }
+
+.code-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  background: var(--surface);
+  color: var(--text-soft);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+html[data-theme="dark"] .code-copy { background: #1A1815; border-color: rgba(232, 227, 214, 0.25); }
+.code-block:hover .code-copy,
+.code-copy:focus-visible { opacity: 1; }
+.code-copy:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.code-copy.is-copied { background: #2F7A3C; color: #fff; border-color: #2F7A3C; opacity: 1; }
+html[data-theme="dark"] .code-copy.is-copied { background: #4E9A5A; border-color: #4E9A5A; }
+
+.code-copy__icon { width: 0.95rem; height: 0.95rem; display: block; }
+.code-copy__icon--check { display: none; }
+.code-copy.is-copied .code-copy__icon--copy { display: none; }
+.code-copy.is-copied .code-copy__icon--check { display: block; }
+.code-copy__label { letter-spacing: 0.02em; }
+
+@media (max-width: 560px) {
+  .code-block pre { padding-right: 3.5rem; }
+  .code-copy__label { display: none; }
+  .code-copy { padding: 0.4rem; }
+}

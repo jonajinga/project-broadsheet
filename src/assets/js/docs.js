@@ -57,7 +57,7 @@ window.docFeedback = function (value) {
   var slug = document.body.getAttribute("data-doc-slug") || location.pathname;
   if (value === "yes") {
     var wrap = document.getElementById("doc-feedback");
-    if (wrap) wrap.innerHTML = '<span class="doc-feedback__text">Thanks — that helps.</span>';
+    if (wrap) wrap.innerHTML = '<span class="doc-feedback__text">Thanks, that helps.</span>';
     try {
       fetch("https://api.web3forms.com/submit", {
         method: "POST",

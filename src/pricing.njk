@@ -2,17 +2,17 @@
 layout: layouts/page.njk
 title: Pricing
 eyebrow: Services
-subtitle: Self-host Project Broadsheet for free, or bring me in to handle setup, migration, design, or ongoing care.
+subtitle: Self-host Project Broadsheet for free, or bring me in to handle setup, migration, hosting, or ongoing care.
 permalink: /pricing/
 ---
 <div class="lead" style="margin-bottom: var(--space-2xl);">
-  Project Broadsheet is free to fork and free to keep — that part doesn't change. The pricing below is for the cases where you'd rather not spend a weekend on setup, or where you need help that isn't in the documentation. I take on a small number of engagements at a time.
+  Project Broadsheet is free to fork and free to keep. The pricing below is for the cases where you'd rather not spend a weekend on setup, or where you need help that isn't in the documentation. I take on a small number of engagements at a time.
 </div>
 
 <section class="pricing-section">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Self-hosted</h2>
-    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default — there is no "pro tier" holding anything back.</p>
+    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default. There is no "pro tier" holding anything back.</p>
   </header>
   <div class="pricing-free">
     <div>
@@ -32,7 +32,7 @@ permalink: /pricing/
 <section class="pricing-section" id="launch-packages">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Launch packages</h2>
-    <p class="pricing-section__summary">Done-with-you setup, branding, and deployment. The package names are just shorthand for scope — pick the one that matches how much help you want.</p>
+    <p class="pricing-section__summary">Done-with-you setup, branding, and deployment. The package names are shorthand for scope. Pick the one that matches how much help you want.</p>
   </header>
   <div class="pricing-grid">
     {% for pkg in pricing.packages %}
@@ -72,10 +72,36 @@ permalink: /pricing/
   <p style="margin-top: var(--space-md); color: var(--text-muted);">Larger archive or unusual source? <a href="/forms/quote-migration/">Request a migration quote</a> and I'll reply personally.</p>
 </section>
 
+<section class="pricing-section" id="hosting">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">Monthly hosting</h2>
+    <p class="pricing-section__summary">Managed hosting on my Cloudflare account. You write, I keep the lights on.</p>
+  </header>
+  <div class="pricing-grid">
+    {% for plan in pricing.hosting %}
+    <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}">
+      {% if plan.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
+      <h3 class="pricing-card__name">{{ plan.name }}</h3>
+      <div>
+        <span class="pricing-card__price">{{ plan.price }}</span>
+        <span class="pricing-card__cadence">{{ plan.cadence }}</span>
+      </div>
+      <p class="pricing-card__tagline">{{ plan.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for f in plan.features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <div class="pricing-card__cta">
+        <a class="btn btn--primary btn--block" href="/forms/hosting-inquiry/?plan={{ plan.slug }}">Inquire</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="pricing-section" id="care">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Care plans</h2>
-    <p class="pricing-section__summary">Ongoing maintenance, content publishing, and priority support. Cancel any month, no penalties.</p>
+    <p class="pricing-section__summary">Ongoing maintenance, content publishing, and priority support for publications that ship regularly. Cancel any month.</p>
   </header>
   <div class="pricing-grid">
     {% for plan in pricing.care %}
@@ -116,5 +142,5 @@ permalink: /pricing/
 
 <div class="callout" style="margin-top: var(--space-2xl);">
   <div class="callout__title">One person on the other end</div>
-  <p>Every engagement is with me — Jon. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it. That means occasional delays (I sleep, I have a kid, I write for my own publication too) but it means you always know who you're dealing with.</p>
+  <p>Every engagement is with me. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it. That means occasional delays (I sleep, I have a kid, I write for my own publication too), but it means you always know who you're dealing with.</p>
 </div>

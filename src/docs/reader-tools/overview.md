@@ -5,7 +5,7 @@ order: 1
 updated: 2026-04-17
 ---
 
-Project Broadsheet ships with a suite of reader-experience tools that most publishing platforms either charge extra for or do not offer at all. The tools are accessible from the reader panel — open by clicking the gear icon in the article toolbar. Every preference a reader sets persists in the browser's `localStorage`, so returning readers see the same customizations they last chose. No accounts or sign-ins are involved.
+Project Broadsheet ships with a suite of reader-experience tools that most publishing platforms either charge extra for or do not offer at all. The tools are accessible from the reader panel, open by clicking the gear icon in the article toolbar. Every preference a reader sets persists in the browser's `localStorage`, so returning readers see the same customizations they last chose. No accounts or sign-ins are involved.
 
 ## Display controls
 
@@ -17,7 +17,7 @@ Project Broadsheet ships with a suite of reader-experience tools that most publi
 
 ## Text-to-speech
 
-- Powered by the browser's native Web Speech API — no server-side audio, no data leaves the device.
+- Powered by the browser's native Web Speech API, no server-side audio, no data leaves the device.
 - Word-level highlight synchronized with playback, so the reader always knows which word is being spoken.
 - Playback speed from 0.5× to 2.0×.
 - Works in recent versions of Chrome and Edge.
@@ -26,7 +26,7 @@ Project Broadsheet ships with a suite of reader-experience tools that most publi
 
 - **Highlights.** Six colors, persisted per device.
 - **Notes.** Rich text attached to any highlight, edited in place.
-- **Reading list.** Save articles for later reading — stored locally, so the list never syncs across devices or requires a sign-in.
+- **Reading list.** Save articles for later reading, stored locally, so the list never syncs across devices or requires a sign-in.
 
 ## Focus and productivity
 

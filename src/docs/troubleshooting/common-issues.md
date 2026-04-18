@@ -38,7 +38,7 @@ Two things to check in order:
 
 ## CSS changes don't appear
 
-Your browser is almost certainly serving a cached stylesheet. Force a reload with Cmd+Shift+R (macOS) or Ctrl+Shift+R (Windows/Linux). Project Broadsheet appends a `?v=` cache-busting query to the stylesheet link, derived from the version in `meta.js` — bumping the version forces every visitor to pull the new file.
+Your browser is almost certainly serving a cached stylesheet. Force a reload with Cmd+Shift+R (macOS) or Ctrl+Shift+R (Windows/Linux). Project Broadsheet appends a `?v=` cache-busting query to the stylesheet link, derived from the version in `meta.js`, bumping the version forces every visitor to pull the new file.
 
 ## An article does not appear in its section or on the homepage
 
@@ -46,7 +46,7 @@ Verify the <span class="g-term" data-term="front matter">front matter</span>:
 
 - `title`, `date`, and `section` are all required.
 - `date` must be a valid ISO date (e.g. `2026-04-17`).
-- The file extension must be `.md` — `.markdown` is not recognized.
+- The file extension must be `.md`. `.markdown` is not recognized.
 - The containing folder's name must match the `section` value.
 
 ## Still stuck?

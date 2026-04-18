@@ -8,7 +8,7 @@ permalink: /privacy/
 
 **Last updated: 2026-04-17**
 
-Project Broadsheet respects your privacy. This policy describes what this website (projectbroadsheet.com) collects and how it's used. If you're looking for the privacy properties of the Broadsheet framework itself, scroll to [The product vs. this website](#product-privacy).
+Project Broadsheet respects your privacy. This policy describes what this website (projectbroadsheet.com) collects and how it's used. If you're looking for the privacy properties of the Broadsheet framework itself, scroll to [The product vs, this website](#product-privacy).
 
 ## Who we are
 
@@ -20,7 +20,7 @@ Project Broadsheet respects your privacy. This policy describes what this websit
 
 ### Contact form submissions
 
-When you submit any form on this website — Contact, Book a Call, Quote Request, Bug Report, etc. — the information you submit is delivered to our email inbox via **[Web3Forms](https://web3forms.com)**.
+When you submit any form on this website. Contact, Book a Call, Quote Request, Bug Report, etc, the information you submit is delivered to our email inbox via **[Web3Forms](https://web3forms.com)**.
 
 Submitted data typically includes your name, email address, and the content of your message. We use it only to respond to your inquiry. We do not use it for marketing without your permission.
 
@@ -32,7 +32,7 @@ You can unsubscribe at any time from the footer of any email. We do not sell, tr
 
 ### Analytics
 
-If analytics are enabled, we use **[Umami](https://umami.is)** — a cookieless, privacy-first alternative to Google Analytics. Umami records:
+If analytics are enabled, we use **[Umami](https://umami.is)**, a cookieless, privacy-first alternative to Google Analytics. Umami records:
 
 - Page URL visited
 - Referrer URL (the site you came from)
@@ -51,7 +51,7 @@ Umami does **not**:
 
 We use your browser's `localStorage` (not cookies) to save preferences locally:
 
-- `pb-theme` — your light/dark mode choice
+- `pb-theme`, your light/dark mode choice
 
 This data never leaves your device. You can clear it from your browser's site settings.
 
@@ -95,16 +95,16 @@ This website is not directed at children under 13. We do not knowingly collect d
 
 This website uses a small number of third-party services. Each has its own privacy policy:
 
-- **Web3Forms** — form submissions → <a href="https://web3forms.com/privacy">web3forms.com/privacy</a>
-- **Buttondown** — newsletter → <a href="https://buttondown.email/privacy">buttondown.email/privacy</a>
-- **Umami** (if enabled) — analytics → <a href="https://umami.is/privacy">umami.is/privacy</a>
-- **Bunny Fonts** — web fonts → <a href="https://bunny.net/privacy">bunny.net/privacy</a> (GDPR-compliant, no tracking)
-- **instant.page** — link prefetching → no data collection, runs entirely client-side
-- **Cloudflare Pages** — hosting → <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>
+- **Web3Forms**, form submissions → <a href="https://web3forms.com/privacy">web3forms.com/privacy</a>
+- **Buttondown**, newsletter → <a href="https://buttondown.email/privacy">buttondown.email/privacy</a>
+- **Umami** (if enabled), analytics → <a href="https://umami.is/privacy">umami.is/privacy</a>
+- **Bunny Fonts**, web fonts → <a href="https://bunny.net/privacy">bunny.net/privacy</a> (GDPR-compliant, no tracking)
+- **instant.page**, link prefetching → no data collection, runs entirely client-side
+- **Cloudflare Pages**, hosting → <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>
 
 <h2 id="product-privacy">Product privacy</h2>
 
-This policy covers **this website**. Project Broadsheet — the framework — is something you host yourself. Its privacy behavior is controlled entirely by your configuration:
+This policy covers **this website**. Project Broadsheet, the framework, is something you host yourself. Its privacy behavior is controlled entirely by your configuration:
 
 - If you enable Buttondown, Buttondown's privacy policy applies.
 - If you enable Umami, Umami's privacy policy applies.

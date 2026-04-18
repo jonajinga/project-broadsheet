@@ -36,7 +36,7 @@ From the Pages project, open **Custom domains**, then **Set up a custom domain**
 
 ## What happens on subsequent commits
 
-Every push to the `main` branch triggers a fresh production build. Pull requests receive their own preview deploy at a unique `.pages.dev` URL — useful for reviewing an article with an editor before it goes live.
+Every push to the `main` branch triggers a fresh production build. Pull requests receive their own preview deploy at a unique `.pages.dev` URL, useful for reviewing an article with an editor before it goes live.
 
 ## What to do next
 

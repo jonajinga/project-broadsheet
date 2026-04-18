@@ -16,11 +16,11 @@ export default {
     },
     {
       label: "Own your content",
-      cells: ["Yes — Markdown in Git", "Database export", "CSV export only", "Database export"]
+      cells: ["Yes. Markdown in Git", "Database export", "CSV export only", "Database export"]
     },
     {
       label: "Own your audience",
-      cells: ["Yes — email list is yours", "Yes", "Yes, with caveats", "Yes"]
+      cells: ["Yes, email list is yours", "Yes", "Yes, with caveats", "Yes"]
     },
     {
       label: "Database required",
@@ -48,7 +48,7 @@ export default {
     },
     {
       label: "Migration out",
-      cells: ["Free, trivial — Markdown", "JSON export", "CSV export", "Plugin-assisted export"]
+      cells: ["Free, trivial. Markdown", "JSON export", "CSV export", "Plugin-assisted export"]
     },
     {
       label: "Platform lock-in risk",

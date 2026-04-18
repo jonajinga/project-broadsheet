@@ -5,7 +5,7 @@ order: 1
 updated: 2026-04-17
 ---
 
-`src/_data/site.json` is the central configuration file for Project Broadsheet. Everything visible to readers — the title in the header, the footer copyright, the sections in the navigation, the newsletter destination — is driven by this one JSON file. Editing it is the quickest path to making the site yours without touching templates.
+`src/_data/site.json` is the central configuration file for Project Broadsheet. Everything visible to readers, the title in the header, the footer copyright, the sections in the navigation, the newsletter destination, is driven by this one JSON file. Editing it is the quickest path to making the site yours without touching templates.
 
 ## Core identity fields
 
@@ -23,7 +23,7 @@ These values populate the `<title>` tag on every page, the description used in s
 
 ## Editorial sections
 
-Editorial sections are the top-level categories a reader sees in the navigation — News, Opinion, Reviews, and so on. They are defined as an array in `site.json`:
+Editorial sections are the top-level categories a reader sees in the navigation. News, Opinion, Reviews, and so on. They are defined as an array in `site.json`:
 
 ```json
 "sections": [
@@ -36,7 +36,7 @@ Each <span class="g-term" data-term="editorial section">section</span> gets its 
 
 ## Third-party integrations
 
-Populate only the services you intend to use. Any field left empty disables its integration entirely — nothing ships in the HTML.
+Populate only the services you intend to use. Any field left empty disables its integration entirely, nothing ships in the HTML.
 
 ```json
 "buttondown": { "username": "your-username" },
@@ -49,6 +49,6 @@ These correspond to the <span class="g-term" data-term="Buttondown">newsletter s
 
 ## What to do next
 
-- [Write your first article](/docs/content/write-an-article/) — create a <span class="g-term" data-term="Markdown">Markdown</span> file in `src/content/news/`.
+- [Write your first article](/docs/content/write-an-article/), create a <span class="g-term" data-term="Markdown">Markdown</span> file in `src/content/news/`.
 - [Add an author](/docs/content/authors/) so posts carry a byline.
 - [Customize design tokens](/docs/design/tokens/) to set your brand palette.

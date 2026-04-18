@@ -1,11 +1,11 @@
 ---
-title: Care Plan Inquiry
-subtitle: Tell us about your publication. We'll recommend a plan and send pricing within one business day.
-permalink: /forms/care-inquiry/
+title: Hosting Inquiry
+subtitle: Tell me about the publication you want hosted. I'll reply personally within one business day with next steps.
+permalink: /forms/hosting-inquiry/
 ---
 <form class="form" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
-  <input type="hidden" name="subject" value="New care plan inquiry">
+  <input type="hidden" name="subject" value="New hosting inquiry">
   <input type="hidden" name="from_name" value="{{ meta.title }}">
   <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
   <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
@@ -19,24 +19,28 @@ permalink: /forms/care-inquiry/
     <input class="form__input" id="email" name="email" type="email" required>
   </div>
   <div class="form__row">
-    <label class="form__label" for="site_url">Publication URL</label>
-    <input class="form__input" id="site_url" name="site_url" type="url" placeholder="https://">
+    <label class="form__label" for="publication">Publication name or URL</label>
+    <input class="form__input" id="publication" name="publication" type="text" placeholder="e.g. thefreethinkingtimes.com">
   </div>
   <div class="form__row">
-    <label class="form__label" for="plan">Interested in</label>
+    <label class="form__label" for="plan">Which tier interests you?</label>
     <select class="form__select" id="plan" name="plan">
-      <option>Care. $149/mo</option>
-      <option>Care+. $399/mo</option>
-      <option>Editorial. $899/mo</option>
+      <option>Hosting Basic, $25/mo</option>
+      <option>Hosting Plus, $39/mo</option>
+      <option>Hosting Managed, $79/mo</option>
       <option>Not sure yet</option>
     </select>
   </div>
   <div class="form__row">
-    <label class="form__label" for="volume">Expected article volume per month</label>
-    <input class="form__input" id="volume" name="volume" type="text" placeholder="e.g. 4 articles, or unsure">
+    <label class="form__label" for="status">Is the site already built?</label>
+    <select class="form__select" id="status" name="status">
+      <option>Yes, it's on Project Broadsheet and needs a home</option>
+      <option>Yes, but it's on another platform I'd like to move from</option>
+      <option>No, I'd like to set it up first</option>
+    </select>
   </div>
   <div class="form__row">
-    <label class="form__label" for="notes">Anything else we should know?</label>
+    <label class="form__label" for="notes">Anything else I should know?</label>
     <textarea class="form__textarea" id="notes" name="notes"></textarea>
   </div>
   <div class="form__actions">

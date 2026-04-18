@@ -1,11 +1,11 @@
 ---
 title: Pagefind search
-subtitle: Project Broadsheet uses Pagefind for on-site search — a client-side index that works without a backend server and scales to thousands of pages.
+subtitle: Project Broadsheet uses Pagefind for on-site search, a client-side index that works without a backend server and scales to thousands of pages.
 order: 1
 updated: 2026-04-17
 ---
 
-<span class="g-term" data-term="Pagefind">Pagefind</span> is the search engine bundled with Project Broadsheet. It indexes the published site into small, fragment-sized chunks, and the reader's browser fetches only the fragments it needs as they type. The result is fast, private search that requires no server-side component — no database query, no API call, no per-search cost.
+<span class="g-term" data-term="Pagefind">Pagefind</span> is the search engine bundled with Project Broadsheet. It indexes the published site into small, fragment-sized chunks, and the reader's browser fetches only the fragments it needs as they type. The result is fast, private search that requires no server-side component, no database query, no API call, no per-search cost.
 
 ## How it runs
 
@@ -32,7 +32,7 @@ During local development (`npm start`), Pagefind does not run; search becomes av
 
 ## Why not a simple JSON index?
 
-A single JSON file containing every article would work — but it would also be shipped to every reader on every page load, whether they searched or not. At even a few dozen articles that file grows into hundreds of kilobytes. Pagefind avoids the problem entirely by fetching only the fragments a given query needs, so the bundle size stays flat as the archive grows.
+A single JSON file containing every article would work, but it would also be shipped to every reader on every page load, whether they searched or not. At even a few dozen articles that file grows into hundreds of kilobytes. Pagefind avoids the problem entirely by fetching only the fragments a given query needs, so the bundle size stays flat as the archive grows.
 
 ## What to do next
 

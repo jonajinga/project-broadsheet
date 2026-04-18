@@ -5,9 +5,9 @@ order: 1
 updated: 2026-04-17
 ---
 
-Project Broadsheet ships with nine <span class="g-term" data-term="editorial section">editorial sections</span> by default: News, Opinion, Analysis, Arts & Culture, Science & Tech, History, Letters, Reviews, and Editions. You can add, remove, or rename sections without editing any templates — the entire site regenerates from a single data file.
+Project Broadsheet ships with nine <span class="g-term" data-term="editorial section">editorial sections</span> by default: News, Opinion, Analysis, Arts & Culture, Science & Tech, History, Letters, Reviews, and Editions. You can add, remove, or rename sections without editing any templates, the entire site regenerates from a single data file.
 
-## Step 1 — Define the section
+## Step 1. Define the section
 
 Open `src/_data/site.json` and append a new object to the `sections` array:
 
@@ -22,7 +22,7 @@ Open `src/_data/site.json` and append a new object to the `sections` array:
 
 The `slug` is the URL segment (e.g. `/science/`). The `label` is the human-readable name that appears in navigation. The `color` is the accent used for section headlines and breadcrumbs. The `description` feeds into the section's meta description and RSS feed subtitle.
 
-## Step 2 — Create the content folder
+## Step 2. Create the content folder
 
 ```bash
 mkdir src/content/science
@@ -30,7 +30,7 @@ mkdir src/content/science
 
 Project Broadsheet reads articles from `src/content/{slug}/`. Without the matching folder, the section index page has nothing to show.
 
-## Step 3 — Write an article
+## Step 3. Write an article
 
 Create `src/content/science/first-article.md` with standard <span class="g-term" data-term="front matter">front matter</span>:
 

@@ -13,11 +13,11 @@ Articles in Project Broadsheet are plain <span class="g-term" data-term="Markdow
 touch src/content/news/my-first-article.md
 ```
 
-The folder name (`news`) determines which <span class="g-term" data-term="editorial section">editorial section</span> the article belongs to. The filename becomes part of the URL, so use hyphens instead of spaces — `my-first-article.md` becomes `/news/my-first-article/`.
+The folder name (`news`) determines which <span class="g-term" data-term="editorial section">editorial section</span> the article belongs to. The filename becomes part of the URL, so use hyphens instead of spaces. `my-first-article.md` becomes `/news/my-first-article/`.
 
 ## Add the front matter
 
-Every article begins with a <span class="g-term" data-term="front matter">front matter</span> block — metadata in <span class="g-term" data-term="YAML">YAML</span>, fenced between two `---` lines:
+Every article begins with a <span class="g-term" data-term="front matter">front matter</span> block, metadata in <span class="g-term" data-term="YAML">YAML</span>, fenced between two `---` lines:
 
 ```yaml
 ---
