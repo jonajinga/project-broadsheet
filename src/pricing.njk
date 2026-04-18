@@ -2,17 +2,17 @@
 layout: layouts/page.njk
 title: Pricing
 eyebrow: Services
-subtitle: Self-host Project Broadsheet for free, or bring me in to handle setup, migration, hosting, or ongoing care.
+subtitle: Project Broadsheet is free. If you want help, I sell my time.
 permalink: /pricing/
 ---
-<div class="lead" style="margin-bottom: var(--space-2xl);">
-  Project Broadsheet is free to fork and free to keep. The pricing below is for the cases where you'd rather not spend a weekend on setup, or where you need help that isn't in the documentation. I take on a small number of engagements at a time.
+<div class="lead" style="margin-bottom: var(--space-xl);">
+  Project Broadsheet exists so you don't need me. The framework is free, the documentation covers everything, and anyone with a terminal and a GitHub account can run a full publication at no cost. If you'd rather have help, I'm happy to sell my time — but at a fair freelance rate, not a platform markup.
 </div>
 
 <section class="pricing-section">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">Self-hosted</h2>
-    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default. There is no "pro tier" holding anything back.</p>
+    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default. There is no "pro tier" holding anything back — the documentation is written specifically so you can do all of this on your own.</p>
   </header>
   <div class="pricing-free">
     <div>
@@ -29,118 +29,45 @@ permalink: /pricing/
   </div>
 </section>
 
-<section class="pricing-section" id="launch-packages">
-  <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Launch packages</h2>
-    <p class="pricing-section__summary">Done-with-you setup, branding, and deployment. The package names are shorthand for scope. Pick the one that matches how much help you want.</p>
-  </header>
-  <div class="pricing-grid">
-    {% for pkg in pricing.packages %}
-    <article class="pricing-card{% if pkg.featured %} pricing-card--featured{% endif %}">
-      {% if pkg.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
-      <h3 class="pricing-card__name">{{ pkg.name }}</h3>
-      <div>
-        <span class="pricing-card__price">{{ pkg.price }}</span>
-        <span class="pricing-card__cadence">{{ pkg.cadence }} · {{ pkg.hours }}</span>
-      </div>
-      <p class="pricing-card__tagline">{{ pkg.tagline }}</p>
-      <ul class="pricing-card__list">
-        {% for f in pkg.features %}<li>{{ f }}</li>{% endfor %}
-      </ul>
-      <div class="pricing-card__cta">
-        <a class="btn btn--primary btn--block" href="{{ pkg.cta.url }}">{{ pkg.cta.label }}</a>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="pricing-section" id="migration">
-  <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Content migration</h2>
-    <p class="pricing-section__summary">Moving an archive from Ghost, WordPress, Substack, or Medium. You get clean Markdown, your images preserved, and a redirect map covering every legacy URL.</p>
-  </header>
-  <div class="migration-grid">
-    {% for m in pricing.migration %}
-    <div class="tier-row">
-      <div class="tier-row__name">{{ m.name }}</div>
-      <div class="tier-row__price">{{ m.price }}</div>
-      <div class="tier-row__scope">{{ m.scope }}</div>
-    </div>
-    {% endfor %}
-  </div>
-  <p style="margin-top: var(--space-md); color: var(--text-muted);">Larger archive or unusual source? <a href="/forms/quote-migration/">Request a migration quote</a> and I'll reply personally.</p>
-</section>
-
 <section class="pricing-section" id="hosting">
   <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Monthly hosting</h2>
-    <p class="pricing-section__summary">Managed hosting on my Cloudflare account. You write, I keep the lights on.</p>
+    <h2 class="pricing-section__title">Hosting</h2>
+    <p class="pricing-section__summary">If you'd rather not manage a Cloudflare account yourself, I'll host your site on mine. Flat rate, no tiers.</p>
   </header>
-  <div class="pricing-grid">
-    {% for plan in pricing.hosting %}
-    <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}">
-      {% if plan.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
-      <h3 class="pricing-card__name">{{ plan.name }}</h3>
-      <div>
-        <span class="pricing-card__price">{{ plan.price }}</span>
-        <span class="pricing-card__cadence">{{ plan.cadence }}</span>
-      </div>
-      <p class="pricing-card__tagline">{{ plan.tagline }}</p>
-      <ul class="pricing-card__list">
-        {% for f in plan.features %}<li>{{ f }}</li>{% endfor %}
-      </ul>
-      <div class="pricing-card__cta">
-        <a class="btn btn--primary btn--block" href="/forms/hosting-inquiry/?plan={{ plan.slug }}">Inquire</a>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="pricing-section" id="care">
-  <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Care plans</h2>
-    <p class="pricing-section__summary">Ongoing maintenance, content publishing, and priority support for publications that ship regularly. Cancel any month.</p>
-  </header>
-  <div class="pricing-grid">
-    {% for plan in pricing.care %}
-    <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}">
-      {% if plan.featured %}<span class="pricing-card__tag">Most common</span>{% endif %}
-      <h3 class="pricing-card__name">{{ plan.name }}</h3>
-      <div>
-        <span class="pricing-card__price">{{ plan.price }}</span>
-        <span class="pricing-card__cadence">{{ plan.cadence }}</span>
-      </div>
-      <p class="pricing-card__tagline">{{ plan.tagline }}</p>
-      <ul class="pricing-card__list">
-        {% for f in plan.features %}<li>{{ f }}</li>{% endfor %}
-      </ul>
-      <div class="pricing-card__cta">
-        <a class="btn btn--primary btn--block" href="/forms/care-inquiry/?plan={{ plan.slug }}">Inquire</a>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="pricing-section" id="hourly">
-  <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Hourly and training</h2>
-    <p class="pricing-section__summary">For custom work, one-off requests, or knowledge transfer.</p>
-  </header>
-  <div class="hourly-grid">
-    {% for h in pricing.hourly %}
-    <div class="tier-row">
-      <div class="tier-row__name">{{ h.name }}</div>
-      <div class="tier-row__price">{{ h.price }} <span class="tier-row__scope">{{ h.cadence }}</span></div>
-      <div class="tier-row__desc">{{ h.description }}</div>
+  <div class="pricing-free">
+    <div>
+      <span class="pricing-free__price">{{ pricing.hosting.price }}<span class="pricing-free__cadence">{{ pricing.hosting.cadence }}</span></span>
     </div>
-    {% endfor %}
+    <div class="pricing-free__body">
+      <p>{{ pricing.hosting.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for f in pricing.hosting.features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <a class="btn btn--primary btn--lg" href="{{ pricing.hosting.cta.url }}">{{ pricing.hosting.cta.label }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="my-time">
+  <header class="pricing-section__header">
+    <h2 class="pricing-section__title">My time</h2>
+    <p class="pricing-section__summary">Everything else — setup, migration, training, consulting, custom development, support — is billed at a single rate. You pay for what you actually need, nothing more.</p>
+  </header>
+  <div class="pricing-free">
+    <div>
+      <span class="pricing-free__price">{{ pricing.hourly.price }}<span class="pricing-free__cadence">{{ pricing.hourly.cadence }}</span></span>
+    </div>
+    <div class="pricing-free__body">
+      <p>{{ pricing.hourly.tagline }}</p>
+      <ul class="pricing-card__list">
+        {% for item in pricing.hourly.includes %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      <a class="btn btn--primary btn--lg" href="{{ pricing.hourly.cta.url }}">{{ pricing.hourly.cta.label }}</a>
+    </div>
   </div>
 </section>
 
 <div class="callout" style="margin-top: var(--space-2xl);">
   <div class="callout__title">One person on the other end</div>
-  <p>Every engagement is with me. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it. That means occasional delays (I sleep, I have a kid, I write for my own publication too), but it means you always know who you're dealing with.</p>
+  <p>Every engagement is with me directly. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it. That also means I'm selective — I take on work I can do well, for individuals and organizations whose work I think matters.</p>
 </div>
