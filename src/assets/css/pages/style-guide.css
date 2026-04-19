@@ -138,3 +138,5 @@ html[data-theme="dark"] .sg-contrast-table th { background: #0D0C0B; }
 .sg-contrast-table .pass { color: #2F7A3C; font-weight: 700; }
 .sg-contrast-table .fail { color: var(--vermillion); font-weight: 700; }
 html[data-theme="dark"] .sg-contrast-table .pass { color: #6EC080; }
+
+#page-toc-content h2, #page-toc-content h3 { scroll-margin-top: calc(var(--header-height) + 1rem); }

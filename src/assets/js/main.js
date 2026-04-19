@@ -107,23 +107,20 @@ document.addEventListener("keydown", function (event) {
   });
 })();
 
-// Page TOC (for pages with toc: true in front matter)
+// Page TOC (for pages with toc: true in front matter — matches sg-nav style)
 (function () {
   var content = document.getElementById("page-toc-content");
-  var tocList = document.getElementById("page-toc-list");
-  if (!content || !tocList) return;
-  var headings = content.querySelectorAll("h2, h3");
-  if (!headings.length) return;
+  var nav = document.getElementById("page-toc-nav");
+  if (!content || !nav) return;
+  var headings = content.querySelectorAll("h2");
+  if (!headings.length) { nav.style.display = "none"; return; }
   var items = [];
   headings.forEach(function (h) {
     if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    var li = document.createElement("li");
     var a = document.createElement("a");
     a.href = "#" + h.id;
     a.textContent = h.textContent;
-    if (h.tagName === "H3") a.classList.add("toc-h3");
-    li.appendChild(a);
-    tocList.appendChild(li);
+    nav.appendChild(a);
     items.push({ id: h.id, link: a, heading: h });
   });
   var observer = new IntersectionObserver(function (entries) {

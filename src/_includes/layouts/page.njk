@@ -29,12 +29,9 @@ layout: layouts/base.njk
 {% endif %}
 <div class="{{ containerClass }} page-body">
   {% if toc %}
-  <div class="page-toc-layout">
+  <div class="sg-layout">
+    <nav class="sg-nav" id="page-toc-nav" aria-label="On this page"></nav>
     <div id="page-toc-content">{{ content | safe }}</div>
-    <aside class="docs-toc" aria-label="On this page">
-      <div class="docs-toc__title">On this page</div>
-      <ol id="page-toc-list"></ol>
-    </aside>
   </div>
   {% else %}
   {{ content | safe }}
