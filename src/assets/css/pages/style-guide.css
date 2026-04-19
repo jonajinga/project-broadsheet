@@ -39,6 +39,10 @@ html[data-theme="dark"] .sg-nav a.active { background: #1F1D1A; }
   }
   html[data-theme="dark"] .sg-nav { background: #1A1815; border-color: rgba(232, 227, 214, 0.18); }
 }
+@media (max-width: 640px) {
+  .sg-nav { display: none; }
+  .sg-layout { gap: 0; }
+}
 
 .sg-section { scroll-margin-top: calc(var(--header-height) + 1rem); padding-block: var(--space-2xl); border-top: 1px solid var(--border); }
 .sg-section:first-of-type { border-top: 0; padding-top: 0; }

@@ -2,47 +2,178 @@
 layout: layouts/page.njk
 title: About
 eyebrow: About
-subtitle: Project Broadsheet is a passion project. This page explains what it's for, who builds it, and how it came to be.
+subtitle: What Project Broadsheet is, how it works, what it costs, and what you can do with it.
 permalink: /about/
-narrow: true
 toc: true
+mermaid: true
 ---
-<div class="stack-lg" style="max-width: 44rem;">
-  <div class="lead">
-    Project Broadsheet is my attempt to democratize publishing. It is not a startup, not a venture-backed product, and not a subscription service. It is a free, open-source, one-person labor of love, built for people who want to run a real publication without renting one from a platform.
-  </div>
 
-  <hr class="gold-rule">
+<div class="lead">Project Broadsheet is a free, open-source publishing framework built on <a href="https://www.11ty.dev">Eleventy</a>. It gives independent publishers the same editorial infrastructure that major outlets use, with no subscription, no database, and no platform lock-in.</div>
 
-  <h2 class="h3">Why this exists</h2>
-  <p>Publishing used to require a building full of equipment and a staff of twenty. Today it requires a web browser and a few hundred dollars a month, but the options are still narrower than they should be. You can pay a SaaS like Substack or Ghost and accept that your content, your reader list, and your entire operation live on someone else's servers. You can wrestle with WordPress and spend more time on maintenance than on writing. You can roll your own static site and rebuild every feature from scratch.</p>
-  <p>None of those matched what I wanted to use. So I built what I wanted to use.</p>
-  <p>Project Broadsheet is the result: a full publishing system with nine editorial sections, a reviews stack, a public-domain library, twenty-seven reader tools, search, SEO, newsletter integration, privacy-respecting analytics, and the small handful of other things a real publication needs. All of it lives in a Git repository you control. All of it is free.</p>
+<hr class="gold-rule">
 
-  <h2 class="h3">What "democratize publishing" means to me</h2>
-  <p>Every feature a major paper has, a proper section structure, RSS feeds per writer, reader-focused tools, accessible navigation, a searchable archive, a way for editors to collaborate, used to be trapped behind enterprise contracts or custom development budgets. It shouldn't be. A freelance journalist, a neighborhood historian, a classroom teacher, a retired essayist should all be able to run a publication that looks and works as well as anything from a major outlet.</p>
-  <p>That is the mission: give those tools to anyone who wants them, and keep them free.</p>
+## Why it exists
 
-  <h2 class="h3">About me</h2>
-  <p>My name is <a href="/jon-ajinga/">Jon Ajinga</a>. I'm a web developer and a writer based in Colorado. I run <a href="https://thefreethinkingtimes.com">The Freethinking Times</a>, the publication that was the first live test of Project Broadsheet. I also operate <a href="https://www.pikespeakwebdesigns.com">Pikes Peak Web Designs</a>, a small web-design practice that built the site you're reading.</p>
-  <p>I built Project Broadsheet for myself first. I decided to release it because other people kept asking me how I did things on The Freethinking Times, and writing documentation turned into writing a framework.</p>
+Publishing used to require a building full of equipment and a staff of twenty. Today it requires a web browser and a recurring bill, but the options are still narrower than they should be. You can pay a SaaS platform and accept that your content, your reader list, and your entire operation live on someone else's servers. You can wrestle with WordPress and spend more time on maintenance than on writing. You can roll your own static site and rebuild every feature from scratch.
 
-  <h2 class="h3">Working with me</h2>
-  <p>If you'd like help with setup, migration, hosting, or anything else, I'm available to hire by the hour. See <a href="/pricing/">pricing</a> or <a href="/book-a-call/">book a call</a>.</p>
+None of those matched what I wanted to use. So I built what I wanted to use.
 
-  <h2 class="h3">How the project is funded</h2>
-  <p>Project Broadsheet is MIT-licensed and free forever. There is no paid tier, no enterprise edition, and no plan to introduce either. The work is funded by:</p>
-  <ul style="list-style: disc; padding-left: 1.5rem;">
-    <li><strong>Paid services.</strong> When someone hires me to set up or migrate their publication, a slice of that revenue funds framework maintenance and new features.</li>
-    <li><strong><a href="https://opencollective.com/broadsheet">Open Collective</a>.</strong> If the project is useful to you, contributing a few dollars a month keeps it going.</li>
-    <li><strong><a href="https://github.com/sponsors/{{ meta.githubOwner }}">GitHub Sponsors</a>.</strong> Same idea, different platform.</li>
-  </ul>
-  <p>None of these are expected. The software is free regardless.</p>
+Project Broadsheet is the result: a full publishing system with nine editorial sections, a reviews stack, a public-domain library, twenty-seven reader tools, full-text search, SEO, newsletter integration, privacy-respecting analytics, and the small handful of other things a real publication needs. All of it lives in a Git repository you control. All of it is free.
 
-  <h2 class="h3">What's next</h2>
-  <p>The <a href="/roadmap/">public roadmap</a> is where upcoming work is tracked. The <a href="/changelog/">changelog</a> records what's shipped. The <a href="/blog/">blog</a> is where I write about the work as it happens.</p>
+## How it works
 
-  <hr class="gold-rule">
+Project Broadsheet is a static site. You write in Markdown, Eleventy builds the HTML, and you deploy the output to any static host. There is no server to manage, no database to maintain, and no runtime to keep patched.
 
-  <p class="lead">Questions, ideas, or a publication you'd like to show me? <a href="/contact/">Get in touch</a>. I read every message myself.</p>
-</div>
+<pre class="mermaid" style="background:transparent;border:0;padding:0;margin-block:var(--space-lg);">
+graph LR
+  A["Your GitHub repo\nMarkdown + YAML"] -->|eleventy build| B[Static HTML]
+  B --> C{Deploy}
+  C --> D[Cloudflare Pages]
+  C --> E[Netlify]
+  C --> F[Vercel / self-hosted]
+
+  B --> G[Browser]
+  G --> H["Reader tools\n27+ opt-in features"]
+
+  subgraph opt ["Optional integrations"]
+    I1[Umami analytics]
+    I2[Buttondown newsletter]
+    I3[Cusdis comments]
+    I4[Web3Forms contact]
+    I5[Pages CMS]
+    I6[GTranslate]
+  end
+
+  B --> opt
+</pre>
+
+Content is plain Markdown stored in your Git repository. You own it completely. Migration away from Project Broadsheet is as trivial as copying the Markdown files somewhere else.
+
+## Tech stack
+
+| Layer | Technology | Notes |
+|---|---|---|
+| Site generator | Eleventy v3 (ESM) | Static, no server required |
+| Templates | Nunjucks | `.njk` files, close to plain HTML |
+| Content | Markdown + YAML front matter | Stored in Git, fully portable |
+| Styling | Vanilla CSS custom properties | No frameworks, no bundler, single output file |
+| JavaScript | Vanilla JS | Progressive enhancement; site works without JS |
+| Search | Pagefind | Client-side, full-text, no tracking |
+| Images | eleventy-img | AVIF + WebP + JPEG, lazy loaded, responsive `sizes` |
+| HTML output | @sardine/eleventy-plugin-tinyhtml | Minified at build |
+| Hosting | Any static host | Cloudflare Pages, Netlify, Vercel, S3, or your own server |
+| Database | None | |
+
+Build time is approximately 12 seconds for 500 pages on a mid-range laptop.
+
+## Privacy
+
+Project Broadsheet collects nothing by default. There is no database, no user accounts, no stored sessions, and no analytics unless you opt in.
+
+- Content lives in your Git repository, not on our servers
+- Pagefind search runs entirely client-side, no queries are sent anywhere
+- Umami analytics is opt-in and cookieless by design
+- No telemetry, no phone-home, no tracking pixels in the framework itself
+- Third-party integrations (Buttondown, Cusdis, GTranslate) are opt-in; each carries its own privacy policy
+
+See the full [Privacy Policy](/privacy/) for details on this website specifically.
+
+## Accessibility
+
+Project Broadsheet targets WCAG 2.2 Level AA throughout.
+
+- Body text contrast ratio: 15.6:1 (more than three times the AA minimum)
+- Semantic HTML5 elements throughout (`<nav>`, `<main>`, `<article>`, `<button>`)
+- Skip link on every page, visible focus rings, `aria-current` on active nav links
+- Every interactive element is at minimum 44x44 CSS pixels
+- `prefers-reduced-motion` and `prefers-color-scheme` respected globally
+- Tested with VoiceOver (macOS/iOS), NVDA (Windows), keyboard-only, and 200% browser zoom
+
+See the full [Accessibility Statement](/accessibility/) for the complete list.
+
+## What it costs
+
+| Item | Cost |
+|---|---|
+| Framework | Free, MIT, forever |
+| Hosting | Free on Cloudflare Pages or Netlify free tier |
+| Domain | ~$10-15/year (Cloudflare Registrar, Namecheap, etc.) |
+| Buttondown newsletter | Free up to 100 subscribers |
+| Umami analytics | Free self-hosted; paid cloud plans available |
+| My time | [$150/hour](/pricing/) |
+
+There is no paid tier, no enterprise edition, and no plan to introduce either. The framework is free regardless of whether you ever hire me.
+
+Optional support for the project: [Open Collective](https://opencollective.com/broadsheet) or [GitHub Sponsors](https://github.com/sponsors/{{ meta.githubOwner }}).
+
+## Features you can enable, disable, or customize
+
+### Reader tools
+
+All reader tools are off by default and enabled per-publication in the framework config.
+
+| Feature | Default | Configure via |
+|---|---|---|
+| Text-to-speech with word highlight sync | Off | `reader.tts` |
+| Font picker (27 choices) | Off | `reader.fontPicker` |
+| Highlights and notes (six colors) | Off | `reader.highlights` |
+| Reading ruler | Off | `reader.ruler` |
+| Focus mode | Off | `reader.focusMode` |
+| Reading list (save for later) | Off | `reader.readingList` |
+| Voice search and form dictation | Off | `reader.voiceSearch` |
+| Import/export reader data as JSON | Off | `reader.dataPortability` |
+| Adjustable font size (four steps) | Off | `reader.fontSize` |
+| Adjustable line spacing | Off | `reader.lineSpacing` |
+
+### Integrations
+
+All integrations are opt-in. Enable by adding the relevant key to your site config.
+
+| Integration | Purpose | Configure via |
+|---|---|---|
+| Umami | Cookieless analytics | `integrations.umami` |
+| Buttondown | Newsletter management | `integrations.buttondown` |
+| Cusdis | Privacy-first comments | `integrations.cusdis` |
+| Web3Forms | Contact form backend | `integrations.web3forms` |
+| Pages CMS | Browser-based editing | `integrations.pagesCms` |
+| GTranslate | Machine translation, 80+ languages | `integrations.gtranslate` |
+
+### Editorial features
+
+| Feature | Default | Configure via |
+|---|---|---|
+| Sections (9 default: News, Opinion, Analysis, etc.) | On | `src/_data/sections.js` |
+| Per-section RSS feeds | On | Automatic |
+| Per-section accent colors | On | Section data file |
+| Author-specific RSS feeds | On | Automatic |
+| Editions (numbered issues, printable as PDF) | Off | `editions: true` |
+| Reviews (books, films, podcasts, docs) | Off | Add to content types |
+| Library (public-domain long-form works) | Off | `library: true` |
+| Events calendar | Off | `events: true` |
+| Glossary (A-Z, hover tooltips, search) | Off | `glossary: true` |
+
+### Design and branding
+
+| Feature | Default | Customized via |
+|---|---|---|
+| Dark mode | On (follows system) | Manual toggle also available |
+| Design tokens (colors, spacing, type) | Broadsheet defaults | `src/assets/css/tokens.css` |
+| Per-section accent colors | Broadsheet defaults | Section data file |
+| Typography | Four included fonts | `src/assets/css/tokens.css` |
+| Custom sections | Nine defaults | Add entries to `sections.js` |
+
+Full customization documentation is in the [Docs](/docs/).
+
+## About the project
+
+My name is [Jon Ajinga](/jon-ajinga/). I'm a web developer and writer based in Colorado. I run [The Freethinking Times](https://thefreethinkingtimes.com), the publication that was the first live test of Project Broadsheet. I also operate [Pikes Peak Web Designs](https://www.pikespeakwebdesigns.com), the practice that built the site you're reading.
+
+I built Project Broadsheet for myself first. I released it because other people kept asking how I'd built things on The Freethinking Times, and writing answers turned into writing a framework.
+
+## What's next
+
+The [public roadmap](/roadmap/) tracks upcoming work. The [changelog](/changelog/) records what has shipped. The [blog](/blog/) is where I write about the work as it happens.
+
+<hr class="gold-rule">
+
+<p class="lead">Questions, ideas, or a publication to show me? <a href="/contact/">Get in touch</a>. I read every message myself.</p>
