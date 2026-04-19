@@ -35,7 +35,7 @@ export default [
     term: "CMS",
     alt: "content management system",
     short: "Software for creating and editing website content.",
-    long: "A CMS lets non-technical people add and update articles through a browser interface. WordPress is the classic example. Project Broadsheet is file-based instead, your articles live as Markdown files in Git, but optionally supports Pages CMS for browser-based editing."
+    long: "A CMS lets non-technical people add and update articles through a browser interface. WordPress is the classic example. Project Broadsheet is file-based instead, your articles live as Markdown files in Git, but optionally supports Decap CMS for browser-based editing."
   },
   {
     term: "Cusdis",
@@ -130,7 +130,12 @@ export default [
   {
     term: "Pages CMS",
     short: "A browser-based editor for Git-backed content.",
-    long: "Pages CMS gives non-technical writers a friendly interface for editing Markdown files that live in a GitHub repository. Saves commit directly to Git. Project Broadsheet includes a ready-made Pages CMS schema."
+    long: "Pages CMS gives non-technical writers a friendly interface for editing Markdown files that live in a GitHub repository. It has no access control or user permission system. Project Broadsheet previously used Pages CMS but now ships with Decap CMS, which adds access control, role-based permissions, and an editorial approval workflow."
+  },
+  {
+    term: "Decap CMS",
+    short: "A self-hosted, browser-based editor for Git-backed publications, with access control and editorial workflow.",
+    long: "Decap CMS lives inside your own repository as a static HTML page at `/admin/`. It connects to GitHub for authentication and storage. Every save creates a pull request rather than committing directly to main. Combined with Cloudflare Zero Trust Access and GitHub branch protection, it gives publications access control, role-based permissions, and a full editorial approval pipeline. Project Broadsheet ships with a ready-made Decap CMS configuration."
   },
   {
     term: "passthrough copy",
@@ -660,5 +665,381 @@ export default [
     term: "WebP",
     short: "A modern image format that compresses better than JPEG at similar quality.",
     long: "Project Broadsheet's image pipeline (via `@11ty/eleventy-img`) produces WebP alongside traditional JPEG so modern browsers get the smaller file. AVIF, an even newer format, is generated too when supported."
+  },
+  {
+    term: "OAuth",
+    short: "An open standard that lets users grant third-party apps access to their account without sharing their password.",
+    long: "When you click 'Login with GitHub' in Decap CMS, you're using OAuth. GitHub confirms your identity and issues an access token. The CMS uses that token to read and write files in your repository on your behalf. You never hand your password to the CMS."
+  },
+  {
+    term: "OAuth App",
+    short: "A GitHub application registration that enables GitHub OAuth authentication for your CMS.",
+    long: "A GitHub OAuth App has a Client ID and a Client Secret. The Client ID identifies your app publicly; the Client Secret is a private credential used server-side to exchange an authorization code for an access token. For Decap CMS on Cloudflare Pages, these are stored as environment variables in your Pages project settings."
+  },
+  {
+    term: "access token",
+    short: "A credential that proves identity and grants permission to perform actions on a service.",
+    long: "After a user completes GitHub OAuth, GitHub returns an access token scoped to the permissions you requested (typically `repo`). Decap CMS stores this token in the browser session and attaches it to every API call to read and write your content files."
+  },
+  {
+    term: "Cloudflare Zero Trust Access",
+    short: "A service that gates a URL by identity, blocking anyone whose email is not on the allowlist.",
+    long: "Zero Trust Access sits in front of your `/admin/` path and challenges every visitor with an email one-time PIN before they reach the CMS UI. Even if someone guesses your CMS URL, they're blocked at Cloudflare before any authentication with GitHub happens. The free tier supports up to 50 users."
+  },
+  {
+    term: "OTP",
+    alt: "one-time PIN",
+    short: "A single-use code sent to an email address to verify identity.",
+    long: "Cloudflare Zero Trust Access sends a six-digit code to the visitor's email. They enter it to pass the gate. Codes expire quickly and cannot be reused. No password to remember, no account to create — just prove you own the email address."
+  },
+  {
+    term: "preview deployment",
+    short: "A temporary live build of a site generated automatically from a pull request branch.",
+    long: "When Decap CMS saves a draft, it creates a branch and a pull request. Cloudflare Pages detects the new PR and builds the full site from that branch at a unique URL (e.g. `abc123.your-pub.pages.dev`). Editors can visit that URL to review the article exactly as it will appear before approving the merge."
+  },
+  {
+    term: "branch protection",
+    short: "A GitHub setting that prevents direct pushes to a branch and requires pull requests and approvals.",
+    long: "With branch protection on `main`, nobody can push commits directly to the production branch — everything goes through a pull request. If you also require one approval, every article needs a second set of eyes before it can go live. Writers can still push to their own draft branches; they just can't merge without sign-off."
+  },
+  {
+    term: "production environment",
+    short: "The live, publicly visible version of a website, built from the main branch.",
+    long: "When you merge a pull request to `main`, Cloudflare Pages rebuilds the production environment. This is what the public sees. Preview deployments (from PR branches) are separate, temporary environments used for review."
+  },
+  {
+    term: "preview environment",
+    short: "A temporary build of a site generated from a pull request or feature branch for review before publishing.",
+    long: "Cloudflare Pages creates a preview environment for every open pull request. Each has a unique URL and is rebuilt on every new commit to the branch. Preview environments are separate from production and are not indexed by search engines."
+  },
+  {
+    term: "Cloudflare Pages Function",
+    short: "Server-side code that runs on Cloudflare's edge network as part of a Pages project.",
+    long: "Pages Functions live in the `functions/` folder of your repository and are deployed alongside your static site. They handle dynamic requests like OAuth token exchanges. The GitHub OAuth proxy used by Decap CMS in Project Broadsheet is a Pages Function at `functions/api/auth.js`."
+  },
+  {
+    term: "base URL",
+    short: "The root address of a website, used as the prefix for all relative paths.",
+    long: "In Decap CMS's `config.yml`, `base_url` tells the CMS where its OAuth proxy lives. If `base_url` is `https://my-pub.pages.dev`, the CMS will open `https://my-pub.pages.dev/api/auth` for GitHub login. It must match the domain your readers actually use."
+  },
+  {
+    term: "byline",
+    short: "The line on an article that names the author.",
+    long: "A byline typically reads 'By Jane Doe' or 'Jane Doe, Staff Reporter'. In Project Broadsheet, the `author` field in front matter links to an author profile, pulling the display name, bio, and photo automatically."
+  },
+  {
+    term: "dateline",
+    short: "A line at the start of an article stating where and when the reporting took place.",
+    long: "Datelines originated in wire-service journalism: 'DENVER, April 19 —'. In Project Broadsheet, the `location` front matter field provides the geographic component. Datelines are most common in news and field-reporting articles."
+  },
+  {
+    term: "lede",
+    alt: "lead",
+    short: "The opening sentence or paragraph of a news article, designed to hook the reader and summarize the story.",
+    long: "The lede answers the key questions — who, what, when, where, why — in as few words as possible. 'Burying the lede' means hiding the most important fact deep in the story. The deliberate misspelling ('lede' not 'lead') emerged to avoid confusion with the lead type used in printing."
+  },
+  {
+    term: "inverted pyramid",
+    short: "A journalistic story structure that puts the most important information first, with background and detail later.",
+    long: "The inverted pyramid is the standard structure for news writing. Most important facts in the opening sentence; supporting context in the middle; additional detail, background, and quotes at the end. Readers who stop halfway through still get the full story."
+  },
+  {
+    term: "hed",
+    alt: "headline",
+    short: "The title of a news or feature article.",
+    long: "In print newsrooms, 'hed' is copydesk shorthand for headline. A strong hed is specific, active, and accurate. It also carries SEO weight — it becomes the `<h1>` and typically the `<title>` on the article page. Project Broadsheet reads it from the `title` field in front matter."
+  },
+  {
+    term: "dek",
+    alt: "subheadline, standfirst",
+    short: "A secondary headline or summary line beneath the main headline, giving more context.",
+    long: "The dek expands on the hed without repeating it. It appears below the headline on article pages and in social media previews. In Project Broadsheet it maps to the `description` front matter field. Keep it under 160 characters for SEO."
+  },
+  {
+    term: "masthead",
+    short: "The printed or displayed statement of a publication's name, ownership, staff, and contact information.",
+    long: "In print, the masthead appears on the editorial page. Online, it's typically an About or Staff page. In Project Broadsheet the site title, founding year, and editorial statement all live in `site.json` and render in the footer and the dedicated About page."
+  },
+  {
+    term: "op-ed",
+    short: "A newspaper article expressing the personal opinion of the author, traditionally published opposite the editorial page.",
+    long: "Op-eds are distinct from unsigned editorials (which represent the publication's official view) because they carry a byline. In Project Broadsheet they live in the Opinion section. The author is identified with a full bio and disclosure statement."
+  },
+  {
+    term: "correction",
+    short: "A published acknowledgment that a previous article contained an error, with the correct information.",
+    long: "Corrections are logged in the `corrections` array in an article's front matter. Project Broadsheet renders a corrections block on the article page and maintains a site-wide corrections log at `/corrections/`. Each entry records what was wrong, what is correct, and the date."
+  },
+  {
+    term: "retraction",
+    short: "A formal withdrawal of a published article because it was significantly wrong, fabricated, or plagiarized.",
+    long: "A retraction is more serious than a correction — it means the entire piece should not have been published. Retractions should be published at the original URL with a clear notice at the top and the article content removed or struck through."
+  },
+  {
+    term: "embargo",
+    short: "An agreement between a journalist and a source that information will not be published before a specific date and time.",
+    long: "Embargoes give journalists advance access to press releases, scientific papers, or announcements in exchange for holding the story until a set time. Breaking an embargo damages your publication's reputation with sources."
+  },
+  {
+    term: "scoop",
+    short: "Exclusive reporting that a publication breaks before any competitor.",
+    long: "A scoop is often the result of cultivating sources, document analysis, or investigative work. Breaking a major story first establishes credibility and drives traffic. Project Broadsheet's metadata includes `exclusive` as a content tag convention."
+  },
+  {
+    term: "primary source",
+    short: "An original, firsthand document or account — the underlying evidence a news story is based on.",
+    long: "Primary sources include official documents, original data, court filings, transcripts, and firsthand eyewitness accounts. Project Broadsheet's source documents collection lets you attach scanned or linked primary sources directly to an article, a practice that builds reader trust and transparency."
+  },
+  {
+    term: "secondary source",
+    short: "A document or report that analyzes, interprets, or summarizes primary sources.",
+    long: "News coverage of a study, a legal analysis of a court ruling, a Wikipedia article — these are secondary sources. Strong journalism cites primary sources; secondary sources add context. Project Broadsheet's bibliography and argument-map features help readers trace the chain of evidence."
+  },
+  {
+    term: "fact-checking",
+    short: "Verifying that the claims in a story are accurate before publication.",
+    long: "Fact-checking involves tracing every factual claim to a verifiable source: a document, a recording, a named expert. Project Broadsheet's corrections system is designed to handle post-publication corrections when fact-checking misses something."
+  },
+  {
+    term: "paywall",
+    short: "A system that restricts access to content unless the reader pays.",
+    long: "Project Broadsheet has no paywall system built in. Its recommended approach for reader revenue is voluntary support via Ko-fi, Buy Me a Coffee, or Patreon — tipping rather than gating. Hard paywalls on static sites require an external service."
+  },
+  {
+    term: "newsletter",
+    short: "An article or digest sent directly to subscribers' email inboxes on a regular schedule.",
+    long: "Project Broadsheet integrates with Buttondown for newsletter delivery. The subscription form is built into the site's sidebar, footer, and inline article callouts. Email addresses go straight to Buttondown — Project Broadsheet never stores subscriber data."
+  },
+  {
+    term: "press freedom",
+    short: "The right of journalists to report news and express opinions without government censorship or interference.",
+    long: "Press freedom is foundational to independent journalism. Hosting your own static site (rather than publishing on a platform that can deplatform you) is one practical expression of editorial independence. Project Broadsheet is MIT-licensed so no single entity controls the software."
+  },
+  {
+    term: "source protection",
+    short: "The journalistic principle and legal practice of keeping a confidential source's identity secret.",
+    long: "Source protection is a core obligation of investigative journalism. It may mean avoiding digital trails (secure messaging, Signal, SecureDrop) and scrubbing metadata from documents before publishing them. Project Broadsheet's source documents collection stores and displays sources — only attach documents whose authors have consented or are public."
+  },
+  {
+    term: "transparency",
+    short: "The practice of openly disclosing how a publication operates, who funds it, and how editorial decisions are made.",
+    long: "Transparency builds trust with readers and distinguishes independent journalism from propaganda. Project Broadsheet includes an About page, a corrections log, source documents, and argument maps — all structural transparency features. Disclosing your corrections policy, funding model, and ownership is a baseline expectation."
+  },
+  {
+    term: "media literacy",
+    short: "The ability to critically analyze, evaluate, and create media messages.",
+    long: "Media-literate readers can identify sources, distinguish news from opinion, recognize bias, and verify claims. Project Broadsheet's source documents, argument maps, and corrections log are tools that help readers develop media literacy directly from your reporting."
+  },
+  {
+    term: "custom domain",
+    short: "A domain name you own (like myPublication.com) pointed at your hosted site.",
+    long: "Cloudflare Pages gives every project a free `.pages.dev` subdomain, but a custom domain establishes your brand and is required for a serious publication. Cloudflare handles free HTTPS for custom domains automatically. You buy the domain from a registrar (~$10–15/year) and add a DNS record pointing it at Cloudflare Pages."
+  },
+  {
+    term: "subdomain",
+    short: "A prefix added to a domain, like news.example.com or admin.example.com.",
+    long: "Subdomains are created with CNAME or A records in your DNS settings. Cloudflare Pages lets you assign a subdomain of a domain already in your Cloudflare account. The `/admin/` path in Project Broadsheet is a path, not a subdomain — the CMS lives at the same domain as the publication."
+  },
+  {
+    term: "URL",
+    alt: "Uniform Resource Locator",
+    short: "The full address of a resource on the web.",
+    long: "A URL has several parts: protocol (`https://`), domain (`my-pub.com`), path (`/news/my-article/`), and optional query string (`?ref=newsletter`). Project Broadsheet generates clean, readable URLs from filenames and the section structure. The `permalink` field in front matter overrides the default."
+  },
+  {
+    term: "404",
+    alt: "Not Found",
+    short: "The HTTP status code returned when a requested page does not exist.",
+    long: "Project Broadsheet ships with a custom `404.html` page. When a reader follows a broken link, they see a helpful error page rather than a blank browser error. If you rename an article, add a redirect from the old URL so existing links don't break."
+  },
+  {
+    term: "Core Web Vitals",
+    short: "Google's set of page experience metrics: loading (LCP), interactivity (INP), and visual stability (CLS).",
+    long: "Core Web Vitals affect search rankings. Project Broadsheet is designed to score 95–100 on all four PageSpeed categories. Key contributors: static HTML served from a CDN (fast LCP), no layout-shifting ads or fonts (low CLS), minimal JavaScript (fast INP)."
+  },
+  {
+    term: "semantic HTML",
+    short: "Using HTML elements that describe the meaning of content, not just its appearance.",
+    long: "Semantic HTML uses `<article>`, `<nav>`, `<main>`, `<header>`, `<footer>`, `<h1>`–`<h6>`, and similar elements to communicate structure to browsers, screen readers, and search engines. Project Broadsheet's templates are written semantically throughout."
+  },
+  {
+    term: "skip link",
+    short: "A visually hidden link that lets keyboard users jump past repeated navigation directly to the main content.",
+    long: "Skip links are the first focusable element on the page. They're invisible until focused so they don't clutter the visual design. Without a skip link, keyboard users must tab through the entire navigation on every page. Project Broadsheet includes a 'Skip to main content' link in every layout."
+  },
+  {
+    term: "keyboard navigation",
+    short: "Using Tab, Enter, arrow keys, and Escape to navigate and interact with a page without a mouse.",
+    long: "Screen reader users and many people with motor disabilities rely on keyboard navigation. Every interactive element in Project Broadsheet — nav menus, the search modal, accordion FAQs, the reader panel — is reachable and operable by keyboard."
+  },
+  {
+    term: "reading time",
+    short: "An estimate of how long it takes to read an article, shown as a guide to readers.",
+    long: "Project Broadsheet calculates reading time from the article's word count at 225 words per minute. It's displayed in article cards and at the top of article pages. The estimate is a reader-experience courtesy, not a claim of precision."
+  },
+  {
+    term: "table of contents",
+    short: "A list of an article's section headings, usually linked for quick navigation.",
+    long: "Project Broadsheet auto-generates a sticky table of contents from an article's `<h2>` headings. It appears in the sidebar on long-form articles and highlights the current section as the reader scrolls. Long investigative pieces and explainers benefit most."
+  },
+  {
+    term: "annotation",
+    short: "A note, highlight, or comment added to a specific passage in an article.",
+    long: "Project Broadsheet's reader tools include highlights and notes. Readers can select any passage, mark it with a color, and attach a private note. Annotations are stored in localStorage and never sent to a server."
+  },
+  {
+    term: "text-to-speech",
+    short: "A tool that reads article text aloud to the reader using the browser's speech synthesis API.",
+    long: "Project Broadsheet's text-to-speech tool is built into the reader panel. It uses the Web Speech API, which runs entirely in the browser with no external service. Readers can play, pause, and adjust speed. No audio file is generated or stored."
+  },
+  {
+    term: "newswire",
+    alt: "wire service",
+    short: "A news agency that supplies stories to subscribing publications.",
+    long: "Associated Press (AP), Reuters, and AFP are the major newswires. They supply breaking news, photos, and features to newspapers, broadcast stations, and websites. Independent publications that use wire stories must credit the source."
+  },
+  {
+    term: "stringer",
+    short: "A freelance journalist who contributes to a publication on a per-story basis without being on staff.",
+    long: "Stringers are valuable for covering regions or beats where a publication can't afford a full-time reporter. Project Broadsheet supports multi-author publications — each author has their own profile page, bio, and byline linked throughout the site."
+  },
+  {
+    term: "archiving",
+    short: "The practice of preserving published content so it remains accessible over time.",
+    long: "Git is Project Broadsheet's archive. Every version of every article is in the commit history. For broader preservation, consider also submitting your URLs to the Internet Archive (archive.org) and subscribing to Cloudflare's Always Online feature."
+  },
+  {
+    term: "link rot",
+    short: "The tendency for hyperlinks to break over time as pages are moved or deleted.",
+    long: "Link rot undermines credibility. Keeping your content at stable URLs (never rename slugs after publication), adding redirects when you must change a URL, and periodically checking for broken outbound links all help. The Eleventy build catches broken internal links."
+  },
+  {
+    term: "editorial independence",
+    short: "The principle that a publication's news judgment and editorial decisions are not influenced by advertisers, funders, or owners.",
+    long: "Editorial independence is what separates journalism from public relations. Disclosing your funding model and maintaining a clear separation between advertising and editorial content are the two key practices. Project Broadsheet's About page template includes sections for ownership, funding, and editorial policy."
+  },
+  {
+    term: "open source",
+    short: "Software whose source code is publicly available for anyone to inspect, modify, and distribute.",
+    long: "Project Broadsheet is open-source under the MIT license. Anyone can read the code, fork it, run it, and build on it. This means no vendor lock-in, no subscription, and no risk of the software being discontinued without warning."
+  },
+  {
+    term: "version control",
+    short: "A system that tracks changes to files over time and allows you to recall specific versions.",
+    long: "Git is the version-control system Project Broadsheet is built on. Every article save, every template edit, every config change is a commit with a timestamp and author. You can revert a mistake, compare versions, and understand exactly what changed and when."
+  },
+  {
+    term: "XML",
+    short: "Extensible Markup Language, a format for encoding structured data in a readable text form.",
+    long: "XML is used for RSS feeds and sitemaps in Project Broadsheet. The sitemap at `/sitemap.xml` lists every public URL for search-engine crawlers. The RSS feed at `/feed.xml` delivers new articles to feed readers and aggregators."
+  },
+  {
+    term: "noindex",
+    short: "A directive that tells search engines not to include a page in their index.",
+    long: "The `<meta name='robots' content='noindex'>` tag prevents a page from appearing in search results. Project Broadsheet adds it automatically to admin pages (`/admin/`), the search index JSON, and other utility pages that shouldn't appear in Google."
+  },
+  {
+    term: "structured data",
+    short: "Machine-readable metadata embedded in a page to help search engines understand what it contains.",
+    long: "Project Broadsheet embeds JSON-LD structured data on every article page (using the `Article` schema), the home page (`WebSite` and `Organization`), and author pages (`Person`). Structured data can trigger rich results in Google, including article carousels and author panels."
+  },
+  {
+    term: "staging",
+    short: "A non-production environment that mirrors production, used for testing before changes go live.",
+    long: "For Project Broadsheet, Cloudflare Pages preview deployments serve a similar role to a traditional staging environment. Every pull request gets its own preview URL where you can test changes before merging to `main` and deploying to production."
+  },
+  {
+    term: "authentication",
+    short: "Proving who you are — verifying your identity.",
+    long: "In Decap CMS, authentication means proving to GitHub that you are who you say you are, using the OAuth flow. Authentication is distinct from authorization: authentication says who you are; authorization says what you're allowed to do."
+  },
+  {
+    term: "authorization",
+    short: "Determining what an authenticated user is allowed to do.",
+    long: "In Project Broadsheet's Decap CMS setup, Cloudflare Zero Trust Access controls authorization at the gate — it decides whether your email address is allowed to reach `/admin/`. GitHub branch protection controls authorization at the publishing step — it decides whether you can merge to `main`."
+  },
+  {
+    term: "Git remote",
+    short: "A named reference to a version of the repository stored on another server.",
+    long: "When you run `git clone`, Git sets up a remote named `origin` pointing at the source URL. `git push origin main` sends your commits to that remote. `git fetch` retrieves changes from the remote without merging them."
+  },
+  {
+    term: "merge conflict",
+    short: "A situation in Git where two branches have changed the same part of the same file in incompatible ways.",
+    long: "Merge conflicts happen when two writers edit the same file on different branches. Git marks the conflicting lines and asks you to choose the correct version. They're rare in a well-run editorial workflow where each writer works on their own article in a separate branch."
+  },
+  {
+    term: "rebase",
+    short: "A Git operation that rewrites the commit history of a branch as if it started from a different point.",
+    long: "Rebasing a feature branch onto the latest `main` replays your commits on top of the newest base, keeping history linear and avoiding unnecessary merge commits. Use with caution on branches others are working on; it rewrites history."
+  },
+  {
+    term: "HTTP",
+    alt: "HyperText Transfer Protocol",
+    short: "The protocol that browsers and servers use to exchange web pages and data.",
+    long: "Every time a reader visits an article, their browser sends an HTTP GET request and the server responds with HTML. HTTP status codes communicate results: 200 means OK, 301 means redirected, 404 means not found, 500 means server error. HTTPS is HTTP over an encrypted TLS connection."
+  },
+  {
+    term: "query parameter",
+    alt: "query string",
+    short: "Key-value pairs appended to a URL after a `?`, used to pass data to a page.",
+    long: "Query parameters look like `?ref=newsletter&utm_source=email`. They're used for tracking, pagination, filtering, and passing state. Project Broadsheet's static pages don't process query parameters server-side, but they're used in analytics tracking and newsletter link attribution."
+  },
+  {
+    term: "Netlify",
+    short: "A static-site hosting platform, one of the alternatives to Cloudflare Pages.",
+    long: "Netlify popularized branch-based preview deployments and the JAMstack model. Project Broadsheet supports Netlify deployments. Unlike Cloudflare Pages, Netlify provides Netlify Identity for authentication — but Project Broadsheet recommends Cloudflare Pages for its performance, price (free), and the Zero Trust Access integration."
+  },
+  {
+    term: "Vercel",
+    short: "A static and serverless hosting platform, primarily aimed at Next.js applications.",
+    long: "Vercel is another option for hosting Project Broadsheet. It supports static output and offers branch preview deployments similar to Cloudflare Pages. The main trade-off versus Cloudflare Pages is that Vercel's free tier is less generous and it doesn't pair as naturally with Cloudflare Zero Trust Access."
+  },
+  {
+    term: "CORS",
+    alt: "Cross-Origin Resource Sharing",
+    short: "A browser security mechanism that controls which domains can request resources from your server.",
+    long: "CORS headers tell the browser whether a script on one domain is allowed to fetch data from another. Project Broadsheet's static files are served with permissive CORS headers for assets that need to be accessed cross-origin (like the search index JSON). The GitHub OAuth proxy at `/api/auth` doesn't need special CORS headers since it's same-origin."
+  },
+  {
+    term: "reading list",
+    short: "A personal collection of articles saved for later reading.",
+    long: "Project Broadsheet includes a reading list tool. Readers click a bookmark icon on any article to save it. The list is stored in localStorage and accessible from the reader panel. No account or server required."
+  },
+  {
+    term: "focus mode",
+    short: "A distraction-free reading view that hides navigation and sidebar elements.",
+    long: "Project Broadsheet's focus mode strips everything except the article text from the page — no navigation, no sidebar, no related posts. Activated from the reader panel. Useful for long reads."
+  },
+  {
+    term: "reading ruler",
+    short: "An on-screen guide that highlights the current line of text as the reader scans down the page.",
+    long: "The reading ruler is a horizontal band that follows the reader's position on the page. It's a cognitive accessibility tool for readers with dyslexia or attention difficulties. Available from Project Broadsheet's reader panel."
+  },
+  {
+    term: "argument map",
+    short: "A visual diagram of the logical structure of an argument, showing claims, evidence, and objections.",
+    long: "Project Broadsheet supports argument maps for editorial and analytical articles. An argument map breaks down a position into its component claims, supporting evidence, and counterarguments, making the reasoning transparent and auditable by readers."
+  },
+  {
+    term: "series",
+    short: "A group of related articles published sequentially under a shared title.",
+    long: "A series links related articles together — an investigation broken into parts, a multi-week explainer, a running diary. Project Broadsheet uses the `series` and `seriesPart` front matter fields to build the navigation between parts automatically."
+  },
+  {
+    term: "edition",
+    short: "A numbered issue of a publication, grouping articles published together as a cohesive whole.",
+    long: "Project Broadsheet supports print-style numbered editions alongside the continuous web feed. The `edition` front matter field assigns an article to an issue. Edition index pages collect all articles from that issue and can be printed or downloaded as a PDF."
+  },
+  {
+    term: "public domain",
+    short: "Creative works whose copyright has expired or was never claimed, free for anyone to reproduce.",
+    long: "Project Broadsheet includes a library collection for public-domain texts. Classic journalism, historical primary sources, and literature whose copyright has lapsed can be published here with full attribution. In the US, works published before 1928 are generally public domain."
+  },
+  {
+    term: "PKCE",
+    alt: "Proof Key for Code Exchange",
+    short: "An OAuth extension that allows browser-based apps to authenticate without a client secret.",
+    long: "PKCE (pronounced 'pixie') was designed to secure OAuth flows where a client secret cannot be stored safely — like a JavaScript app running in a browser. Decap CMS supports `auth_type: pkce` in its config, but in practice this silently falls back to Netlify's auth server when not on Netlify. Project Broadsheet uses a Cloudflare Pages Function OAuth proxy instead."
   }
 ];
