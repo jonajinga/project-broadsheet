@@ -86,20 +86,25 @@ Optional support for the project: [Open Collective](https://opencollective.com/b
 
 ### Reader tools
 
-All reader tools are off by default and enabled per-publication in the framework config.
+All reader tools are on by default. Readers can adjust or turn off individual tools from the reader panel on any article. Publications can disable specific tools in the site config.
 
 | Feature | Default | Configure via |
 |---|---|---|
-| Text-to-speech with word highlight sync | Off | `reader.tts` |
-| Font picker (27 choices) | Off | `reader.fontPicker` |
-| Highlights and notes (six colors) | Off | `reader.highlights` |
-| Reading ruler | Off | `reader.ruler` |
-| Focus mode | Off | `reader.focusMode` |
-| Reading list (save for later) | Off | `reader.readingList` |
-| Voice search and form dictation | Off | `reader.voiceSearch` |
-| Import/export reader data as JSON | Off | `reader.dataPortability` |
-| Adjustable font size (four steps) | Off | `reader.fontSize` |
-| Adjustable line spacing | Off | `reader.lineSpacing` |
+| Text-to-speech with word highlight sync | On | `reader.tts` |
+| Font picker (27 choices) | On | `reader.fontPicker` |
+| Highlights and notes (six colors) | On | `reader.highlights` |
+| Reading ruler | On | `reader.ruler` |
+| Focus mode | On | `reader.focusMode` |
+| Reading list (save for later) | On | `reader.readingList` |
+| Font size, line spacing, text width, word spacing | On | `reader.typography` |
+| Background presets (sepia, dark, high-contrast, etc.) | On | `reader.backgrounds` |
+| Paragraph numbering and auto-scroll | On | `reader.readingAids` |
+| Download as TXT or Markdown | On | `reader.download` |
+| Citation formatter (APA 7, MLA 9, Chicago 17) | On | `reader.citations` |
+| Reader panel (highlights, bookmarks, related, citation) | On | `reader.panel` |
+| Notes page at /notes/ | On | `reader.notesPage` |
+| Voice search and form dictation | On | `reader.voiceSearch` |
+| Import/export reader data as JSON | On | `reader.dataPortability` |
 
 ### Integrations
 

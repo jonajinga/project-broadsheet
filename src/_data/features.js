@@ -2,11 +2,17 @@ export default {
   highlights: [
     {
       title: "Reader experience",
-      summary: "A set of reader-side controls applied to every article: font selection, highlights, notes, text-to-speech, a reading ruler, focus mode, and a save-for-later reading list.",
+      summary: "A full set of reader-side controls applied to every article: font selection, size, spacing, highlights, notes, text-to-speech, reading ruler, focus mode, background presets, download, citations, and more. All on by default.",
       points: [
         "Text-to-speech with synced word highlighting",
-        "27 font choices and six highlight colors",
-        "Reading ruler, focus mode, and reading list",
+        "Font picker, size slider, line spacing, text width, word spacing",
+        "Background presets: default, sepia, cream, dark, high-contrast",
+        "Highlights (6 colors), notes, bookmarks, and reading list",
+        "Reading ruler, focus mode, paragraph numbering, auto-scroll",
+        "Download article as TXT or Markdown",
+        "Citation formatter: APA 7, MLA 9, Chicago 17",
+        "Aggregated notes page at /notes/",
+        "Reader panel with highlights, bookmarks, progress, related, and citation tabs",
         "Voice search and form dictation",
         "Import and export reader data as JSON"
       ]
@@ -17,52 +23,72 @@ export default {
       points: [
         "News, Opinion, Analysis, Arts & Culture",
         "Science & Tech, History, Letters, Reviews",
-        "Per-section accent colors",
+        "Per-section accent colors and RSS feeds",
         "Author-specific RSS feeds",
         "Editions: numbered issues, printable as PDF"
       ]
     },
     {
       title: "Specialty content types",
-      summary: "Dedicated templates for reviews, long-form library works, events, media, and curated collections. Each has its own front-matter schema and layout.",
+      summary: "Dedicated templates for reviews, a public-domain library, glossary, events, games, quotes, bookshelf, and curated collections. Each has its own front-matter schema, layout, and index page.",
       points: [
         "Reviews: books, films, podcasts, documentaries",
-        "Public-domain library with chapter navigation",
-        "A-to-Z glossary with hover tooltips",
-        "Events calendar with recurrence",
-        "Games, quotes, and curated collections"
+        "Public-domain library with chapter navigation and reading progress",
+        "A-to-Z glossary with hover tooltips in article text",
+        "Events calendar with recurrence support",
+        "Interactive games: trivia, word scramble, crossword, fifteen-puzzle",
+        "Quotes collection with pull-quote shortcode",
+        "Curated bookshelf with categories and filtering"
       ]
     },
     {
-      title: "Search and SEO",
-      summary: "Client-side full-text search via Pagefind. Structured data, Open Graph, and per-section RSS feeds generated automatically at build time.",
+      title: "Journalism tools",
+      summary: "Features built for serious publishing: corrections log, response tracking, primary source documents, series navigation, argument maps, article profiles, revision history, and editorial workflow metadata.",
       points: [
-        "Pagefind full-text search, client-side",
-        "JSON-LD structured data",
+        "Corrections log: dated, transparent, aggregated at /corrections/",
+        "Response and backlink tracking between articles",
+        "Primary source documents collection (FOIA, court records, filings)",
+        "Multi-part series navigation with auto-generated part links",
+        "Argument maps: structured thesis, premises, and conclusion",
+        "Article profiles: standard, podcast (inline audio), dataviz (iframe embed)",
+        "Revision history linked to GitHub commit log"
+      ]
+    },
+    {
+      title: "Search, SEO, and APIs",
+      summary: "Client-side full-text search via Pagefind. Structured data, Open Graph, news sitemap, and machine-readable JSON API endpoints all generated at build time.",
+      points: [
+        "Pagefind full-text search, client-side, no tracking",
+        "JSON-LD structured data (Article, NewsArticle, BreadcrumbList)",
         "Open Graph and Twitter Cards",
-        "XML sitemap and per-author RSS",
+        "XML sitemap and Google News sitemap",
+        "Per-section and per-author RSS feeds",
+        "Machine-readable JSON API endpoints",
         "Print stylesheets for articles and editions"
       ]
     },
     {
-      title: "Integrations",
-      summary: "A handful of optional third-party services, each enabled by a single configuration field. Nothing is wired up until you opt in.",
+      title: "Integrations and monetization",
+      summary: "Optional third-party services enabled by a single configuration field. Reader tipping through Ko-fi, BMAC, and Patreon at both the publication and per-author level.",
       points: [
         "Buttondown newsletter (no tracking)",
         "Umami analytics (cookieless)",
         "Cusdis comments (privacy-first)",
-        "Web3Forms for every contact form",
+        "Web3Forms for contact and feedback forms",
         "Pages CMS for browser-based editing",
-        "GTranslate across 80+ languages"
+        "GTranslate across 80+ languages",
+        "Ko-fi, Buy Me a Coffee, Patreon tipping per publication and per author"
       ]
     },
     {
-      title: "Portability",
-      summary: "Content is plain Markdown in Git. The built site is static HTML deployable to any host. Migrating away is a folder copy.",
+      title: "Portability and infrastructure",
+      summary: "Content is plain Markdown in Git. Static HTML output deploys to any host. PWA support for offline reading and home screen installation. No database, no runtime, no lock-in.",
       points: [
         "MIT licensed",
         "No database or runtime server required",
         "Static output deploys to any host",
+        "Service worker for offline reading and faster repeat visits",
+        "Web app manifest for home screen installation",
         "Build times around 12 seconds for 500 pages",
         "Full source available on GitHub"
       ]

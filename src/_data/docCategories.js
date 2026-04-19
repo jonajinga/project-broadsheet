@@ -8,13 +8,13 @@ export default [
   {
     slug: "content",
     name: "Content",
-    summary: "Write articles, configure sections, manage authors, and structure your archive.",
+    summary: "Write articles, manage authors, configure sections, and use series, corrections, responses, documents, argument maps, and article profiles.",
     order: 2
   },
   {
     slug: "specialty-content",
     name: "Specialty Content",
-    summary: "Reviews, library chapters, editions, events, media, and games.",
+    summary: "Reviews, library chapters, editions, events, media, glossary, quotes, games, and bookshelf.",
     order: 3
   },
   {
@@ -26,31 +26,31 @@ export default [
   {
     slug: "reader-tools",
     name: "Reader Tools",
-    summary: "Text-to-speech, highlights, annotations, reading ruler, focus mode, and reading list.",
+    summary: "Text-to-speech, highlights, notes, reading ruler, focus mode, reading list, reading settings, download, citations, notes page, and reader panel.",
     order: 5
   },
   {
     slug: "integrations",
     name: "Integrations",
-    summary: "Web3Forms, Umami, Buttondown, Cusdis, GTranslate, and Pages CMS.",
+    summary: "Web3Forms, Umami, Buttondown, Cusdis, GTranslate, Pages CMS, and tipping (Ko-fi, BMAC, Patreon).",
     order: 6
   },
   {
     slug: "deployment",
     name: "Deployment",
-    summary: "Cloudflare Pages, Netlify, Vercel, custom domains, and environment variables.",
+    summary: "Cloudflare Pages, Netlify, Vercel, custom domains, environment variables, and PWA with offline support.",
     order: 7
   },
   {
     slug: "seo",
     name: "SEO & Analytics",
-    summary: "JSON-LD, Open Graph, sitemaps, RSS, Umami, and Pagefind.",
+    summary: "JSON-LD, Open Graph, sitemaps, Google News sitemap, RSS, Umami, Pagefind, and API endpoints.",
     order: 8
   },
   {
     slug: "customization",
     name: "Customization & Development",
-    summary: "Add sections, write custom layouts, register filters, build plugins.",
+    summary: "Add sections, write custom layouts, register filters, build plugins, and configure revision history.",
     order: 9
   },
   {
