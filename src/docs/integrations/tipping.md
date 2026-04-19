@@ -52,13 +52,13 @@ Author tipping buttons appear:
 
 ## Platform comparison
 
-| Platform | Transaction fee | Subscription support | Notes |
+| Platform | Fee | Subscriptions | Notes |
 |---|---|---|---|
-| Ko-fi | 0% on one-time tips (free plan), 0% on subscriptions (paid plan) | Yes | No platform cut on tips; optional monthly memberships |
+| Ko-fi | 0% (free plan) | Yes | No cut on tips; optional memberships |
 | Buy Me a Coffee | 5% | Yes | Simple setup, widely recognized |
-| Patreon | 8-12% (varies by plan) | Yes | Best for recurring membership communities |
+| Patreon | 8–12% | Yes | Best for recurring membership communities |
 
-All three platforms handle payment processing, fraud protection, and payouts. Project Broadsheet only renders the links.
+All three handle payment processing and payouts. Project Broadsheet only renders the links.
 
 ## What to do next
 
