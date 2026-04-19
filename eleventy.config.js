@@ -143,6 +143,11 @@ export default function (eleventyConfig) {
     return api.getFilteredByGlob("src/changelog/**/*.md").reverse();
   });
 
+  eleventyConfig.addTransform("table-scroll", function (content) {
+    if (!this.page.outputPath?.endsWith(".html")) return content;
+    return content.replace(/<table(\b[^>]*)>/g, '<div class="table-scroll"><table$1>').replace(/<\/table>/g, "</table></div>");
+  });
+
   eleventyConfig.on("eleventy.after", async ({ dir, runMode }) => {
     if (runMode === "build") {
       try {

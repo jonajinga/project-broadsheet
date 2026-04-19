@@ -65,18 +65,20 @@ html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgb
 #page-toc-content > pre { margin-block: var(--space-md); }
 .page-body > hr,
 #page-toc-content > hr { margin-block: var(--space-2xl); }
-.page-body > table,
-#page-toc-content > table { display: block; overflow-x: auto; margin-block: var(--space-md) var(--space-xl); min-width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-.page-body > table thead th,
-#page-toc-content > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); white-space: nowrap; }
-html[data-theme="dark"] .page-body > table thead th,
-html[data-theme="dark"] #page-toc-content > table thead th { background: #0D0C0B; }
-.page-body > table tbody td,
-#page-toc-content > table tbody td { padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
-.page-body > table tbody td:first-child,
-#page-toc-content > table tbody td:first-child { font-weight: 600; white-space: nowrap; }
-.page-body > table tbody tr:last-child td,
-#page-toc-content > table tbody tr:last-child td { border-bottom: 0; }
+.page-body > .table-scroll,
+#page-toc-content > .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-block: var(--space-md) var(--space-xl); }
+.page-body > .table-scroll table,
+#page-toc-content > .table-scroll table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.page-body > .table-scroll table thead th,
+#page-toc-content > .table-scroll table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); white-space: nowrap; }
+html[data-theme="dark"] .page-body > .table-scroll table thead th,
+html[data-theme="dark"] #page-toc-content > .table-scroll table thead th { background: #0D0C0B; }
+.page-body > .table-scroll table tbody td,
+#page-toc-content > .table-scroll table tbody td { padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+.page-body > .table-scroll table tbody td:first-child,
+#page-toc-content > .table-scroll table tbody td:first-child { font-weight: 600; white-space: nowrap; }
+.page-body > .table-scroll table tbody tr:last-child td,
+#page-toc-content > .table-scroll table tbody tr:last-child td { border-bottom: 0; }
 .page-body > a,
 #page-toc-content > a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
 .page-body > a:hover,
