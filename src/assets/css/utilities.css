@@ -35,34 +35,65 @@ html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgb
 @media (max-width: 640px) { .page-body { padding-bottom: var(--space-2xl); } }
 
 /* Prose rhythm for Markdown-rendered content in page layouts.
-   Applies only to direct children so it doesn't interfere with pages that
-   wrap their content in sections/cards/grids. */
-.page-body > h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); line-height: 1.15; }
-.page-body > h3 { margin-top: var(--space-xl); margin-bottom: var(--space-sm); line-height: 1.2; }
-.page-body > h4 { margin-top: var(--space-lg); margin-bottom: var(--space-xs); line-height: 1.25; }
-.page-body > p { margin-block: 0 var(--space-md); line-height: 1.7; max-width: 48rem; }
-.page-body > p:last-child { margin-bottom: 0; }
+   Applies to direct children of .page-body, and to #page-toc-content
+   (used when toc: true wraps content in an sg-layout grid). */
+.page-body > h2,
+#page-toc-content > h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); line-height: 1.15; }
+.page-body > h3,
+#page-toc-content > h3 { margin-top: var(--space-xl); margin-bottom: var(--space-sm); line-height: 1.2; }
+.page-body > h4,
+#page-toc-content > h4 { margin-top: var(--space-lg); margin-bottom: var(--space-xs); line-height: 1.25; }
+.page-body > p,
+#page-toc-content > p { margin-block: 0 var(--space-md); line-height: 1.7; max-width: 48rem; }
+.page-body > p:last-child,
+#page-toc-content > p:last-child { margin-bottom: 0; }
 .page-body > ul,
-.page-body > ol { margin-block: var(--space-sm) var(--space-md); padding-left: 1.5rem; max-width: 48rem; }
-.page-body > ul { list-style: disc; }
-.page-body > ol { list-style: decimal; }
+.page-body > ol,
+#page-toc-content > ul,
+#page-toc-content > ol { margin-block: var(--space-sm) var(--space-md); padding-left: 1.5rem; max-width: 48rem; }
+.page-body > ul,
+#page-toc-content > ul { list-style: disc; }
+.page-body > ol,
+#page-toc-content > ol { list-style: decimal; }
 .page-body > ul li,
-.page-body > ol li { margin-bottom: 0.4rem; line-height: 1.6; color: var(--text); }
-.page-body > blockquote { margin-block: var(--space-md); }
-.page-body > pre { margin-block: var(--space-md); }
-.page-body > hr { margin-block: var(--space-2xl); }
-.page-body > table { margin-block: var(--space-md) var(--space-xl); width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-.page-body > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); }
-html[data-theme="dark"] .page-body > table thead th { background: #0D0C0B; }
-.page-body > table tbody td { padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
-.page-body > table tbody td:first-child { font-weight: 600; white-space: nowrap; }
-.page-body > table tbody tr:last-child td { border-bottom: 0; }
-.page-body > a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
-.page-body > a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
-.page-body > * + h2 { margin-top: var(--space-2xl); }
-.page-body > * + h3 { margin-top: var(--space-xl); }
+.page-body > ol li,
+#page-toc-content > ul li,
+#page-toc-content > ol li { margin-bottom: 0.4rem; line-height: 1.6; color: var(--text); }
+.page-body > blockquote,
+#page-toc-content > blockquote { margin-block: var(--space-md); }
+.page-body > pre,
+#page-toc-content > pre { margin-block: var(--space-md); }
+.page-body > hr,
+#page-toc-content > hr { margin-block: var(--space-2xl); }
+.page-body > table,
+#page-toc-content > table { margin-block: var(--space-md) var(--space-xl); width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.page-body > table thead th,
+#page-toc-content > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); }
+html[data-theme="dark"] .page-body > table thead th,
+html[data-theme="dark"] #page-toc-content > table thead th { background: #0D0C0B; }
+.page-body > table tbody td,
+#page-toc-content > table tbody td { padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+.page-body > table tbody td:first-child,
+#page-toc-content > table tbody td:first-child { font-weight: 600; white-space: nowrap; }
+.page-body > table tbody tr:last-child td,
+#page-toc-content > table tbody tr:last-child td { border-bottom: 0; }
+.page-body > a,
+#page-toc-content > a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.page-body > a:hover,
+#page-toc-content > a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+.page-body > * + h2,
+#page-toc-content > * + h2 { margin-top: var(--space-2xl); }
+.page-body > * + h3,
+#page-toc-content > * + h3 { margin-top: var(--space-xl); }
 .page-body > h2:first-child,
-.page-body > h3:first-child { margin-top: 0; }
+.page-body > h3:first-child,
+#page-toc-content > h2:first-child,
+#page-toc-content > h3:first-child { margin-top: 0; }
+/* Inline links within prose paragraphs */
+#page-toc-content p a,
+.page-body p a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+#page-toc-content p a:hover,
+.page-body p a:hover { color: var(--link-hover); }
 
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }

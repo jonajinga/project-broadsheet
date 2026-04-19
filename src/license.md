@@ -4,6 +4,7 @@ title: License
 eyebrow: Legal
 subtitle: Project Broadsheet is MIT-licensed. Use it for anything.
 permalink: /license/
+toc: true
 ---
 
 ## MIT License
