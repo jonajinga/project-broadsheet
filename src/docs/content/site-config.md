@@ -7,6 +7,10 @@ updated: 2026-04-17
 
 `src/_data/site.json` is the central configuration file for Project Broadsheet. Everything visible to readers, the title in the header, the footer copyright, the sections in the navigation, the newsletter destination, is driven by this one JSON file. Editing it is the quickest path to making the site yours without touching templates.
 
+## Editing via Decap CMS
+
+If Decap CMS is set up, you can edit all site configuration from the browser without touching any files. In the CMS sidebar, open **Site Configuration → Site Settings**. Every save creates a pull request — merge it to deploy the changes. The form fields map directly to the JSON keys documented on this page. See [Decap CMS](/docs/integrations/decap-cms/) for setup instructions.
+
 ## Bare minimum to go live
 
 You only need five fields set before you can publish your first article:

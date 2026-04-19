@@ -48,6 +48,29 @@ Most solo publishers and small teams find this pattern works well:
 
 For teams using GitHub, keep drafts on a `drafts` branch and merge to `main` when an article is ready to publish.
 
+## Drafts in preview deployments (Decap CMS)
+
+By default, `draft: true` articles are excluded from all builds — including Cloudflare Pages preview deployments triggered by pull requests. This means editors reviewing a PR cannot see the article in the preview URL unless the draft flag is removed first.
+
+To make draft articles visible in preview deployments without affecting production, set `SHOW_DRAFTS=1` as an environment variable in Cloudflare Pages:
+
+1. Go to your Cloudflare Pages project → **Settings** → **Environment Variables**.
+2. Add `SHOW_DRAFTS` with a value of `1`.
+3. Set the scope to **Preview** only. Do not add it to the Production environment.
+
+Project Broadsheet's configuration already handles this in two places — no code changes are needed, just the environment variable:
+
+- In `src/content/content.11tydata.js`, the draft exclusion check reads:
+  ```js
+  if (data.draft && process.env.SHOW_DRAFTS !== "1") return true;
+  ```
+- In `.eleventy.js`, collection filters include:
+  ```js
+  (!item.data.draft || process.env.SHOW_DRAFTS === "1")
+  ```
+
+With `SHOW_DRAFTS=1` set for Preview, editors can open the Cloudflare Pages preview URL on a PR and read the full draft article. Production builds remain unaffected — `SHOW_DRAFTS` is only present in the Preview environment.
+
 ## Listing drafts locally
 
 There is no built-in "drafts dashboard." To see what is currently marked as a draft, run:

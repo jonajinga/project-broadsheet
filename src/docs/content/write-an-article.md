@@ -7,6 +7,16 @@ updated: 2026-04-17
 
 Articles in Project Broadsheet are plain <span class="g-term" data-term="Markdown">Markdown</span> files stored at `src/content/{section}/`. There is no database, no content management system to log into, no publish button. An article exists because its file exists, and it goes live when you deploy. (If you prefer a browser-based editor, Project Broadsheet includes a ready-made configuration for [Decap CMS](/docs/integrations/decap-cms/).)
 
+## Two ways to write
+
+### In a code editor (terminal workflow)
+
+Articles are Markdown files stored in `src/content/{section}/`. Create the file, add front matter, and save. The rest of this page covers each step in detail.
+
+### In Decap CMS (browser workflow)
+
+If Decap CMS is set up for your publication, go to `/admin/`, sign in, click the section in the left sidebar, and click **New [Section]**. Fill in the form fields — Title, Description, Author, Date, Body — and click **Save**. Decap creates a draft branch and opens a pull request automatically. Nothing is published until an editor merges the PR. See the [Decap CMS integration guide](/docs/integrations/decap-cms/) for setup instructions.
+
 ## Create the file
 
 ```bash

@@ -92,6 +92,67 @@ Set a `date` in the future. The article file will exist in <span class="g-term" 
 
 See [Drafts and scheduling](/docs/content/drafts-and-scheduling/) for the full details.
 
+## Using Decap CMS for editorial workflow
+
+If your publication uses Decap CMS, the same PR-based workflow runs entirely from the browser. Writers never touch a terminal or a Markdown file directly.
+
+### The editorial board
+
+Decap's editorial board (available at `/admin/#/workflow`) has three columns:
+
+- **Drafts** — articles saved but not yet submitted for review.
+- **In Review** — articles the writer has flagged as ready for an editor.
+- **Ready to Publish** — articles approved and queued for merge.
+
+Writers drag cards between columns. Editors work on GitHub. The board is a visual layer on top of pull requests; every card corresponds to a branch.
+
+### What happens when a writer saves
+
+When a writer clicks **Save** inside Decap, the CMS:
+
+1. Creates a branch named `cms/{section}/{slug}` (e.g. `cms/news/city-council-vote`).
+2. Commits the Markdown file to that branch.
+3. Opens a draft pull request on GitHub targeting `main`.
+
+Nothing is published. The article is a PR until an editor merges it.
+
+### Preview deployments
+
+Cloudflare Pages automatically builds a preview deployment for every open PR. The preview URL (e.g. `https://abc123.your-pub.pages.dev`) appears as a status check link on the GitHub PR page. Editors open that link to read the article exactly as it will appear to readers before approving.
+
+The **Check for Preview** button inside Decap's editorial board does **not** work on Cloudflare Pages — it is Netlify-specific. Always use the preview link on the GitHub PR page instead.
+
+### Draft visibility in preview deployments
+
+By default, articles with `draft: true` in their front matter are excluded from all builds, including Cloudflare Pages preview deployments. To make draft articles visible in previews so editors can review them before approval, set `SHOW_DRAFTS=1` as an environment variable in Cloudflare Pages under Settings → Environment Variables, scoped to **Preview** only. Production builds are unaffected.
+
+See [Drafts and scheduling](/docs/content/drafts-and-scheduling/) for the full details and the required code configuration.
+
+### Writer workflow
+
+1. Go to `/admin/` and sign in (Cloudflare Zero Trust will prompt for your email).
+2. Click the section in the left sidebar (e.g. News, Opinion).
+3. Click **New [Section]**.
+4. Fill in the form: Title, Description, Author, Date, Body.
+5. Click **Save**. Decap creates a draft branch and opens a PR on GitHub.
+6. Optionally drag the card from **Drafts** to **In Review** to signal the article is ready for an editor.
+
+### Editor workflow
+
+1. Open the pull request on GitHub (linked from the Decap board or found directly in the repo).
+2. Click the Cloudflare Pages preview URL in the PR's status checks to read the rendered article.
+3. Leave inline comments or a review on GitHub if revisions are needed.
+4. When satisfied, approve and merge the PR.
+5. Cloudflare Pages builds the production site. The article goes live within 2–3 minutes of merge.
+
+### Role summary
+
+| Role | What they can do |
+|---|---|
+| Writer | Creates and edits articles, saves drafts, moves cards on the editorial board. Cannot merge PRs to main. |
+| Editor | Reviews PRs on GitHub, leaves comments, approves, and merges. Triggers the production build. |
+| Admin | Manages Cloudflare and GitHub settings. Repo owners can bypass branch protection by default; enable "Do not allow bypassing" in the GitHub ruleset to enforce reviews for everyone. |
+
 ## What to do next
 
 - [Multi-author publications](/docs/content/multi-author/) — assigning roles and managing contributors.
