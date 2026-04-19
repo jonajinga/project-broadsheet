@@ -5,7 +5,6 @@ eyebrow: About
 subtitle: What Project Broadsheet is, how it works, what it costs, and what you can do with it.
 permalink: /about/
 toc: true
-mermaid: true
 ---
 
 <div class="lead">Project Broadsheet is a free, open-source publishing framework built on <a href="https://www.11ty.dev">Eleventy</a>. It gives independent publishers the same editorial infrastructure that major outlets use, with no subscription, no database, and no platform lock-in.</div>
@@ -23,29 +22,6 @@ Project Broadsheet is the result: a full publishing system with nine editorial s
 ## How it works
 
 Project Broadsheet is a static site. You write in Markdown, Eleventy builds the HTML, and you deploy the output to any static host. There is no server to manage, no database to maintain, and no runtime to keep patched.
-
-<pre class="mermaid" style="background:transparent;border:0;padding:0;margin-block:var(--space-lg);">
-graph LR
-  A[Your GitHub repo] -->|markdown + yaml| B[Eleventy build]
-  B --> C[Static HTML]
-  C --> D{Deploy}
-  D --> D1[Cloudflare Pages]
-  D --> D2[Netlify]
-  D --> D3[Vercel or self-hosted]
-  C --> E[Browser]
-  E --> F[27 plus reader tools]
-
-  subgraph opt [Optional integrations]
-    I1[Umami analytics]
-    I2[Buttondown newsletter]
-    I3[Cusdis comments]
-    I4[Web3Forms contact]
-    I5[Pages CMS]
-    I6[GTranslate]
-  end
-
-  C --> opt
-</pre>
 
 Content is plain Markdown stored in your Git repository. You own it completely. Migration away from Project Broadsheet is as trivial as copying the Markdown files somewhere else.
 
@@ -70,7 +46,7 @@ Build time is approximately 12 seconds for 500 pages on a mid-range laptop.
 
 Project Broadsheet collects nothing by default. There is no database, no user accounts, no stored sessions, and no analytics unless you opt in.
 
-- Content lives in your Git repository, not on our servers
+- Content lives in your Git repository, not on a third-party server
 - Pagefind search runs entirely client-side, no queries are sent anywhere
 - Umami analytics is opt-in and cookieless by design
 - No telemetry, no phone-home, no tracking pixels in the framework itself
