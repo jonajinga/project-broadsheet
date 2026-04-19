@@ -19,7 +19,7 @@ html[data-theme="dark"] .section-alt { background: #1A1815; border-color: rgba(2
 .section-sunken { background: var(--surface-sunken); border-block: 1px solid var(--border); }
 html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgba(232, 227, 214, 0.12); }
 
-.page-header { padding-block: var(--space-2xl) var(--space-md); }
+.page-header { padding-block: var(--space-2xl) var(--space-xl); border-bottom: 1px solid var(--border); margin-bottom: var(--space-xl); }
 .page-header .page-title { margin-bottom: var(--space-sm); }
 .page-header .page-subtitle { margin-bottom: 0; }
 .page-header--center { text-align: center; }
@@ -28,7 +28,7 @@ html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgb
 .page-header--center .breadcrumbs { justify-content: center; }
 .page-header--center .eyebrow { display: inline-block; }
 @media (max-width: 640px) {
-  .page-header { padding-block: var(--space-xl) var(--space-sm); }
+  .page-header { padding-block: var(--space-xl) var(--space-lg); margin-bottom: var(--space-lg); }
 }
 
 .page-body { padding-bottom: var(--space-3xl); }

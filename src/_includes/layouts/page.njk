@@ -5,7 +5,7 @@ layout: layouts/base.njk
 {%- if narrow -%}{%- set containerClass = "container container-narrow" -%}{%- endif -%}
 {%- if wide -%}{%- set containerClass = "container container-wide" -%}{%- endif -%}
 {%- set headerAlign = "" -%}
-{%- if centered -%}{%- set headerAlign = " page-header--center" -%}{%- endif -%}
+{%- if centered or toc -%}{%- set headerAlign = " page-header--center" -%}{%- endif -%}
 
 {% if not hide_header %}
 <section class="section-sm page-header{{ headerAlign }}">
