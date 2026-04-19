@@ -106,3 +106,30 @@ document.addEventListener("keydown", function (event) {
     });
   });
 })();
+
+// Page TOC (for pages with toc: true in front matter)
+(function () {
+  var content = document.getElementById("page-toc-content");
+  var tocList = document.getElementById("page-toc-list");
+  if (!content || !tocList) return;
+  var headings = content.querySelectorAll("h2, h3");
+  if (!headings.length) return;
+  var items = [];
+  headings.forEach(function (h) {
+    if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = h.textContent;
+    if (h.tagName === "H3") a.classList.add("toc-h3");
+    li.appendChild(a);
+    tocList.appendChild(li);
+    items.push({ id: h.id, link: a, heading: h });
+  });
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) items.forEach(function (item) { item.link.classList.toggle("active", item.id === entry.target.id); });
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  items.forEach(function (item) { observer.observe(item.heading); });
+})();

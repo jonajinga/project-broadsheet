@@ -4,6 +4,7 @@ title: Accessibility Statement
 eyebrow: Legal
 subtitle: Our commitment to making Project Broadsheet, the product and this website, usable by everyone.
 permalink: /accessibility/
+toc: true
 ---
 
 **Last reviewed: 2026-04-17**

@@ -4,6 +4,7 @@ title: Terms of Use
 eyebrow: Legal
 subtitle: The simple version of what you agree to by using this website.
 permalink: /terms/
+toc: true
 ---
 
 **Last updated: 2026-04-17**

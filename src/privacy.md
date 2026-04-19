@@ -4,6 +4,7 @@ title: Privacy Policy
 eyebrow: Legal
 subtitle: Plain English on what we collect, what we don't, and how we use it.
 permalink: /privacy/
+toc: true
 ---
 
 **Last updated: 2026-04-17**

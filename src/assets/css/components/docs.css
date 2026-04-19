@@ -164,6 +164,9 @@ html[data-theme="dark"] .docs-toc a:focus-visible { background: #1F1D1A; }
 .docs-toc a.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
 .docs-toc .toc-h3 { padding-left: var(--space-md); font-size: 0.82rem; }
 
+.page-toc-layout { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: var(--space-2xl); align-items: start; }
+@media (max-width: 1020px) { .page-toc-layout { grid-template-columns: minmax(0, 1fr); } .page-toc-layout .docs-toc { display: none; } }
+
 .doc-meta { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-ui); margin-bottom: var(--space-lg); }
 .doc-meta__item { display: inline-flex; align-items: center; gap: 0.3rem; }
 
