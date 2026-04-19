@@ -26,7 +26,7 @@ export default {
       "Uptime monitoring with email alerts",
       "Support billed at the standard hourly rate when needed"
     ],
-    cta: { label: "Inquire about hosting", url: "/forms/hosting-inquiry/" }
+    cta: { label: "Get in touch", url: "/contact/" }
   },
   hourly: {
     price: "$150",

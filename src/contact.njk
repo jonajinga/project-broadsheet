@@ -8,20 +8,12 @@ narrow: true
 centered: true
 ---
 <div class="lead" style="margin: 0 auto var(--space-xl); text-align: center;">
-  The form below lands in my inbox via Web3Forms. No intake queue, no chatbot, no automated triage. Just me reading whatever you write.
+  The form below lands in my inbox. No intake queue, no chatbot. Just me reading whatever you write.
 </div>
 
 <div class="stack-lg" style="max-width: 38rem; margin-inline: auto;">
-  <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
-    If you already know what you need:
-    <a href="/book-a-call/">book a call</a>,
-    <a href="/forms/bug-report/">report a bug</a>, or
-    <a href="/forms/feature-request/">suggest a feature</a>.
-  </p>
-
   <form class="form" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
-    <input type="hidden" name="subject" value="New contact message">
     <input type="hidden" name="from_name" value="{{ meta.title }}">
     <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
@@ -35,8 +27,20 @@ centered: true
       <input class="form__input" id="email" name="email" type="email" required>
     </div>
     <div class="form__row">
-      <label class="form__label" for="subject">Subject</label>
-      <input class="form__input" id="subject" name="subject_custom" type="text" placeholder="What's this about?">
+      <label class="form__label form__label--required" for="reason">What can I help you with?</label>
+      <select class="form__select" id="reason" name="subject" required>
+        <option value="" disabled selected>Select a reason</option>
+        <option>General question</option>
+        <option>Setup and launch help</option>
+        <option>Content migration</option>
+        <option>Managed hosting</option>
+        <option>Training or consulting</option>
+        <option>Custom development</option>
+        <option>Bug report</option>
+        <option>Feature request</option>
+        <option>Docs feedback</option>
+        <option>Something else</option>
+      </select>
     </div>
     <div class="form__row">
       <label class="form__label form__label--required" for="message">Message</label>

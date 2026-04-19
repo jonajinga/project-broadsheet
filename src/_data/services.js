@@ -11,7 +11,7 @@ export default [
       "Support available at the standard hourly rate when needed"
     ],
     startingAt: "$150 per month",
-    cta: { label: "Inquire about hosting", url: "/forms/hosting-inquiry/" }
+    cta: { label: "Get in touch", url: "/contact/" }
   },
   {
     slug: "setup",
