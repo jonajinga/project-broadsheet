@@ -37,14 +37,36 @@ Forking creates your own copy of Project Broadsheet under your GitHub account. Y
 
 Cloudflare builds the site automatically. The first build takes 2–3 minutes. You will receive a free `.pages.dev` subdomain immediately.
 
-### Step 3: Create a GitHub OAuth App
+### Step 3: Set up GitHub OAuth and the auth proxy
 
-Decap CMS uses GitHub OAuth for authentication. This is a one-time setup.
+Decap CMS uses a GitHub OAuth App plus a small Cloudflare Pages Function to authenticate writers. This is a one-time setup.
+
+**A. Create the GitHub OAuth App:**
 
 1. In GitHub, go to **Settings → Developer settings → OAuth Apps → New OAuth App**
-2. Set **Authorization callback URL** to `https://your-domain.com/admin/`
-3. Click **Register application** and note the **Client ID**
-4. In your forked repo, open `src/admin/config.yml` and replace `YOUR_GITHUB_OAUTH_APP_CLIENT_ID` with the Client ID you just noted. Also update `repo:` to `your-github-username/your-repo-name`.
+2. Set **Authorization callback URL** to `https://your-domain.pages.dev/api/auth` (use your actual domain)
+3. Click **Register application**, note the **Client ID**, then click **Generate a new client secret** and note the **Client Secret**
+
+**B. Add environment variables in Cloudflare Pages:**
+
+In Cloudflare Pages → your project → **Settings → Environment Variables**, add under **Production**:
+- `GITHUB_CLIENT_ID` → your Client ID
+- `GITHUB_CLIENT_SECRET` → your Client Secret
+
+**C. Update `src/admin/config.yml`:**
+
+In your forked repo, open `src/admin/config.yml` and update the backend block:
+
+```yaml
+backend:
+  name: github
+  repo: your-github-username/your-repo-name
+  branch: main
+  base_url: https://your-domain.pages.dev
+  auth_endpoint: api/auth
+```
+
+Replace `your-github-username/your-repo-name` with your actual repository and `your-domain.pages.dev` with your Cloudflare Pages domain.
 
 ### Step 4: Set up Cloudflare Zero Trust Access
 
