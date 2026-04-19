@@ -35,6 +35,16 @@ permalink: /education/
       <div class="card__title">Mission-driven outlets</div>
       <p class="card__summary">Community news organizations, nonprofit investigative teams, and public-interest publishers. No platform taking a cut of your revenue. No subscription when funding is tight.</p>
     </div>
+    <div class="card">
+      <div class="card__eyebrow">Independent authors</div>
+      <div class="card__title">Solo writers and essayists</div>
+      <p class="card__summary">Freelancers, independent journalists, and essayists who want a professional publishing setup on their own domain — no algorithmic feed, no follower count, no platform landlord. Own the code and the archive outright.</p>
+    </div>
+    <div class="card">
+      <div class="card__eyebrow">Journalism students</div>
+      <div class="card__title">Portfolio publications</div>
+      <p class="card__summary">Build a real byline before you graduate. Publish to your own domain, learn the tools professional newsrooms actually use — Git, Markdown, structured content — and leave with a portfolio that belongs to you, not a platform.</p>
+    </div>
   </div>
 </section>
 
@@ -58,7 +68,7 @@ permalink: /education/
   <h2>Education support</h2>
   <div class="callout" style="margin-bottom: var(--space-xl);">
     <div class="callout__title">Reduced rate for educational institutions and nonprofits</div>
-    <p>Educational institutions and registered nonprofit organizations qualify for a 50% reduced hourly rate — <strong>$75/hour</strong> instead of $150 — for setup, training, and custom development. Mention your institution when you book.</p>
+    <p>Educational institutions and registered nonprofit organizations qualify for a {{ pricing.education.discount }} reduced hourly rate — <strong>${{ pricing.education.rate }}/hour</strong> instead of ${{ pricing.education.fullRate }} — for setup, training, and custom development. Mention your institution when you book.</p>
     <a class="btn btn--primary" href="/book-a-call/" style="margin-top: var(--space-md);">Book a call</a>
   </div>
 
@@ -73,7 +83,7 @@ permalink: /education/
       </ul>
     </div>
     <div>
-      <h4 style="margin-bottom: var(--space-sm);">Paid ($75/hour for education)</h4>
+      <h4 style="margin-bottom: var(--space-sm);">Paid (${{ pricing.education.rate }}/hour for education)</h4>
       <ul style="list-style: disc; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; color: var(--text-soft);">
         <li>Initial setup and deployment</li>
         <li>Staff and faculty training session (recorded on request)</li>
