@@ -17,6 +17,7 @@ export default {
       children: [
         { label: "Pricing", url: "/pricing/", description: "Transparent pricing for setup, migration, care plans, and custom development." },
         { label: "Services", url: "/services/", description: "Every service we offer, from a same-week launch to a white-glove migration and retainer." },
+        { label: "Education", url: "/education/", description: "Journalism schools, student newspapers, and nonprofit newsrooms — MIT-licensed, free to use, $75/hr support rate." },
         { label: "Book a Call", url: "/book-a-call/", description: "Tell us what you need and pick a few times that work. We'll confirm within a business day." }
       ]
     },
