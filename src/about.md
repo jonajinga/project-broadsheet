@@ -151,6 +151,8 @@ My name is [Jon Ajinga](/jon-ajinga/). I'm a web developer and writer based in C
 
 I built Project Broadsheet for myself first. I released it because other people kept asking how I'd built things on The Freethinking Times, and writing answers turned into writing a framework.
 
+Project Broadsheet is actively maintained, with regular releases tracked in the [changelog](/changelog/). Because it is open-source and MIT-licensed, you are never dependent on any single maintainer — any developer can fork and continue the project independently. That is the design.
+
 ## What's next
 
 The [public roadmap](/roadmap/) tracks upcoming work. The [changelog](/changelog/) records what has shipped. The [blog](/blog/) is where I write about the work as it happens.

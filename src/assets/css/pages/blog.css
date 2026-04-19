@@ -49,3 +49,4 @@ html[data-theme="dark"] .roadmap-col { background: #1A1815; border-color: rgba(2
 .roadmap-col__item:last-child { border-bottom: 0; padding-bottom: 0; }
 .roadmap-col__label { font-family: var(--font-ui); font-weight: 700; display: block; margin-bottom: 0.25rem; color: var(--text); }
 .roadmap-col__note { font-size: 0.9rem; color: var(--text-soft); line-height: 1.55; }
+.roadmap-col__quarter { font-size: 0.7rem; font-family: var(--font-ui); font-weight: 500; color: var(--text-muted); background: var(--surface-sunken); border: 1px solid var(--border); padding: 0.1em 0.45em; border-radius: 3px; vertical-align: middle; margin-left: 0.4em; }

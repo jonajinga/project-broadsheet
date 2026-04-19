@@ -16,6 +16,9 @@
     "publication",
     "static-site"
   ],
+  "homepage": "https://projectbroadsheet.com",
+  "repository": { "type": "git", "url": "https://github.com/jonajinga/project-broadsheet" },
+  "bugs": { "url": "https://github.com/jonajinga/broadsheet/issues" },
   "author": "Jon Ajinga <hello@projectbroadsheet.com>",
   "license": "MIT",
   "dependencies": {

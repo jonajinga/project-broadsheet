@@ -1,11 +1,13 @@
 ---
 title: Install Project Broadsheet
-subtitle: Download the source, install its dependencies, and start a local preview server. The entire process takes less than two minutes on a modern machine.
+subtitle: Download the source, install its dependencies, and start a local preview server. The entire process takes 3–5 minutes on a modern machine.
 order: 1
 updated: 2026-04-17
 ---
 
 Project Broadsheet is a <span class="g-term" data-term="static site">static site</span> built with <span class="g-term" data-term="Eleventy">Eleventy</span>, so the only prerequisite is Node.js, the JavaScript runtime used to run the build. If you haven't installed Node yet, download it from [nodejs.org](https://nodejs.org). Version 18 or later is required.
+
+If you prefer not to use the terminal at all, see [Using Project Broadsheet without the terminal](/docs/getting-started/no-terminal/) for a browser-only setup path.
 
 ## Clone the repository
 
@@ -44,6 +46,7 @@ A production build writes the finished website to a folder called `_site/`. That
 
 ## What to do next
 
-- [Configure site.json](/docs/content/site-config/), set your publication name, editorial sections, and integrations.
-- [Customize the design tokens](/docs/design/tokens/), colors, typography, spacing, and brand.
-- [Write your first article](/docs/content/write-an-article/), create your first <span class="g-term" data-term="Markdown">Markdown</span> file.
+- [After your first deploy](/docs/getting-started/after-first-deploy/) for a 10-step checklist to get the publication ready for readers.
+- [Configure site.json](/docs/content/site-config/) to set your publication name, editorial sections, and integrations.
+- [Write your first article](/docs/content/write-an-article/) to create your first <span class="g-term" data-term="Markdown">Markdown</span> file.
+- No terminal? [Use Pages CMS](/docs/integrations/pages-cms/) for browser-based editing.

@@ -7,6 +7,24 @@ updated: 2026-04-17
 
 `src/_data/site.json` is the central configuration file for Project Broadsheet. Everything visible to readers, the title in the header, the footer copyright, the sections in the navigation, the newsletter destination, is driven by this one JSON file. Editing it is the quickest path to making the site yours without touching templates.
 
+## Bare minimum to go live
+
+You only need five fields set before you can publish your first article:
+
+```json
+{
+  "title": "The Example Dispatch",
+  "description": "Independent journalism for the curious.",
+  "url": "https://yourdomain.com",
+  "email": "hello@yourdomain.com",
+  "sections": [
+    { "slug": "news", "label": "News", "color": "#C0392B" }
+  ]
+}
+```
+
+Everything else can wait. Add integrations, tipping, and metadata fields as you need them.
+
 ## Core identity fields
 
 ```json

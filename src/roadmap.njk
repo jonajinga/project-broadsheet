@@ -16,7 +16,7 @@ permalink: /roadmap/
     <ul class="roadmap-col__list">
       {% for item in roadmap.nearTerm.items %}
       <li class="roadmap-col__item">
-        <span class="roadmap-col__label">{{ item.label }}</span>
+        <span class="roadmap-col__label">{{ item.label }}{% if item.quarter %} <span class="roadmap-col__quarter">{{ item.quarter }}</span>{% endif %}</span>
         <p class="roadmap-col__note">{{ item.note }}</p>
       </li>
       {% endfor %}
@@ -28,7 +28,7 @@ permalink: /roadmap/
     <ul class="roadmap-col__list">
       {% for item in roadmap.mediumTerm.items %}
       <li class="roadmap-col__item">
-        <span class="roadmap-col__label">{{ item.label }}</span>
+        <span class="roadmap-col__label">{{ item.label }}{% if item.quarter %} <span class="roadmap-col__quarter">{{ item.quarter }}</span>{% endif %}</span>
         <p class="roadmap-col__note">{{ item.note }}</p>
       </li>
       {% endfor %}
@@ -40,7 +40,7 @@ permalink: /roadmap/
     <ul class="roadmap-col__list">
       {% for item in roadmap.longTerm.items %}
       <li class="roadmap-col__item">
-        <span class="roadmap-col__label">{{ item.label }}</span>
+        <span class="roadmap-col__label">{{ item.label }}{% if item.quarter %} <span class="roadmap-col__quarter">{{ item.quarter }}</span>{% endif %}</span>
         <p class="roadmap-col__note">{{ item.note }}</p>
       </li>
       {% endfor %}
