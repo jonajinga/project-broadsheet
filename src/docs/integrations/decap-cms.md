@@ -19,27 +19,64 @@ Project Broadsheet is Markdown-in-Git by design. Decap CMS fits that model while
 
 ## Architecture overview
 
-Four components work together:
-
-```
-Writer visits /admin/
-      ↓
-Cloudflare Zero Trust Access
-  — email OTP challenge
-  — only allowlisted addresses pass
-      ↓
-Decap CMS UI (served from src/admin/)
-  — "Login with GitHub" opens a popup to /api/auth
-      ↓
-Cloudflare Pages Function at /api/auth
-  — redirects to GitHub OAuth
-  — exchanges the code for an access token
-  — posts the token back to Decap
-      ↓
-Save → draft branch + PR (never a direct commit to main)
-      ↓
-Editor reviews PR on GitHub → merges → Cloudflare Pages deploys
-```
+<figure class="flowchart" aria-label="Decap CMS access and authentication flow">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 580" role="img" aria-hidden="true" style="max-width:560px;width:100%;display:block;margin:0 auto">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="var(--color-text-muted,#6b7280)"/>
+    </marker>
+  </defs>
+  <!-- boxes -->
+  <!-- 1: Writer -->
+  <rect x="180" y="20" width="200" height="44" rx="4" fill="var(--color-surface-raised,#f9fafb)" stroke="var(--color-border,#d1d5db)" stroke-width="1.5"/>
+  <text x="280" y="37" text-anchor="middle" font-family="inherit" font-size="13" fill="var(--color-text,#111827)" font-weight="600">Writer visits /admin/</text>
+  <text x="280" y="54" text-anchor="middle" font-family="inherit" font-size="11" fill="var(--color-text-muted,#6b7280)">e.g. your-pub.pages.dev/admin/</text>
+  <!-- arrow 1→2 -->
+  <line x1="280" y1="64" x2="280" y2="98" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 2: Cloudflare Zero Trust -->
+  <rect x="120" y="100" width="320" height="56" rx="4" fill="#fff7ed" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="280" y="120" text-anchor="middle" font-family="inherit" font-size="13" fill="#9a3412" font-weight="600">Cloudflare Zero Trust Access</text>
+  <text x="280" y="138" text-anchor="middle" font-family="inherit" font-size="11" fill="#c2410c">Email OTP challenge — only allowlisted addresses pass</text>
+  <!-- blocked path -->
+  <line x1="440" y1="128" x2="510" y2="128" stroke="#fca5a5" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="4 3"/>
+  <rect x="512" y="110" width="36" height="36" rx="4" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="530" y="131" text-anchor="middle" font-family="inherit" font-size="10" fill="#991b1b" font-weight="600">Block</text>
+  <text x="475" y="122" text-anchor="middle" font-family="inherit" font-size="9" fill="#9ca3af">not listed</text>
+  <!-- arrow 2→3 -->
+  <line x1="280" y1="156" x2="280" y2="190" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 3: Decap CMS UI -->
+  <rect x="140" y="192" width="280" height="56" rx="4" fill="var(--color-surface-raised,#f9fafb)" stroke="var(--color-border,#d1d5db)" stroke-width="1.5"/>
+  <text x="280" y="213" text-anchor="middle" font-family="inherit" font-size="13" fill="var(--color-text,#111827)" font-weight="600">Decap CMS UI loads</text>
+  <text x="280" y="231" text-anchor="middle" font-family="inherit" font-size="11" fill="var(--color-text-muted,#6b7280)">"Login with GitHub" — opens popup to /api/auth</text>
+  <!-- arrow 3→4 -->
+  <line x1="280" y1="248" x2="280" y2="282" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 4: Pages Function -->
+  <rect x="100" y="284" width="360" height="68" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="280" y="305" text-anchor="middle" font-family="inherit" font-size="13" fill="#1e3a8a" font-weight="600">Cloudflare Pages Function /api/auth</text>
+  <text x="280" y="323" text-anchor="middle" font-family="inherit" font-size="11" fill="#1d4ed8">Redirects to GitHub OAuth → user approves</text>
+  <text x="280" y="340" text-anchor="middle" font-family="inherit" font-size="11" fill="#1d4ed8">Exchanges code for token → posts token back to Decap</text>
+  <!-- arrow 4→5 -->
+  <line x1="280" y1="352" x2="280" y2="386" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 5: Writer in CMS -->
+  <rect x="140" y="388" width="280" height="44" rx="4" fill="#f0fdf4" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="280" y="407" text-anchor="middle" font-family="inherit" font-size="13" fill="#14532d" font-weight="600">Writer is in — editing begins</text>
+  <text x="280" y="424" text-anchor="middle" font-family="inherit" font-size="11" fill="#166534">Save creates a draft PR branch, never a direct commit</text>
+  <!-- arrow 5→6 -->
+  <line x1="280" y1="432" x2="280" y2="466" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 6: Deploy -->
+  <rect x="120" y="468" width="320" height="44" rx="4" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="280" y="488" text-anchor="middle" font-family="inherit" font-size="13" fill="#581c87" font-weight="600">Editor approves PR on GitHub → Merge</text>
+  <text x="280" y="505" text-anchor="middle" font-family="inherit" font-size="11" fill="#6b21a8">Cloudflare Pages rebuilds → article is live in ~2 min</text>
+  <!-- step labels -->
+  <text x="108" y="44" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">1</text>
+  <text x="108" y="132" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">2</text>
+  <text x="128" y="224" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">3</text>
+  <text x="88" y="320" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">4</text>
+  <text x="128" y="412" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">5</text>
+  <text x="108" y="492" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600">6</text>
+</svg>
+<figcaption style="text-align:center;font-size:0.8rem;color:var(--color-text-muted,#6b7280);margin-top:0.5rem">Access and authentication flow for Decap CMS on Cloudflare Pages</figcaption>
+</figure>
 
 **Why a Pages Function and not PKCE?** Decap CMS's `auth_type: pkce` silently falls back to Netlify's auth server (`api.netlify.com`) in practice, which returns a 404 on Cloudflare Pages. The self-hosted OAuth proxy at `/api/auth` is the reliable alternative and requires no additional service.
 
@@ -217,6 +254,53 @@ Writers visit `https://your-domain.com/admin/`, enter an email one-time PIN, sig
 4. Cloudflare Pages rebuilds automatically — the article is live within 2–3 minutes
 
 **Note on the "Check for Preview" button:** This button in Decap's editorial board is hardcoded for Netlify deploy preview URLs and does not work on Cloudflare Pages. Instead, use the preview URL linked directly on the GitHub PR — Cloudflare automatically builds a preview deployment for every draft PR branch and posts the URL as a status check on the PR.
+
+<figure class="flowchart" aria-label="Editorial workflow from draft to live article">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-hidden="true" style="max-width:620px;width:100%;display:block;margin:0 auto">
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="var(--color-text-muted,#6b7280)"/>
+    </marker>
+  </defs>
+  <!-- Stage 1: Draft -->
+  <rect x="20" y="100" width="110" height="80" rx="4" fill="var(--color-surface-raised,#f9fafb)" stroke="var(--color-border,#d1d5db)" stroke-width="1.5"/>
+  <text x="75" y="132" text-anchor="middle" font-family="inherit" font-size="12" fill="var(--color-text,#111827)" font-weight="600">Writer saves</text>
+  <text x="75" y="150" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)">Decap creates a</text>
+  <text x="75" y="163" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)">draft PR branch</text>
+  <!-- label -->
+  <text x="75" y="96" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600" letter-spacing="0.05em">DRAFT</text>
+  <!-- arrow 1→2 -->
+  <line x1="130" y1="140" x2="162" y2="140" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Stage 2: In Review -->
+  <rect x="164" y="100" width="110" height="80" rx="4" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="219" y="132" text-anchor="middle" font-family="inherit" font-size="12" fill="#92400e" font-weight="600">In Review</text>
+  <text x="219" y="150" text-anchor="middle" font-family="inherit" font-size="10" fill="#b45309">PR open on GitHub</text>
+  <text x="219" y="163" text-anchor="middle" font-family="inherit" font-size="10" fill="#b45309">Preview URL available</text>
+  <text x="219" y="96" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600" letter-spacing="0.05em">REVIEW</text>
+  <!-- arrow 2→3 (approve) -->
+  <line x1="274" y1="140" x2="306" y2="140" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- arrow 2→1 (changes) -->
+  <path d="M 219 100 Q 219 68 148 68 Q 75 68 75 100" fill="none" stroke="#fca5a5" stroke-width="1.5" marker-end="url(#arr2)" stroke-dasharray="4 3"/>
+  <text x="147" y="62" text-anchor="middle" font-family="inherit" font-size="9" fill="#9ca3af">changes requested</text>
+  <!-- Stage 3: Approved -->
+  <rect x="308" y="100" width="110" height="80" rx="4" fill="#f0fdf4" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="363" y="132" text-anchor="middle" font-family="inherit" font-size="12" fill="#14532d" font-weight="600">Approved</text>
+  <text x="363" y="150" text-anchor="middle" font-family="inherit" font-size="10" fill="#166534">Editor merges PR</text>
+  <text x="363" y="163" text-anchor="middle" font-family="inherit" font-size="10" fill="#166534">to main on GitHub</text>
+  <text x="363" y="96" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600" letter-spacing="0.05em">APPROVED</text>
+  <!-- arrow 3→4 -->
+  <line x1="418" y1="140" x2="450" y2="140" stroke="var(--color-text-muted,#6b7280)" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Stage 4: Live -->
+  <rect x="452" y="100" width="148" height="80" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="526" y="132" text-anchor="middle" font-family="inherit" font-size="12" fill="#1e3a8a" font-weight="600">Live in ~2 min</text>
+  <text x="526" y="150" text-anchor="middle" font-family="inherit" font-size="10" fill="#1d4ed8">Cloudflare Pages</text>
+  <text x="526" y="163" text-anchor="middle" font-family="inherit" font-size="10" fill="#1d4ed8">rebuilds &amp; deploys</text>
+  <text x="526" y="96" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)" font-weight="600" letter-spacing="0.05em">LIVE</text>
+  <!-- bottom note -->
+  <text x="310" y="228" text-anchor="middle" font-family="inherit" font-size="10" fill="var(--color-text-muted,#6b7280)">Writers cannot merge to main — only editors and admins can. Nothing goes live until a PR is approved.</text>
+</svg>
+<figcaption style="text-align:center;font-size:0.8rem;color:var(--color-text-muted,#6b7280);margin-top:0.5rem">From writer save to live article — the editorial workflow</figcaption>
+</figure>
 
 ## Preview deployments that show drafts
 
