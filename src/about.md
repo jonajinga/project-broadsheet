@@ -26,16 +26,16 @@ Project Broadsheet is a static site. You write in Markdown, Eleventy builds the 
 
 <pre class="mermaid" style="background:transparent;border:0;padding:0;margin-block:var(--space-lg);">
 graph LR
-  A["Your GitHub repo\nMarkdown + YAML"] -->|eleventy build| B[Static HTML]
-  B --> C{Deploy}
-  C --> D[Cloudflare Pages]
-  C --> E[Netlify]
-  C --> F[Vercel / self-hosted]
+  A[Your GitHub repo] -->|markdown + yaml| B[Eleventy build]
+  B --> C[Static HTML]
+  C --> D{Deploy}
+  D --> D1[Cloudflare Pages]
+  D --> D2[Netlify]
+  D --> D3[Vercel or self-hosted]
+  C --> E[Browser]
+  E --> F[27 plus reader tools]
 
-  B --> G[Browser]
-  G --> H["Reader tools\n27+ opt-in features"]
-
-  subgraph opt ["Optional integrations"]
+  subgraph opt [Optional integrations]
     I1[Umami analytics]
     I2[Buttondown newsletter]
     I3[Cusdis comments]
@@ -44,7 +44,7 @@ graph LR
     I6[GTranslate]
   end
 
-  B --> opt
+  C --> opt
 </pre>
 
 Content is plain Markdown stored in your Git repository. You own it completely. Migration away from Project Broadsheet is as trivial as copying the Markdown files somewhere else.
