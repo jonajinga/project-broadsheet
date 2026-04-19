@@ -82,9 +82,9 @@ If you want to redirect from `substack.com/p/slug` to your new site, you'll need
 
 ## The paid alternative
 
-If you'd rather have me do the whole thing, the [migration service](/services/#migration) handles post conversion, image rehosting, Buttondown import, and redirect setup. Starting at $299 for up to 50 posts.
+If you'd rather have me do the whole thing, the [migration service](/pricing/) handles post conversion, image rehosting, Buttondown import, and redirect setup. Starting at $299 for up to 50 posts.
 
-[Request a migration quote](/forms/quote-migration/).
+[Book a call](/book-a-call/)
 
 ## What to do next
 

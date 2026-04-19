@@ -86,9 +86,9 @@ WordPress comments are included in the WXR export, but Project Broadsheet doesn'
 
 ## Would you rather hand this off?
 
-I offer a [migration service](/services/#migration) that handles the full pipeline: WXR parsing, image rehosting, redirect map, comment archival, shortcode conversion, and a quality-control pass. Tiered pricing starts at $299 for up to 50 posts.
+I offer a [migration service](/pricing/) that handles the full pipeline: WXR parsing, image rehosting, redirect map, comment archival, shortcode conversion, and a quality-control pass. Tiered pricing starts at $299 for up to 50 posts.
 
-[Request a migration quote](/forms/quote-migration/) and I'll reply personally within a business day.
+[Book a call](/book-a-call/)
 
 ## What to do next
 

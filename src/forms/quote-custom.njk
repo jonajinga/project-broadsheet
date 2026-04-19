@@ -1,49 +1,7 @@
 ---
-title: Custom Quote Request
-subtitle: Tell me about the work. I'll send a scoped, fixed-fee estimate within two business days.
+layout: layouts/base.njk
 permalink: /forms/quote-custom/
+eleventyExcludeFromCollections: true
 ---
-<form class="form" action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}">
-  <input type="hidden" name="subject" value="New custom quote request">
-  <input type="hidden" name="from_name" value="{{ meta.title }}">
-  <input type="hidden" name="redirect" value="{{ meta.url }}/thank-you/">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-  <div class="form__row">
-    <label class="form__label form__label--required" for="name">Your name</label>
-    <input class="form__input" id="name" name="name" type="text" required>
-  </div>
-  <div class="form__row">
-    <label class="form__label form__label--required" for="email">Email</label>
-    <input class="form__input" id="email" name="email" type="email" required>
-  </div>
-  <div class="form__row">
-    <label class="form__label" for="url">Existing site URL (if any)</label>
-    <input class="form__input" id="url" name="url" type="url" placeholder="https://">
-  </div>
-  <div class="form__row">
-    <label class="form__label form__label--required" for="scope">What do you want built?</label>
-    <textarea class="form__textarea" id="scope" name="scope" required placeholder="A new section type, a custom layout, a Stripe integration, etc."></textarea>
-  </div>
-  <div class="form__row">
-    <label class="form__label" for="budget">Budget range</label>
-    <select class="form__select" id="budget" name="budget">
-      <option value="">Pick one</option>
-      <option>Under $1,500</option>
-      <option>$1,500–$5,000</option>
-      <option>$5,000–$15,000</option>
-      <option>$15,000+</option>
-      <option>Not sure yet</option>
-    </select>
-  </div>
-  <div class="form__row">
-    <label class="form__label" for="timeline">Timeline</label>
-    <input class="form__input" id="timeline" name="timeline" type="text" placeholder="e.g. Needs to ship by July 1, or flexible">
-  </div>
-  <div class="form__actions">
-    <button class="btn btn--primary" type="submit">Request quote</button>
-  </div>
-</form>
-
-{% include "partials/form-note.njk" %}
+<meta http-equiv="refresh" content="0; url=/book-a-call/">
+<script>window.location.replace('/book-a-call/');</script>

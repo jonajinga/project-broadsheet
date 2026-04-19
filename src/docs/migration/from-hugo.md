@@ -113,7 +113,7 @@ find content/posts -name "*.md" -exec basename {} .md \; | \
 
 ## Would you rather hand this off?
 
-The [migration service](/services/#migration) handles the full process: automated conversion, image rehosting, redirect map, and a quality pass on a sample of the archive. [Request a quote](/forms/quote-migration/).
+The [migration service](/pricing/) handles the full process: automated conversion, image rehosting, redirect map, and a quality pass on a sample of the archive. [Book a call](/book-a-call/).
 
 ## What to do next
 

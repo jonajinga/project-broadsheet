@@ -53,6 +53,6 @@ Generate one line per old URL from the Ghost export's slug list.
 
 ## Would you rather hand this off?
 
-I offer a [migration service](/services/#migration) that handles the full process, automated conversion, image rehosting, a complete redirect map, and a quality-control pass on a sample of the archive. Tiered pricing starts at $499 for up to 50 articles.
+I offer a [migration service](/pricing/) that handles the full process, automated conversion, image rehosting, a complete redirect map, and a quality-control pass on a sample of the archive. Tiered pricing starts at $499 for up to 50 articles.
 
-[Request a migration quote](/forms/quote-migration/) and I'll reply personally within a business day.
+[Book a call](/book-a-call/)

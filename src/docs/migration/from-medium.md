@@ -73,9 +73,9 @@ If you had email subscribers on Medium (via the Partner Program), Medium doesn't
 
 ## The paid alternative
 
-I offer a [migration service](/services/#migration) covering Medium exports. Starting at $299 for up to 50 posts.
+I offer a [migration service](/pricing/) covering Medium exports. Starting at $299 for up to 50 posts.
 
-[Request a migration quote](/forms/quote-migration/).
+[Book a call](/book-a-call/)
 
 ## What to do next
 

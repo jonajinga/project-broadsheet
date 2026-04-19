@@ -99,7 +99,7 @@ Squarespace pages (About, FAQ, etc.) do not export as blog posts; they appear as
 
 ## Would you rather hand this off?
 
-The [migration service](/services/#migration) handles the full process: XML parsing, image rehosting, redirect map, and a quality pass on a sample of the archive. [Request a quote](/forms/quote-migration/).
+The [migration service](/pricing/) handles the full process: XML parsing, image rehosting, redirect map, and a quality pass on a sample of the archive. [Book a call](/book-a-call/).
 
 ## What to do next
 

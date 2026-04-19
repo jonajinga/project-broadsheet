@@ -96,7 +96,7 @@ done
 
 ## Would you rather hand this off?
 
-The [migration service](/services/#migration) handles the full process: automated conversion, image rehosting, redirect map, and a quality pass. [Request a quote](/forms/quote-migration/).
+The [migration service](/pricing/) handles the full process: automated conversion, image rehosting, redirect map, and a quality pass. [Book a call](/book-a-call/).
 
 ## What to do next
 
