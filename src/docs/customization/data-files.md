@@ -1,6 +1,6 @@
 ---
 title: Data files reference
-subtitle: A complete map of every data file in Project Broadsheet: what each one controls, its format, and where it lives.
+subtitle: "A complete map of every data file in Project Broadsheet: what each one controls, its format, and where it lives."
 order: 6
 updated: 2026-04-18
 ---
