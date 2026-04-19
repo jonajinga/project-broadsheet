@@ -13,25 +13,10 @@ export default {
     ],
     cta: { label: "Fork it and start", url: "/get-started/" }
   },
-  hosting: {
-    price: "$150",
-    cadence: "per month",
-    tagline: "Managed hosting on my Cloudflare account. You write, I keep the lights on.",
-    features: [
-      "Production site hosted on Cloudflare Pages",
-      "HTTPS certificate and renewal",
-      "DNS management",
-      "Weekly automated backups",
-      "Dependency and security updates applied promptly",
-      "Uptime monitoring with email alerts",
-      "Support billed at the standard hourly rate when needed"
-    ],
-    cta: { label: "Get in touch", url: "/contact/" }
-  },
   hourly: {
     price: "$150",
     cadence: "per hour",
-    tagline: "Any hands-on work - setup, migration, training, consulting, custom development, or support. Billed only for time actually spent. No retainer, no minimum commitment.",
+    tagline: "Any hands-on work billed at a single rate. Setup, migration, training, consulting, custom development, support. No retainer, no minimum commitment.",
     includes: [
       "Initial setup and deployment",
       "Content migration from any platform",

@@ -1,22 +1,8 @@
 export default [
   {
-    slug: "hosting",
-    name: "Monthly hosting",
-    summary: "Managed hosting on my Cloudflare account. You get a domain, HTTPS, weekly backups, and updates applied - without ever opening a terminal. Cancel any month.",
-    includes: [
-      "Production site hosted on Cloudflare Pages",
-      "HTTPS, DNS, and weekly backups",
-      "Dependency and security updates applied promptly",
-      "Uptime monitoring with email alerts",
-      "Support available at the standard hourly rate when needed"
-    ],
-    startingAt: "$150 per month",
-    cta: { label: "Get in touch", url: "/contact/" }
-  },
-  {
     slug: "setup",
     name: "Setup and launch",
-    summary: "Repository configuration, brand tokens, Cloudflare Pages deployment, domain wiring, and integration setup - billed at the standard hourly rate.",
+    summary: "Repository configuration, brand tokens, Cloudflare Pages deployment, domain wiring, and integration setup, billed at the standard hourly rate.",
     includes: [
       "Repository fork, rename, and baseline configuration",
       "Brand tokens applied (colors, typography, logo)",
@@ -31,7 +17,7 @@ export default [
   {
     slug: "migration",
     name: "Content migration",
-    summary: "Move an archive from Ghost, Substack, WordPress, or Medium into clean Markdown, with image preservation and a full redirect map. Billed at the standard hourly rate.",
+    summary: "Move an archive from Ghost, Substack, WordPress, or Medium into clean Markdown, with image preservation and a full redirect map, billed at the standard hourly rate.",
     includes: [
       "Extraction from the source platform",
       "HTML-to-Markdown conversion with front-matter normalization",
@@ -45,7 +31,7 @@ export default [
   {
     slug: "custom-development",
     name: "Custom development",
-    summary: "New content types, integrations, layouts, or workflows specific to your publication. Billed at the standard hourly rate with a written scope before any work begins.",
+    summary: "New content types, integrations, layouts, or workflows specific to your publication, billed at the standard hourly rate with a written scope before any work begins.",
     includes: [
       "Written statement of work before any billable time",
       "Source delivered on a feature branch in your repository",

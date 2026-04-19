@@ -6,7 +6,7 @@ subtitle: Project Broadsheet is free. If you want help, I sell my time.
 permalink: /pricing/
 ---
 <div class="lead" style="margin-bottom: var(--space-xl);">
-  Project Broadsheet exists so you don't need me. The framework is free, the documentation covers everything, and anyone with a terminal and a GitHub account can run a full publication at no cost. If you'd rather have help, I'm happy to sell my time at a fair freelance rate, not a platform markup.
+  Project Broadsheet exists so you don't need me. The framework is free, the documentation covers everything, and anyone with a terminal and a GitHub account can run a full publication at no cost. If you'd rather have help, I'm happy to sell my time at a fair freelance rate.
 </div>
 
 <section class="pricing-section">
@@ -29,29 +29,10 @@ permalink: /pricing/
   </div>
 </section>
 
-<section class="pricing-section" id="hosting">
-  <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Hosting</h2>
-    <p class="pricing-section__summary">If you'd rather not manage a Cloudflare account yourself, I'll host your site on mine. Flat rate, no tiers.</p>
-  </header>
-  <div class="pricing-free">
-    <div>
-      <span class="pricing-free__price">{{ pricing.hosting.price }}<span class="pricing-free__cadence">{{ pricing.hosting.cadence }}</span></span>
-    </div>
-    <div class="pricing-free__body">
-      <p>{{ pricing.hosting.tagline }}</p>
-      <ul class="pricing-card__list">
-        {% for f in pricing.hosting.features %}<li>{{ f }}</li>{% endfor %}
-      </ul>
-      <a class="btn btn--primary btn--lg" href="{{ pricing.hosting.cta.url }}">{{ pricing.hosting.cta.label }}</a>
-    </div>
-  </div>
-</section>
-
 <section class="pricing-section" id="my-time">
   <header class="pricing-section__header">
     <h2 class="pricing-section__title">My time</h2>
-    <p class="pricing-section__summary">Setup, migration, training, consulting, custom development, and support are all billed at a single rate. You pay for what you actually need, nothing more.</p>
+    <p class="pricing-section__summary">Everything else is billed at a single rate. You pay for what you actually need, nothing more.</p>
   </header>
   <div class="pricing-free">
     <div>
