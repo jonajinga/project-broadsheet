@@ -62,6 +62,7 @@ All three platforms handle payment processing, fraud protection, and payouts. Pr
 
 ## What to do next
 
+- [Support and transparency badges](/docs/design/support-badges/) for the badge component that renders tipping links as flat-style status indicators.
 - [Authors](/docs/content/authors/) for the full author data file specification.
 - [Buttondown](/docs/integrations/buttondown/) for newsletter subscriber management.
 - [Umami](/docs/integrations/umami/) for understanding how readers find your publication.

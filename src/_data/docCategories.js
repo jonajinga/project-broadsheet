@@ -20,7 +20,7 @@ export default [
   {
     slug: "design",
     name: "Design & Branding",
-    summary: "Tokens, fonts, colors, dark mode, per-section accents, and logo.",
+    summary: "Tokens, fonts, colors, dark mode, per-section accents, logo, and support badges.",
     order: 4
   },
   {
