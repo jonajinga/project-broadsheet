@@ -49,7 +49,7 @@ Add a new quote by appending to the array. Rebuild and it appears on `/quotes/`.
 Use `pullquote` inside any article body to render a styled pull quote:
 
 ```
-{% pullquote "The press is the best instrument for enlightening the mind of man.", "Thomas Jefferson" %}
+{% raw %}{% pullquote "The press is the best instrument for enlightening the mind of man.", "Thomas Jefferson" %}{% endraw %}
 ```
 
 This renders as a visually distinct blockquote with the author attribution below. Pull quotes use the publication's accent color for their left border. They float within the article flow and do not create a new section.
