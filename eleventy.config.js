@@ -144,7 +144,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addTransform("table-scroll", function (content) {
-    if (!this.page.outputPath?.endsWith(".html")) return content;
+    if (typeof this.page.outputPath !== "string" || !this.page.outputPath.endsWith(".html")) return content;
     return content.replace(/<table(\b[^>]*)>/g, '<div class="table-scroll"><table$1>').replace(/<\/table>/g, "</table></div>");
   });
 
