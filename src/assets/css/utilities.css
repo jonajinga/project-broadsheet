@@ -66,9 +66,9 @@ html[data-theme="dark"] .section-sunken { background: #0D0C0B; border-color: rgb
 .page-body > hr,
 #page-toc-content > hr { margin-block: var(--space-2xl); }
 .page-body > table,
-#page-toc-content > table { margin-block: var(--space-md) var(--space-xl); width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+#page-toc-content > table { display: block; overflow-x: auto; margin-block: var(--space-md) var(--space-xl); min-width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .page-body > table thead th,
-#page-toc-content > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); }
+#page-toc-content > table thead th { text-align: left; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.7rem 0.85rem; background: var(--surface-sunken); border-bottom: 2px solid var(--border-strong); color: var(--text); white-space: nowrap; }
 html[data-theme="dark"] .page-body > table thead th,
 html[data-theme="dark"] #page-toc-content > table thead th { background: #0D0C0B; }
 .page-body > table tbody td,
