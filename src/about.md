@@ -116,7 +116,7 @@ All integrations are opt-in. Enable by adding the relevant key to your site conf
 | Buttondown | Newsletter management | `integrations.buttondown` |
 | Cusdis | Privacy-first comments | `integrations.cusdis` |
 | Web3Forms | Contact form backend | `integrations.web3forms` |
-| Pages CMS | Browser-based editing | `integrations.pagesCms` |
+| Decap CMS | Browser-based editing | `integrations.decapCms` |
 | GTranslate | Machine translation, 80+ languages | `integrations.gtranslate` |
 
 ### Editorial features

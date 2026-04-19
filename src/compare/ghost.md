@@ -67,7 +67,7 @@ Project Broadsheet ships with 27+ reader-side controls. Whether you need them is
 
 - You want to own everything: files, hosting, workflow.
 - You don't need paid memberships, or you'll run them through a separate service.
-- You prefer Git-based content management (with an optional browser editor via Pages CMS).
+- You prefer Git-based content management (with an optional browser editor via Decap CMS).
 - Reader experience features matter to your audience.
 - You don't want recurring platform fees at any scale.
 

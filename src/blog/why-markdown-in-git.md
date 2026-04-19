@@ -21,6 +21,6 @@ Project Broadsheet takes the opposite stance. Your content is plain Markdown in 
 
 ## The trade-off
 
-Markdown in Git requires a small amount of technical literacy. If you've never used Git, there's a learning curve. [Pages CMS](https://pagescms.org) gives you a browser-based editor if you prefer that workflow.
+Markdown in Git requires a small amount of technical literacy. If you've never used Git, there's a learning curve. [Decap CMS](/docs/integrations/decap-cms/) gives you a browser-based editor with access control and an editorial workflow if you prefer that approach.
 
 But here's the thing: the learning curve is a one-time cost. The platform lock-in of a SaaS is a tax you pay every month, forever.

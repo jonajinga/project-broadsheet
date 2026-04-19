@@ -18,7 +18,7 @@ Project Broadsheet gives independent publishers the same editorial infrastructur
 - **Journalism tools** — Corrections log, response tracking, primary source documents, series navigation, argument maps, article profiles (standard, podcast, dataviz)
 - **Specialty content** — Reviews, public-domain library, glossary with hover tooltips, events calendar, quotes collection, interactive games, curated bookshelf
 - **Search, SEO, APIs** — Pagefind full-text search, JSON-LD structured data, Open Graph, Google News sitemap, machine-readable JSON API endpoints
-- **Integrations** — Buttondown, Umami, Cusdis, Web3Forms, Pages CMS, GTranslate, Ko-fi/BMAC/Patreon tipping
+- **Integrations** — Buttondown, Umami, Cusdis, Web3Forms, Decap CMS, GTranslate, Ko-fi/BMAC/Patreon tipping
 - **PWA** — Service worker for offline reading, web app manifest for home screen installation
 - **Privacy-first** — No database, no user accounts, cookieless analytics, client-side search
 

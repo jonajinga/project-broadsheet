@@ -5,7 +5,7 @@ order: 2
 updated: 2026-04-17
 ---
 
-Articles in Project Broadsheet are plain <span class="g-term" data-term="Markdown">Markdown</span> files stored at `src/content/{section}/`. There is no database, no content management system to log into, no publish button. An article exists because its file exists, and it goes live when you deploy. (If you prefer a browser-based editor, Project Broadsheet includes a ready-made configuration for [Pages CMS](/docs/integrations/pages-cms/).)
+Articles in Project Broadsheet are plain <span class="g-term" data-term="Markdown">Markdown</span> files stored at `src/content/{section}/`. There is no database, no content management system to log into, no publish button. An article exists because its file exists, and it goes live when you deploy. (If you prefer a browser-based editor, Project Broadsheet includes a ready-made configuration for [Decap CMS](/docs/integrations/decap-cms/).)
 
 ## Create the file
 
