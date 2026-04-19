@@ -38,9 +38,9 @@ src/
 
 Global data files. Every file in this folder becomes available as a variable of the same name in every template.
 
-- `meta.js` - site metadata (title, description, URL, contact info).
-- `nav.js` - navigation structure.
-- `features.js`, `services.js`, `pricing.js`, `roadmap.js`, etc. - structured data used on specific pages.
+- `meta.js`: site metadata (title, description, URL, contact info).
+- `nav.js`: navigation structure.
+- `features.js`, `services.js`, `pricing.js`, `roadmap.js`, etc.: structured data used on specific pages.
 
 Edit any of these files, and every template that references it rebuilds on save.
 
@@ -48,16 +48,16 @@ Edit any of these files, and every template that references it rebuilds on save.
 
 Reusable templates. Eleventy looks here for anything referenced in `layout:` front matter or `{% raw %}{% include %}{% endraw %}` tags.
 
-- `layouts/` - page-level wrappers (`base.njk`, `page.njk`, `doc.njk`, `post.njk`).
-- `partials/` - components (`header.njk`, `footer.njk`, `sidebar-cta.njk`, etc.).
+- `layouts/`: page-level wrappers (`base.njk`, `page.njk`, `doc.njk`, `post.njk`).
+- `partials/`: components (`header.njk`, `footer.njk`, `sidebar-cta.njk`, etc.).
 
 ## `src/assets/`
 
 Static assets. All of this is copied to the output at build time.
 
-- `css/` - design tokens, utilities, components, page styles. Concatenated at build time into a single stylesheet.
-- `js/` - vanilla JavaScript modules.
-- `img/` - images, the logo, favicons.
+- `css/`: design tokens, utilities, components, and page styles. Concatenated at build time into a single stylesheet.
+- `js/`: vanilla JavaScript modules.
+- `img/`: images, the logo, and favicons.
 
 ## `src/content/`
 

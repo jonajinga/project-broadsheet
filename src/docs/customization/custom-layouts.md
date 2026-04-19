@@ -9,15 +9,15 @@ Layouts are the templates Project Broadsheet uses to wrap content in consistent 
 
 ## Default layouts
 
-- `layouts/base.njk` - the HTML skeleton, used by every page indirectly.
-- `layouts/page.njk` - standard content pages with a title header.
-- `layouts/post.njk` - blog posts.
-- `layouts/doc.njk` - doc pages with sidebar and TOC.
-- `layouts/article.njk` - editorial articles (with author byline, section accent, reader tools).
-- `layouts/review.njk` - review articles with rating and metadata box.
-- `layouts/library-chapter.njk` - chapters in the public-domain library.
-- `layouts/edition.njk` - numbered issues.
-- `layouts/event.njk` - calendar events.
+- `layouts/base.njk`: the HTML skeleton, used by every page indirectly.
+- `layouts/page.njk`: standard content pages with a title header.
+- `layouts/post.njk`: blog posts.
+- `layouts/doc.njk`: doc pages with sidebar and TOC.
+- `layouts/article.njk`: editorial articles (with author byline, section accent, reader tools).
+- `layouts/review.njk`: review articles with rating and metadata box.
+- `layouts/library-chapter.njk`: chapters in the public-domain library.
+- `layouts/edition.njk`: numbered issues.
+- `layouts/event.njk`: calendar events.
 
 ## Override a layout for a specific page
 

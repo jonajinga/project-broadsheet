@@ -21,10 +21,10 @@ pagination:
 ---
 ```
 
-- `data` - the Eleventy collection to paginate (e.g., `collections.news`)
-- `size` - articles per page
-- `alias` - the variable name used in the template body to loop over the current page's articles
-- `addAllPagesToCollections: true` - required so all paginated pages appear in the sitemap and search index; without this, only page 1 is included
+- `data`: the Eleventy collection to paginate (e.g., `collections.news`)
+- `size`: articles per page
+- `alias`: the variable name used in the template body to loop over the current page's articles
+- `addAllPagesToCollections: true`: required so all paginated pages appear in the sitemap and search index; without this, only page 1 is included
 
 ## Changing articles per page
 

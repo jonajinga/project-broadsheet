@@ -110,10 +110,10 @@ Pagefind runs after the main build. If the build itself succeeded but Pagefind f
 
 ## When all else fails
 
-1. **Read the full error trace** - the first few lines usually name the file and line.
-2. **Run `npm run build` rather than `npm start`** - production build output is often more complete.
-3. **Revert the last commit** - if the build was green 10 minutes ago, the last change introduced the bug.
-4. **Ask for help** - [GitHub Discussions](https://github.com/jonajinga/broadsheet/discussions) or [the bug report form](/forms/bug-report/).
+1. **Read the full error trace.** The first few lines usually name the file and line.
+2. **Run `npm run build` rather than `npm start`.** Production build output is often more complete.
+3. **Revert the last commit.** If the build was green 10 minutes ago, the last change introduced the bug.
+4. **Ask for help:** [GitHub Discussions](https://github.com/jonajinga/broadsheet/discussions) or [the bug report form](/forms/bug-report/).
 
 ## What to do next
 

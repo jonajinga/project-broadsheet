@@ -71,7 +71,7 @@ Hugo's `content/posts/` folder maps to whichever section you designate as the de
 
 ## Step 4. Replace Hugo shortcodes
 
-Hugo shortcodes have no equivalent in Project Broadsheet - the template engine is Nunjucks, not Go templates. Common shortcodes and their Markdown replacements:
+Hugo shortcodes have no equivalent in Project Broadsheet; the template engine is Nunjucks, not Go templates. Common shortcodes and their Markdown replacements:
 
 | Hugo shortcode | Project Broadsheet equivalent |
 |----------------|-------------------------------|

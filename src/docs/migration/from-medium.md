@@ -7,24 +7,24 @@ updated: 2026-04-17
 
 Medium exports every post as an HTML file in a zip archive. The export doesn't include clean tags or accurate publish dates in a structured format, which means you'll do more manual work than on other platforms. The good news: Medium stores images at URLs that don't break, so image rehosting is optional.
 
-## Step 1 - Request the export
+## Step 1: Request the export
 
 1. In Medium, go to **Settings** → **Security and apps** → **Download .zip**.
 2. Click **Download your information**.
 3. Wait for the email (usually within an hour).
 4. Download the zip.
 
-## Step 2 - What the export contains
+## Step 2: What the export contains
 
 The zip includes:
-- `posts/` - one HTML file per post, named like `YYYY-MM-DD_Title-abc123def.html`.
-- `profile/` - your public profile metadata.
-- `lists/` - any lists (bookmarks, series) you've made.
-- `claps.html` - a list of posts you've clapped for.
+- `posts/`: one HTML file per post, named like `YYYY-MM-DD_Title-abc123def.html`.
+- `profile/`: your public profile metadata.
+- `lists/`: any lists (bookmarks, series) you've made.
+- `claps.html`: a list of posts you've clapped for.
 
 Each post HTML file starts with your byline, title, and subtitle, then the post body.
 
-## Step 3 - Parse and convert
+## Step 3: Parse and convert
 
 A Node or Python script works well:
 
@@ -34,7 +34,7 @@ A Node or Python script works well:
 4. Convert the body to <span class="g-term" data-term="Markdown">Markdown</span> with `turndown` or `markdownify`.
 5. Derive the publish date from the filename prefix.
 
-## Step 4 - Wrap with Project Broadsheet front matter
+## Step 4: Wrap with Project Broadsheet front matter
 
 ```yaml
 ---
@@ -49,7 +49,7 @@ tags: []
 
 Medium doesn't export reliable tag metadata, so `tags` often starts empty. You can re-tag manually later if it matters.
 
-## Step 5 - Images
+## Step 5: Images
 
 Medium images live at `https://cdn-images-1.medium.com/...`. Those URLs are served globally and don't break when you leave Medium, so you can leave them as-is. If you want to fully self-host:
 
@@ -57,7 +57,7 @@ Medium images live at `https://cdn-images-1.medium.com/...`. Those URLs are serv
 2. Save to `src/assets/img/migrated/`.
 3. Rewrite paths in the Markdown.
 
-## Step 6 - URL redirects
+## Step 6: URL redirects
 
 Medium URLs look like `https://medium.com/@username/post-title-abc123def`. Those don't redirect to your new site by default. Options:
 
@@ -67,7 +67,7 @@ Medium URLs look like `https://medium.com/@username/post-title-abc123def`. Those
 
 For independent publications, the third option is most common. Search engines will re-discover the new URLs via your <span class="g-term" data-term="sitemap">sitemap</span> within a few weeks.
 
-## Step 7 - Subscribers
+## Step 7: Subscribers
 
 If you had email subscribers on Medium (via the Partner Program), Medium doesn't provide an email export. You'll need to prompt subscribers to sign up for your new newsletter through a pinned Medium post before you leave, and accept that some percentage won't follow over.
 

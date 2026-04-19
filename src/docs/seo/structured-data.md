@@ -5,7 +5,7 @@ order: 3
 updated: 2026-04-17
 ---
 
-<span class="g-term" data-term="JSON-LD">JSON-LD</span> is a machine-readable description of a page, embedded invisibly in the HTML. Search engines read it to understand what a page is - an article, an event, a review, a person - and use that to render richer search results (featured snippets, byline badges, star ratings on review cards).
+<span class="g-term" data-term="JSON-LD">JSON-LD</span> is a machine-readable description of a page, embedded invisibly in the HTML. Search engines read it to understand what a page is (an article, an event, a review, a person) and use that to render richer search results (featured snippets, byline badges, star ratings on review cards).
 
 ## What Project Broadsheet generates automatically
 

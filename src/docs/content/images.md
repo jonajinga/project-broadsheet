@@ -32,8 +32,8 @@ cover_image_alt: "Describe what is in the image for screen readers."
 ---
 ```
 
-- `cover_image` is shown at the top of the article page and used as the Open Graph image for social sharing.
-- `cover_image_alt` is required for accessibility. Describe the image content, not its appearance.
+- `cover_image`: shown at the top of the article page and used as the Open Graph image for social sharing.
+- `cover_image_alt`: required for accessibility. Describe the image content, not its appearance.
 
 If you want a separate image for social previews (e.g., a square crop), add:
 
@@ -66,10 +66,10 @@ Add a caption by placing italic text immediately below the image:
 
 ## Image formats
 
-- **JPEG** - photographs and images with many colors
-- **PNG** - screenshots, diagrams, images with transparency
-- **WebP** - a modern format roughly 30% smaller than JPEG/PNG at equal quality; supported by all modern browsers
-- **SVG** - logos and icons; scales perfectly at any size
+- **JPEG**: photographs and images with many colors
+- **PNG**: screenshots, diagrams, images with transparency
+- **WebP**: a modern format roughly 30% smaller than JPEG/PNG at equal quality, supported by all modern browsers
+- **SVG**: logos and icons that scale perfectly at any size
 
 Prefer WebP for photographs when you can produce it. If you need maximum compatibility, JPEG is safe.
 

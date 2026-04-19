@@ -9,8 +9,8 @@ Project Broadsheet reads a handful of environment variables during the build. Th
 
 ## What variables the build reads
 
-- `SITE_URL` - the canonical URL of the site. Used for `<link rel="canonical">`, <span class="g-term" data-term="Open Graph">Open Graph</span> image URLs, <span class="g-term" data-term="RSS">RSS</span> feed self-links, and the XML <span class="g-term" data-term="sitemap">sitemap</span>. Falls back to the value in `meta.js`.
-- `NODE_VERSION` - tells your host which Node.js runtime to use for the build. Set to `20` (recommended) or `18` (LTS).
+- `SITE_URL`: the canonical URL of the site. Used for `<link rel="canonical">`, <span class="g-term" data-term="Open Graph">Open Graph</span> image URLs, <span class="g-term" data-term="RSS">RSS</span> feed self-links, and the XML <span class="g-term" data-term="sitemap">sitemap</span>. Falls back to the value in `meta.js`.
+- `NODE_VERSION`: tells your host which Node.js runtime to use for the build. Set to `20` (recommended) or `18` (LTS).
 
 ## Where to set them
 

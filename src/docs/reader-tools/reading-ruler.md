@@ -15,7 +15,7 @@ The reading ruler is off by default. Readers turn it on from the reader toolbar 
 2. Click the **Ruler** icon (a horizontal line symbol).
 3. The ruler appears immediately and follows the cursor as the reader moves down the page.
 
-The ruler preference is stored in `localStorage` - it persists across articles and page refreshes until the reader turns it off.
+The ruler preference is stored in `localStorage` and persists across articles and page refreshes until the reader turns it off.
 
 ## How it works
 

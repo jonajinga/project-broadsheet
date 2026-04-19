@@ -1,6 +1,6 @@
 ---
 title: Data files reference
-subtitle: A complete map of every data file in Project Broadsheet - what each one controls, its format, and where it lives.
+subtitle: A complete map of every data file in Project Broadsheet: what each one controls, its format, and where it lives.
 order: 6
 updated: 2026-04-18
 ---
@@ -49,7 +49,7 @@ Publication-specific content configuration: sections, homepage settings, and fea
 }
 ```
 
-Toggle any feature by setting it to `false` - the corresponding UI and JS will not be included in the build.
+Toggle any feature by setting it to `false` and the corresponding UI and JS will be excluded from the build.
 
 ## `src/_data/authors.js`
 

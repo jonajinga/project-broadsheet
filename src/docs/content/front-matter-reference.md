@@ -18,10 +18,10 @@ section: news
 ---
 ```
 
-- `title` - shown in the `<h1>`, the `<title>` tag, search previews, and RSS.
-- `author` - the slug of an entry in `authors.js`. See [Authors](/docs/content/authors/).
-- `date` - ISO format (`YYYY-MM-DD`). Controls sort order and the visible publish date.
-- `section` - the slug of a section in `site.json`. See [Sections](/docs/content/sections/).
+- `title`: shown in the `<h1>`, the `<title>` tag, search previews, and RSS.
+- `author`: the slug of an entry in `authors.js`. See [Authors](/docs/content/authors/).
+- `date`: ISO format (`YYYY-MM-DD`). Controls sort order and the visible publish date.
+- `section`: the slug of a section in `site.json`. See [Sections](/docs/content/sections/).
 
 ## Recommended
 
@@ -32,10 +32,10 @@ excerpt: "A pull-quote or teaser rendered at the top of the article."
 featured: true
 ```
 
-- `description` - appears in search engine snippets and social previews. Keep under 160 characters.
-- `tags` - an array of lowercase slugs. Used for related-article suggestions and future tag pages.
-- `excerpt` - an optional summary paragraph rendered between the title and body.
-- `featured` - set `true` to surface the article on the homepage and section index.
+- `description`: appears in search engine snippets and social previews. Keep under 160 characters.
+- `tags`: an array of lowercase slugs. Used for related-article suggestions and future tag pages.
+- `excerpt`: an optional summary paragraph rendered between the title and body.
+- `featured`: set `true` to surface the article on the homepage and section index.
 
 ## Layout and template
 
@@ -44,8 +44,8 @@ layout: layouts/article.njk
 permalink: /custom-url/
 ```
 
-- `layout` - override the default article template. See [Custom layouts](/docs/customization/custom-layouts/).
-- `permalink` - override the URL. By default it's `/{section}/{filename}/`.
+- `layout`: override the default article template. See [Custom layouts](/docs/customization/custom-layouts/).
+- `permalink`: override the URL. By default it's `/{section}/{filename}/`.
 
 ## Reviews
 

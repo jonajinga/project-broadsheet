@@ -1,6 +1,6 @@
 ---
 title: RSS feeds
-subtitle: How Project Broadsheet generates RSS feeds for the full publication, each editorial section, and each author - and how to customize feed titles, descriptions, and content.
+subtitle: How Project Broadsheet generates RSS feeds for the full publication, each editorial section, and each author, and how to customize feed titles, descriptions, and content.
 order: 6
 updated: 2026-04-18
 ---
@@ -39,12 +39,12 @@ Per-section feeds inherit the section's `label` and `description` from the secti
 
 Each item in a feed contains:
 
-- `title` - from the article's front matter
-- `description` - from the article's `description` field, or the first 160 characters of body text if omitted
-- `link` - the canonical URL of the article
-- `pubDate` - the article's `date` field
-- `author` - from the matching entry in `authors.js`
-- Content - the full rendered HTML of the article body
+- `title`: from the article's front matter
+- `description`: from the article's `description` field, or the first 160 characters of body text if omitted
+- `link`: the canonical URL of the article
+- `pubDate`: the article's `date` field
+- `author`: from the matching entry in `authors.js`
+- Content: the full rendered HTML of the article body
 
 ## Where feed templates live
 

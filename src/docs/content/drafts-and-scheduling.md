@@ -5,7 +5,7 @@ order: 9
 updated: 2026-04-18
 ---
 
-Project Broadsheet has two mechanisms for controlling when an article goes live: the `draft` flag and the `date` field. Neither requires a database or a publish button - the build itself decides what to include.
+Project Broadsheet has two mechanisms for controlling when an article goes live: the `draft` flag and the `date` field. Neither requires a database or a publish button; the build itself decides what to include.
 
 ## Draft articles
 
@@ -28,7 +28,7 @@ To publish a draft, remove the `draft: true` line (or set it to `false`) and dep
 
 ## Future-dated articles
 
-Setting a future date does **not** automatically hide an article. Project Broadsheet builds a static site - it has no concept of "now" at serve time, so a date of `2026-12-31` does not prevent the article from going live the moment you deploy.
+Setting a future date does **not** automatically hide an article. Project Broadsheet builds a static site and has no concept of "now" at serve time, so a date of `2026-12-31` does not prevent the article from going live the moment you deploy.
 
 To hold a piece until a specific date:
 

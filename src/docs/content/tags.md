@@ -19,14 +19,14 @@ tags: [local, elections, colorado, 2026]
 ---
 ```
 
-`tags` takes a YAML array. Use lowercase, hyphen-separated slugs - no spaces, no uppercase.
+`tags` takes a YAML array. Use lowercase, hyphen-separated slugs with no spaces and no uppercase.
 
 ## Tag naming conventions
 
 - **Lowercase only**: `politics` not `Politics`
 - **Hyphens for spaces**: `climate-change` not `climate change`
 - **Specific over vague**: `supreme-court` beats `law`; `colorado-springs` beats `local`
-- **Consistent**: pick a form and stick to it - `book-review` or `books`, not both
+- **Consistent**: pick a form and stick to it (`book-review` or `books`, not both)
 - **No punctuation**: no apostrophes, commas, or slashes
 
 A short list of focused tags is more useful than a long list of broad ones. Three to six tags per article is a good target.
@@ -35,7 +35,7 @@ A short list of focused tags is more useful than a long list of broad ones. Thre
 
 ### Related articles
 
-Project Broadsheet compares tags across articles to surface related reads at the bottom of each article page. Articles sharing the most tags are ranked first. No configuration is needed - it runs automatically at build time.
+Project Broadsheet compares tags across articles to surface related reads at the bottom of each article page. Articles sharing the most tags are ranked first. No configuration is needed; it runs automatically at build time.
 
 ### Search filtering
 
@@ -57,7 +57,7 @@ Tags are available in templates as `article.data.tags`. To render a tag list:
 
 ## Tag pages
 
-Project Broadsheet does not generate a dedicated page per tag by default - there is no `/tags/elections/` URL out of the box. Tags are used internally for relatedness scoring and search indexing. If you want per-tag archive pages, see [Add a new editorial section](/docs/customization/add-a-section/) for how to create custom collection-driven pages.
+Project Broadsheet does not generate a dedicated page per tag by default; there is no `/tags/elections/` URL out of the box. Tags are used internally for relatedness scoring and search indexing. If you want per-tag archive pages, see [Add a new editorial section](/docs/customization/add-a-section/) for how to create custom collection-driven pages.
 
 ## What to do next
 

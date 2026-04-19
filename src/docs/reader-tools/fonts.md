@@ -20,10 +20,10 @@ export default [
 ];
 ```
 
-- `id` is the identifier stored in the reader's `localStorage`.
-- `label` is what the reader sees.
-- `family` is the full CSS `font-family` value applied to the article body.
-- `stack` is either `serif` or `sans` so the picker can group choices.
+- `id`: the identifier stored in the reader's `localStorage`.
+- `label`: what the reader sees.
+- `family`: the full CSS `font-family` value applied to the article body.
+- `stack`: either `serif` or `sans`, so the picker can group choices.
 
 ## Add a font from Bunny Fonts
 
@@ -33,7 +33,7 @@ export default [
 
 ## Change the default font
 
-The default is whichever font the reader last chose, or - for first-time visitors - the first entry in `readerFonts.js`. To change the first-time default, reorder the array.
+The default is whichever font the reader last chose, or, for first-time visitors, the first entry in `readerFonts.js`. To change the first-time default, reorder the array.
 
 ## High-legibility options
 

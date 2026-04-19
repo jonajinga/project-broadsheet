@@ -38,7 +38,7 @@ Disallow: /thank-you/
 Sitemap: {% raw %}{{ site.url }}{% endraw %}/sitemap.xml
 ```
 
-Legal and utility pages - Privacy Policy, Terms, Thank You - are often good candidates for `Disallow`, though search engines typically understand these pages and may index them anyway.
+Legal and utility pages (Privacy Policy, Terms, Thank You) are often good candidates for `Disallow`, though search engines typically understand these pages and may index them anyway.
 
 ## Blocking a specific crawler
 
@@ -58,7 +58,7 @@ Common AI crawler user-agent strings include `GPTBot` (OpenAI), `Claude-Web` (An
 
 ## Keeping a page out of search with meta tags
 
-`robots.txt` controls *crawling* - it prevents the crawler from visiting the page. To control *indexing* (whether a visited page appears in search results), use the `noindex` front-matter field instead:
+`robots.txt` controls *crawling* and prevents the crawler from visiting the page. To control *indexing* (whether a visited page appears in search results), use the `noindex` front-matter field instead:
 
 ```yaml
 noindex: true
@@ -72,6 +72,6 @@ After deploying, visit `https://yourdomain.com/robots.txt` in a browser to confi
 
 ## What to do next
 
-- [XML sitemap](/docs/seo/sitemap/) - the companion file that tells crawlers what to index.
-- [Meta tags](/docs/seo/meta-tags/) - page-level SEO controls including `noindex`.
+- [XML sitemap](/docs/seo/sitemap/): the companion file that tells crawlers what to index.
+- [Meta tags](/docs/seo/meta-tags/): page-level SEO controls including `noindex`.
 - [Deploy to Cloudflare Pages](/docs/deployment/cloudflare-pages/) for how the static files are served.
