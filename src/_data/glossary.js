@@ -533,11 +533,6 @@ export default [
     long: "When you run `npm start`, Eleventy watches your source files. Save a Markdown file or CSS change and the browser refreshes in under a second showing the updated page. Hot reload does not run Pagefind, so search won't reflect changes until a full production build."
   },
   {
-    term: "hCaptcha",
-    short: "A privacy-respecting alternative to Google reCAPTCHA for blocking spam form submissions.",
-    long: "hCaptcha doesn't require user tracking and is GDPR-friendlier than reCAPTCHA. Web3Forms supports hCaptcha as an add-on. Most Project Broadsheet sites get away with the honeypot field instead."
-  },
-  {
     term: "hosting",
     short: "The service that actually serves your site's files to visitors.",
     long: "Project Broadsheet recommends Cloudflare Pages, Netlify, or Vercel for free static hosting. I also offer managed hosting at $25 / $39 / $79 per month on my own Cloudflare account if you'd rather not set it up yourself."
@@ -1186,5 +1181,70 @@ export default [
     term: "autoscroll",
     short: "A reader-tool feature that auto-scrolls an article at a chosen pace for hands-free reading.",
     long: "Speed controllable from 1 (slowest) to 10 (fastest). Any manual input — scroll wheel, touch drag, arrow key, Space, or click — cancels the animation immediately so the reader's own scroll always wins. Reaching the end stops it automatically. Preference stored in localStorage."
+  },
+  {
+    term: "CC BY-NC-ND 4.0",
+    alt: "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
+    short: "The Creative Commons licence Project Broadsheet articles ship under — attribution required, no commercial reuse, no derivative works.",
+    long: "The strictest of the common Creative Commons licences. Partners can republish articles freely, as long as they credit the publication with a canonical link, don't sell the piece or put it behind a paywall, and don't edit it beyond tiny relative fixes. The licence URL (https://creativecommons.org/licenses/by-nc-nd/4.0/) appears in the article JSON-LD, in the republish block, and on the `/license/` page."
+  },
+  {
+    term: "syndicate",
+    alt: "syndicate: true, syndicate: false",
+    short: "Front-matter flag that controls whether an article renders the 'Republish this story' grab-code block.",
+    long: "Defaults to `true` via `content.11tydata.js` so every article ships with the republish surface. Set `syndicate: false` in front matter for pieces that embed licensed third-party material you can't redistribute (stock photos, one-time-permission quotes, embedded tweets) or that have live legal exposure. The block reads from this flag and renders nothing when it's false."
+  },
+  {
+    term: "Slow Web",
+    alt: "slow web, IndieWeb slow web",
+    short: "The editorial posture that favours canonical articles, open licences, RSS, and decentralised conversation over algorithmic newsletters and closed platforms.",
+    long: "Project Broadsheet's editorial framing. Characterised by: per-author / per-topic RSS feeds readers subscribe to directly, CC-licensed republication partners can grab without asking permission, webmentions for cross-site conversation, no recommendation algorithms, and no syndication networks that take editorial control in exchange for reach. The `/license/` page calls these the 'four rules' that accompany the CC BY-NC-ND grant."
+  },
+  {
+    term: "tip line",
+    short: "A dedicated form or contact method for readers to submit news tips, especially sensitive ones.",
+    long: "The `/tips/` page is the standard surface. Project Broadsheet's pattern deliberately does NOT claim anonymity on the web form — Web3Forms logs IPs for spam prevention and hCaptcha fingerprints browsers. Instead the page warns sources at real risk to stop, and routes them to genuinely safer out-of-band channels: Tor + ProtonMail, Signal on a burner, or physical mail. The form is explicitly a low-risk channel for public-record tips."
+  },
+  {
+    term: "safer channels",
+    short: "Out-of-band submission routes for sources who need true anonymity — Tor + ProtonMail, Signal on a burner, physical mail, or SecureDrop.",
+    long: "Any form on a standard web host leaks metadata to the form handler, the browser fingerprinter, the TLS session, and the HTTP request log. When source safety actually matters, the web form isn't the right tool. The safer-channels pattern documents: ProtonMail or Tuta accessed only over Tor Browser; Signal on a phone and number that aren't tied to the source's legal identity; physical mail with no return address; and for publications with real infrastructure, SecureDrop or Hush Line. See the `/tips/` page for the reader-facing version."
+  },
+  {
+    term: "Tor",
+    alt: "Tor Browser, The Onion Router",
+    short: "A free anonymity network that routes traffic through multiple encrypted hops so the destination can't see your IP address.",
+    long: "Sources who need true anonymity reach publications through Tor Browser, which is free, cross-platform, and doesn't leave identifying traces on the source's machine when used correctly. Project Broadsheet's tip-line page recommends pairing Tor with a fresh ProtonMail or Tuta account created and only ever accessed over Tor, never from the source's normal connection."
+  },
+  {
+    term: "Signal",
+    short: "An end-to-end-encrypted messenger widely used for secure source communication.",
+    long: "Free, open-source, metadata-minimal. Project Broadsheet's tip-line recommends it for sensitive sources — with the critical caveat that the account must be registered on a phone number that isn't tied to the source's legal identity (prepaid SIM, or WiFi-only registration). A Signal account on the source's main number is a liability, not a protection."
+  },
+  {
+    term: "ProtonMail",
+    alt: "Proton Mail, Tuta",
+    short: "End-to-end-encrypted email services commonly used for anonymous-source correspondence.",
+    long: "ProtonMail and Tuta both allow account creation without a phone number and operate zero-knowledge mailbox encryption. Used correctly (account created and only ever accessed over Tor, separate from any other email the source uses), they let a source email a publication without exposing an IP or identity to the receiving server. Paired with Tor in Project Broadsheet's tip-line safer-channels list."
+  },
+  {
+    term: "SecureDrop",
+    short: "A whistleblower submission system used by major newsrooms that runs on a Tor onion service.",
+    long: "A purpose-built anonymous-submission platform maintained by the Freedom of the Press Foundation. Sources connect via Tor to a newsroom's onion address, upload documents with no account, and receive a per-submission codename for follow-up. Outside Project Broadsheet's zero-infrastructure scope (it needs dedicated hardware, an airgapped viewing station, and ongoing maintenance) but the right answer for publications with real whistleblower traffic. Mentioned as the upgrade path from the safer-channels fallback."
+  },
+  {
+    term: "finished-reading",
+    short: "A custom Umami event Project Broadsheet fires when a reader scrolls past 90% of an article body.",
+    long: "Gated per-pathname so a single session across multiple articles fires once per article. Reset on `spa:contentswap` so the next article can fire. Threshold is 90% (not 100%) because the footer and webmention block sit below the article body and readers rarely scroll into them; 90% of the body means 'they finished the piece.' Surfaced in Umami as a Goal event for per-article completion-rate reports."
+  },
+  {
+    term: "rss-sub",
+    short: "A custom Umami event Project Broadsheet fires on every RSS-feed link click, carrying a data-umami-event-feed property that identifies which feed.",
+    long: "Every RSS link in the site — footer icon, topic-page header, author-page hero, section page, /feeds/ discovery page, homepage CTA — includes `data-umami-event=\"rss-sub\"` plus `data-umami-event-feed=\"...\"` naming the feed. Feed-property values: `main`, `section-{slug}`, `author-{slug}`, `topic-{slug}`, `external-{slug}`. The Umami dashboard breaks rss-sub down by the property so you can see which feed types readers actually subscribe to."
+  },
+  {
+    term: "referrer filter",
+    short: "A Umami dashboard filter saved against the canonical article URL, showing traffic that arrived from a specific syndication partner.",
+    long: "Project Broadsheet's replacement for the (defunct) tracking-pixel approach to measuring syndication reach. When a partner republishes an article and keeps the canonical link, readers who click through arrive with the partner's domain in the HTTP Referrer header. Save a filter per partner — `Referrer contains partner-domain.com` — on the article page's report. Lower resolution than a pixel but requires no infrastructure."
   }
 ];

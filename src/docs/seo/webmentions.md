@@ -105,6 +105,39 @@ Include `partials/article-webmentions.njk` anywhere in a page template. It reads
 
 Project Broadsheet's article and author layouts include it by default. The "silent empty" behaviour means fresh articles don't carry a dead "No mentions yet" block.
 
+## Collapsible display
+
+The block header renders with a small `Hide / Show` toggle in the top-right corner. Collapsing hides the reply cards, facepile, and mentions list while keeping the kicker + count header visible, so readers still see "N mentions of this piece" even in the collapsed state.
+
+The state persists across page loads via `localStorage` under the site-prefixed key `{prefix}-wm-collapsed` (e.g. `tft-wm-collapsed`). Hydrated inline via a tiny script inside the partial:
+
+```html
+{% raw %}<script>
+(function () {
+  var section = document.currentScript && document.currentScript.previousElementSibling;
+  if (!section || !section.matches('.wm')) return;
+  var toggle = section.querySelector('[data-wm-toggle]');
+  var body   = section.querySelector('.wm__body');
+  var key    = (window.__PREFIX || 'tft') + '-wm-collapsed';
+  function apply(collapsed) {
+    section.setAttribute('data-wm-collapsed', collapsed ? 'true' : 'false');
+    toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    toggle.textContent = collapsed ? 'Show' : 'Hide';
+    body.hidden = collapsed;
+  }
+  try { apply(localStorage.getItem(key) === 'true'); } catch (e) { apply(false); }
+  toggle.addEventListener('click', function () {
+    var next = section.getAttribute('data-wm-collapsed') !== 'true';
+    apply(next);
+    try { localStorage.setItem(key, next ? 'true' : 'false'); } catch (e) {}
+  });
+})();</script>{% endraw %}
+```
+
+CSS hides the lede when collapsed (`.wm[data-wm-collapsed="true"] .wm__lede { display: none; }`) and zeros the header margin so the kicker + count read as a compact single line. No JS framework, no dependency on a site-wide script — the partial is self-contained.
+
+The same pattern scales to any other "big optional surface at the bottom of an article" block. The `.wm` width is `var(--max-width-prose)` so it lines up with the article body.
+
 ## Moderation
 
 webmention.io does its own spam filtering. Project Broadsheet adds a per-site <span class="g-term" data-term="blocklist">blocklist</span> escape hatch in `meta.js`:
