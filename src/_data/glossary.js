@@ -1203,7 +1203,7 @@ export default [
   {
     term: "tip line",
     short: "A dedicated form or contact method for readers to submit news tips, especially sensitive ones.",
-    long: "The `/tips/` page is the standard surface. Project Broadsheet's pattern deliberately does NOT claim anonymity on the web form — Web3Forms logs IPs for spam prevention and hCaptcha fingerprints browsers. Instead the page warns sources at real risk to stop, and routes them to genuinely safer out-of-band channels: Tor + ProtonMail, Signal on a burner, or physical mail. The form is explicitly a low-risk channel for public-record tips."
+    long: "The `/tips/` page is the standard surface. Project Broadsheet's pattern deliberately does NOT claim anonymity on the web form — Web3Forms logs IPs for spam prevention. Instead the page warns sources at real risk to stop, and routes them to genuinely safer out-of-band channels: Tor + ProtonMail, Signal on a burner, or physical mail. The form is explicitly a low-risk channel for public-record tips."
   },
   {
     term: "safer channels",
