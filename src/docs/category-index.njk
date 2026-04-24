@@ -8,8 +8,8 @@ pagination:
 permalink: /docs/{{ cat.slug }}/
 eyebrow: Docs · Category
 eleventyComputed:
-  title: "{{ cat.name }}"
-  subtitle: "{{ cat.summary }}"
+  title: "{{ cat.name | safe }}"
+  subtitle: "{{ cat.summary | safe }}"
 ---
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <a href="/">Home</a><span class="breadcrumbs__sep">/</span>
