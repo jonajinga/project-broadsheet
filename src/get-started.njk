@@ -1,83 +1,87 @@
 ---
 layout: layouts/page.njk
-title: Get Started
-eyebrow: Resources
-subtitle: Three commands to a live publication. No account required.
+title: Getting started
+eyebrow: Getting started
+subtitle: How to put your own copy of Project Broadsheet on your computer and see it running.
 permalink: /get-started/
 narrow: true
 ---
 <div class="lead" style="margin-bottom: var(--space-2xl);">
-  Project Broadsheet is a git clone away. The full source, 27 reader tools, nine editorial sections, RSS, search, SEO, and dark mode are already included and configured.
+  There are two ways to start. If you're comfortable with the command line, three short commands will get you a working site you can poke around in. If you'd rather not touch a terminal, the second section is for you.
 </div>
 
 <section class="section-sm">
-  <h2 class="h3">Prerequisites</h2>
-  <ul style="list-style: disc; padding-left: 1.5rem; margin-top: var(--space-sm); display: flex; flex-direction: column; gap: 0.5rem; color: var(--text);">
-    <li>Node.js 18 or later (<a href="https://nodejs.org">nodejs.org</a>)</li>
-    <li>A GitHub account (free)</li>
-    <li>A terminal. Any OS works, macOS, Linux, Windows.</li>
-  </ul>
+  <h2 class="h3">Before you begin</h2>
+  <div class="card" style="margin-top: var(--space-lg);">
+    <div class="card__eyebrow">You'll need</div>
+    <div class="card__title">Three things, all free</div>
+    <ul class="card__list">
+      <li>Node.js 18 or later (<a href="https://nodejs.org">nodejs.org</a>) — this is the tool that turns the source files into a website</li>
+      <li>A free GitHub account (<a href="https://github.com">github.com</a>) — this is where your site's source lives online</li>
+      <li>A terminal — any Mac, Linux, or Windows machine has one</li>
+    </ul>
+  </div>
 </section>
 
 <ol class="guide-steps">
   <li class="guide-step">
-    <h2 class="guide-step__title">Clone the repo</h2>
+    <h2 class="guide-step__title">Download a copy</h2>
     <div class="guide-step__body">
-      <p>Pick whatever folder name fits your project.</p>
+      <p>Pick any folder name that fits your project.</p>
       <pre><code>git clone https://github.com/{{ meta.githubOwner }}/{{ meta.githubRepo }}.git my-publication
 cd my-publication</code></pre>
     </div>
   </li>
   <li class="guide-step">
-    <h2 class="guide-step__title">Install dependencies</h2>
+    <h2 class="guide-step__title">Install what it needs</h2>
     <div class="guide-step__body">
       <pre><code>npm install</code></pre>
       <p>Takes under a minute on a modern connection.</p>
     </div>
   </li>
   <li class="guide-step">
-    <h2 class="guide-step__title">Run it locally</h2>
+    <h2 class="guide-step__title">Open it in your browser</h2>
     <div class="guide-step__body">
       <pre><code>npm start</code></pre>
-      <p>The site is now live at <code>http://localhost:8080</code> with hot reload. Open it in your browser, click through the sample pages, explore the reader tools.</p>
+      <p>The site is now running at <code>http://localhost:8080</code>. Open it, click around, try the reading tools, see how it feels. Any change you save to a file shows up in the browser within about a second.</p>
     </div>
   </li>
 </ol>
 
 <div class="callout" style="margin-top: var(--space-xl);">
-  <div class="callout__title">Not comfortable with the terminal?</div>
-  <p>You can fork the repository directly on GitHub and use <a href="/docs/integrations/decap-cms/">Decap CMS</a> for a browser-based editing experience with access control and editorial workflow — no command line needed. <a href="/docs/getting-started/no-terminal/">See the no-terminal guide →</a></p>
+  <div class="callout__title">Prefer not to use the terminal?</div>
+  <p>You can set things up entirely through a browser. Make a copy of the project on GitHub, connect it to a free host like Cloudflare Pages, and use the built-in browser editor to write. No command line needed. <a href="/docs/getting-started/no-terminal/">Here's the walk-through.</a></p>
 </div>
 
 <hr class="gold-rule">
 
 <section class="section-sm">
-  <h2 class="h3">Now what?</h2>
+  <h2 class="h3">Next</h2>
   <div class="grid grid-2" style="margin-top: var(--space-lg);">
-    <a class="card card--link" href="/docs/getting-started/">
-      <div class="card__eyebrow">Configure</div>
-      <h3 class="card__title">Edit <code>site.json</code></h3>
-      <p class="card__summary">Set your publication name, description, email, and which editorial sections you want.</p>
+    <a class="card card--link" href="/docs/content/site-config/">
+      <div class="card__eyebrow">Make it yours</div>
+      <h3 class="card__title">Set the name and details</h3>
+      <p class="card__summary">Open one file and replace the placeholder name, description, and email with your own.</p>
     </a>
     <a class="card card--link" href="/docs/design/">
-      <div class="card__eyebrow">Brand</div>
-      <h3 class="card__title">Edit <code>tokens.css</code></h3>
-      <p class="card__summary">Change colors, typography, spacing, every design decision is a CSS variable.</p>
+      <div class="card__eyebrow">Colors and fonts</div>
+      <h3 class="card__title">Change how it looks</h3>
+      <p class="card__summary">Every colour and font is a single line in one file. Change one, the whole site follows.</p>
     </a>
-    <a class="card card--link" href="/docs/content/">
-      <div class="card__eyebrow">Write</div>
+    <a class="card card--link" href="/docs/content/write-an-article/">
+      <div class="card__eyebrow">Writing</div>
       <h3 class="card__title">Add your first article</h3>
-      <p class="card__summary">Articles are Markdown files in <code>src/content/</code>. Create a file, add front matter, hit save.</p>
+      <p class="card__summary">Create a new file, write a heading and a few paragraphs, save. That's the whole writing workflow.</p>
     </a>
-    <a class="card card--link" href="/docs/deployment/">
-      <div class="card__eyebrow">Deploy</div>
-      <h3 class="card__title">Push to Cloudflare Pages</h3>
-      <p class="card__summary">Connect your repo, set the build command, done. HTTPS and a custom domain are both free.</p>
+    <a class="card card--link" href="/docs/deployment/cloudflare-pages/">
+      <div class="card__eyebrow">Going live</div>
+      <h3 class="card__title">Put it online</h3>
+      <p class="card__summary">Connect your project to a free host. Your site gets an address, a secure padlock, and updates itself whenever you save a change.</p>
     </a>
   </div>
 </section>
 
 <div class="callout" style="margin-top: var(--space-2xl);">
-  <div class="callout__title">Want me to set it up instead?</div>
-  <p>I can handle everything above for you at <a href="/pricing/">$150/hour</a>: repo setup, brand customization, deployment, custom domain, and integrations. <a href="/book-a-call/">Book a call</a> to get started.</p>
+  <div class="callout__title">Want a hand with any of this?</div>
+  <p>If you'd rather have someone do the setup for you, you can hire me by the hour — <a href="/pricing/">details here</a>, or <a href="/book-a-call/">get in touch</a>.</p>
 </div>

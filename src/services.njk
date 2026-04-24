@@ -1,12 +1,12 @@
 ---
 layout: layouts/page.njk
-title: Services
+title: Help from me
 eyebrow: Services
-subtitle: Hands-on help for people and organizations running, or planning to run, a publication on Project Broadsheet.
+subtitle: If you'd rather have someone set things up for you, that's what this page is about.
 permalink: /services/
 ---
 <div class="lead" style="margin-bottom: var(--space-2xl);">
-  Project Broadsheet is free to use on your own, genuinely free, no catches. But if you'd rather have someone set it up, migrate your archive, design a bespoke brand, or handle ongoing maintenance, that's what this page is about. I take on a small number of engagements at a time, and I prefer to work with independent publishers, small organizations, and people doing work I'm proud to point at.
+  Project Broadsheet is free. Most people run it themselves using the guides in the docs. If you'd rather not spend a weekend on it — or you want a hand moving an archive over, picking fonts, wiring up a newsletter, or changing something about how the site works — you can hire me by the hour to do it with you.
 </div>
 
 {% for svc in services %}
@@ -16,7 +16,7 @@ permalink: /services/
       <span class="eyebrow">{{ svc.name }}</span>
       <h2>{{ svc.name }}</h2>
       <p class="feature-block__summary">{{ svc.summary }}</p>
-      <p class="feature-block__price"><strong>Starting at {{ svc.startingAt }}</strong></p>
+      <p class="feature-block__price"><strong>${{ pricing.hourly.price | replace("$","") }} per hour</strong></p>
       <div class="feature-block__cta">
         <a class="btn btn--primary" href="{{ svc.cta.url }}">{{ svc.cta.label }}</a>
       </div>
@@ -29,7 +29,7 @@ permalink: /services/
 {% endfor %}
 
 <div class="callout" style="margin-top: var(--space-2xl);">
-  <div class="callout__title">How I work</div>
-  <p>Every project starts with a conversation, usually a 30-minute call where you tell me what you're building and I tell you whether I'm the right person to help. If I'm not, I'll say so and try to point you somewhere better.</p>
-  <p>Every email, quote, and reply comes from me personally. No bots, no AI, no account managers. That means responses occasionally take a day, but it means you always know who you're talking to.</p>
+  <div class="callout__title">How this works</div>
+  <p>Every project starts with a short conversation so you can tell me what you're after, and I can tell you roughly how long it'll take. If the work isn't a good fit for me, I'll say so and try to point you somewhere useful.</p>
+  <p>Every email and reply comes from me, not a team. That sometimes means a day or two to respond, but you always know who you're talking to.</p>
 </div>

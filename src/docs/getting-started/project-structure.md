@@ -69,14 +69,13 @@ src/content/
 ├── opinion/
 ├── analysis/
 ├── arts-culture/
-├── science-tech/
+├── science-technology/
 ├── history/
 ├── letters/
-├── reviews/
-└── editions/
+└── reviews/
 ```
 
-Each folder matches a section slug in `site.json`.
+Each folder matches a section slug defined in the sections data file.
 
 ## `src/docs/`
 
@@ -84,6 +83,6 @@ The help center (the thing you're reading now). Each subfolder is a doc category
 
 ## What to do next
 
-- [Configure site.json](/docs/content/site-config/) to set your publication's identity.
+- [Configure meta.js](/docs/content/site-config/) to set your publication's identity.
 - [Customize the design tokens](/docs/design/tokens/) to make the site look like yours.
 - [Write your first article](/docs/content/write-an-article/).

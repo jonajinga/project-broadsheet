@@ -1,33 +1,32 @@
 export default {
   nearTerm: {
-    title: "Near-term",
-    subtitle: "In active development for the next release.",
+    title: "Soon",
+    subtitle: "Actively being worked on for the next release.",
     items: [
-      { label: "Multi-author workflows", quarter: "Q2 2026", note: "Author roles, per-author drafts, contributor credits." },
-      { label: "Post scheduling", quarter: "Q2 2026", note: "Schedule articles for a future publish date without CI gymnastics." },
-      { label: "Series and columns", quarter: "Q2 2026", note: "Group articles into ongoing series or columnist runs." },
-      { label: "Podcast support", quarter: "Q3 2026", note: "Native podcast feed with enclosure tags and transcripts." },
-      { label: "Membership tiers", quarter: "Q3 2026", note: "Optional paid tiers with unlock logic and Stripe-compatible flows." }
+      { label: "Podcast support", quarter: "Q3 2026", note: "A proper feed for podcast apps, with audio files and written transcripts." },
+      { label: "Paid membership tiers", quarter: "Q3 2026", note: "Optional paid levels, with supporter-only articles, connected to a standard payment service." },
+      { label: "Two more small games", quarter: "Q3 2026", note: "A trivia game and a crossword, alongside the word scramble and sliding puzzle that already ship." },
+      { label: "More reader fonts", quarter: "Q3 2026", note: "Expanding the list of fonts readers can choose from in the reading panel." }
     ]
   },
   mediumTerm: {
-    title: "Medium-term",
-    subtitle: "Scoped and prioritized, but not yet in build.",
+    title: "Later",
+    subtitle: "Planned, but not yet in progress.",
     items: [
-      { label: "Plugin system", quarter: "H2 2026", note: "Drop-in extensions for sections, layouts, and integrations." },
-      { label: "Visual editor", quarter: "H2 2026", note: "Lightweight browser editor, optional alongside Pages CMS." },
-      { label: "Broadsheet Cloud", quarter: "H2 2026", note: "Optional managed hosting for publishers who want hands-off." },
-      { label: "Education toolkit", quarter: "H2 2026", note: "Classroom-ready setup guide, sample curriculum, and institutional support tier." }
+      { label: "Add-on system", quarter: "Second half of 2026", note: "A way to drop in extra sections, layouts, and integrations without changing the core." },
+      { label: "A lighter browser editor", quarter: "Second half of 2026", note: "A simpler writing interface for people who don't want to use the existing one." },
+      { label: "Optional managed hosting", quarter: "Second half of 2026", note: "A hands-off hosted option for people who'd rather not handle setup at all." },
+      { label: "A pack for schools", quarter: "Second half of 2026", note: "A classroom-ready setup, a sample syllabus, and support aimed at programmes." }
     ]
   },
   longTerm: {
-    title: "Long-term",
-    subtitle: "Direction, not commitment.",
+    title: "Someday",
+    subtitle: "A direction, not a commitment.",
     items: [
-      { label: "Public API", quarter: "2027", note: "Read-only content API for apps, clients, and integrations." },
-      { label: "Theme marketplace", quarter: "2027", note: "Shareable theme packs and section bundles." },
-      { label: "Federation", quarter: "2027", note: "ActivityPub experiments for cross-publication discovery." },
-      { label: "Mobile-first editor", quarter: "2027", note: "Write and publish directly from a phone." }
+      { label: "A public reading feed", quarter: "2027", note: "A way for apps and other sites to pull articles in, read-only." },
+      { label: "A theme exchange", quarter: "2027", note: "Shared packs of colours, fonts, and layouts you can drop into a publication." },
+      { label: "Cross-publication following", quarter: "2027", note: "Experiments with the kind of follow-between-sites that works on Mastodon." },
+      { label: "Writing from a phone", quarter: "2027", note: "A small editor designed for a phone screen, so you can publish on the go." }
     ]
   }
 };

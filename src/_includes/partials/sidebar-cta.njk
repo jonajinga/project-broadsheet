@@ -1,8 +1,8 @@
 <aside class="sidebar-cta">
   <div class="sidebar-cta__card">
-    <h3 class="sidebar-cta__title">{{ sidebar.title or "Prefer I do it for you?" }}</h3>
-    <p class="sidebar-cta__summary">{{ sidebar.summary or "I'll set up, deploy, and configure Project Broadsheet on your domain, start to finish in a week." }}</p>
-    <a class="btn btn--primary btn--block" href="{{ sidebar.ctaUrl or '/book-a-call/' }}">{{ sidebar.ctaLabel or "Book a Setup Call" }}</a>
+    <h3 class="sidebar-cta__title">{{ sidebar.title or "Would you rather have a hand with this?" }}</h3>
+    <p class="sidebar-cta__summary">{{ sidebar.summary or "I can set the site up for you, move your archive over, or build something custom — billed by the hour." }}</p>
+    <a class="btn btn--primary btn--block" href="{{ sidebar.ctaUrl or '/book-a-call/' }}">{{ sidebar.ctaLabel or "Get in touch" }}</a>
     {% if sidebar.list %}
     <ul class="sidebar-cta__list">
       {% for item in sidebar.list %}<li>{{ item }}</li>{% endfor %}

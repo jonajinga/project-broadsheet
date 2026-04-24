@@ -1,75 +1,75 @@
 ---
 layout: layouts/page.njk
-title: Project Broadsheet vs. Substack
+title: Project Broadsheet next to Substack
 eyebrow: Compare
-subtitle: Substack is a hosted platform designed for paid email newsletters. Project Broadsheet is a self-hosted publication framework. This page compares their models honestly.
+subtitle: Substack is a hosted service built around paid email newsletters. Project Broadsheet is something you run yourself. Two different shapes, solving different problems.
 permalink: /compare/substack/
 narrow: true
 ---
 <div class="lead" style="margin-bottom: var(--space-xl);">
-  Substack has been the default newsletter platform for a lot of writers since 2019. It handles email delivery, payments, reader discovery, and the web archive in a single signup. Project Broadsheet aims at a different set of tradeoffs. Neither is strictly better; they solve different problems.
+  Substack has been the default home for a lot of independent writers since 2019. It takes care of email delivery, payments, a web archive, and an audience network, all in one sign-up. Project Broadsheet is built around a different set of trade-offs. Neither is strictly better — they solve different problems.
 </div>
 
-## Quick summary
+## The short version
 
 | | Project Broadsheet | Substack |
 |---|---|---|
-| Model | Self-hosted framework | SaaS only |
-| Starting cost | $0 | Free to start |
-| Recurring cost | Free static hosting | 10% of revenue (on paid subscriptions) |
-| Content format | Markdown in Git | Proprietary, exportable as CSV |
-| Discovery | You build your own | Built-in recommendation network |
-| Reader tools | 27+ built-in | None |
-| Platform lock-in | None | High |
-| License | MIT | Proprietary |
+| How it runs | Files you keep, hosted on a free service | A hosted account, only on Substack |
+| Starting cost | Nothing | Nothing |
+| Ongoing cost | Hosting only, usually free | 10% of any paid subscription income |
+| Where the writing lives | Plain text files on your computer | On Substack's servers |
+| Discovery | Whatever you bring | Substack recommends you to others |
+| Reader features | Lots, on by default | Minimal |
+| Portability | Trivial — copy the folder | Possible, but takes work |
+| Licence | Open-source | Substack's own |
 
-## Pricing
+## The money
 
-Substack is free to use for free publications. The moment you charge for subscriptions, Substack takes 10% of revenue on top of Stripe's fees. On $10,000/year of subscription income, Substack takes $1,000.
+Substack is free until you start charging. Once you do, they take 10% of whatever readers pay, plus credit-card fees. On $10,000 a year of subscriptions, Substack's share is $1,000.
 
-Project Broadsheet has no revenue share. Paid subscriptions aren't built in, but you can run them through <span class="g-term" data-term="Buttondown">Buttondown</span> (also flat-fee, no revenue share), Memberful, or Stripe directly. Hosting is free on most static hosts.
+Project Broadsheet doesn't touch subscription income. Paid subscriptions aren't built in, but you can set them up through Buttondown (which has flat pricing), Memberful, or Stripe directly. The site itself is free to host on most free static services.
 
-## Ownership
+## What you actually own
 
-Substack owns the platform, the discovery algorithm, the recommendation network, and the subscriber signup flow. You own the subscriber email list and can export it, but the recommendation graph that brings new readers doesn't travel with you.
+Substack owns the platform, the recommendations that surface your work to new readers, and the sign-up flow. You own your subscriber list and can export it, but the network that brings you new readers stays with them.
 
-Project Broadsheet has no central platform. Your content is in Git, your subscribers are in your own Buttondown account, and discovery is whatever organic reach and RSS bring you. That's a real cost: you give up Substack's built-in readership pool. Whether it's worth it depends on where your readers are coming from.
+Project Broadsheet has no central company. Your writing is in a folder on your computer and online somewhere you control, your subscriber list is in your own Buttondown account, and readers come through search, links, and word of mouth. That's a real trade-off — you give up Substack's built-in audience in exchange for not being on anyone's platform.
 
-## Discovery
+## Finding readers
 
-Substack's biggest operational advantage is the cross-promotion network. Publications recommend each other; readers of one find others; the algorithm amplifies momentum. If you're starting from zero, this meaningfully shortens the runway.
+The strongest thing about Substack, operationally, is the way publications recommend each other. Readers of one find others; small publications get amplified by the network. If you're starting from zero, that shortens the climb a lot.
 
-Project Broadsheet has no equivalent. You rely on SEO, RSS, direct links, and word-of-mouth. That's fine for an established publication and a slower climb for a new one.
+Project Broadsheet has none of that. Readers come via search, RSS, direct links, and word of mouth. Fine for an established publication, slower for a brand-new one.
 
-## Content format and portability
+## Getting your work out
 
-Substack's export is a zip of post CSVs and an HTML file per post. Images are stored on `substackcdn.com`, which keeps working indefinitely. Converting to any other platform requires scripts.
+Substack exports a folder with each post as a spreadsheet row and an HTML file. Images stay on Substack's own servers, which keeps working indefinitely. Turning that into something another platform can read takes some work.
 
-Project Broadsheet's content is Markdown in Git. Moving it is a folder copy. The image files live in your repository.
+Project Broadsheet's articles are plain text files in a folder. Moving them somewhere else is copying the folder.
 
-## Reader experience
+## How the reading feels
 
-Substack's reader experience is minimal: a good article template, the option to read in-app, nothing beyond that. No text-to-speech, no annotations, no reading ruler.
+Substack's article pages are clean and consistent, but there isn't much beyond the words — no dark mode toggle, no save-for-later, and no highlights.
 
-Project Broadsheet's reader tools are extensive. How much this matters depends on your audience.
+Project Broadsheet has all of those on by default. Whether your readers will use them depends on your audience.
 
-## When Substack is the better choice
+## When Substack is the better fit
 
-- You want email delivery and payments handled without setup.
-- Discovery via Substack's network matters more than owning the platform.
-- You're okay trading 10% of paid revenue for operational simplicity.
-- You're a solo writer and don't need editorial features.
+- You want email, payments, and the archive all in one sign-up.
+- The built-in recommendations are meaningful for your growth.
+- You're fine trading 10% of subscription income for that simplicity.
+- You're one writer with a mailing list, not running a team.
 
-## When Project Broadsheet is the better choice
+## When Project Broadsheet is the better fit
 
-- Your publication is archive-first, not email-first.
-- You want to keep 100% of subscription revenue.
-- You want editorial sections, a library, reviews, events, or other structured content.
-- You want full control over the design and layout.
-- You don't want a third-party platform between you and your readers.
+- The archive and the site matter as much as the newsletter.
+- You'd rather keep all of the subscription income.
+- You want sections, reviews, a library, or other structured bits beyond plain posts.
+- You want the design and layout to be yours.
+- You'd rather your work didn't live on someone else's platform.
 
-## What to do next
+## Where to next
 
-- [Migrate from Substack](/docs/migration/from-substack/) if you're already on it.
-- [Get Started](/get-started/) to try Project Broadsheet.
-- [All comparisons](/compare/) for Ghost, WordPress, and Superdesk.
+- [Moving an archive from Substack](/docs/migration/from-substack/) if that's where you are now.
+- [Getting started](/get-started/) to try Project Broadsheet yourself.
+- [All the comparisons](/compare/) for Ghost, WordPress, and Superdesk.

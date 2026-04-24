@@ -11,15 +11,15 @@ This is a transparency feature: it shows readers that the article has been updat
 
 ## Configure the repository
 
-In `src/_data/site.json` (or `meta.js`), add a `repo` block:
+In `src/_data/meta.js`, add a `repo` block:
 
-```json
-"repo": {
-  "owner": "jonajinga",
-  "name": "the-freethinking-times",
-  "branch": "main",
-  "contentPath": "src/content"
-}
+```js
+repo: {
+  owner:       "jonajinga",
+  name:        "the-freethinking-times",
+  branch:      "main",
+  contentPath: "src/content"
+},
 ```
 
 | Field | Required | Notes |
@@ -57,7 +57,7 @@ This is useful for articles that were migrated from another platform and have a 
 
 ## Disabling globally
 
-Remove the `repo` block from `site.json`. Without it, `window.__repo` is not set and no revision history links are rendered anywhere.
+Remove the `repo` block from `meta.js`. Without it, `window.__repo` is not set and no revision history links are rendered anywhere.
 
 ## What to do next
 

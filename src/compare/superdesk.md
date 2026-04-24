@@ -1,86 +1,77 @@
 ---
 layout: layouts/page.njk
-title: Project Broadsheet vs. Superdesk
+title: Project Broadsheet next to Superdesk
 eyebrow: Compare
-subtitle: Superdesk is enterprise newsroom software used by major wire services and news organizations. Project Broadsheet is for independent publishers. Comparing them usefully requires honesty about scope.
+subtitle: Superdesk is newsroom software used by wire services and large news organisations. Project Broadsheet is for independent publishers. Different shapes, different scales.
 permalink: /compare/superdesk/
 narrow: true
 ---
 <div class="lead" style="margin-bottom: var(--space-xl);">
-  <a href="https://superdesk.org">Superdesk</a> is an open-source digital newsroom system made by Sourcefabric. It's used by news organizations and wire services that manage hundreds of writers, editors, and production stages. Project Broadsheet and Superdesk don't really compete; they serve different-sized operations. This page explains how they differ so you can tell which you actually need.
+  <a href="https://superdesk.org">Superdesk</a> is a full newsroom system made by Sourcefabric. It's used by news organisations and wire services that manage hundreds of writers, editors, and production steps. Project Broadsheet and Superdesk don't really compete — they're built for very different-sized operations. This page explains how they differ, so you can tell which one you actually need.
 </div>
 
-## Quick summary
+## The short version
 
 | | Project Broadsheet | Superdesk |
 |---|---|---|
-| Target user | Independent publishers, small teams | Large newsrooms, wire services |
-| Model | Static site generator | Multi-service enterprise system |
-| Starting cost | $0 | Infrastructure only, but non-trivial |
-| Content format | Markdown in Git | NewsML / MongoDB documents |
-| Database | None | MongoDB + Elasticsearch + Redis |
-| Editorial workflow | Basic (Git-based) | Full (desks, stages, approvals, assignments) |
-| Publishing targets | Web | Web, print, syndication, social, wire |
-| Reader tools | 27+ | None |
-| License | MIT | AGPLv3 |
+| Built for | Independent writers and small teams | Large newsrooms and wire services |
+| How it runs | Files you keep, hosted on a free service | A large setup of several services running together |
+| Starting cost | Nothing | Just the infrastructure — but that's non-trivial |
+| Where the writing lives | Plain text files on your computer | A structured news-industry format, in a database |
+| Editorial workflow | Light — review, then publish | Full — desks, stages, approvals, assignments |
+| Publishing to | The web | Web, print, wire, social, syndication |
+| Reader features | Built in | Not the focus |
+| Licence | Open-source (MIT) | Open-source (AGPLv3) |
 
 ## What Superdesk is for
 
-Superdesk is a newsroom management system. It's designed around the workflows of organizations that produce news continuously: a story moves from reporter to editor to fact-checker to production to publish, with formal states at each step. It handles multi-format output (web, print PDF, RSS, social, <span class="g-term" data-term="Atom">Atom</span>, NewsML for syndication to other outlets). It has role-based permissions, desk assignment, content scheduling, and an iCal-friendly events module.
+Superdesk is a newsroom. It's designed around the way large organisations produce news: a story moves from reporter to editor to fact-checker to production to published, with a formal step at each point. It handles output to more than one place (a web site, a print PDF, a syndicated wire feed, social channels) from a single source. It has roles, permissions, desk assignments, scheduling, and an events module.
 
-If your operation has more than, say, 20 writers and editors, Superdesk starts to make sense.
+If your operation has more than about twenty writers and editors, Superdesk starts to make sense.
 
 ## What Project Broadsheet is for
 
-Project Broadsheet is designed for 1–5 writers, maybe a small editorial team, publishing to a single audience. Workflow is whatever Git-based flow you want (branches, pull requests, direct commits). Output is a static web site, plus RSS. No multi-channel publication pipeline, no desk assignments, no complex approval states.
+Project Broadsheet is designed for one to a handful of writers, publishing to a single audience. The editorial process is light — write a draft, someone reviews it, it goes live — and the output is a web site with a feed. There's no multi-channel pipeline, no desk system, no formal sign-off chain.
 
-## Infrastructure
+## What it takes to run
 
-Superdesk requires:
+Superdesk needs a coordinated setup of several services running together — a document database, a search service, a queue, a web back end, and a front end — usually deployed with container tools and a sysadmin who's comfortable with all of it. Sourcefabric offers managed hosting if that's easier.
 
-- **MongoDB** (document database for content)
-- **Elasticsearch** (search index and query engine)
-- **Redis** (queue and cache)
-- **A web server** (Python backend, Node frontend)
-- Realistically: Docker, a multi-container orchestration setup, and a sysadmin comfortable with all of the above.
+Project Broadsheet is plain files served by a static host. Cloudflare Pages or Netlify handle everything. There's no always-running server to look after.
 
-Running Superdesk in production is a meaningful infrastructure investment. Sourcefabric offers hosted deployments if that's easier.
+## How each keeps the writing
 
-Project Broadsheet requires Node.js at build time and a static host at runtime. There is no runtime server. Cloudflare Pages or Netlify handle everything.
+Superdesk stores articles as structured documents, with the kind of detail a wire service needs — metadata, associations, publishing channels, and so on. That's why syndicating the same piece to a web site, a printed paper, and a wire feed works.
 
-## Content format
+Project Broadsheet stores articles as plain text files, aimed at a web site. For syndication or print, that format doesn't carry the same structure Superdesk's does.
 
-Superdesk stores content as structured documents (rich JSON with metadata, associations to media, packaging info, publishing channels). This is how large news organizations have worked for decades; it's also why syndicating to a print paper, a website, and a wire feed from one source is possible.
+## How work moves through the system
 
-Project Broadsheet stores content as Markdown files. Publishing targets the web only. If you need print or syndication, Markdown articles don't carry the structural metadata Superdesk does.
+Superdesk has a formal editorial process. A story is "in progress", "submitted", "in review", "approved", "scheduled", "published". Different roles have different permissions — a reporter can't publish without an editor's sign-off.
 
-## Editorial workflow
+Project Broadsheet's process is lighter: a writer saves a draft, an editor reviews the change, and once it's approved the change goes live. That works for a small team. It doesn't scale to the formal sign-off chains of a large newsroom.
 
-Superdesk has a formal editorial workflow. A story can be "in progress," "submitted," "in review," "approved," "scheduled," "published." Roles (reporter, editor, production) have different permissions. A reporter can't publish; an editor has to approve.
+## When Superdesk is the right fit
 
-Project Broadsheet uses Git. A writer commits a draft with `draft: true`; an editor reviews the pull request; merging to `main` and pushing triggers a deploy. This works for a small team but doesn't scale to newsroom workflows with formal accountability chains.
+- You're running an actual newsroom with multiple writers, editors, and a formal review process.
+- You need to publish the same story to a web site, print, a wire feed, and social from one source.
+- You have the setup and budget for a multi-service deployment.
+- You have compliance or audit requirements that need role-based access control.
 
-## When Superdesk is the right choice
+## When Project Broadsheet is the right fit
 
-- You're running an actual newsroom with multiple writers, editors, and formal review processes.
-- You need to publish to multiple channels from one source (web + print + wire + social).
-- You have the infrastructure and budget for a multi-service deployment.
-- Your operation has compliance or audit requirements that need role-based access control.
-
-## When Project Broadsheet is the right choice
-
-- You're a single writer, or a small editorial team (under ~10 people).
-- Your output is a website (with optional newsletter).
-- You prefer flat files, Git, and minimal infrastructure.
-- You want reader-experience features out of the box.
-- You value low operating cost over enterprise features.
+- You're a single writer, or a small editorial team (fewer than about ten people).
+- Your output is a web site, with an optional newsletter.
+- You'd rather have plain files and almost nothing to keep running.
+- The reader-facing features matter to your audience.
+- You'd rather keep running costs close to nothing.
 
 ## Both are open-source
 
-Neither is locked behind a vendor. Both can be forked and modified. The AGPLv3 license on Superdesk has stronger copyleft requirements than Project Broadsheet's MIT license; that matters if you plan to offer hosted Superdesk as a commercial service to others.
+Neither one locks you to a company. Both can be taken and modified. Superdesk's licence (AGPLv3) has stronger copyleft requirements than Project Broadsheet's (MIT) — that matters mainly if you plan to offer a hosted version of Superdesk to other people as a paid service.
 
-## What to do next
+## Where to next
 
-- [Get Started](/get-started/) with Project Broadsheet.
-- [Superdesk's site](https://superdesk.org) for their documentation.
-- [All comparisons](/compare/) for Ghost, Substack, and WordPress.
+- [Getting started](/get-started/) with Project Broadsheet.
+- [Superdesk's own site](https://superdesk.org) for their documentation.
+- [All the comparisons](/compare/) for Ghost, Substack, and WordPress.

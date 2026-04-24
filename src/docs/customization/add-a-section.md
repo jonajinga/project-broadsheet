@@ -9,14 +9,14 @@ Project Broadsheet ships with nine <span class="g-term" data-term="editorial sec
 
 ## Step 1. Define the section
 
-Open `src/_data/site.json` and append a new object to the `sections` array:
+Open `src/_data/sections.js` and append a new object to the exported array:
 
-```json
+```js
 {
-  "slug": "science",
-  "label": "Science",
-  "color": "#2C5F8A",
-  "description": "Rigorous, accessible science writing."
+  slug: "science",
+  label: "Science",
+  color: "#2C5F8A",
+  description: "Rigorous, accessible science writing."
 }
 ```
 

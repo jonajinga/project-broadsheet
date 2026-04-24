@@ -2,9 +2,8 @@ export default {
   highlights: [
     {
       title: "Reader experience",
-      summary: "A full set of reader-side controls applied to every article: font selection, size, spacing, highlights, notes, text-to-speech, reading ruler, focus mode, background presets, download, citations, and more. All on by default.",
+      summary: "A full set of reader-side controls applied to every article: font selection, size, spacing, highlights, notes, reading ruler, focus mode, background presets, download, citations, and more. All on by default.",
       points: [
-        "Text-to-speech with synced word highlighting",
         "Font picker, size slider, line spacing, text width, word spacing",
         "Background presets: default, sepia, cream, dark, high-contrast",
         "Highlights (6 colors), notes, bookmarks, and reading list",
@@ -13,7 +12,6 @@ export default {
         "Citation formatter: APA 7, MLA 9, Chicago 17",
         "Aggregated notes page at /notes/",
         "Reader panel with highlights, bookmarks, progress, related, and citation tabs",
-        "Voice search and form dictation",
         "Import and export reader data as JSON"
       ]
     },
@@ -36,7 +34,7 @@ export default {
         "Public-domain library with chapter navigation and reading progress",
         "A-to-Z glossary with hover tooltips in article text",
         "Events calendar with recurrence support",
-        "Interactive games: trivia, word scramble, crossword, fifteen-puzzle",
+        "Interactive games: word scramble and fifteen-puzzle (more on the roadmap)",
         "Quotes collection with pull-quote shortcode",
         "Curated bookshelf with categories and filtering"
       ]
@@ -75,7 +73,7 @@ export default {
         "Umami analytics (cookieless)",
         "Cusdis comments (privacy-first)",
         "Web3Forms for contact and feedback forms",
-        "Pages CMS for browser-based editing",
+        "Decap CMS for browser-based editing with editorial review",
         "GTranslate across 80+ languages",
         "Ko-fi, Buy Me a Coffee, Patreon tipping per publication and per author"
       ]
@@ -95,9 +93,9 @@ export default {
     }
   ],
   stats: [
-    { label: "Reader tools", value: "27+" },
     { label: "Editorial sections", value: "9" },
     { label: "Build time (500 pages)", value: "~12s" },
-    { label: "Recurring cost", value: "$0" }
+    { label: "Recurring cost", value: "$0" },
+    { label: "Licence", value: "MIT" }
   ]
 };

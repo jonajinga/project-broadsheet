@@ -17,12 +17,10 @@ The free tier covers unlimited comments and sites. Paid plans add features like 
 
 ## Configure Project Broadsheet
 
-In `src/_data/site.json`:
+In `src/_data/meta.js`:
 
-```json
-"cusdis": {
-  "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
+```js
+cusdisAppId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 ```
 
 Leave empty to disable comments entirely.
@@ -32,10 +30,10 @@ Leave empty to disable comments entirely.
 Comments render at the bottom of every article by default. The integration is loaded in `layouts/article.njk`:
 
 ```html
-{% raw %}{% if site.cusdis.appId %}
+{% raw %}{% if meta.cusdisAppId %}
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
-  data-app-id="{{ site.cusdis.appId }}"
+  data-app-id="{{ meta.cusdisAppId }}"
   data-page-id="{{ page.url }}"
   data-page-url="{{ meta.url }}{{ page.url }}"
   data-page-title="{{ title }}">

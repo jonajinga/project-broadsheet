@@ -29,14 +29,14 @@ Hovering a badge triggers a Tippy.js tooltip that explains what the badge means.
 
 Badges are driven by the same tipping configuration used by the tipping buttons. You do not configure badges separately.
 
-**Publication-level badges** — add tipping URLs to `src/_data/site.json`:
+**Publication-level badges** — add tipping URLs to `src/_data/meta.js`:
 
-```json
-"tipping": {
-  "kofi": "https://ko-fi.com/yourpublication",
-  "bmac": "https://buymeacoffee.com/yourpublication",
-  "patreon": "https://www.patreon.com/yourpublication"
-}
+```js
+tipping: {
+  kofi:    "https://ko-fi.com/yourpublication",
+  bmac:    "https://buymeacoffee.com/yourpublication",
+  patreon: "https://www.patreon.com/yourpublication"
+},
 ```
 
 **Author-level badges** — add tipping URLs to the author entry in `src/_data/authors.js`:
@@ -73,14 +73,14 @@ You do not need to add the partial manually to use badges in these locations. If
 
 Transparency badges (`.tip-badge--info`) are not tied to tipping. They display static editorial signals — for example, "No ads" or "Reader-funded." These appear alongside support badges to give readers a quick overview of the publication's editorial independence.
 
-Transparency badge labels are defined as an array in `src/_data/site.json`:
+Transparency badge labels are defined as an array in `src/_data/meta.js`:
 
-```json
-"transparency": [
+```js
+transparency: [
   "No ads",
   "Reader-funded",
   "No affiliate links"
-]
+],
 ```
 
 Each string becomes one gray info badge. Leave the array empty or omit the key to show no transparency badges.

@@ -1,59 +1,67 @@
 ---
 layout: layouts/page.njk
 title: Pricing
-eyebrow: Services
-subtitle: Project Broadsheet is free. If you want help, I sell my time.
+eyebrow: Pricing
+subtitle: Project Broadsheet is free. If you want a hand, I sell my time by the hour.
 permalink: /pricing/
 ---
 <div class="lead" style="margin-bottom: var(--space-xl);">
-  Project Broadsheet exists so you don't need me. The framework is free, the documentation covers everything, and anyone with a terminal and a GitHub account can run a full publication at no cost. If you'd rather have help, I'm happy to sell my time at a fair freelance rate.
+  There's no paid version, no "pro" plan, no monthly fee. Project Broadsheet is genuinely free to use, for anything, forever. The only reason this page exists is because sometimes people would rather not do it themselves.
 </div>
 
 <section class="pricing-section">
   <header class="pricing-section__header">
-    <h2 class="pricing-section__title">Self-hosted</h2>
-    <p class="pricing-section__summary">Fork the repository and deploy it yourself. Every feature ships by default. There is no "pro tier" holding anything back; the documentation is written specifically so you can do all of this on your own.</p>
+    <h2 class="pricing-section__title">Do it yourself</h2>
+    <p class="pricing-section__summary">Grab a copy, follow the guides, and put it online. Nothing is held back for a paid tier. The docs are written so you don't need me.</p>
   </header>
   <div class="pricing-free">
     <div>
       <span class="pricing-free__price">{{ pricing.selfHosted.price }}<span class="pricing-free__cadence">{{ pricing.selfHosted.cadence }}</span></span>
     </div>
     <div class="pricing-free__body">
-      <h3>{{ pricing.selfHosted.name }}</h3>
-      <p>{{ pricing.selfHosted.tagline }}</p>
+      <h3>Free, always</h3>
+      <p>Everything the framework can do is available from day one. No account, no tracking, no limits.</p>
       <ul class="pricing-card__list">
-        {% for f in pricing.selfHosted.features %}<li>{{ f }}</li>{% endfor %}
+        <li>Every feature included</li>
+        <li>Every page of the docs</li>
+        <li>Every example site as a reference</li>
+        <li>Community help in GitHub Discussions</li>
       </ul>
-      <a class="btn btn--primary btn--lg" href="{{ pricing.selfHosted.cta.url }}">{{ pricing.selfHosted.cta.label }}</a>
+      <a class="btn btn--primary btn--lg" href="/get-started/">How to get started</a>
     </div>
   </div>
 </section>
 
 <section class="pricing-section" id="my-time">
   <header class="pricing-section__header">
-    <h2 class="pricing-section__title">My time</h2>
-    <p class="pricing-section__summary">Everything else is billed at a single rate. You pay for what you actually need, nothing more. See <a href="/services/">what I can help with</a>.</p>
+    <h2 class="pricing-section__title">Hire me</h2>
+    <p class="pricing-section__summary">If you'd rather have someone set it up, move an archive over, or build something custom, I do that work by the hour. You pay for the time you actually use — no retainer, no minimum.</p>
   </header>
   <div class="pricing-free">
     <div>
       <span class="pricing-free__price">{{ pricing.hourly.price }}<span class="pricing-free__cadence">{{ pricing.hourly.cadence }}</span></span>
     </div>
     <div class="pricing-free__body">
-      <p>{{ pricing.hourly.tagline }}</p>
+      <p>A flat hourly rate, same for everything.</p>
       <ul class="pricing-card__list">
-        {% for item in pricing.hourly.includes %}<li>{{ item }}</li>{% endfor %}
+        <li>Getting a new publication online</li>
+        <li>Moving an existing archive over from somewhere else</li>
+        <li>A new page, section, or layout built to your spec</li>
+        <li>A walk-through or training session</li>
+        <li>Fixing something that isn't behaving</li>
+        <li>A second pair of eyes on a decision you're stuck on</li>
       </ul>
-      <a class="btn btn--primary btn--lg" href="{{ pricing.hourly.cta.url }}">{{ pricing.hourly.cta.label }}</a>
+      <a class="btn btn--primary btn--lg" href="/book-a-call/">Get in touch</a>
     </div>
   </div>
 </section>
 
 <div class="callout" style="margin-top: var(--space-2xl);">
-  <div class="callout__title">Education and nonprofit rate</div>
-  <p>Educational institutions and registered nonprofits qualify for a {{ pricing.education.discount }} reduced rate — <strong>${{ pricing.education.rate }}/hour</strong> — for setup, training, and custom development. Mention your institution when you <a href="/book-a-call/">book a call</a>. See the <a href="/education/">education page</a> for more details on classroom and institutional support.</p>
+  <div class="callout__title">A lower rate for schools and nonprofits</div>
+  <p>If you're at a school, university, or registered nonprofit, the rate is <strong>${{ pricing.education.rate }} per hour</strong> instead of ${{ pricing.education.fullRate }}. Just mention it when you <a href="/book-a-call/">get in touch</a>. There's a bit more on the <a href="/education/">schools page</a>.</p>
 </div>
 
 <div class="callout" style="margin-top: var(--space-lg);">
-  <div class="callout__title">One person on the other end</div>
-  <p>Every engagement is with me directly. No bots, no AI, no sales team. If you write, I reply. If you book a call, I'm on it.</p>
+  <div class="callout__title">You're talking to a person</div>
+  <p>Every reply comes from me. No bots, no "account manager". If you write, I'm the one reading it.</p>
 </div>

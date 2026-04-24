@@ -1,64 +1,62 @@
 ---
-title: Setting up Buttondown with Project Broadsheet
-summary: A walkthrough of connecting Buttondown as your newsletter service, including how to move an existing subscriber list over from another platform.
+title: Setting up a newsletter with Buttondown
+summary: A walk-through of connecting Buttondown as your newsletter service, including moving an existing subscriber list over from somewhere else.
 date: 2026-04-18
 author: Jon Ajinga
 tag: Tutorial
 ---
 
-If you're running a publication on Project Broadsheet and want a newsletter, Buttondown is the default integration. It takes about ten minutes to set up. Here's the full walkthrough.
+If you're running a publication on Project Broadsheet and want a newsletter, Buttondown is the easiest option to connect. It takes about ten minutes end to end. Here's the full walk-through.
 
 ## Why Buttondown
 
-Buttondown is an independent newsletter service. It doesn't use open-tracking pixels or link tracking unless you turn them on. Pricing is flat-fee (not per-subscriber). The founder, Justin Duke, is a person you can email and actually reach. I use Buttondown for The Freethinking Times and for personal mail.
+Buttondown is a small, independent email service. It doesn't quietly open-track your readers or put tracking into every link unless you turn those on. Pricing is a flat monthly fee rather than per-subscriber, so the bill doesn't balloon as you grow. The person who runs it is someone you can actually email. I use it for The Freethinking Times and for my own mail.
 
-Other reasonable options for a Project Broadsheet site: Kit (formerly ConvertKit), MailerLite, Substack-as-reader-only. Each has tradeoffs. Buttondown is what I recommend for most independent publishers.
+Other reasonable options for a Project Broadsheet site: Kit (formerly ConvertKit), MailerLite, or using Substack as a newsletter sender only. Each comes with its own trade-offs. Buttondown is what I'd recommend for most independent publications.
 
-## Step one: create an account
+## Step one: make an account
 
-Go to buttondown.email and sign up. The free tier covers up to 100 subscribers. Paid plans start around $9/month.
+Go to buttondown.email and sign up. The free tier covers up to 100 subscribers. Paid plans start around $9 a month.
 
-You'll pick a username during signup. That username becomes part of your subscription URL, so pick something readable (your publication's name or close to it).
+Pick a username during sign-up. That username becomes part of your subscription address, so choose something readable — your publication's name, or close to it.
 
 ## Step two: point Project Broadsheet at it
 
-Open `src/_data/site.json` or `src/_data/meta.js` (depending on where you put it) and set the Buttondown username:
+Open `src/_data/meta.js` and set the Buttondown username:
 
-```json
-"buttondown": {
-  "username": "your-buttondown-username"
-}
+```js
+buttondownUsername: "your-buttondown-username",
 ```
 
-Rebuild the site. Every newsletter signup form now posts to your Buttondown account. That includes the form in the footer, the blog index, and anywhere you've embedded the newsletter partial.
+Publish the site again. Every newsletter sign-up form on it now goes to your Buttondown account — including the one in the footer, the one on the blog index, and any custom spot you've dropped the sign-up block into.
 
-## Step three: import existing subscribers (if any)
+## Step three: bring your existing subscribers across (if you have any)
 
-If you're coming from Substack, Ghost, or another service, export your subscriber list as CSV. In Buttondown:
+Coming from Substack, Ghost, or somewhere else? Export your subscriber list as a spreadsheet file. In Buttondown:
 
-1. Settings, Subscribers, Import.
-2. Upload the CSV.
-3. Buttondown imports confirmed subscribers directly. If your source platform used double-opt-in, so did Buttondown.
+1. Settings → Subscribers → Import.
+2. Upload the file.
+3. Buttondown brings confirmed subscribers across directly. If the service you're coming from used a confirmation step, so did Buttondown — no double-confirmation needed.
 
-Send a first email from your new Buttondown address explaining the move so subscribers know to expect mail from the new sender.
+Send a short first email from your new Buttondown address explaining the move, so subscribers know the new sender is really you.
 
-## Step four: customize the signup flow
+## Step four: tidy up the sign-up flow
 
-Buttondown's default confirmation page is plain. You can customize:
+Buttondown's default confirmation page is plain. You can change:
 
-- The welcome email (Settings, Welcome email).
-- The confirmation page (Settings, Pages).
+- The welcome email (Settings → Welcome email).
+- The confirmation page (Settings → Pages).
 - The sender name and reply-to address.
-- Whether to use double-opt-in (I recommend yes).
+- Whether new sign-ups have to confirm via email (I'd say yes).
 
-## Step five: write your first issue
+## Step five: send your first issue
 
 In Buttondown's composer, write your first email. Preview it. Send.
 
-Buttondown delivers from your own domain once you verify DNS records. That takes another 15 minutes but isn't required on day one.
+Buttondown can also send from your own domain once you add a couple of DNS records. That takes another fifteen minutes and isn't required on day one — the default sender works fine to start.
 
 ## What to expect
 
-Newsletter growth is slow unless you already have an audience. Expect tens of subscribers in month one, hundreds by month six if you publish consistently. The Freethinking Times took two years to reach a thousand subscribers; your mileage varies wildly with topic, format, and cadence.
+Newsletter growth is slow unless you already have an audience. Expect tens of subscribers in the first month, hundreds by month six if you publish steadily. The Freethinking Times took about two years to reach a thousand; yours will depend on the topic, the format, and how often you publish.
 
-The good news: every subscriber is yours. No platform can take them away. That matters more than growth rate over the long run.
+The good news: every subscriber is yours. No service can take them away from you. Over time, that matters more than how fast the list grows.

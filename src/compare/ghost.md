@@ -1,78 +1,76 @@
 ---
 layout: layouts/page.njk
-title: Project Broadsheet vs. Ghost
+title: Project Broadsheet next to Ghost
 eyebrow: Compare
-subtitle: A side-by-side look at an independent self-hosted framework and the publishing SaaS most writers consider first. Pricing, ownership, feature overlap, and honest tradeoffs.
+subtitle: Two different ways to run an independent publication — one hosted, one you run yourself. What each does well, and where they pull apart.
 permalink: /compare/ghost/
 narrow: true
 ---
 <div class="lead" style="margin-bottom: var(--space-xl);">
-  Ghost is a good product. It's open-source, runs on Node.js, has a polished editor, and ships a reliable newsletter. Most independent writers who outgrow Medium or WordPress end up here. Project Broadsheet covers similar ground from a different angle: file-based, static, free to run.
+  Ghost is a solid product. It's open-source, has a polished writing experience, and a newsletter that works well out of the box. Most writers who outgrow Medium or WordPress end up there. Project Broadsheet covers similar ground from a different direction — your own files on your own computer, free to put online.
 </div>
 
-## Quick summary
+## The short version
 
 | | Project Broadsheet | Ghost |
 |---|---|---|
-| Model | Fork a Git repo, host static files | SaaS or self-hosted |
-| Starting cost | $0 | $9/mo (Ghost Pro) or hosting costs |
-| Recurring cost | Hosting only (free on Cloudflare Pages) | $9–$199+/mo based on audience size |
-| Content format | Markdown in Git | JSON in a SQL database |
-| Database | None | Yes (MySQL or SQLite) |
-| Newsletter | Buttondown integration | Built in |
-| Reader tools | 27+ built-in | None |
-| License | MIT | MIT |
+| How it runs | Files you keep, hosted on a free service | A hosted account or server you manage |
+| Starting cost | Nothing | $9 a month, or the cost of a server |
+| Ongoing cost | Hosting only, usually free | $9–$199+ a month, grows with your audience |
+| Where the writing lives | Plain text files on your computer | A database on Ghost's servers |
+| Newsletter | Connected to a small email service | Built in |
+| Reader features | Lots, on by default | Minimal |
+| Licence | Open-source | Open-source |
 
-## Pricing over time
+## What it costs over time
 
-Ghost Pro's pricing scales with your audience:
+Ghost's hosted version charges more as your audience grows:
 
-- 500 members: $9/mo
-- 5,000 members: $31/mo
-- 50,000 members: $199/mo
-- 500,000 members: $6,900/mo
+- 500 members: $9 a month
+- 5,000 members: $31 a month
+- 50,000 members: $199 a month
+- 500,000 members: $6,900 a month
 
-Self-hosting Ghost is free in licensing but requires a Node-capable server (around $5–20/mo on DigitalOcean or similar), plus time spent on updates, security, and database maintenance.
+You can also run Ghost on your own server, which is free in software but costs something to host (usually $5–20 a month) — plus the time spent keeping it updated.
 
-Project Broadsheet is free to self-host on Cloudflare Pages, Netlify, or Vercel. No platform fees at any scale.
+Project Broadsheet is free at every level. Hosting it is free for almost every independent publication on services like Cloudflare Pages or Netlify.
 
 ## Newsletter
 
-Ghost's newsletter is excellent. It sends from your domain, supports paid memberships out of the box, has strong analytics, and integrates with Stripe for billing. Subscription management is the central feature of the product.
+Ghost's newsletter is one of its real strengths. It sends from your own domain, handles paid subscriptions, has strong reporting on opens and clicks, and connects to Stripe for payments. If newsletters and subscriptions are the centre of your publication, that's all in the box.
 
-Project Broadsheet uses <span class="g-term" data-term="Buttondown">Buttondown</span> as its default newsletter integration. Buttondown is also independent, also privacy-respecting, and scales on its own pricing. Project Broadsheet doesn't build newsletter functionality into the core; it delegates.
+Project Broadsheet uses a small independent email service called Buttondown as its default. Buttondown is also privacy-respecting and has its own flat pricing. It covers what most publications need — a sign-up form, sending the newsletter, and a subscriber list you own — but it's a separate service, not a built-in feature.
 
-If paid subscriptions are central to your publication, Ghost is the more complete package today. If your newsletter is secondary to your archive, Buttondown + Project Broadsheet works fine.
+If paid subscriptions are the heart of what you do, Ghost is the simpler choice today. If your newsletter is a nice-to-have alongside the site itself, pairing Buttondown with Project Broadsheet works fine.
 
-## Content ownership
+## What you actually own
 
-Ghost stores posts in a SQL database. You can export to JSON and migrate to another Ghost instance, but the format is Ghost-specific. Moving to another platform means writing a conversion script.
+Ghost stores your writing in its own database. You can export everything, but the format is Ghost's. Moving to another platform means writing a script or paying someone to.
 
-Project Broadsheet stores each post as a <span class="g-term" data-term="Markdown">Markdown</span> file in Git. Moving to another platform is a folder copy.
+Project Broadsheet keeps each article as a plain text file in a folder on your computer. Moving to another setup is copying the folder somewhere else.
 
-## Reader experience
+## How the reading experience feels
 
-Ghost's article layout is clean but minimal. There are no built-in reader tools (no text-to-speech, no highlights, no annotations, no reading ruler). Third-party plugins can add some of these; most publications don't.
+Ghost's article pages are clean but minimal. There's no dark mode toggle, no save-for-later, and no highlights unless you add a plug-in.
 
-Project Broadsheet ships with 27+ reader-side controls. Whether you need them is a real question; a lot of publishers don't. But they're there.
+Project Broadsheet has all of those on by default. Whether your readers will use them is a real question — some audiences do, some don't — but if they do, it's already there.
 
-## When Ghost is the better choice
+## When Ghost is the better fit
 
-- Your publication's revenue is from paid subscriptions, and you want the operational side handled.
-- You prefer a browser-based editor over file editing.
-- You have some budget and don't want to manage hosting yourself.
-- You like Ghost's specific theme ecosystem and plugin marketplace.
+- Paid subscriptions are central to your publication.
+- You want someone else to handle hosting, billing, and upkeep.
+- You prefer writing directly in a browser editor.
+- You'd rather pay a subscription than spend time on setup.
 
-## When Project Broadsheet is the better choice
+## When Project Broadsheet is the better fit
 
-- You want to own everything: files, hosting, workflow.
-- You don't need paid memberships, or you'll run them through a separate service.
-- You prefer Git-based content management (with an optional browser editor via Decap CMS).
-- Reader experience features matter to your audience.
-- You don't want recurring platform fees at any scale.
+- You want your writing to live in plain files you control.
+- Paid subscriptions aren't central, or you'll use a separate service for them.
+- You don't want the bill to grow as your audience grows.
+- You'd like the reader features to be there without adding plug-ins.
 
-## What to do next
+## Where to next
 
-- [Get Started](/get-started/) to try Project Broadsheet locally.
-- [Migrate from Ghost](/docs/migration/from-ghost/) if you're already using it.
-- [All comparisons](/compare/) to see against Substack, WordPress, and Superdesk.
+- [Getting started](/get-started/) to try Project Broadsheet on your own computer.
+- [Moving an archive from Ghost](/docs/migration/from-ghost/) if you're already there.
+- [All the comparisons](/compare/) for Substack, WordPress, and Superdesk.

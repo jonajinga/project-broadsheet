@@ -47,6 +47,6 @@ A production build writes the finished website to a folder called `_site/`. That
 ## What to do next
 
 - [After your first deploy](/docs/getting-started/after-first-deploy/) for a 10-step checklist to get the publication ready for readers.
-- [Configure site.json](/docs/content/site-config/) to set your publication name, editorial sections, and integrations.
+- [Configure meta.js](/docs/content/site-config/) to set your publication name and integration keys.
 - [Write your first article](/docs/content/write-an-article/) to create your first <span class="g-term" data-term="Markdown">Markdown</span> file.
 - No terminal? [Use Decap CMS](/docs/integrations/decap-cms/) for browser-based editing.

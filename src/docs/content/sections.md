@@ -12,9 +12,9 @@ An <span class="g-term" data-term="editorial section">editorial section</span> i
 - An accent color applied to section badges, breadcrumbs, and dividers.
 - A dedicated entry in site navigation.
 
-## The nine default sections
+## The default sections
 
-Project Broadsheet ships with these sections defined in `site.json`:
+Project Broadsheet ships with these editorial sections defined in the sections data file:
 
 1. **News**: breaking, reporting, factual
 2. **Opinion**: editorials and commentary
@@ -24,24 +24,25 @@ Project Broadsheet ships with these sections defined in `site.json`:
 6. **History**: long-form historical pieces
 7. **Letters**: reader correspondence
 8. **Reviews**: books, films, podcasts, documentaries
-9. **Editions**: numbered issues that group articles
 
-You can delete, rename, or reorder any of them.
+In addition, **Editions** (numbered issues that group articles together) is a related organising layer — see [Editions](/docs/specialty-content/editions/). Count it as a ninth top-level category if your publication uses it.
+
+You can delete, rename, or reorder any of these sections.
 
 ## Section configuration
 
-Open `src/_data/site.json`:
+Sections are defined in `src/_data/sections.js` (an ESM module returning an array):
 
-```json
-"sections": [
+```js
+export default [
   {
-    "slug": "news",
-    "label": "News",
-    "description": "Reporting on stories that matter.",
-    "color": "#C0392B",
-    "showOnHomepage": true
+    slug: "news",
+    label: "News",
+    description: "Reporting on stories that matter.",
+    color: "#C0392B",
+    showOnHomepage: true
   }
-]
+];
 ```
 
 - `slug`: the URL segment and the folder name under `src/content/`.
@@ -66,7 +67,7 @@ In the article's front matter:
 section: news
 ```
 
-The value must match a section `slug` from `site.json`. The article's file path should also live under `src/content/{slug}/` so Project Broadsheet can find it by collection.
+The value must match a section `slug` from `sections.js`. The article's file path should also live under `src/content/{slug}/` so Project Broadsheet can find it by collection.
 
 ## What to do next
 

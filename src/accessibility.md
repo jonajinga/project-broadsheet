@@ -1,8 +1,8 @@
 ---
 layout: layouts/page.njk
-title: Accessibility Statement
+title: Accessibility
 eyebrow: Legal
-subtitle: Our commitment to making Project Broadsheet, the product and this website, usable by everyone.
+subtitle: How this website, and any site built with Project Broadsheet, aim to be usable by everyone.
 permalink: /accessibility/
 toc: true
 ---
@@ -53,13 +53,13 @@ Project Broadsheet is designed to meet **[WCAG 2.2 Level AA](https://www.w3.org/
 
 Project Broadsheet itself ships with reader-experience features that go beyond WCAG compliance:
 
-- **Font picker**. 27 font choices, including high-legibility options for dyslexia
-- **Text-to-speech**. Web Speech API with word-level highlight sync
+- **Font picker**. The system default plus nine web fonts, including Atkinson Hyperlegible for low-vision readers
 - **Reading ruler**, customizable thickness and color to aid line tracking
 - **Focus mode**, dims everything except the article body
 - **Highlights and notes**, six colors, persistent per-device
 - **Adjustable spacing**, tight / normal / relaxed line-height
-- **Adjustable font size**, four steps from small to x-large
+- **Adjustable word spacing**, normal / wide / extra wide
+- **Adjustable font size**, pixel override from the site default
 - **Import/export**, take all your reader data with you as JSON
 
 ## Known issues

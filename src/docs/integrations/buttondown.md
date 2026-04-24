@@ -5,7 +5,7 @@ order: 1
 updated: 2026-04-17
 ---
 
-<span class="g-term" data-term="Buttondown">Buttondown</span> is an independent newsletter service that does not use open-tracking pixels or click-tracking by default, and offers straightforward flat-rate pricing rather than per-subscriber tiers. Project Broadsheet treats Buttondown as the default newsletter destination; enabling it requires one field in `site.json`.
+<span class="g-term" data-term="Buttondown">Buttondown</span> is an independent newsletter service that does not use open-tracking pixels or click-tracking by default, and offers straightforward flat-rate pricing rather than per-subscriber tiers. Project Broadsheet treats Buttondown as the default newsletter destination; enabling it requires one field in `meta.js`.
 
 ## Create an account
 
@@ -13,15 +13,13 @@ Sign up at <https://buttondown.email>. The free tier covers up to 100 subscriber
 
 ## Configure Project Broadsheet
 
-Open `src/_data/site.json` and set the Buttondown username:
+Open `src/_data/meta.js` and set `buttondownUsername`:
 
-```json
-"buttondown": {
-  "username": "your-buttondown-username"
-}
+```js
+buttondownUsername: "your-buttondown-username",
 ```
 
-On the next build, every newsletter signup form on the site will point at your Buttondown instance. No other changes are required.
+On the next build, every newsletter signup form on the site will point at your Buttondown instance. Leaving the field empty disables the newsletter block site-wide. No other changes are required.
 
 ## Where the signup form appears
 

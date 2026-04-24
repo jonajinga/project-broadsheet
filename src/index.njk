@@ -1,25 +1,27 @@
 ---
 layout: layouts/base.njk
 title: ""
-description: "Project Broadsheet is an open-source publishing framework built on Eleventy. It includes nine editorial sections, a reviews stack, a public-domain library, reader tools, search, and SEO."
+description: "Project Broadsheet is a free, open-source way to run your own publication online — a home page, sections, an archive, and reading tools that readers notice. Yours to keep."
 permalink: /index.html
 ---
 <section class="hero">
   <div class="container">
     <div class="hero__inner">
       <div>
-        <span class="hero__eyebrow">MIT · Democratizing publishing</span>
+        <span class="hero__eyebrow">Free · Open-source</span>
         <h1 class="hero__title">{{ meta.tagline }}</h1>
         <p class="hero__subhead">{{ meta.subhead }}</p>
         <div class="hero__actions btn-group btn-group--balanced">
-          <a class="btn btn--primary btn--lg" href="/get-started/">Fork it and start</a>
-          <a class="btn btn--outline btn--lg" href="{{ meta.liveExample }}" rel="noopener">See it live →</a>
+          <a class="btn btn--primary btn--lg" href="{{ meta.liveExample }}" rel="noopener">See a real example →</a>
+          <a class="btn btn--outline btn--lg" href="#what-you-get">How it works</a>
         </div>
-        <div class="hero__meta">
-          <span class="hero__meta-item">Nine editorial sections</span>
-          <span class="hero__meta-item">27+ reader tools</span>
-          <span class="hero__meta-item">Pagefind search</span>
-          <span class="hero__meta-item">No subscriptions, ever</span>
+        <div class="social-strip social-strip--hero">
+          <div class="social-strip__inner">
+            <span class="social-strip__item">Live at <strong><a href="{{ meta.liveExample }}">{{ meta.liveExampleName }}</a></strong></span>
+            <span class="social-strip__item">Code on <strong><a href="{{ meta.github }}">GitHub</a></strong></span>
+            <span class="social-strip__item">Free to use, forever</span>
+            <span class="social-strip__item">Your writing stays yours</span>
+          </div>
         </div>
         <hr class="gold-rule hero__rule">
       </div>
@@ -27,37 +29,44 @@ permalink: /index.html
   </div>
 </section>
 
-<section class="social-strip">
-  <div class="container">
-    <div class="social-strip__inner">
-      <span class="social-strip__item">In use at <strong><a href="{{ meta.liveExample }}">{{ meta.liveExampleName }}</a></strong></span>
-      <span class="social-strip__item">Source on <strong><a href="{{ meta.github }}">GitHub</a></strong></span>
-      <span class="social-strip__item"><strong>MIT</strong> licensed</span>
-      <span class="social-strip__item"><strong><a href="/about/">Read the mission</a></strong></span>
-    </div>
-  </div>
-</section>
-
-<section class="home-features" id="home-features">
+<section class="home-features" id="what-you-get">
   <div class="container">
     <header class="home-features__header">
-      <span class="eyebrow">What's included</span>
-      <h2 class="home-features__title">A newsroom's worth of tools, packaged for one person.</h2>
-      <p class="home-features__summary">Most of what makes a publication feel like a publication (proper editorial sections, a reviews stack, a searchable archive, reader-focused tools) used to live only inside major news organizations or behind subscription paywalls. Project Broadsheet brings those tools out in the open.</p>
+      <span class="eyebrow">What it is</span>
+      <h2 class="home-features__title">A website for your writing, without the middlemen.</h2>
+      <p class="home-features__summary">If you've ever wanted a proper home for your writing — one that looks like a publication rather than a blog, doesn't charge a monthly fee, and can't be taken away by the company that hosts it — this is for you. You bring the words. Project Broadsheet handles everything else a publication needs.</p>
     </header>
+
     <div class="home-features__grid">
-      {% for f in features.highlights %}
       <article class="feature-card">
-        <h3 class="feature-card__title">{{ f.title }}</h3>
-        <p class="feature-card__summary">{{ f.summary }}</p>
-        <ul class="feature-card__list">
-          {% for point in f.points %}<li>{{ point }}</li>{% endfor %}
-        </ul>
+        <h3 class="feature-card__title">A home page and sections</h3>
+        <p class="feature-card__summary">A polished front page, plus separate pages for the kinds of writing you do — news, opinion, reviews, essays, whatever fits. Each one gets its own index and feed that readers can follow.</p>
       </article>
-      {% endfor %}
-    </div>
-    <div style="text-align: center; margin-top: var(--space-xl);">
-      <a class="btn btn--outline btn--lg" href="/features/">See every feature</a>
+
+      <article class="feature-card">
+        <h3 class="feature-card__title">A searchable archive</h3>
+        <p class="feature-card__summary">Everything you publish is kept, dated, and searchable. Readers can find an older piece in seconds. No posts disappear behind a paywall or get lost in a feed.</p>
+      </article>
+
+      <article class="feature-card">
+        <h3 class="feature-card__title">A newsletter, if you want one</h3>
+        <p class="feature-card__summary">A sign-up form in the footer, connected to a small independent email service (Buttondown). Your subscriber list belongs to you — take it with you any time.</p>
+      </article>
+
+      <article class="feature-card">
+        <h3 class="feature-card__title">Thoughtful touches for readers</h3>
+        <p class="feature-card__summary">Dark mode. Save-for-later bookmarks. Highlights and notes that stay on the reader's own device. The small things serious publications have, and personal sites rarely do.</p>
+      </article>
+
+      <article class="feature-card">
+        <h3 class="feature-card__title">An author page for every writer</h3>
+        <p class="feature-card__summary">Each contributor gets a page with a short bio and everything they've written. Readers can follow a specific writer, not just the whole publication.</p>
+      </article>
+
+      <article class="feature-card">
+        <h3 class="feature-card__title">Made to last</h3>
+        <p class="feature-card__summary">No database, no login system, nothing that falls over when a server hiccups. The whole site is plain files — fast, cheap to host, and easy to move somewhere else if you ever want to.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -65,32 +74,63 @@ permalink: /index.html
 <section class="section section-alt">
   <div class="container">
     <header class="home-features__header">
-      <span class="eyebrow">Get started</span>
-      <h2 class="home-features__title">Three commands to a live publication.</h2>
-      <p class="home-features__summary">No sign-up, no account, no trial. Clone the repo, run a few commands, deploy wherever you want.</p>
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="home-features__title">Independent writers and small teams.</h2>
+    </header>
+
+    <div class="home-features__grid">
+      <article class="feature-card">
+        <h3 class="feature-card__title">A writer starting out</h3>
+        <p class="feature-card__summary">You want a real website for your work, not another account on someone else's platform.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">A small magazine or newsroom</h3>
+        <p class="feature-card__summary">A handful of people publishing together, who'd rather put their budget into reporting than into software.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">A student paper or classroom</h3>
+        <p class="feature-card__summary">Teachers and students running a publication as part of learning. Everything is free and no one needs an account.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">Someone leaving a newsletter platform</h3>
+        <p class="feature-card__summary">You've outgrown Substack or Medium and want your archive, your readers, and your work on a site you own.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="home-features__header">
+      <span class="eyebrow">How you use it</span>
+      <h2 class="home-features__title">Write, save, publish.</h2>
+      <p class="home-features__summary">You don't need to be a developer. If you can format an email, you can run a publication on Project Broadsheet. There's no dashboard to log into and no software to install on a server.</p>
     </header>
     <div class="how-it-works">
       <div class="step">
         <div class="step__num">1</div>
         <div>
-          <div class="step__title">Fork</div>
-          <p class="step__body">Clone <code>{{ meta.githubOwner }}/{{ meta.githubRepo }}</code>. Rename the folder. Make it yours.</p>
+          <div class="step__title">Write</div>
+          <p class="step__body">Each article is a plain text file, written in a simple formatting style called Markdown — essentially typing an email with a few light conventions for headings, links, and images.</p>
         </div>
       </div>
       <div class="step">
         <div class="step__num">2</div>
         <div>
-          <div class="step__title">Configure</div>
-          <p class="step__body">Edit <code>site.json</code> for metadata and sections. Edit <code>tokens.css</code> for colors and fonts. One file each.</p>
+          <div class="step__title">Save</div>
+          <p class="step__body">Your writing lives in a folder on your computer, and a copy is kept online so nothing is ever lost. Every change is recorded, so you can always look back at an earlier version.</p>
         </div>
       </div>
       <div class="step">
         <div class="step__num">3</div>
         <div>
           <div class="step__title">Publish</div>
-          <p class="step__body">Push to GitHub. Cloudflare Pages, Netlify, or Vercel will deploy in under a minute.</p>
+          <p class="step__body">When you're ready, the site rebuilds itself in under a minute on a free host. Your readers see the update, the search index refreshes, and the newsletter (if you use one) can go out on the same schedule.</p>
         </div>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: var(--space-xl);">
+      <a class="btn btn--outline" href="/docs/getting-started/">Read the getting-started guide</a>
     </div>
   </div>
 </section>
@@ -98,8 +138,38 @@ permalink: /index.html
 <section class="section section-alt">
   <div class="container">
     <header class="home-features__header">
+      <span class="eyebrow">What it costs</span>
+      <h2 class="home-features__title">Close to nothing.</h2>
+      <p class="home-features__summary">The whole yearly bill for a publication running on Project Broadsheet is usually the price of a domain name. No platform fees, no per-subscriber charges, no revenue share.</p>
+    </header>
+    <div class="home-features__grid">
+      <article class="feature-card">
+        <h3 class="feature-card__title">Project Broadsheet itself</h3>
+        <p class="feature-card__summary">Free. Always. Use it for anything, including paid publications, with no restrictions.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">A place online for the site</h3>
+        <p class="feature-card__summary">Free on services like Cloudflare Pages or Netlify, up to very generous limits that most independent publications never hit.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">A domain name</h3>
+        <p class="feature-card__summary">Around $10–15 a year from any registrar. This is the one part you pay for, because it's yours.</p>
+      </article>
+      <article class="feature-card">
+        <h3 class="feature-card__title">A newsletter service</h3>
+        <p class="feature-card__summary">Free up to a hundred subscribers on Buttondown, then modest flat fees after that. Only needed if you actually run a newsletter.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% if showcase and showcase.length %}
+<section class="section">
+  <div class="container">
+    <header class="home-features__header">
       <span class="eyebrow">In the wild</span>
-      <h2 class="home-features__title">Publications running on Project Broadsheet</h2>
+      <h2 class="home-features__title">Sites already running on it</h2>
+      <p class="home-features__summary">Seeing a real publication is worth more than a list of features. Have a look around.</p>
     </header>
     <div class="grid grid-2" style="max-width: 44rem; margin-inline: auto;">
       {% for s in showcase %}
@@ -108,26 +178,21 @@ permalink: /index.html
         <div class="showcase-card__body">
           <div class="card__title">{{ s.name }}</div>
           <p class="card__summary">{{ s.summary }}</p>
-          <div class="showcase-card__tags">
-            {% for t in s.tags %}<span class="badge">{{ t }}</span>{% endfor %}
-          </div>
         </div>
       </a>
       {% endfor %}
     </div>
-    <div style="text-align: center; margin-top: var(--space-xl);">
-      <a class="btn btn--outline" href="/showcase/">See showcase</a>
-    </div>
   </div>
 </section>
+{% endif %}
 
-<section class="pricing-teaser section-sunken">
-  <div class="container">
-    <h2 class="pricing-teaser__title">Self-host it for free, or work with me.</h2>
-    <p class="pricing-teaser__summary">Project Broadsheet is free to use forever. I also offer setup, migration, monthly hosting, and custom work for people who'd rather not spend a weekend on it. I take on a small number of engagements at a time, and I prefer to work with independent publishers and organizations I admire.</p>
-    <div class="btn-group btn-group--balanced btn-group--center">
-      <a class="btn btn--primary btn--lg" href="/get-started/">Fork it and start</a>
-      <a class="btn btn--outline btn--lg" href="/services/">Work with me</a>
+<section class="section section-sunken">
+  <div class="container" style="max-width: 44rem; text-align: center;">
+    <h2 class="home-features__title">A project, not a product.</h2>
+    <p class="home-features__summary">Project Broadsheet is made and maintained in the open by one person. You can read every line of code, take it in your own direction, or simply use it as-is. If you build a publication with it, I'd love to see it.</p>
+    <div class="btn-group btn-group--balanced btn-group--center" style="margin-top: var(--space-lg);">
+      <a class="btn btn--outline" href="/about/">About the project</a>
+      <a class="btn btn--outline" href="{{ meta.github }}" rel="noopener">View the source</a>
     </div>
   </div>
 </section>

@@ -33,7 +33,7 @@ The theme-detection script must execute **before** the stylesheet loads; otherwi
 
 Two things to check in order:
 
-1. **Config:** Open `src/_data/site.json` and confirm the `buttondown.username` field matches your Buttondown account username exactly (case-sensitive).
+1. **Config:** Open `src/_data/meta.js` and confirm the `buttondownUsername` field matches your Buttondown account username exactly (case-sensitive).
 2. **Form action:** View the signup form's page source. The `action` attribute should read `https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME`.
 
 ## CSS changes don't appear

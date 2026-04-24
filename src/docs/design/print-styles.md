@@ -2,7 +2,7 @@
 title: Print stylesheets
 subtitle: How Project Broadsheet's print styles work, what gets hidden when a reader prints an article or edition, and how to customize the printed output.
 order: 5
-updated: 2026-04-18
+updated: 2026-04-23
 ---
 
 Project Broadsheet ships with print stylesheets for articles and <span class="g-term" data-term="edition">editions</span>. When a reader chooses **File → Print** or **Ctrl+P**, the browser switches to the print stylesheet automatically, with no reader action required.
@@ -14,7 +14,7 @@ The print stylesheet hides chrome (navigation, sidebars, buttons) and formats th
 **Hidden in print:**
 - Site header and footer
 - Navigation menus
-- Reader toolbar (highlights, TTS, font picker)
+- Reader toolbar (highlights, font picker, reading settings)
 - Back-to-top button
 - Newsletter signup forms
 - Social share buttons
@@ -78,6 +78,54 @@ To show an element only in print (e.g., a print-only footer with the URL):
 .print-only { display: none; }
 @media print { .print-only { display: block; } }
 ```
+
+## Typography rules for paper
+
+The print stylesheet layers several rules on top of the screen typography to make a printed article read like a piece from a newspaper rather than a web page screenshot:
+
+```css
+@media print {
+  /* Never leave a heading stranded at the bottom of a page. */
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep pull-quotes and blockquotes together. A blockquote that
+     splits across a page break looks broken, not elegant. */
+  blockquote,
+  figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Images must never overflow the printable area. Scale down
+     and preserve aspect ratio. */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Orphans / widows — don't leave a single line stranded at the
+     top or bottom of a page. */
+  p { orphans: 3; widows: 3; }
+}
+```
+
+These are additive. They only kick in when `@media print` matches, so screen reading is unaffected.
+
+## Link-rot archive markers
+
+The [link-rot protection](/docs/seo/link-rot-protection/) feature adds a small archive icon next to every external link. On paper, the SVG icon is meaningless. Print falls back to a readable text marker:
+
+```css
+@media print {
+  .archive-link svg      { display: none; }
+  .archive-link::before  { content: "[archived] "; }
+}
+```
+
+So a reader with a paper copy sees `Source [archived]` next to each external reference, and can look up the archived version from the URL that `a[href]::after` already spells out.
 
 ## Editions and print
 

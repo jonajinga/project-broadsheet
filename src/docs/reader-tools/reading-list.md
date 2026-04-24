@@ -17,7 +17,7 @@ The reading list is one of the simpler reader tools in Project Broadsheet but qu
 
 ## Where the data lives
 
-`localStorage` under the key `pb-reading-list`. The structure is a JSON array of objects, each with `url`, `title`, `excerpt`, `author`, `date`, and `readingTime`. Clearing site data removes the list, which is why the export option in the Notes panel exists.
+`localStorage` under the key `{prefix}-reading-list` (the `{prefix}` defaults to `pb` and is set via `window.__PREFIX`). The structure is a JSON array of objects, each with `url`, `title`, `section`, `date`, and an estimated reading time. The logic lives in `src/assets/js/reading-list.js`. Clearing site data removes the list, which is why the export option in the Notes panel exists.
 
 ## Sync across devices
 

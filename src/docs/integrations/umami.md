@@ -17,16 +17,14 @@ Either model gives you a website ID (a UUID) and a script URL. Those are the two
 
 ## Configure Project Broadsheet
 
-Open `src/_data/site.json` and populate the `umami` block:
+Open `src/_data/meta.js` and populate the two Umami fields:
 
-```json
-"umami": {
-  "websiteId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "src": "https://cloud.umami.is/script.js"
-}
+```js
+umamiWebsiteId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+umamiSrc:       "https://cloud.umami.is/script.js",
 ```
 
-The tracking script is injected into `base.njk`. Project Broadsheet's base layout, only when both fields are populated. Leaving either empty during local development keeps analytics entirely out of the page.
+The tracking script is injected into Project Broadsheet's base layout only when both fields are populated. Leaving either empty during local development keeps analytics entirely out of the page.
 
 ## What to do next
 
