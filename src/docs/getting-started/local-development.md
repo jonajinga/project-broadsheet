@@ -53,5 +53,5 @@ The production build writes to `_site/`. Every HTML file is minified, every asse
 ## What to do next
 
 - [Understand the project structure](/docs/getting-started/project-structure/) so every folder has a clear purpose.
-- [Configure site.json](/docs/content/site-config/) with your publication's name and sections.
+- [Configure meta.js](/docs/content/site-config/) with your publication's name and integration keys.
 - [Write your first article](/docs/content/write-an-article/).

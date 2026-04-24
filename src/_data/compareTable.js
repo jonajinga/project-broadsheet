@@ -1,75 +1,75 @@
 export default {
   columns: [
-    { name: "Project Broadsheet", note: "MIT, self-hosted" },
-    { name: "Ghost", note: "SaaS or self-hosted" },
-    { name: "Substack", note: "SaaS only" },
-    { name: "WordPress", note: "Self-hosted or .com" },
-    { name: "Superdesk", note: "Open source, enterprise" }
+    { name: "Project Broadsheet", note: "Free, runs on your own computer" },
+    { name: "Ghost", note: "Hosted account, or you run it" },
+    { name: "Substack", note: "Hosted only" },
+    { name: "WordPress", note: "Hosted account, or you run it" },
+    { name: "Superdesk", note: "For large newsrooms" }
   ],
   rows: [
     {
       label: "Starting cost",
-      cells: ["$0", "$9/mo", "Free to start", "Free to $25+/mo", "Infrastructure only"]
+      cells: ["Nothing", "$9 a month", "Free to start", "Free to $25+ a month", "Just the infrastructure"]
     },
     {
-      label: "Recurring platform fees",
-      cells: ["None", "$9–$199+/mo", "10% of revenue", "Hosting, plugin, theme fees", "None (hosting costs apply)"]
+      label: "Ongoing fees",
+      cells: ["None", "$9–$199+ a month", "10% of paid subscriptions", "Hosting, plus plug-ins and themes", "None (but the setup has costs)"]
     },
     {
-      label: "Own your content",
-      cells: ["Yes (Markdown in Git)", "Database export", "CSV export only", "Database export", "Yes (NewsML / database)"]
+      label: "Your writing stays yours",
+      cells: ["Yes — it's just plain files", "Yes, after an export", "Only via a spreadsheet export", "Yes, after a database export", "Yes, via their news format"]
     },
     {
-      label: "Own your audience",
-      cells: ["Yes, email list is yours", "Yes", "Yes, with caveats", "Yes", "N/A (not a newsletter tool)"]
+      label: "Your reader list stays yours",
+      cells: ["Yes", "Yes", "Yes, with some caveats", "Yes", "Not a newsletter tool"]
     },
     {
-      label: "Database required",
-      cells: ["No", "Yes", "Yes (managed)", "Yes", "Yes (MongoDB + Elasticsearch + Redis)"]
+      label: "Needs a database",
+      cells: ["No", "Yes", "Yes (managed for you)", "Yes", "Yes, several"]
     },
     {
-      label: "Hosting required",
-      cells: ["Any static host (free tiers)", "Node host or Ghost Pro", "Platform only", "PHP host", "Docker, multi-service cluster"]
+      label: "What it needs to run",
+      cells: ["Any free static host", "A Node server or Ghost's hosted plan", "Substack only", "A PHP host", "A multi-service setup"]
     },
     {
-      label: "Newsletter built-in",
-      cells: ["Yes (Buttondown)", "Yes", "Yes", "Plugin", "No (export to separate service)"]
+      label: "Newsletter built in",
+      cells: ["Yes (via Buttondown)", "Yes", "Yes", "Through a plug-in", "No — handled separately"]
     },
     {
-      label: "On-site search",
-      cells: ["Yes (Pagefind)", "Paid add-on", "Limited", "Plugin", "Yes (built on Elasticsearch)"]
+      label: "Search on the site",
+      cells: ["Yes", "Paid add-on", "Limited", "Through a plug-in", "Yes"]
     },
     {
-      label: "Reader tools (TTS, highlights, notes)",
-      cells: ["27+ built-in", "None", "None", "Via plugins", "None"]
+      label: "Reader-side features (dark mode, save-for-later, highlights, notes)",
+      cells: ["Built in", "None", "None", "Through plug-ins", "None"]
     },
     {
-      label: "Editorial workflow (desks, stages, approvals)",
-      cells: ["Basic (Git-based)", "Basic", "None", "Plugin", "Full newsroom workflow"]
+      label: "Editorial process (reviews, approvals)",
+      cells: ["Simple", "Simple", "None", "Through a plug-in", "Full newsroom workflow"]
     },
     {
-      label: "Themes and customization",
-      cells: ["Full source", "Handlebars themes", "Not customizable", "Theme marketplace", "Custom output templates"]
+      label: "Look and layout",
+      cells: ["Full source, change anything", "Themes you can write", "Not customisable", "A marketplace of themes", "Custom layouts"]
     },
     {
-      label: "Migration out",
-      cells: ["Free, trivial (Markdown)", "JSON export", "CSV export", "Plugin-assisted export", "NewsML XML export"]
+      label: "Moving away",
+      cells: ["Copy the folder", "A file export", "A spreadsheet export", "Plug-in-assisted export", "News-format export"]
     },
     {
-      label: "Platform lock-in risk",
-      cells: ["None", "Low", "High", "Medium", "Low"]
+      label: "How easy it is to leave",
+      cells: ["Very easy", "Easy", "Hard", "Medium", "Easy"]
     },
     {
-      label: "Analytics privacy",
-      cells: ["Cookieless by default", "Depends on integration", "Substack-owned", "Depends on plugin", "Depends on setup"]
+      label: "Reader privacy by default",
+      cells: ["No tracking, no cookies", "Depends on add-ons", "Tracked by Substack", "Depends on plug-ins", "Depends on setup"]
     },
     {
-      label: "Target audience",
-      cells: ["Independent publishers, small teams", "Subscription newsletters, small orgs", "Writers on a newsletter", "Blogs, business sites", "Large newsrooms, wire services"]
+      label: "Who it's built for",
+      cells: ["Independent writers and small teams", "Newsletter writers and small outlets", "Solo writers with a mailing list", "All kinds of sites", "Large newsrooms and wire services"]
     },
     {
-      label: "License",
-      cells: ["MIT", "MIT", "Proprietary", "GPLv2+", "AGPLv3"]
+      label: "Licence",
+      cells: ["Open-source (MIT)", "Open-source (MIT)", "Substack's own", "Open-source (GPLv2+)", "Open-source (AGPLv3)"]
     }
   ]
 };

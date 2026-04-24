@@ -67,10 +67,10 @@ Use the semantic tokens in your own components (`var(--text)`, `var(--accent)`, 
 
 ## Per-section accent colors
 
-Each <span class="g-term" data-term="editorial section">section</span> can override the accent used on its headlines and dividers. Set `color` on the section entry in `site.json`:
+Each <span class="g-term" data-term="editorial section">section</span> can override the accent used on its headlines and dividers. Set `color` on the section entry in `src/_data/sections.js`:
 
-```json
-{ "slug": "science", "label": "Science", "color": "#2C5F8A" }
+```js
+{ slug: "science", label: "Science", color: "#2C5F8A" }
 ```
 
 The section-specific accent only applies inside that section's pages; site-wide accents remain vermillion.

@@ -9,15 +9,15 @@ A fresh Project Broadsheet deploy works out of the box, but it still has placeho
 
 ## 1. Set your site identity
 
-Open `src/_data/site.json` and fill in the fields that identify your publication:
+Open `src/_data/meta.js` and fill in the fields that identify your publication:
 
-```json
-{
-  "title": "Your Publication Name",
-  "description": "What your publication covers, in one sentence.",
-  "url": "https://yourdomain.com",
-  "email": "editor@yourdomain.com"
-}
+```js
+export default {
+  title:       "Your Publication Name",
+  description: "What your publication covers, in one sentence.",
+  url:         process.env.SITE_URL || "https://yourdomain.com",
+  email:       "editor@yourdomain.com"
+};
 ```
 
 These values appear in the site header, footer, RSS feeds, and SEO metadata. Until they are set, every page will show the placeholder defaults.
@@ -57,12 +57,10 @@ The repository ships with placeholder articles in each `src/content/` section. D
 
 ## 5. Configure your newsletter (optional)
 
-If you are using Buttondown for email newsletters, add your username to `site.json`:
+If you are using Buttondown for email newsletters, add your username to `meta.js`:
 
-```json
-"integrations": {
-  "buttondown": { "username": "your-buttondown-username" }
-}
+```js
+buttondownUsername: "your-buttondown-username",
 ```
 
 The newsletter signup form will appear automatically in the site footer and on relevant pages.
@@ -71,15 +69,11 @@ See [Buttondown](/docs/integrations/buttondown/).
 
 ## 6. Set up analytics (optional)
 
-Umami provides cookieless, privacy-respecting analytics. Add your Umami credentials to `site.json` when ready:
+Umami provides cookieless, privacy-respecting analytics. Add your Umami credentials to `meta.js` when ready:
 
-```json
-"integrations": {
-  "umami": {
-    "websiteId": "your-website-id",
-    "src": "https://analytics.yourdomain.com/script.js"
-  }
-}
+```js
+umamiWebsiteId: "your-website-id",
+umamiSrc:       "https://analytics.yourdomain.com/script.js",
 ```
 
 See [Umami](/docs/integrations/umami/).

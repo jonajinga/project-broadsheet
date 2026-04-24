@@ -4,34 +4,34 @@ export default {
       label: "Product",
       url: "/features/",
       children: [
-        { label: "Features", url: "/features/", description: "A tour of every capability, editorial sections, reader tools, reviews, library, media, search." },
-        { label: "Showcase", url: "/showcase/", description: "Real publications built on Project Broadsheet, including The Freethinking Times." },
-        { label: "Compare", url: "/compare/", description: "Side-by-side with Ghost, Substack, and WordPress. Ownership, cost, lock-in, all the numbers." },
-        { label: "Roadmap", url: "/roadmap/", description: "What's shipping next, what's under consideration, and what's on the long horizon." },
-        { label: "Changelog", url: "/changelog/", description: "Every release, every dependency bump, every fix, documented in plain English." }
+        { label: "What it can do", url: "/features/", description: "A plain walk-through of what's included, from the site itself to the small touches readers notice." },
+        { label: "In use", url: "/showcase/", description: "Real publications already running on Project Broadsheet, including The Freethinking Times." },
+        { label: "How it compares", url: "/compare/", description: "Side by side with Ghost, Substack, WordPress, and Superdesk. Cost, ownership, and the trade-offs." },
+        { label: "What's next", url: "/roadmap/", description: "What's being worked on, what's waiting its turn, and where the project is heading." },
+        { label: "What's changed", url: "/changelog/", description: "Every update, with what's new, what's been fixed, and what's different." }
       ]
     },
     {
       label: "Services",
       url: "/services/",
       children: [
-        { label: "Pricing", url: "/pricing/", description: "Transparent pricing for setup, migration, care plans, and custom development." },
-        { label: "Services", url: "/services/", description: "Every service we offer, from a same-week launch to a white-glove migration and retainer." },
-        { label: "Education", url: "/education/", description: "Journalism schools, student newspapers, and nonprofit newsrooms — MIT-licensed, free to use, $75/hr support rate." },
-        { label: "Book a Call", url: "/book-a-call/", description: "Tell us what you need and pick a few times that work. We'll confirm within a business day." }
+        { label: "Pricing", url: "/pricing/", description: "A flat hourly rate for anything hands-on, plus a lower rate for schools and nonprofits." },
+        { label: "Help from me", url: "/services/", description: "Getting a site set up, moving an archive, or building something custom." },
+        { label: "For schools", url: "/education/", description: "A real publication classrooms and student papers can run. Free to use, with a lower rate if you want help." },
+        { label: "Let's talk", url: "/book-a-call/", description: "Send a few times that work for you and I'll set up a 30-minute call." }
       ]
     },
     {
       label: "Resources",
       url: "/docs/",
       children: [
-        { label: "Docs", url: "/docs/", description: "The full help center, install, configure, deploy, customize, and troubleshoot every feature." },
-        { label: "Get Started", url: "/get-started/", description: "Fork the repo, run three commands, publish your first article. No account required." },
-        { label: "Glossary", url: "/glossary/", description: "Plain-language definitions for every piece of jargon used in the docs and throughout the site." },
-        { label: "Blog", url: "/blog/", description: "Release notes, tutorials, and essays on the project written by me, the maintainer." },
-        { label: "Support", url: "/support/", description: "Community channels, paid support, bug reports, and feature requests, all in one place." }
+        { label: "Docs", url: "/docs/", description: "Step-by-step guides for setting the site up, deploying it, and changing how it works." },
+        { label: "Getting started", url: "/get-started/", description: "Download a copy, run a few commands, see it working on your own computer." },
+        { label: "Glossary", url: "/glossary/", description: "Plain definitions for any word used in the docs that might not be familiar." },
+        { label: "Blog", url: "/blog/", description: "Notes on the project, short walk-throughs, and the occasional essay." },
+        { label: "Getting help", url: "/support/", description: "Community discussion, bug reports, feature ideas, and paid help." }
       ]
     }
   ],
-  cta: { label: "Get Started (Free)", url: "/get-started/" }
+  cta: { label: "See it live", url: "https://thefreethinkingtimes.com" }
 };

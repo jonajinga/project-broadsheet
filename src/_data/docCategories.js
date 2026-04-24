@@ -26,13 +26,13 @@ export default [
   {
     slug: "reader-tools",
     name: "Reader Tools",
-    summary: "Text-to-speech, highlights, notes, reading ruler, focus mode, reading list, reading settings, download, citations, notes page, and reader panel.",
+    summary: "Highlights, notes, reading ruler, focus mode, reading list, reading settings, download, citations, notes page, and reader panel.",
     order: 5
   },
   {
     slug: "integrations",
     name: "Integrations",
-    summary: "Web3Forms, Umami, Buttondown, Cusdis, GTranslate, Pages CMS, and tipping (Ko-fi, BMAC, Patreon).",
+    summary: "Web3Forms, Umami, Buttondown, Cusdis, GTranslate, Decap CMS, and tipping (Ko-fi, BMAC, Patreon).",
     order: 6
   },
   {

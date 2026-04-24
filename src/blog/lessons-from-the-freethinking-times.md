@@ -10,7 +10,7 @@ The Freethinking Times has been running on Project Broadsheet for about a year. 
 
 ## 1. Readers care about reader tools more than I expected
 
-Before I shipped, I thought the 27 reader tools were a "nice to have" that most people would ignore. I was wrong. The reader panel is the second-most-opened thing on the site after the article itself. The most-used tools, in order: font picker, dark mode, text-to-speech, reading ruler.
+Before I put the site live, I thought the reader-side features were a "nice to have" that most people would ignore. I was wrong. The reading panel is the second-most-opened thing on the site after the articles themselves. The most-used options, in order: choosing a font, dark mode, the reading ruler, and save-for-later.
 
 Three separate readers have emailed me about the reading ruler specifically. They have dyslexia or attention challenges, and a ruler that follows the cursor is genuinely useful for them. I almost didn't ship it.
 

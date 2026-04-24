@@ -23,17 +23,17 @@ For example, a site at `https://example.com` with a `news` section and an author
 
 ## Feed metadata
 
-The main feed title and description come from `src/_data/site.json`:
+The main feed title and description come from `src/_data/meta.js`:
 
-```json
-{
-  "title": "My Publication",
-  "description": "What my publication is about.",
-  "url": "https://example.com"
-}
+```js
+export default {
+  title:       "My Publication",
+  description: "What my publication is about.",
+  url:         process.env.SITE_URL || "https://example.com"
+};
 ```
 
-Per-section feeds inherit the section's `label` and `description` from the sections array. Per-author feeds use the author's `name` and `bio` from `authors.js`.
+Per-section feeds inherit the section's `label` and `description` from `sections.js`. Per-author feeds use the author's `name` and `bio` from `authors.js`.
 
 ## What each feed item includes
 

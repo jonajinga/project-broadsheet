@@ -21,7 +21,7 @@ section: news
 - `title`: shown in the `<h1>`, the `<title>` tag, search previews, and RSS.
 - `author`: the slug of an entry in `authors.js`. See [Authors](/docs/content/authors/).
 - `date`: ISO format (`YYYY-MM-DD`). Controls sort order and the visible publish date.
-- `section`: the slug of a section in `site.json`. See [Sections](/docs/content/sections/).
+- `section`: the slug of a section in `sections.js`. See [Sections](/docs/content/sections/).
 
 ## Recommended
 
@@ -66,13 +66,13 @@ subject:
 ## Library chapters
 
 ```yaml
-layout: layouts/library-chapter.njk
-work: "great-expectations"
-chapter: 1
-chapter_title: "My father's family name being Pirrip..."
+workSlug: on-liberty
+chapterNumber: 2
+title: "Of the Liberty of Thought and Discussion"
+featured: false
 ```
 
-See [Library](/docs/specialty-content/library/) for the full setup.
+The layout and shared work metadata (author, original year, source, subjects, difficulty) come from the folder-level JSON data file — they don't need to be repeated per chapter. See [Library](/docs/specialty-content/library/) for the full setup.
 
 ## Editions
 

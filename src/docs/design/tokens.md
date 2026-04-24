@@ -2,7 +2,7 @@
 title: Customize design tokens
 subtitle: Every color, typeface, and spacing value on the site is defined once in a single CSS file. Edit a handful of variables to rebrand the entire publication.
 order: 1
-updated: 2026-04-17
+updated: 2026-04-23
 ---
 
 Project Broadsheet's visual language is controlled by a set of <span class="g-term" data-term="design token">design tokens</span> declared in `src/assets/css/tokens.css`. Tokens are named CSS custom properties, a value like `#C0392B` is given a descriptive name like `--vermillion`, and every component that uses vermillion references the name rather than the raw hex value. Change the variable once, and every button, link, badge, and accent updates in lockstep.
@@ -15,8 +15,19 @@ Project Broadsheet's visual language is controlled by a set of <span class="g-te
   --ink: #1A1A1A;        /* body text */
   --vermillion: #C0392B; /* primary accent */
   --slate: #2C5F8A;      /* links */
+
+  /* Muted / faint text — used for captions, byline datelines,
+     metadata labels, and the "by line" bar on cards. */
+  --color-ink-muted: #3D3B39;
+  --color-ink-faint: #4F4A48;
+
+  /* Rule / divider colors — two weights for visual hierarchy. */
+  --color-rule: #DDD7CB;
+  --color-rule-heavy: #9A9387;
 }
 ```
+
+The muted / faint ink values were darkened specifically to clear **WCAG 2.2 AA 4.5:1 contrast against the paper token**. Any tint lighter than `#4F4A48` on `--paper: #F4F1EB` fails the check. Don't lighten these further when adjusting for aesthetics — if captions feel too heavy, reduce the font size or weight instead.
 
 <span class="g-term" data-term="dark mode">Dark mode</span> values are defined inside `:root[data-theme="dark"]`. The theme toggle script flips the `data-theme` attribute on the `<html>` element and persists the choice in `localStorage`, no flash, no round trip to a server.
 

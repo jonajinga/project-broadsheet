@@ -11,14 +11,14 @@ You can configure tipping at the publication level (a single account that suppor
 
 ## Publication-level tipping
 
-Add one or more tipping URLs to `src/_data/site.json`:
+Add one or more tipping URLs to `src/_data/meta.js`:
 
-```json
-"tipping": {
-  "kofi": "https://ko-fi.com/yourpublication",
-  "bmac": "https://buymeacoffee.com/yourpublication",
-  "patreon": "https://www.patreon.com/yourpublication"
-}
+```js
+tipping: {
+  kofi:    "https://ko-fi.com/yourpublication",
+  bmac:    "https://buymeacoffee.com/yourpublication",
+  patreon: "https://www.patreon.com/yourpublication"
+},
 ```
 
 Include only the platforms you use. If you only have a Ko-fi account, include only `kofi`. Buttons for unconfigured platforms do not appear.

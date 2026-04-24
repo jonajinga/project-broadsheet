@@ -36,8 +36,6 @@ duration: "38:15"
 | `season` | No | Displayed as "S2 E42" when combined with `episode_number` |
 | `duration` | No | Displayed as a static label. Format: `MM:SS` or `H:MM:SS` |
 
-The audio player pauses automatically if the reader starts text-to-speech, and vice versa — only one audio source plays at a time.
-
 Section index cards for podcast articles show a microphone badge and the episode number (if set) in place of the reading time.
 
 ### dataviz

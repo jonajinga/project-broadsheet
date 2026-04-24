@@ -27,29 +27,31 @@ export default {
 };
 ```
 
-## `src/_data/site.json`
+## `src/_data/sections.js`
 
-Publication-specific content configuration: sections, homepage settings, and feature flags.
+Editorial section definitions — one object per section. Used to generate navigation, section indexes, and RSS feeds.
 
-```json
-{
-  "sections": [ ... ],             // Editorial sections array
-  "homepage": {
-    "featuredCount": 3,
-    "showSections": ["news", "opinion"]
+```js
+export default [
+  {
+    slug: "news",
+    label: "News",
+    color: "#C0392B",
+    description: "Reporting on stories that matter.",
+    showOnHomepage: true
   },
-  "features": {
-    "highlights": true,
-    "textToSpeech": true,
-    "readingRuler": true,
-    "readingList": true,
-    "fontPicker": true,
-    "search": true
+  {
+    slug: "opinion",
+    label: "Opinion",
+    color: "#2C5F8A",
+    description: "Signed columns and essays.",
+    showOnHomepage: true
   }
-}
+  // ... etc.
+];
 ```
 
-Toggle any feature by setting it to `false` and the corresponding UI and JS will be excluded from the build.
+See [Editorial sections](/docs/content/sections/) for the full schema and [Add a new section](/docs/customization/add-a-section/) for the step-by-step walkthrough.
 
 ## `src/_data/authors.js`
 
@@ -131,6 +133,6 @@ Data files can export a plain value, an array, an object, or an async function t
 
 ## What to do next
 
-- [Configure site.json](/docs/content/site-config/) for section and feature flag details.
+- [Configure meta.js](/docs/content/site-config/) for site identity and integration keys.
 - [Authors](/docs/content/authors/) for the full author object specification.
 - [Template filters](/docs/customization/filters/) for the Nunjucks filters available in templates.

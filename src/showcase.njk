@@ -1,10 +1,14 @@
 ---
 layout: layouts/page.njk
-title: Showcase
-eyebrow: Product
-subtitle: Publications built on Project Broadsheet.
+title: In use
+eyebrow: Showcase
+subtitle: Publications running on Project Broadsheet.
 permalink: /showcase/
 ---
+<div class="lead" style="margin-bottom: var(--space-xl);">
+  Reading a description of what Project Broadsheet does is one thing — seeing a real publication built with it is another. The sites below are live and public. Click around, read a few pieces, try the reading tools, and see how it feels as a reader.
+</div>
+
 <div class="grid grid-2" style="margin-block: var(--space-xl);">
   {% for s in showcase %}
   <a class="showcase-card" href="{{ s.url }}">
@@ -23,7 +27,7 @@ permalink: /showcase/
 <hr class="gold-rule">
 
 <section class="section-sm">
-  <h2 class="h3">Built with Project Broadsheet?</h2>
-  <p class="lead">Tell me, I'd love to feature your publication.</p>
-  <a class="btn btn--primary" href="/contact/">Get in touch</a>
+  <h2 class="h3">Built something with it?</h2>
+  <p class="lead">Send me a link and I'll add it here.</p>
+  <a class="btn btn--primary" href="/contact/">Write to me</a>
 </section>

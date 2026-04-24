@@ -577,7 +577,7 @@ export default [
   {
     term: "JSON",
     short: "A lightweight text format for structured data.",
-    long: "JSON represents objects and arrays in a way both humans and computers can read. Project Broadsheet uses JSON for the Pagefind search index, glossary data, form submissions, and the optional site.json configuration."
+    long: "JSON represents objects and arrays in a way both humans and computers can read. Project Broadsheet uses JSON for the Pagefind search index, Decap CMS configuration, folder-level Eleventy data files, and form submissions."
   },
   {
     term: "lazy loading",
@@ -758,7 +758,7 @@ export default [
   {
     term: "masthead",
     short: "The printed or displayed statement of a publication's name, ownership, staff, and contact information.",
-    long: "In print, the masthead appears on the editorial page. Online, it's typically an About or Staff page. In Project Broadsheet the site title, founding year, and editorial statement all live in `site.json` and render in the footer and the dedicated About page."
+    long: "In print, the masthead appears on the editorial page. Online, it's typically an About or Staff page. In Project Broadsheet the site title, founding year, and editorial statement all live in `src/_data/meta.js` and render in the footer and the dedicated About page."
   },
   {
     term: "op-ed",
@@ -886,11 +886,6 @@ export default [
     term: "annotation",
     short: "A note, highlight, or comment added to a specific passage in an article.",
     long: "Project Broadsheet's reader tools include highlights and notes. Readers can select any passage, mark it with a color, and attach a private note. Annotations are stored in localStorage and never sent to a server."
-  },
-  {
-    term: "text-to-speech",
-    short: "A tool that reads article text aloud to the reader using the browser's speech synthesis API.",
-    long: "Project Broadsheet's text-to-speech tool is built into the reader panel. It uses the Web Speech API, which runs entirely in the browser with no external service. Readers can play, pause, and adjust speed. No audio file is generated or stored."
   },
   {
     term: "newswire",
@@ -1041,5 +1036,155 @@ export default [
     alt: "Proof Key for Code Exchange",
     short: "An OAuth extension that allows browser-based apps to authenticate without a client secret.",
     long: "PKCE (pronounced 'pixie') was designed to secure OAuth flows where a client secret cannot be stored safely — like a JavaScript app running in a browser. Decap CMS supports `auth_type: pkce` in its config, but in practice this silently falls back to Netlify's auth server when not on Netlify. Project Broadsheet uses a Cloudflare Pages Function OAuth proxy instead."
+  },
+  {
+    term: "Webmention",
+    short: "A web standard for one site to notify another that it has linked to it.",
+    long: "A Webmention is a polite HTTP POST one site sends to another when it links to it — 'I mentioned you.' The receiving site verifies the source actually contains the link, then can display the mention however it likes (as a reply, a like, a repost, or a bare 'linked from'). Project Broadsheet uses webmention.io as the receiving endpoint and fetches verified mentions at build time."
+  },
+  {
+    term: "webmention.io",
+    short: "A free hosted endpoint that receives, verifies, and stores webmentions for your domain.",
+    long: "Run by Aaron Parecki, webmention.io handles the receiving end of the Webmention protocol: it listens for incoming mentions, verifies that the source page actually links to the target, archives the content, and exposes a JSON API that build tools pull at build time. Project Broadsheet wires its endpoint and read-only API token into `meta.js` and fetches via `@11ty/eleventy-fetch`."
+  },
+  {
+    term: "IndieWeb",
+    short: "A movement and set of open standards for owning your presence on the web via your own domain.",
+    long: "The IndieWeb convention is that your website is your identity. Standards like Webmention, Microformats, and IndieAuth let independent sites talk to each other without centralized intermediaries. Project Broadsheet implements the receiving side of the main IndieWeb stack so independent publications can join the conversation without inventing new accounts or depending on social platforms."
+  },
+  {
+    term: "IndieAuth",
+    short: "An open authentication protocol that treats a domain as a login identity.",
+    long: "IndieAuth lets you sign in to indieweb services using your own website as the identity, verified against a trusted OAuth provider (GitHub, Mastodon) via reciprocal `rel=me` links. No new account, no new password. Project Broadsheet emits the `rel=me` tags needed to make this work; you wire up the reciprocal link on the other service's profile."
+  },
+  {
+    term: "IndieLogin",
+    short: "A web service that walks a rel=me reciprocal chain to authenticate a domain owner.",
+    long: "IndieLogin is the piece that glues IndieAuth together: given a site URL, it reads the `rel=me` links in the site's head, finds a provider that reciprocates back to the site, and hands off to that provider's OAuth flow. Confirming the OAuth flow proves the user controls the site. Used by webmention.io and many other indieweb tools."
+  },
+  {
+    term: "rel=me",
+    short: "An HTML link attribute marking a URL as 'also me on another site'.",
+    long: "`<link rel='me' href='https://github.com/yourusername'>` declares that the linked profile is another identity for the same person. For IndieAuth to succeed, the profile on the other side must link back to your domain (in GitHub's Website field, Mastodon's profile metadata, etc.). The reciprocal chain is what authenticates the domain."
+  },
+  {
+    term: "Microformats",
+    alt: "h-entry, h-card",
+    short: "A convention for marking up HTML so machines can extract structured data (authors, posts, replies, events) from a normal web page.",
+    long: "Microformats (specifically h-entry for posts, h-card for people) use class names like `h-entry`, `p-name`, `u-url` on normal HTML elements. Webmention verifiers and indieweb readers use them to extract the title, author, date, and content of a mention's source page. Project Broadsheet's article layout emits h-entry markers so its own pages become first-class indieweb citizens when someone webmentions one of them."
+  },
+  {
+    term: "facepile",
+    short: "A compact horizontal row of avatars representing people who liked, reposted, or mentioned a post.",
+    long: "A facepile is how webmention sites typically display likes and reposts: a dense row of circular avatars with a count ('liked by 12'). Full replies get their own cards, bare mentions become a plain list, but likes and reposts collapse to a facepile to avoid turning the post footer into a wall of near-identical cards."
+  },
+  {
+    term: "link rot",
+    short: "The phenomenon of external links gradually going dead over time as the pages they point to are removed or relocated.",
+    long: "Studies of major newspapers find 20–50% of outbound links dead within a decade. For serious publishing — especially investigative work or historical context — link rot undermines the evidence trail. Project Broadsheet mitigates it by adding a sibling Internet Archive wildcard link next to every external citation, so when a source dies, readers still reach the archived version in one click."
+  },
+  {
+    term: "Wayback Machine",
+    alt: "Internet Archive, web.archive.org",
+    short: "The Internet Archive's public archive of web pages over time.",
+    long: "The Wayback Machine crawls and preserves billions of web pages. Its wildcard URL form (`web.archive.org/web/*/URL`) auto-redirects to the latest available snapshot, which is what Project Broadsheet's link-rot protection uses: a single static sibling URL that resolves to whatever the freshest archived copy is, with no runtime API calls."
+  },
+  {
+    term: "SPA navigation",
+    alt: "SPA-nav, single-page nav",
+    short: "A technique for swapping main content in place without a full page reload, while keeping the rest of the page alive.",
+    long: "Project Broadsheet's spa-nav.js intercepts internal link clicks, fetches the target HTML, and swaps `#main-content` inner HTML instead of triggering a full navigation. The masthead, footer, music player iframe, global panels, and reader state all survive. Not a framework — a targeted enhancement layer that degrades cleanly if JS fails."
+  },
+  {
+    term: "bfcache",
+    alt: "back-forward cache",
+    short: "A browser cache that snapshots the full in-memory state of a page so Back / Forward restores instantly.",
+    long: "Modern browsers freeze the page state on unload and, on Back / Forward, restore the same DOM, JS heap, and scroll position rather than reloading. Project Broadsheet's full-screen showcases reparent themselves out of the site wrapper on mount; they must reverse that on `pagehide` so bfcache snapshots a well-formed DOM. Skip the pagehide handler and Back returns the reader to a half-assembled page."
+  },
+  {
+    term: "resvg-js",
+    alt: "resvg",
+    short: "A Rust-based SVG rasterizer with Node bindings.",
+    long: "Project Broadsheet uses @resvg/resvg-js in an `eleventy.after` hook to rasterize per-article SVG cards into OG-image PNGs. Fast and reliable — but it does **not** support SVG `<foreignObject>`, so any HTML-in-SVG layout technique is silently dropped. Use native `<text>` + `<tspan>` with pre-wrapped lines instead."
+  },
+  {
+    term: "foreignObject",
+    short: "An SVG element that lets you embed HTML/CSS layout inside a vector canvas.",
+    long: "`<foreignObject>` is the obvious way to multi-line-text an SVG: wrap HTML with CSS and let the browser lay it out. But headless SVG rasterizers like resvg-js don't implement it. Project Broadsheet's OG-card template pre-wraps its title and description in Nunjucks and emits native SVG `<text>` with one `<tspan>` per line — avoiding `<foreignObject>` entirely."
+  },
+  {
+    term: "showcase",
+    short: "A fullscreen auto-advancing slideshow view of a filtered slice of the archive.",
+    long: "The showcase view at `/archives/showcase/` renders one article per slide with kicker, title, description, byline, and CTA. URL parameters (`?author=`, `?section=`, `?topic=`, `?year=`, `?month=`) filter which articles are in rotation. Reparents out of the site-wrapper on init so Back-button bfcache restores a clean page."
+  },
+  {
+    term: "timeline",
+    alt: "archive timeline",
+    short: "A vertical chronological archive view with a filter bar.",
+    long: "The timeline view at `/archives/timeline/` lists articles grouped by year and month, with dropdown filters for author, section, subsection, topic, and year. Same URL-parameter vocabulary as showcase, so any link into one can be swapped for the other and vice versa. Works without JS via a noscript fallback."
+  },
+  {
+    term: "Telegraph",
+    alt: "telegraph.p3k.io",
+    short: "An interactive webmention sender by Aaron Parecki, handy for manual testing.",
+    long: "Telegraph (telegraph.p3k.io) lets you paste a source URL you control and a target URL on any site, and sends a real webmention. Useful for verifying that your webmention.io endpoint is receiving correctly, without writing code. Uses the same IndieAuth flow as other p3k.io tools."
+  },
+  {
+    term: "brid.gy",
+    alt: "Bridgy",
+    short: "A service that turns social-media interactions (Mastodon replies, Bluesky mentions) into webmentions.",
+    long: "Bridgy bridges the closed social silos into the open webmention protocol. Configure your Mastodon or Bluesky account, and Bridgy will POST webmentions to your site whenever someone on those platforms replies to or likes a post that links to you. This is how most independent sites surface social engagement without running their own scrapers."
+  },
+  {
+    term: "focus trap",
+    short: "A UI pattern that confines keyboard focus to a modal surface until it is dismissed.",
+    long: "When a modal, drawer, or panel opens, Tab should cycle focus only within it; Shift+Tab wraps the other way; Escape closes and returns focus to the element that opened it. Project Broadsheet's reader panel, display-settings panel, and any other modal surface implement this pattern. Without it, keyboard users tab out of the modal and into the background page while the modal is still 'open' above them."
+  },
+  {
+    term: "focus-visible",
+    alt: ":focus-visible",
+    short: "A CSS pseudo-class that matches focus only when the user navigated by keyboard, not mouse.",
+    long: "`:focus-visible` lets you show a focus ring to keyboard users without annoying mouse users with a ring on every click. Project Broadsheet uses it globally: every focusable element gets a vermillion outline when focused via keyboard, no outline when clicked. Paired with `:focus:not(:focus-visible) { outline: none }` to suppress the mouse-focus outline."
+  },
+  {
+    term: "prefers-reduced-motion",
+    short: "A CSS media query for honoring a user's OS-level preference to minimize animation.",
+    long: "Readers who set reduced-motion at the operating-system level have asked, globally, for less animation. Project Broadsheet honors this with a blanket `@media (prefers-reduced-motion: reduce)` that sets `animation-duration: 0.01ms` and `transition-duration: 0.01ms` on every element. Individual components that want a particular motion to still run in this mode must opt in explicitly."
+  },
+  {
+    term: "skip link",
+    short: "A hidden link at the top of the page that jumps keyboard users past site chrome to the main content.",
+    long: "The first interactive element in the body is an `<a href='#main-content'>` styled to be invisible until focused. When a keyboard user hits Tab on page load, it appears; pressing Enter jumps their focus past the header and nav into the main content region. Essential for readers who navigate by keyboard or screen reader and don't want to Tab through the nav on every page."
+  },
+  {
+    term: "page header",
+    alt: ".page-header",
+    short: "A reusable component for the eyebrow/title/subtitle block at the top of a standard content page.",
+    long: "Standardizes the eyebrow label, page title, subtitle, and bottom rule across every non-article page. Modifiers `--centered` and `--narrow` handle the common layout variations. Articles use a richer byline-driven header instead; `.page-header` is for everything else."
+  },
+  {
+    term: "empty state",
+    short: "A design pattern for 'there is nothing here yet' that turns an empty page into a helpful signpost.",
+    long: "Project Broadsheet's `.empty-state` component centers an icon, a title, a one-line explanation, and optionally a recovery CTA — used on empty author pages, topic pages with no articles, reading lists the reader hasn't populated, and any other surface that could otherwise render as a blank page."
+  },
+  {
+    term: "divider utility",
+    short: "A small set of `<hr>` variants at different weights for visual separation between sections.",
+    long: "Three weights: `.divider-thin` (1 px `--color-rule`, inside a card), `.divider` (1 px `--color-rule-heavy`, between sections on the same page), and `.divider-accent` (3 px vermillion, newspaper-style rule above a major section). Avoid inside body text; let heading rhythm do that work."
+  },
+  {
+    term: "wrap filter",
+    short: "A custom Nunjucks filter that word-wraps a string into an array of lines at a given character count.",
+    long: "`{{ str | wrap(30) }}` returns an array of lines, each no longer than ~30 characters, broken at word boundaries. Project Broadsheet uses it in the OG-card template to pre-wrap title and description at render time, because the SVG rasterizer (resvg-js) doesn't support `<foreignObject>` for HTML layout. Each resulting line becomes a `<tspan>`."
+  },
+  {
+    term: "eleventy.after",
+    short: "An Eleventy lifecycle hook that fires after the site finishes building.",
+    long: "`eleventyConfig.on('eleventy.after', async () => { ... })` runs once per build after the final write. Project Broadsheet uses it to rasterize SVG OG cards into PNGs (resvg-js), run Pagefind indexing, and any other post-write step. Whatever you do here must not modify files the Eleventy build relies on — run truly post-build work only."
+  },
+  {
+    term: "autoscroll",
+    short: "A reader-tool feature that auto-scrolls an article at a chosen pace for hands-free reading.",
+    long: "Speed controllable from 1 (slowest) to 10 (fastest). Any manual input — scroll wheel, touch drag, arrow key, Space, or click — cancels the animation immediately so the reader's own scroll always wins. Reaching the end stops it automatically. Preference stored in localStorage."
   }
 ];

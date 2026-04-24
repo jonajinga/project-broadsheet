@@ -1,58 +1,136 @@
 ---
 layout: layouts/page.njk
-title: Features
-eyebrow: Product
-subtitle: Every capability Project Broadsheet ships with, organized the way you'd evaluate one.
+title: What it can do
+eyebrow: Features
+subtitle: A tour of what comes built in, in plain language.
 permalink: /features/
 ---
 <div class="features-intro lead">
-  Project Broadsheet isn't a theme or a minimal starter. It's a full publication framework with everything an indie newsroom, newsletter, or small magazine needs, and nothing bolted on just to check a marketing box.
+  The short version: everything below is on from the moment you set the site up. There's no paid tier with extra features held back, and nothing here is an add-on you install separately. If you'd rather see it in use than read about it, the <a href="{{ meta.liveExample }}">live example</a> has every one of these turned on.
 </div>
 
-<section class="section-sm" style="margin-bottom: var(--space-2xl);">
-  <h2 class="h3" style="margin-bottom: var(--space-lg);">Who uses it</h2>
-  <div class="grid grid-2" style="max-width: 52rem;">
-    <div>
-      <strong>Independent journalists</strong>
-      <p style="color: var(--text-soft); margin-top: 0.25rem;">A full newsroom platform for a publication of one. Sections, corrections, source documents, RSS, and reader tools without a platform subscription.</p>
-    </div>
-    <div>
-      <strong>Student newspapers</strong>
-      <p style="color: var(--text-soft); margin-top: 0.25rem;">Campus and classroom publications that teach real editorial workflows — version control, corrections, structured content — at no recurring cost to the institution.</p>
-    </div>
-    <div>
-      <strong>Academic researchers</strong>
-      <p style="color: var(--text-soft); margin-top: 0.25rem;">Citation formatters (APA, MLA, Chicago), primary source documents, argument maps, and a public-domain library built for scholarly publishing.</p>
-    </div>
-    <div>
-      <strong>Nonprofit newsrooms</strong>
-      <p style="color: var(--text-soft); margin-top: 0.25rem;">Community news outlets and public-interest publishers. MIT-licensed, no platform revenue share, full ownership of content and code.</p>
-    </div>
-  </div>
-</section>
-
-{% for f in features.highlights %}
-<section class="feature-block" id="{{ f.title | slugify }}">
+<section class="feature-block" id="the-site">
   <div class="feature-block__grid">
     <header class="feature-block__header">
-      <span class="eyebrow">{{ loop.index | string | replace('0','0') }} · {{ f.title }}</span>
-      <h2>{{ f.title }}</h2>
-      <p class="feature-block__summary">{{ f.summary }}</p>
+      <span class="eyebrow">The site itself</span>
+      <h2>A home page, sections, an archive</h2>
+      <p class="feature-block__summary">A polished front page, with room for featured pieces and a list of recent articles. Separate landing pages for whatever kinds of writing you do — news, opinion, reviews, essays — each with its own page and its own feed. Everything you publish is kept and dated, so readers can find an older piece in seconds.</p>
     </header>
     <ul class="feature-block__list">
-      {% for point in f.points %}<li>{{ point }}</li>{% endfor %}
+      <li>A front page you can arrange around featured pieces</li>
+      <li>Section pages (name them whatever you want — News, Opinion, Reviews, whatever fits)</li>
+      <li>A searchable archive of everything you've ever published</li>
+      <li>A tag system, so readers can pull up everything on a given topic</li>
+      <li>Individual pages for each author with their bio and everything they've written</li>
     </ul>
   </div>
 </section>
-{% endfor %}
 
-<section class="section">
-  <div class="grid grid-4">
-    {% for s in features.stats %}
-    <div class="stat-card">
-      <div class="stat-card__value">{{ s.value }}</div>
-      <div class="stat-card__label">{{ s.label }}</div>
-    </div>
-    {% endfor %}
+<section class="feature-block" id="for-readers">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">For your readers</span>
+      <h2>Small touches that matter</h2>
+      <p class="feature-block__summary">The things serious publications have and personal sites rarely do. Every one of them sits quietly out of the way until a reader wants it.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>Light mode and dark mode, with a proper toggle</li>
+      <li>A "save for later" list that stays on the reader's own device</li>
+      <li>Highlights and notes, so readers can annotate as they read</li>
+      <li>A reading progress bar, so readers know where they are in a long piece</li>
+      <li>A reader panel with bookmarks, highlights, progress, and one-click citations</li>
+      <li>A reader-adjustable font, size, and spacing, for people who read differently</li>
+      <li>Print styles that turn any article into something worth printing</li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature-block" id="for-writing">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">For writing and editing</span>
+      <h2>The basics of running a publication</h2>
+      <p class="feature-block__summary">Everything a publication has that a blog doesn't — the small details that make a website feel like a real outlet rather than a feed.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>A byline on every article, linked to the author's own page</li>
+      <li>More than one author per piece, with credit to each</li>
+      <li>Series, so you can group a multi-part investigation or column</li>
+      <li>Corrections, shown on the article with a date and explanation</li>
+      <li>Drafts and scheduled publishing, for pieces you want to hold back</li>
+      <li>A full history of every change, so you can always look back</li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature-block" id="specialty">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">Beyond articles</span>
+      <h2>Other kinds of writing, already set up</h2>
+      <p class="feature-block__summary">Things that don't fit neatly into "blog post", but often belong on a publication — each with its own page layout and index.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>Reviews — books, films, podcasts, and documentaries, with ratings and structured details</li>
+      <li>A library for longer works, one chapter per page, with reading progress saved</li>
+      <li>A glossary, with pop-up definitions wherever a word appears</li>
+      <li>A reading list of books you recommend, grouped by category</li>
+      <li>A quotes page, for collected bits worth keeping</li>
+      <li>Primary source documents — court records, freedom-of-information papers, anything you want kept on the record</li>
+      <li>Two small games (a word scramble and a sliding puzzle), if that suits your publication</li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature-block" id="findable">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">So people can find you</span>
+      <h2>Search and sharing, built in</h2>
+      <p class="feature-block__summary">The things readers and search engines expect, ready from the start.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>A search bar that works on your own site, with no outside service</li>
+      <li>A proper link preview when someone shares your article on Slack, iMessage, or social</li>
+      <li>A feed for the whole publication, plus one per section and one per writer</li>
+      <li>A listing of every page for search engines to pick up</li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature-block" id="outside-services">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">Outside services, if you want them</span>
+      <h2>A handful of plug-ins, each optional</h2>
+      <p class="feature-block__summary">None of these are required. Turn on the ones you need and leave the rest blank.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>A newsletter sign-up, through a small independent email service</li>
+      <li>A quiet analytics tool that doesn't track readers across the web</li>
+      <li>Comments, without cookies or tracking, if you want them</li>
+      <li>A contact form that sends straight to your inbox</li>
+      <li>A browser-based editor, so people who don't want to work in a text editor can still publish</li>
+      <li>Automatic translation into over eighty languages</li>
+      <li>Links to tip the publication or an individual writer through Ko-fi, Buy Me a Coffee, or Patreon</li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature-block" id="under-the-hood">
+  <div class="feature-block__grid">
+    <header class="feature-block__header">
+      <span class="eyebrow">Under the hood</span>
+      <h2>Built to stay out of your way</h2>
+      <p class="feature-block__summary">The technical choices all point at the same goal: a site that loads quickly, doesn't fall over, doesn't cost much to run, and stays yours.</p>
+    </header>
+    <ul class="feature-block__list">
+      <li>Plain text files — easy to read, easy to move, easy to keep safe</li>
+      <li>No database to maintain</li>
+      <li>Free to host on services like Cloudflare Pages or Netlify</li>
+      <li>Fast on any connection, including slow ones</li>
+      <li>Works on an old phone, a new laptop, or a screen reader</li>
+      <li>The whole thing is open-source, so you can see exactly how it works</li>
+    </ul>
   </div>
 </section>

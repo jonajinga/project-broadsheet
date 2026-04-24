@@ -22,7 +22,7 @@ Allow: /
 Sitemap: https://yourdomain.com/sitemap.xml
 ```
 
-The sitemap URL is pulled from `site.url` in `src/_data/site.json`, so it stays correct when you move to a custom domain.
+The sitemap URL is pulled from `meta.url` in `src/_data/meta.js`, so it stays correct when you move to a custom domain.
 
 ## Blocking specific pages
 
@@ -35,7 +35,7 @@ Disallow: /brand-guidelines/
 Disallow: /changelog/
 Disallow: /thank-you/
 
-Sitemap: {% raw %}{{ site.url }}{% endraw %}/sitemap.xml
+Sitemap: {% raw %}{{ meta.url }}{% endraw %}/sitemap.xml
 ```
 
 Legal and utility pages (Privacy Policy, Terms, Thank You) are often good candidates for `Disallow`, though search engines typically understand these pages and may index them anyway.
@@ -51,7 +51,7 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: {% raw %}{{ site.url }}{% endraw %}/sitemap.xml
+Sitemap: {% raw %}{{ meta.url }}{% endraw %}/sitemap.xml
 ```
 
 Common AI crawler user-agent strings include `GPTBot` (OpenAI), `Claude-Web` (Anthropic), `CCBot` (Common Crawl), and `Google-Extended` (Google AI training).

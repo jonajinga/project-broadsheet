@@ -1,20 +1,20 @@
 ---
 layout: layouts/page.njk
-title: Compare
-eyebrow: Product
-subtitle: Project Broadsheet placed side-by-side with Ghost, Substack, WordPress, and Superdesk. The tradeoffs that actually matter.
+title: How it compares
+eyebrow: Compare
+subtitle: Project Broadsheet next to the other options people usually weigh up — Ghost, Substack, WordPress, and Superdesk. What's different, and what trade-offs come with each.
 permalink: /compare/
 wide: true
 ---
 <div class="compare-intro lead">
-  Every publishing platform makes tradeoffs. Below are the criteria most publishers care about: what you own, what you pay, what the hosting looks like, and what happens when you want to leave.
+  Every way of putting a publication online involves a trade-off. The table below lays out the ones that usually matter: what you actually own, what it costs over time, how much looking-after it needs, and how easy it is to move somewhere else if you change your mind.
 </div>
 
 <div class="table-wrap">
   <table class="compare-table">
     <thead>
       <tr>
-        <th scope="col">Criterion</th>
+        <th scope="col">What to consider</th>
         {% for col in compareTable.columns %}
         <th scope="col">{{ col.name }}<small>{{ col.note }}</small></th>
         {% endfor %}
@@ -33,41 +33,41 @@ wide: true
 
 <div class="compare-notes">
   <div class="compare-note">
-    <strong>On lock-in.</strong> Project Broadsheet's content is plain Markdown in Git; migrating out is a folder copy. Ghost exports as JSON. Substack gives you a CSV of posts. WordPress gives a database dump. Superdesk exports NewsML XML, which is portable but more complex.
+    <strong>Getting out.</strong> Project Broadsheet keeps your writing as plain text files in a folder — moving away is copying the folder. Ghost gives you a file with everything in it. Substack hands you a spreadsheet of posts. WordPress exports a database dump. Superdesk exports in a standard news format. All possible, but most take some work to turn into something usable elsewhere.
   </div>
   <div class="compare-note">
-    <strong>On recurring cost.</strong> Ghost Pro starts at $9/mo for 500 members and scales up. Substack takes 10% of revenue. WordPress adds hosting, plugin, and theme costs. Superdesk has no license fee but requires a multi-service hosting cluster. Project Broadsheet runs on free static hosting.
+    <strong>The ongoing bill.</strong> Ghost's hosted version starts at $9 a month and climbs as the audience grows. Substack is free but takes 10% of any paid subscriptions. WordPress adds hosting, plug-ins, and themes. Superdesk needs a sizeable setup to run. Project Broadsheet runs on free hosting with no per-reader costs.
   </div>
   <div class="compare-note">
-    <strong>On who each platform is for.</strong> Substack is built for a single writer with a mailing list. Ghost sits between writer and small team. WordPress does everything for everyone, sometimes poorly. Superdesk is for large newsrooms and wire services. Project Broadsheet is for independent publishers and small teams who want a full editorial experience without the operational overhead.
+    <strong>Who they're built for.</strong> Substack suits a solo writer with a mailing list. Ghost sits somewhere between a writer and a small team. WordPress tries to be everything to everyone. Superdesk is for large newsrooms with formal workflows. Project Broadsheet is aimed at independent writers and small teams who want a proper publication without the ongoing overhead.
   </div>
 </div>
 
 <hr class="gold-rule">
 
 <section class="section-sm">
-  <h2 class="h3" style="text-align: center;">Detailed comparisons</h2>
-  <p class="lead" style="text-align: center; margin-inline: auto;">Deep-dive walkthroughs of Project Broadsheet against each alternative.</p>
+  <h2 class="h3" style="text-align: center;">Longer write-ups</h2>
+  <p class="lead" style="text-align: center; margin-inline: auto;">A closer look at each option, one at a time.</p>
   <div class="grid grid-2" style="margin-top: var(--space-xl);">
     <a class="card card--link" href="/compare/ghost/">
       <div class="card__eyebrow">Compare</div>
       <h3 class="card__title">Project Broadsheet vs. Ghost</h3>
-      <p class="card__summary">The publishing SaaS most independent writers consider first. Pricing, ownership, newsletter tooling, and reader experience compared.</p>
+      <p class="card__summary">The hosted option most independent writers look at first. Where the two sit on cost, ownership, newsletter tools, and how the site reads.</p>
     </a>
     <a class="card card--link" href="/compare/substack/">
       <div class="card__eyebrow">Compare</div>
       <h3 class="card__title">Project Broadsheet vs. Substack</h3>
-      <p class="card__summary">Substack's dominant revenue-share model, email delivery, and discovery platform. Where self-hosting changes the math.</p>
+      <p class="card__summary">Substack runs on subscriptions and built-in discovery. How the numbers change when you run your own thing instead.</p>
     </a>
     <a class="card card--link" href="/compare/wordpress/">
       <div class="card__eyebrow">Compare</div>
       <h3 class="card__title">Project Broadsheet vs. WordPress</h3>
-      <p class="card__summary">The open web's old standby. Plugin ecosystem, hosting overhead, security surface, and long-term maintenance.</p>
+      <p class="card__summary">The old standby, still everywhere. Plug-ins, hosting, security upkeep, and what "low maintenance" actually means.</p>
     </a>
     <a class="card card--link" href="/compare/superdesk/">
       <div class="card__eyebrow">Compare</div>
       <h3 class="card__title">Project Broadsheet vs. Superdesk</h3>
-      <p class="card__summary">Superdesk is enterprise newsroom software. How it differs from a single-writer publication system.</p>
+      <p class="card__summary">Superdesk is for large newsrooms. How a single-writer setup differs — and when each one is the right choice.</p>
     </a>
   </div>
 </section>
@@ -75,10 +75,6 @@ wide: true
 <hr class="gold-rule">
 
 <section class="section-sm text-center">
-  <h2 class="h3">Try it yourself</h2>
-  <p class="lead" style="margin-inline: auto;">Fork the repo, run <code>npm install</code>, and have a working publication in under ten minutes.</p>
-  <div class="btn-group btn-group--balanced btn-group--center">
-    <a class="btn btn--primary btn--lg" href="/get-started/">Get Started (Free)</a>
-    <a class="btn btn--outline btn--lg" href="/pricing/">See pricing</a>
-  </div>
+  <h2 class="h3">See it for yourself</h2>
+  <p class="lead" style="margin-inline: auto;">The <a href="{{ meta.liveExample }}">live example</a> has everything turned on. Click around as a reader.</p>
 </section>

@@ -65,7 +65,7 @@ Run this check after major changes to CSS, JS, or image assets.
 ## What to watch for as your archive grows
 
 - **Pagefind index size:** the search index grows with your archive. Monitor `_site/pagefind/` directory size; above ~10 MB it may slow initial search loads.
-- **Homepage collection size:** the homepage loads the N most recent articles. If `featuredCount` is high, reduce it in `site.json`.
+- **Homepage collection size:** the homepage loads the N most recent articles. If `featuredCount` is high, reduce it in `meta.js`.
 - **Third-party scripts:** each integration (Umami, GTranslate, Cusdis, Buttondown widget) adds network requests. Audit with the Network tab in DevTools.
 
 ## What to do next

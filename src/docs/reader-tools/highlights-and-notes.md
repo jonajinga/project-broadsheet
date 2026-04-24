@@ -32,10 +32,10 @@ All reader data (highlights, notes, preferences, reading list) can be exported f
 
 ## Where the data is stored
 
-`localStorage` under the key `pb-reader-data`. The structure is documented in `src/assets/js/reader.js`. Clearing browser site data removes the highlights and notes, which is why the export option exists.
+`localStorage`, namespaced by article URL under `{prefix}-art-meta-{slug}` (the `{prefix}` defaults to `pb` and is set via `window.__PREFIX`). The structure is documented in `src/assets/js/annotations.js`. Clearing browser site data removes the highlights and notes, which is why the export option exists.
 
 ## What to do next
 
 - [Reader tools overview](/docs/reader-tools/overview/) for the full feature list.
-- [Text-to-speech](/docs/reader-tools/text-to-speech/) for audio playback.
 - [Reading list](/docs/reader-tools/reading-list/) for save-for-later.
+- [Reading ruler](/docs/reader-tools/reading-ruler/) for the cursor-following guide.

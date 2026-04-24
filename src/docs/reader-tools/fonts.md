@@ -1,39 +1,46 @@
 ---
 title: Customize the font picker
-subtitle: The reader-facing font picker ships with 27 choices. This page explains how to add, remove, or reorder fonts, and how to change the default.
+subtitle: The reader-facing font picker ships with nine web fonts plus the site default. This page explains how to add, remove, or reorder fonts, and how to change the default.
 order: 4
-updated: 2026-04-17
+updated: 2026-04-20
 ---
 
-Readers can pick their preferred body font from a dropdown in the reader tools panel. The list is defined in a single data file, which makes adding or removing fonts a one-line change. All fonts are lazy-loaded, so adding an option to the list doesn't slow down the site until a reader actually selects it.
+Readers can pick their preferred body font from the reader tools panel. The list is defined as a small map inside `src/assets/js/global-settings.js`, which makes adding or removing fonts a one-line change. All fonts are lazy-loaded from [Bunny Fonts](https://fonts.bunny.net), so adding an option to the list doesn't slow down the site until a reader actually selects it.
 
 ## Where the font list lives
 
-`src/_data/readerFonts.js`:
+`src/assets/js/global-settings.js`:
 
 ```js
-export default [
-  { id: "source-serif", label: "Source Serif 4", family: "'Source Serif 4', serif", stack: "serif" },
-  { id: "lora", label: "Lora", family: "Lora, serif", stack: "serif" },
-  { id: "playfair", label: "Playfair Display", family: "'Playfair Display', serif", stack: "serif" },
-  { id: "atkinson", label: "Atkinson Hyperlegible", family: "'Atkinson Hyperlegible', sans-serif", stack: "sans" }
-];
+// On-demand web font loading via Bunny Fonts
+var webFonts = {
+  inter:        'inter:wght@400;600;700',
+  merriweather: 'merriweather:wght@400;700',
+  roboto:       'roboto:wght@400;700',
+  opensans:     'open-sans:wght@400;600;700',
+  baskerville:  'libre-baskerville:wght@400;700',
+  crimson:      'crimson-pro:wght@400;600;700',
+  ibmplex:      'ibm-plex-serif:wght@400;600;700',
+  literata:     'literata:wght@400;600;700',
+  atkinson:     'atkinson-hyperlegible:wght@400;700'
+};
 ```
 
-- `id`: the identifier stored in the reader's `localStorage`.
-- `label`: what the reader sees.
-- `family`: the full CSS `font-family` value applied to the article body.
-- `stack`: either `serif` or `sans`, so the picker can group choices.
+- The object key (e.g. `atkinson`) is the identifier stored in the reader's `localStorage` under `{prefix}-gs-font`.
+- The value is the Bunny Fonts `family` query string (slug + weight list).
+- A matching `[data-gs-font="{key}"]` CSS rule in `tokens.css` applies the font to the document when a reader selects it.
+- `default` is reserved and means "use the site's `--font-body`".
 
 ## Add a font from Bunny Fonts
 
 1. Pick a font at <https://fonts.bunny.net>.
-2. Add its CSS import to the reader's lazy-loaded stylesheet (`src/assets/css/reader-fonts.css`). Use the `@import` exception here, not a build-time concatenation, because the reader-side loader is separate from the site's main CSS.
-3. Add an entry to `readerFonts.js`.
+2. Add an entry to the `webFonts` map in `global-settings.js` with its Bunny slug and weight list.
+3. Add a matching `html[data-gs-font="{key}"] body { font-family: "{Font Name}", serif; }` rule in `tokens.css`.
+4. Expose it in the reader-panel font picker UI so readers can choose it.
 
 ## Change the default font
 
-The default is whichever font the reader last chose, or, for first-time visitors, the first entry in `readerFonts.js`. To change the first-time default, reorder the array.
+The default is whichever font the reader last chose, or, for first-time visitors, the site's `--font-body` token (Source Serif 4 by default). To change the first-time default, edit `--font-body` in `tokens.css` or swap the `<link>` in `base.njk` that preloads it.
 
 ## High-legibility options
 

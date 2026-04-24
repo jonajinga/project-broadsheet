@@ -1,26 +1,26 @@
 ---
-title: Why your publication should live in Git
-summary: The case for plain text, version control, and why the "export" feature on every SaaS should make you suspicious.
+title: Why your publication should live in plain files
+summary: A short argument for plain text, tracked history, and why the "export" button on every hosted service should make you stop and think.
 date: 2026-04-10
 author: Jon Ajinga
 tag: Editorial
 ---
 
-Every publishing platform has an "Export" feature. That's not a gift, it's a confession.
+Every hosted publishing service has an "export" feature. That's not a gift — it's an admission.
 
-It's the platform admitting, out loud, that your content is being kept somewhere you can't easily reach. The export button is an escape hatch you have to request, and the file you get back is never quite what you had. Metadata drops. Images rehosted. Custom formatting flattened.
+What it's admitting, out loud, is that your writing lives somewhere you can't reach by default. The export button is an escape hatch you have to go ask for, and the file you get back is never quite what you started with. Little details drop out. Images get rehosted. Custom formatting gets flattened.
 
-Project Broadsheet takes the opposite stance. Your content is plain Markdown in a Git repository. There is no export, because there's nothing to export from, the files on your laptop are the files on your server.
+Project Broadsheet takes the opposite approach. Your writing is plain text files in a folder on your computer. There's no export, because there's nothing to export from — the files on your laptop are the files your readers see.
 
-## What this unlocks
+## What that gets you
 
-- **Version history**, for free, forever. Every edit is a commit. Every deletion can be restored.
-- **Portability as default.** Move to a different static site generator? Copy the folder.
-- **Collaboration that scales.** Pull requests, code review, branch previews, all the tools software teams have used for twenty years.
-- **No "export" feature needed.** You already have everything.
+- **A full history, for free.** Every edit is recorded. Nothing is ever really lost.
+- **Moving away is trivial.** Want to try something else? Copy the folder.
+- **Real collaboration.** Writers and editors can review each other's changes line by line.
+- **No "export" needed.** You already have everything, all the time.
 
-## The trade-off
+## The catch
 
-Markdown in Git requires a small amount of technical literacy. If you've never used Git, there's a learning curve. [Decap CMS](/docs/integrations/decap-cms/) gives you a browser-based editor with access control and an editorial workflow if you prefer that approach.
+Working this way takes a small amount of getting used to. If it's new, there's a short climb. The [browser-based editor](/docs/integrations/decap-cms/) is a way around that if you'd rather not work in files at all.
 
-But here's the thing: the learning curve is a one-time cost. The platform lock-in of a SaaS is a tax you pay every month, forever.
+But the climb is a one-off. A subscription to a hosted service is a bill that repeats every month, for as long as you keep the lights on.

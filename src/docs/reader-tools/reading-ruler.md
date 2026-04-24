@@ -2,7 +2,7 @@
 title: Reading ruler
 subtitle: How the reading ruler works, how readers enable it, and how to customize its appearance in your publication's CSS.
 order: 6
-updated: 2026-04-18
+updated: 2026-04-23
 ---
 
 The reading ruler is a horizontal line that follows the reader's cursor across article text, acting as a visual guide that makes it easier to track which line they are on. It is especially helpful for readers with dyslexia or visual tracking difficulties.
@@ -19,7 +19,7 @@ The ruler preference is stored in `localStorage` and persists across articles an
 
 ## How it works
 
-The ruler is implemented in `src/assets/js/reader.js`. It listens for `mousemove` events on the article body and positions a fixed `<div>` at the cursor's Y coordinate. The ruler spans the full viewport width at a configurable height.
+The ruler is implemented in `src/assets/js/reading-settings.js`. It listens for `mousemove` events on the article body and positions a fixed `<div>` at the cursor's Y coordinate. The ruler spans the full viewport width at a configurable height.
 
 The ruler element is injected once when the page loads:
 
@@ -60,6 +60,21 @@ To change the ruler color, thickness, or opacity, edit those properties. To make
   opacity: 1;
 }
 ```
+
+## Auto-off during scroll
+
+The ruler **auto-disables** when the reader scrolls via keyboard (arrow keys, Page Up/Down, Space) or touch-drag. Because the ruler follows the *mouse cursor*, it's meaningless during non-mouse scroll — leaving it on produced a "ghost ruler stuck at the top of the viewport" bug. The listener re-enables it on the next `mousemove`, so nothing is lost: the reader gets their ruler back the instant the mouse moves again.
+
+```js
+document.addEventListener('wheel',     disableRuler, { passive: true });
+document.addEventListener('touchmove', disableRuler, { passive: true });
+document.addEventListener('keydown',   e => {
+  if (isScrollKey(e.key)) disableRuler();
+});
+document.addEventListener('mousemove', reEnableRulerIfPreferred);
+```
+
+The reader's preference (ruler on / off) is preserved — only the *active display* toggles. When the reader opens the next article, if they had it on, it's on again.
 
 ## Accessibility
 
