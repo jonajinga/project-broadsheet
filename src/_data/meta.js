@@ -19,7 +19,7 @@ export default {
   buttondownUsername: "",
   umamiWebsiteId: "",
   umamiSrc: "",
-  web3formsKey: process.env.WEB3FORMS_KEY || "",
+  web3formsKey: "a37ac3a8-d5fd-40be-a0a9-1019bf02974c",
   tagline: "A free way to run your own publication online.",
   subhead: "You write in plain text. Project Broadsheet turns it into a real website — with a home page, sections, an archive, a newsletter, and the kind of small touches readers actually notice. No monthly bill. No account. Nothing that locks you in.",
   missionShort: "Write. Publish. Keep it yours.",
