@@ -2,14 +2,20 @@
 title: Reader panel
 subtitle: A persistent side panel on article and library pages with tabs for highlights, bookmarks, reading progress, related articles, and citations.
 order: 10
-updated: 2026-04-23
+updated: 2026-04-24
 ---
 
 The reader panel is a collapsible sidebar that appears alongside article and library content. It consolidates the most common reader actions — annotations, navigation, and discovery — in one place without leaving the article. Readers open it with the panel toggle button (the leftmost icon in the reader toolbar).
 
 ## Panel width
 
-The panel is **678 px wide** on desktop, widened iteratively through reader feedback from an earlier 460 px. At 678 px, annotation excerpts, related-article headlines, and citations each fit on roughly two lines instead of four or five, and the tab strip holds its full set of labels without truncation. On narrow viewports it falls back to a slide-over at 100% width.
+The panel is **746 px wide** on desktop, widened iteratively from 460 → 560 → 616 → 678 → 746 through reader feedback. At 746 px, annotation excerpts, related-article headlines, and citations each fit on a single line in most cases instead of four or five, and the tab strip holds its full set of labels without truncation. On narrow viewports it falls back to a slide-over at 90 vw.
+
+```css
+.library-panel {
+  width: min(746px, 90vw);
+}
+```
 
 ## Tabs
 
@@ -49,6 +55,41 @@ This is the same algorithm that powers the "Related" section at the bottom of ar
 ### Citation
 
 A pre-formatted citation for the current article in APA 7, MLA 9, and Chicago 17. One-click copy. See [Download and cite](/docs/reader-tools/download-and-cite/) for how citations are generated.
+
+## Mobile sticky article header
+
+Articles render a second "reading header" that docks to the top of the viewport once the reader scrolls past the article title. On desktop it shows the section name (as a left-aligned back link) and the article title (centred, ellipsis-truncated). On mobile, the title used to be hidden to save horizontal space — but the section back-link alone doesn't tell a reader *which* piece they're in when they've scrolled deep.
+
+The current mobile behaviour shows the title and fluidly scales its font so both the back-link and the title fit on one line:
+
+```css
+@media (max-width: 640px) {
+  /* Library chapter pages: keep the work-title hidden (back link suffices) */
+  .library-reading-header__title { display: none; }
+
+  /* Article pages: show the title and scale it down */
+  .article-reading-header .library-reading-header__title {
+    display: block;
+    font-size: clamp(0.72rem, 3vw, var(--text-sm));
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .article-reading-header .library-reading-header__back {
+    flex-shrink: 0;
+    max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+```
+
+The two patterns differ deliberately. Library chapter pages have the work title in the back-link already, so showing a second title on mobile is duplicate ink. Article pages have `← News` as the back-link and need the article title to communicate context.
+
+The `clamp(0.72rem, 3vw, var(--text-sm))` scales smoothly across the 320–640 px range: short titles stay at the site's UI text size, medium titles shrink slightly, long titles clip to `text-overflow: ellipsis`. Capping the back-link at `max-width: 40%` stops long section names from pushing the title off-screen.
 
 ## Mobile tab strip with scroll arrows
 

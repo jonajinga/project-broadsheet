@@ -53,6 +53,49 @@ if (isFirstRun) window.addEventListener('scroll', handleScroll);
 
 Element-level bindings (button click handlers, DOM queries) run every time. Window-level bindings run once and close over fresh state on each re-execution.
 
+### Late-binding the DOM inside long-lived handlers
+
+A subtle trap: a `window.addEventListener('scroll', updateProgress)` registered inside `isFirstRun` closes over the DOM refs that existed *at first run*. On the second article of a session, SPA-nav wipes `#main-content`, the new `.article-body` / `.reading-progress` / `#reading-pct` elements are fresh, and the old refs in the handler's closure are dangling.
+
+The symptom is subtle: the reading-progress bar updates a detached node silently, so the on-screen percentage *never changes* until the reader hits refresh.
+
+The fix is to **look up the DOM fresh inside the handler** rather than caching it at register time:
+
+```js
+function updateReadingFloatsAndProgress() {
+  var bar    = document.querySelector('.reading-progress');
+  var floats = document.getElementById('reading-floats');
+  var pctEl  = document.getElementById('reading-pct');
+  var target = document.querySelector('.article-body');
+  // ... use them live
+}
+
+if (isFirstRun) {
+  window.addEventListener('scroll', updateReadingFloatsAndProgress, { passive: true });
+  window.addEventListener('resize', updateReadingFloatsAndProgress, { passive: true });
+  document.addEventListener('spa:contentswap', updateReadingFloatsAndProgress);
+}
+updateReadingFloatsAndProgress();
+```
+
+`querySelector` on every scroll is cheap and always correct. If a future audit shows the cost is meaningful (thousands of handlers, measured, not guessed), swap to a pattern that caches the refs and invalidates them on `spa:contentswap` — but 99% of the time, the straight-forward lookup is the right answer.
+
+The same shape applies to any global tooltip or singleton element created by an article-layout script. Use `document.getElementById('some-global-id')` with a stable ID on a known-once element in `document.body`, and re-create only if missing:
+
+```js
+function getOrCreateFnTooltip() {
+  var el = document.getElementById('fn-tooltip-global');
+  if (el) return el;
+  el = document.createElement('div');
+  el.id = 'fn-tooltip-global';
+  // ...
+  document.body.appendChild(el);
+  return el;
+}
+```
+
+Creating a fresh tooltip on every SPA re-run — without the stable ID + reuse — is how Project Broadsheet ended up with stacked orphan tooltips writing content into detached elements while readers saw a blank new one.
+
 ## Listening to SPA events
 
 Any script can hook into navigation:
